@@ -110,7 +110,7 @@ To trening małego adaptera przy zamrożonej bazie Bielika. Bazę Q8_0 odtwarzam
 
 
 
-W PowerShell ustaw `$env:PYTHONPATH="src;tools/testing"`, a potem uruchom `python -m unittest discover -s tests -v`. Przed commitem: `python tools/release/prepare_commit.py`. Pomocnik Python działa także przy wyłączonych skryptach PowerShell, zachowuje początkową historię GitHub i sprawdza pliki. Nie wykonuje commitu ani push. Przy ostrzeżeniu o właścicielu repo dodaj wyjątek tylko dla tego katalogu: `git config --global --add safe.directory C:/Users/jback/Downloads/a/AI-SI-git`.
+W PowerShell ustaw `$env:PYTHONPATH="src;tools/testing"`, a potem uruchom `python -m unittest discover -s tests -v`. Przed commitem: `python tools/release/prepare_commit.py`. Pomocnik Python działa także przy wyłączonych skryptach PowerShell, zachowuje początkową historię GitHub i sprawdza pliki. Nie wykonuje commitu ani push. Przy ostrzeżeniu o właścicielu repo dodaj wyjątek tylko dla tego katalogu: `git config --global --add safe.directory C:...AI-SI-git`.
 
 
 
