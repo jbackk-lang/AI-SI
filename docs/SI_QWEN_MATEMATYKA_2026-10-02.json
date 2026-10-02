@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-02",
+  "scope": "Documentation only. Private SI code, weights, user memory and raw datasets excluded.",
+  "reports": {
+    "math_256": {
+      "reader": {
+        "fresh": {
+          "before": {
+            "n": 140,
+            "correct": 140,
+            "wrong_accepted": 0,
+            "lost_correct": 0
+          },
+          "after": {
+            "n": 140,
+            "correct": 140,
+            "wrong_accepted": 0,
+            "lost_correct": 0
+          }
+        },
+        "regression": {
+          "before": {
+            "n": 282,
+            "correct": 282,
+            "wrong_accepted": 0,
+            "lost_correct": 0
+          },
+          "after": {
+            "n": 282,
+            "correct": 282,
+            "wrong_accepted": 0,
+            "lost_correct": 0
+          }
+        },
+        "parameters": 526086,
+        "checkpoint_bytes": 2106643,
+        "gate_passed": true
+      },
+      "planner": {
+        "fresh": {
+          "before": {
+            "n": 96,
+            "correct": 96,
+            "wrong_accepted": 0,
+            "lost_correct": 0
+          },
+          "after": {
+            "n": 96,
+            "correct": 96,
+            "wrong_accepted": 0,
+            "lost_correct": 0
+          }
+        },
+        "regression": {
+          "before": {
+            "n": 192,
+            "correct": 192,
+            "wrong_accepted": 0,
+            "lost_correct": 0
+          },
+          "after": {
+            "n": 192,
+            "correct": 192,
+            "wrong_accepted": 0,
+            "lost_correct": 0
+          }
+        },
+        "parameters": 525829,
+        "checkpoint_bytes": 2105629,
+        "gate_passed": true
+      },
+      "source_unchanged": true,
+      "fresh_unchanged": true,
+      "activated": false
+    },
+    "language_comparison": {
+      "bielik": {
+        "fresh": {
+          "n": 8,
+          "correct": 3,
+          "supported_correct": 0,
+          "wrong_accepted": 0
+        }
+      },
+      "qwen": {
+        "fresh": {
+          "n": 8,
+          "correct": 8,
+          "supported_correct": 5,
+          "wrong_accepted": 0
+        },
+        "regression": {
+          "n": 8,
+          "correct": 8,
+          "supported_correct": 5,
+          "wrong_accepted": 0
+        }
+      },
+      "gate_passed": true,
+      "dataset_unchanged": true,
+      "source_unchanged": true
+    },
+    "qwen_modes": {
+      "n": 8,
+      "passed": 8,
+      "gate_passed": true,
+      "dataset_unchanged": true,
+      "source_unchanged": true,
+      "weights_changed": false
+    }
+  },
+  "sizes_bytes": {
+    "qwen": 2497280448,
+    "inactive_bielik": 1699568288,
+    "math_reader_256": 2106643,
+    "math_planner_256": 2105629
+  },
+  "limitations": [
+    "Small development tests in known controlled grammar; not general AI benchmark.",
+    "In language comparison, three refusal inputs are blocked before language inference.",
+    "Arithmetic values checked independently; this does not validate arbitrary problem assumptions.",
+    "256-neuron modules matched 128-neuron modules; no improvement demonstrated by doubling.",
+    "Different language quantization: Qwen Q4_K_M, Bielik Q8_0.",
+    "Eight Qwen mode checks are functional smoke tests, not proof of general quality or security."
+  ]
+}
