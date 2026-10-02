@@ -1,0 +1,21 @@
+# Private core and local state
+private/
+local/
+models/
+artifacts/
+runtime/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.pt
+*.pth
+*.safetensors
+*.gguf
+*.bin
+*.zip
+*.log
+*core*.py
+!tools/training/run_bielik_coding_adapter.py

@@ -1,0 +1,247 @@
+[
+  {
+    "id": "odd_squares",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Sum squares of odd integers in xs. Empty list returns 0.",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          [
+            1,
+            2,
+            3,
+            -5
+          ]
+        ],
+        "expected": 35
+      },
+      {
+        "args": [
+          [
+            2,
+            4
+          ]
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  {
+    "id": "differences",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return successive differences of xs: xs[i+1]-xs[i]. For fewer than two elements return [].",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            4
+          ]
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            3,
+            8,
+            6,
+            -2
+          ]
+        ],
+        "expected": [
+          5,
+          -2,
+          -8
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nonzero_product",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return the product of nonzero integers in xs. If no nonzero values exist, return 1.",
+    "cases": [
+      {
+        "args": [
+          []
+        ],
+        "expected": 1
+      },
+      {
+        "args": [
+          [
+            0,
+            0
+          ]
+        ],
+        "expected": 1
+      },
+      {
+        "args": [
+          [
+            2,
+            0,
+            -3,
+            4
+          ]
+        ],
+        "expected": -24
+      }
+    ]
+  },
+  {
+    "id": "common",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return sorted unique integers common to lists a and b.",
+    "cases": [
+      {
+        "args": [
+          [],
+          []
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            3,
+            1,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            3
+          ]
+        ],
+        "expected": [
+          2,
+          3
+        ]
+      },
+      {
+        "args": [
+          [
+            -2,
+            0,
+            1
+          ],
+          [
+            1,
+            -2
+          ]
+        ],
+        "expected": [
+          -2,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rotate",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Rotate list xs left by k positions. k is a nonnegative integer; wrap around and handle empty lists.",
+    "cases": [
+      {
+        "args": [
+          [],
+          3
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          1
+        ],
+        "expected": [
+          2,
+          3,
+          4,
+          1
+        ]
+      },
+      {
+        "args": [
+          [
+            1,
+            2,
+            3
+          ],
+          5
+        ],
+        "expected": [
+          3,
+          1,
+          2
+        ]
+      },
+      {
+        "args": [
+          [
+            8
+          ],
+          0
+        ],
+        "expected": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "id": "word_filter",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return words whose length is at least n, preserving order.",
+    "cases": [
+      {
+        "args": [
+          [],
+          2
+        ],
+        "expected": []
+      },
+      {
+        "args": [
+          [
+            "a",
+            "cat",
+            "long",
+            ""
+          ],
+          3
+        ],
+        "expected": [
+          "cat",
+          "long"
+        ]
+      },
+      {
+        "args": [
+          [
+            "x",
+            ""
+          ],
+          0
+        ],
+        "expected": [
+          "x",
+          ""
+        ]
+      }
+    ]
+  }
+]

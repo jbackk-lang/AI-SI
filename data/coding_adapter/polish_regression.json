@@ -1,0 +1,17 @@
+[
+  {
+    "id": "diacritics",
+    "prompt": "Napisz tylko słowo: żółw.",
+    "contains": "żółw"
+  },
+  {
+    "id": "direction",
+    "prompt": "Kto wskazuje na Jana w zdaniu „Na Jana wskazuje Anna”? Odpowiedz jednym imieniem.",
+    "contains": "Anna"
+  },
+  {
+    "id": "thanks",
+    "prompt": "Napisz tylko: Dziękuję.",
+    "contains": "Dziękuję"
+  }
+]

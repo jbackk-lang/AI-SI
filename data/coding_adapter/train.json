@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sum_squares",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return the sum of squares of all integers in xs. Empty list returns 0.",
+    "code": "def solve(xs):\n    return sum(x * x for x in xs)"
+  },
+  {
+    "id": "even_count",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Count even integers in xs.",
+    "code": "def solve(xs):\n    return sum(1 for x in xs if x % 2 == 0)"
+  },
+  {
+    "id": "positive_sum",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Sum only strictly positive numbers in xs.",
+    "code": "def solve(xs):\n    return sum(x for x in xs if x > 0)"
+  },
+  {
+    "id": "reverse_list",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return a reversed copy of xs without modifying it.",
+    "code": "def solve(xs):\n    return xs[::-1]"
+  },
+  {
+    "id": "running_sum",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return a list of cumulative sums for xs.",
+    "code": "def solve(xs):\n    total = 0\n    result = []\n    for x in xs:\n        total += x\n        result.append(total)\n    return result"
+  },
+  {
+    "id": "unique_order",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Remove duplicates from xs, preserving the first occurrence of each value.",
+    "code": "def solve(xs):\n    result = []\n    for x in xs:\n        if x not in result:\n            result.append(x)\n    return result"
+  },
+  {
+    "id": "longest_word",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Given a list of words, return the first longest word, or an empty string if the list is empty.",
+    "code": "def solve(words):\n    return max(words, key=len, default=\"\")"
+  },
+  {
+    "id": "count_vowels",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Count ASCII vowels a e i o u in text, ignoring case.",
+    "code": "def solve(text):\n    return sum(1 for c in text.lower() if c in \"aeiou\")"
+  },
+  {
+    "id": "clamp",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Clamp x to the inclusive interval [low, high], assuming low <= high.",
+    "code": "def solve(x, low, high):\n    return min(high, max(low, x))"
+  },
+  {
+    "id": "pairs",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return adjacent element pairs of xs as lists, e.g. [1,2,3] gives [[1,2],[2,3]].",
+    "code": "def solve(xs):\n    return [[xs[i], xs[i + 1]] for i in range(len(xs) - 1)]"
+  },
+  {
+    "id": "word_lengths",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Given a list of strings, return their lengths.",
+    "code": "def solve(words):\n    return [len(word) for word in words]"
+  },
+  {
+    "id": "safe_max",
+    "prompt": "Write Python code only: one function named solve, no imports, no markdown, no explanation. Return the largest integer in xs, or None if xs is empty.",
+    "code": "def solve(xs):\n    return max(xs, default=None)"
+  }
+]
