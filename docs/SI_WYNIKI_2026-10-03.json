@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-03",
+  "publication_scope": "Documentation and aggregate results only; no private core, weights, user memory or generated code.",
+  "coordinator": {
+    "hidden_width": 5120,
+    "parameters": 10542090,
+    "weight_bytes": 42170993,
+    "wiki_pages_for_training": 5,
+    "wiki_training_tasks": 40,
+    "new_tasks": 23,
+    "regression_tasks": 29,
+    "before_correct": 52,
+    "after_correct": 52,
+    "total": 52,
+    "improvement_demonstrated": false
+  },
+  "math_1024": {
+    "correct": 710,
+    "total": 710,
+    "scope": "Controlled grammar and regression blocks"
+  },
+  "programming": {
+    "fresh_correct": 20,
+    "fresh_total": 24,
+    "extra_correct": 6,
+    "extra_total": 6,
+    "scratch_candidate_rejected": true
+  },
+  "intent_candidate": {
+    "before_correct": 32,
+    "after_correct": 35,
+    "total": 36,
+    "promoted": false
+  },
+  "cooperation": {
+    "frozen_correct_1024": 36,
+    "frozen_total_1024": 36,
+    "real_paths_completed": 6,
+    "image_to_math_passed": true,
+    "document_to_code_cases_passed": 3,
+    "document_to_code_cases_total": 3,
+    "global_order_specified_by_experiment": true,
+    "autonomous_new_plan_discovery_demonstrated": false
+  },
+  "audio": {
+    "enabled": false,
+    "models_retained": true,
+    "known_transcription_semantic_error": true
+  },
+  "source_choice": {
+    "offered": 10,
+    "language_choice": [
+      "Backpropagation",
+      "Reinforcement learning",
+      "Binary search algorithm"
+    ],
+    "novelty_policy_choice": [
+      "Gradient descent",
+      "Reinforcement learning",
+      "Sorting algorithm"
+    ],
+    "novelty_policy_disabled_for_self_repair": true
+  },
+  "gap_repair": {
+    "programming_failures": 4,
+    "programming_tasks": 24,
+    "attempt_status": "rejected",
+    "reason_category": "restricted_code_executor",
+    "repair_saved": false,
+    "weights_changed": false,
+    "general_self_repair_demonstrated": false
+  },
+  "limitations": [
+    "Small development evaluations, partly shared templates",
+    "No automatic factual learning from source interpretation",
+    "Code checks cover the supplied cases and restricted execution subset",
+    "No isolated proof of TIMDR superiority"
+  ]
+}
