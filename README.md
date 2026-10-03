@@ -52,6 +52,20 @@ Ostatnia diagnostyka dotyczy rzeczywistych niepowodzeń rozpoznawania poleceń p
 
 Wartości dziesiętne: MB = milion bajtów, GB = miliard bajtów. Rozmiar wag nie jest rozmiarem całego środowiska ani wymaganą ilością RAM.
 
+### Aktualna liczba neuronów własnych sieci
+
+| Aktywna sieć | Neurony ukryte | Parametry |
+|---|---:|---:|
+| Czytnik matematyczny | 1 024 | 2 104 326 |
+| Planer matematyczny | 1 024 | 2 103 301 |
+| Programowanie | 1 024 | 4 206 603 |
+| Most intencji | 1 024 | 2 103 301 |
+| Koordynator współpracy | 5 120 | 10 542 090 |
+| **Łącznie** | **9 216** | **21 059 621** |
+
+**Mamy łącznie 9 216 neuronów ukrytych w pięciu własnych głównych sieciach.** Liczba 5120 dotyczy samego koordynatora; cztery pozostałe moduły dodają 4096. To suma warstw różnych sieci, nie szerokość jednej warstwy. Wymiary sprawdzono bezpośrednio w aktywnych checkpointach 3 października 2026. Nie wliczamy wejść, wyjść, nieaktywnych eksperymentów ani gotowych modeli Qwen, Embedding, Reranker i Qwen-VL.
+
+
 | Składnik | Rozmiar wag |
 |---|---:|
 | Qwen językowy, wersja Q4_K_M | 2,50 GB |
