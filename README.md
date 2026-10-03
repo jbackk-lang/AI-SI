@@ -161,6 +161,22 @@ Na polecenie użytkownika politykę ciekawości wyłączono jako mechanizm samon
 
 Ponowny sprawdzian wykazał cztery nierozpoznane polecenia w 24-zadaniowej próbie programowania. Próba naprawy jednego z nich wygenerowała program, ale kontrola wykonania odrzuciła użycie niedozwolonej metody. Naprawy nie zapisano, wagi pozostały bez zmian. Odrzucenie przez ograniczony tester nie dowodzi błędu samego algorytmu; trzeba odróżniać braki rozpoznawania, wiedzy oraz możliwości wykonawcy. **Udanej ogólnej samonaprawy jeszcze nie wykazano.**
 
+## Propozycja wdrożenia SI w większym systemie
+
+SI można rozwijać jako moduł współpracujący z większym systemem: rozpoznający zadanie, przygotowujący plan, dobierający narzędzia, korzystający z pamięci i kontrolujący wynik. Jest to propozycja dalszego rozwoju, nie deklaracja gotowości produkcyjnej.
+
+Do przygotowania integracji potrzebne są:
+
+- **Stabilne API** przyjmujące zadanie i dane, a zwracające wynik, źródła oraz status weryfikacji. Brak danych, niepewność i odrzucenie planu powinny być jawnie reprezentowane.
+- **Oddzielenie rdzenia od modułu językowego**, aby można było wymienić Qwena bez przebudowy koordynatora SI.
+- **Kontrola uprawnień** rozdzielająca odczyt danych, proponowanie zmian i wykonywanie działań.
+- **Testy integracyjne na nowych zadaniach** docelowego systemu, z porównaniem identycznych zadań z SI i bez SI. Należy mierzyć poprawność, błędne działania i regresje, nie tylko ukończenie wywołania.
+- **Wersjonowanie pamięci i modeli** oraz możliwość powrotu do poprzedniej wersji po pogorszeniu wyników.
+
+Rdzeń SI/TIMDR może pozostać prywatny. Integrator mógłby korzystać z usługi lub pakietu wykonawczego, a publiczne repo zawierałoby dokumentację i interfejs integracji. Takie udostępnienie wymaga osobnego ustalenia warunków; obecna dokumentacja nie udziela licencji na prywatny rdzeń.
+
+**Następny proponowany krok: stabilne API i pilotaż w jednym wybranym zastosowaniu.** Obecne wyniki dotyczą prototypu i ograniczonych prób. Pilotaż powinien sprawdzić rzeczywisty wkład SI oraz wymagania przed szerszym wdrożeniem. Sam odczyt materiałów i zapis pamięci nie oznaczają treningu wag.
+
 ## Publiczne pliki i historyczne narzędzia
 
 | Katalog | Zawartość |
