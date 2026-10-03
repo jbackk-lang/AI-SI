@@ -6,14 +6,14 @@ SI to eksperymentalny warsztat łączący język, matematykę, programowanie i a
 
 ## Co obecnie działa
 
-Stan rozwojowy: **3 października 2026**. Poniższy opis dotyczy prywatnego silnika; samo pobranie publicznego repo nie zapewnia jego wszystkich funkcji.
+Stan rozwojowy: **4 października 2026**. Poniższy opis dotyczy prywatnego silnika; samo pobranie publicznego repo nie zapewnia jego wszystkich funkcji.
 
 - Rozmowa po polsku i generowanie kodu przez **Qwen3-4B-Instruct-2507**, który zastąpił Bielika.
 - Kontrolowana matematyka, dokładny kalkulator, walidator i SymPy dla obsługiwanych równań.
 - Dobór sprawdzonych przykładów Pythona oraz osobna ścieżka generowania programu i sprawdzania podanych przypadków.
 - Wyszukiwanie znaczeniowe przez **Embedding**, ocena trafności przez **Reranker**, interpretacja przez Qwena.
 - Analiza obrazów przez Qwen-VL, wymagająca oceny poprawności odczytu.
-- Odczyt wskazanych stron i plików udostępnionych przez użytkownika. Obsługiwane źródła internetowe: Python, MDN, Wikipedia, NASA oraz GitHub. Nie jest to dostęp do dowolnej strony.
+- Odczyt wskazanych stron i plików udostępnionych przez użytkownika. Obsługiwane źródła internetowe: Python, MDN, Wikipedia, NASA, GitHub oraz SJP PWN. Nie jest to dostęp do dowolnej strony.
 - Uczony koordynator wybierający gotowe przebiegi współpracy. Aktualnie ma **5120 neuronów ukrytych**.
 - Kontrolowane uczenie intencji z potwierdzonych przykładów i odrzucanie kandydatów, które nie przechodzą testów.
 
@@ -160,6 +160,31 @@ Udostępniono dziesięć pobranych artykułów. Qwen, mając pełną listę, wyb
 Na polecenie użytkownika politykę ciekawości wyłączono jako mechanizm samonaprawy. Kierunek dalszych prac to **wybór potwierdzonych braków**, dobór odpowiedniej naprawy oraz ponowna walidacja — zamiast wybierania materiałów na podstawie samej niepewności.
 
 Ponowny sprawdzian wykazał cztery nierozpoznane polecenia w 24-zadaniowej próbie programowania. Próba naprawy jednego z nich wygenerowała program, ale kontrola wykonania odrzuciła użycie niedozwolonej metody. Naprawy nie zapisano, wagi pozostały bez zmian. Odrzucenie przez ograniczony tester nie dowodzi błędu samego algorytmu; trzeba odróżniać braki rozpoznawania, wiedzy oraz możliwości wykonawcy. **Udanej ogólnej samonaprawy jeszcze nie wykazano.**
+
+## Aktualizacja: pamięć, walidacja i wykorzystanie wiedzy — 4 października 2026
+
+### Co wykonano i działa w ograniczonym zakresie
+
+- Podłączono pamięć materiałów źródłowych: zapis fragmentów i adresów, wyszukiwanie pasujących materiałów oraz przekazywanie ich do rozmowy. Zapisane materiały pozostają niezweryfikowanymi źródłami, a nie automatycznie potwierdzonymi faktami.
+- Dodano odczyt udostępnionych lokalnych repozytoriów i analizę wybranych plików własnej pamięci oraz wykonawcy. Dostęp do katalogu nie oznacza przeczytania całego repozytorium.
+- Dodano ograniczone reguły semantyczne dla zakazu, warunku, doprecyzowania, braku danych i sprzeczności. Obsługiwane przypadki mogą zatrzymać działanie, poprosić o dane, porównać liczby zamiast ich sumowania lub usunąć duplikaty z zachowaniem kolejności.
+- Połączono kontrolę kolejności działań z walidacją argumentów: liczby i ich powtórzenia w obsługiwanej matematyce, liczba argumentów i ograniczona kontrola użycia wejść w programie. Są to kontrole o określonym zakresie, nie dowód sensowności dowolnego planu.
+- Poprawne przykłady trafiają do bufora kandydatów do późniejszego treningu. Sam zapis do bufora nie uruchamia uczenia wag.
+- Uruchomiono sesje wyboru i czytania materiałów z małym obciążeniem procesora, historią wyników i bez nakładania sesji. Dodano wybór rzeczywistych wyników wyszukiwania po błędnym tytule artykułu. Przekroczenia czasu i nietrafione wybory nadal się zdarzają.
+
+### Potwierdzone wyniki ostatnich prób
+
+| Próba | Wynik | Zakres wniosku |
+|---|---|---|
+| Trening rozpoznawania poleceń programowania | **3/8 → 5/8** na nowej, zamrożonej próbie; bez utraty wcześniej poprawnych decyzji w sprawdzonej regresji | Poprawa małego klasyfikatora intencji; nie trening Qwena |
+| Naprawa spłaszczania list po podpowiedzi | **6/6** przypadków | Zapis sprawdzonego programu dla znanego polecenia; nie ogólna samonaprawa |
+| Zastosowanie pamięci do dwóch nowych zadań programowania | Bez pamięci **1/2**, z pamięcią **2/2**; po cztery przypadki na zadanie | Mała próba wskazuje użyteczność przykładu zgodnego z wykonawcą |
+
+W porównaniu pamięci oba warianty rozwiązały usuwanie duplikatów z pomijaniem liczb ujemnych. W zadaniu spłaszczania i wyboru pierwszych trzech elementów wariant bez pamięci użył funkcji `isinstance`, której ograniczony tester nie obsługuje; wariant z pamięcią przeszedł wszystkie przypadki. Odrzucenie pierwszego programu nie dowodzi, że jego algorytm jest błędny. Warunki uruchomiono w stałej kolejności, na zaledwie dwóch zadaniach, więc nie jest to szeroki benchmark ani dowód przewagi szybkości.
+
+### Co pozostaje otwarte
+
+Nie wykazano jeszcze ogólnego samodzielnego uczenia, niezawodnego planowania dowolnych zadań ani przenoszenia wiedzy z przeczytanych artykułów do wszystkich modułów. Reguły semantyczne są ograniczone i nie stanowią wyuczonego rozumienia języka. Pamięć sprawdzonych programów, pamięć źródeł i trening wag to różne mechanizmy. Potrzebne są większe, niezależne próby zastosowania wiedzy, kontrola regresji oraz pilotaż integracyjny opisany poniżej.
 
 ## Propozycja wdrożenia SI w większym systemie
 
