@@ -222,3 +222,11 @@ Historyczny trening Bielika wymaga `pip install -r requirements-training.txt`, w
 W PowerShell ustaw `$env:PYTHONPATH="src;tools/testing"`, następnie uruchom `python -m unittest discover -s tests -v`. Testy publicznego repo nie zastępują testów prywatnego silnika opisanych w historii.
 
 Kontrola publikacji: `python tools/release/prepare_commit.py`. Nie wykonuje commitu ani push. Wagi, rdzeń i prywatne dane pozostają poza repo. Prawa do zewnętrznych modeli wynikają z licencji ich producentów; ten opis nie ustanawia licencji prywatnego rdzenia.
+
+## Aktualizacja interfejsu — 4 października 2026
+
+Lokalny interfejs ma dwa panele: **Rozmowa z SI** oraz **Narzędzia i zadania**. Qwen pełni rolę modułu językowego; odpowiedzi rozmowy są oznaczone jako niezweryfikowane. Narzędzia korzystają z osobnego panelu i pokazują status wyniku. Na wąskim ekranie panele układają się jeden pod drugim.
+
+Po udanym wysłaniu pole wiadomości jest czyszczone. Przycisk **Nowa rozmowa** rozpoczyna nowy kontekst, zachowując poprzednie wpisy w lokalnym archiwum. Zapis rozmów nie jest treningiem wag. Sprawdzono wyświetlanie paneli i działanie przycisku; nie wykryto błędów JavaScript podczas tej kontroli.
+
+Ta aktualizacja dokumentuje prywatną wersję lokalną. Jej kod, archiwum rozmów, pamięć i wagi nie są dołączane do tego commitu.
