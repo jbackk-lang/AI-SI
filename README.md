@@ -33,6 +33,23 @@ Poniższe funkcje dotyczą prywatnego silnika i ograniczonych prób rozwojowych;
 2. Uruchom `Uruchom_AI_SI.bat` albo `python run_ui.py` w tym repo.
 3. Wskaż adres silnika przez `--backend`; bez działającego silnika interfejs zgłosi brak połączenia.
 
+## Rozmiar, wymagania i GPU
+
+Folder roboczy prywatnego SI zmierzony 4 października 2026 r. zajmował **9,29 GB (8,65 GiB)**, w tym modele, historię treningu i kopie wag; środowisko Python przechowywane osobno nie jest wliczone.
+
+Pakiet do przeniesienia, po pominięciu historii, kopii i starego Bielika, szacujemy na **2,7–3 GB dla SI + Qwen** albo **5,7–6 GB z Embedding, Reranker i obrazami**; audio oraz Python z bibliotekami zwiększają rozmiar. Są to szacunki, nie pomiar gotowego instalatora. Wagi ostatnio trenowanego adaptera poleceń zajmują około **1,05 MB** — to jeden element SI, nie cały rdzeń.
+
+| Wariant | RAM | Procesor | Wolny SSD z bibliotekami |
+|---|---|---|---|
+| SI + Qwen | 8 GB orientacyjnie; zalecane 16 GB | współczesny 64-bit, około 4 rdzeni | 8–10 GB |
+| Z obrazami i wyszukiwaniem | 16 GB orientacyjnie; wygodniej 32 GB | około 6–8 rdzeni | 12–15 GB |
+
+To orientacyjne wymagania dla obecnej konfiguracji Windows, nie minima potwierdzone testami na tych komputerach. Zużycie zależy od kontekstu, bibliotek oraz liczby modułów uruchomionych jednocześnie. Rozmiar plików nie jest zapotrzebowaniem na RAM.
+
+Obecny Qwen uruchamiany jest przez silnik **CPU**. GPU można podłączyć przez backend **CUDA dla NVIDIA** lub **Vulkan dla zgodnych kart AMD/Intel i sterowników**; zobacz [oficjalną dokumentację llama.cpp](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md). Wymaga to odpowiedniej wersji silnika i konfiguracji przenoszenia warstw na GPU, bez ponownego treningu wag. GPU przyspieszy głównie Qwena i większe moduły; mały adapter SI może pozostać na CPU. Obsługa Vulkan w llama.cpp nie oznacza automatycznie przyspieszenia wszystkich modułów Python.
+
+Dla obecnego Qwena karta z **6–8 GB VRAM** daje orientacyjny zapas; dokładne zużycie należy zmierzyć przy wybranym kontekście. Nie zweryfikowano jeszcze gotowego pakietu GPU ani jego wydajności. Przeniesienie na drugi komputer wymaga także zależności, sterowników i konfiguracji ścieżek — samo skopiowanie folderu nie gwarantuje uruchomienia.
+
 ## Jak oceniać projekt
 
 To prototyp oceniany w niewielkich, kontrolowanych próbach, a nie potwierdzony odpowiednik ogólnych modeli AI.
