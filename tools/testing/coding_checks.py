@@ -3,7 +3,7 @@ import ast,json,re,subprocess,sys
 from pathlib import Path
 ALLOWED_METHODS={'append','get','items','keys','values','join','split','lower','upper','strip','casefold','count','index','reverse','sort','pop'}
 BUILTINS={'len','range','sum','min','max','sorted','enumerate','zip','list','tuple','dict','set','int','float','str','bool','abs','all','any','reversed'}
-NODES={ast.Module,ast.FunctionDef,ast.arguments,ast.arg,ast.Return,ast.Assign,ast.AugAssign,ast.Expr,ast.If,ast.For,ast.While,ast.Break,ast.Continue,ast.Pass,ast.List,ast.Tuple,ast.Dict,ast.Set,ast.ListComp,ast.SetComp,ast.DictComp,ast.GeneratorExp,ast.comprehension,ast.Name,ast.Load,ast.Store,ast.Constant,ast.BinOp,ast.UnaryOp,ast.BoolOp,ast.Compare,ast.IfExp,ast.Subscript,ast.Slice,ast.Call,ast.keyword,ast.Attribute,ast.Add,ast.Sub,ast.Mult,ast.Pow,ast.Div,ast.FloorDiv,ast.Mod,ast.USub,ast.UAdd,ast.Not,ast.And,ast.Or,ast.Eq,ast.NotEq,ast.Lt,ast.LtE,ast.Gt,ast.GtE,ast.In,ast.NotIn,ast.Is,ast.IsNot}
+NODES={ast.Module,ast.FunctionDef,ast.arguments,ast.arg,ast.Return,ast.Assign,ast.AugAssign,ast.Expr,ast.If,ast.For,ast.While,ast.Break,ast.Continue,ast.Pass,ast.List,ast.Tuple,ast.Dict,ast.Set,ast.ListComp,ast.SetComp,ast.DictComp,ast.GeneratorExp,ast.comprehension,ast.Name,ast.Load,ast.Store,ast.Constant,ast.BinOp,ast.UnaryOp,ast.BoolOp,ast.Compare,ast.IfExp,ast.Subscript,ast.Slice,ast.Call,ast.keyword,ast.Attribute,ast.Add,ast.Sub,ast.Mult,ast.BitAnd,ast.Pow,ast.Div,ast.FloorDiv,ast.Mod,ast.USub,ast.UAdd,ast.Not,ast.And,ast.Or,ast.Eq,ast.NotEq,ast.Lt,ast.LtE,ast.Gt,ast.GtE,ast.In,ast.NotIn,ast.Is,ast.IsNot}
 def extract(text):
     match=re.search(r'```(?:python)?\s*\n(.*?)```',text,re.S)
     return match.group(1).strip() if match else text.strip()

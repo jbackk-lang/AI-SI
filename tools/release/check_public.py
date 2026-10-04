@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[2]
 TOP={'.gitignore','README.md','requirements-training.txt','run_ui.py','Uruchom_AI_SI.bat'}
 EXACT={
 'src/ai_si/__init__.py','src/ai_si/server.py','src/ai_si/integrations/__init__.py','src/ai_si/integrations/bielik_polish.py','src/ai_si/integrations/bielik_adapter_selection.py',
-'web/index.html','tools/training/run_bielik_coding_adapter.py','tools/training/bielik_training_base.py','tools/training/prepare_runtime.py',
+'web/index.html','tools/training/run_bielik_coding_adapter.py','tools/training/bielik_training_base.py','tools/training/prepare_runtime.py','tools/training/validate_bielik_adapter_fresh.py',
 'tools/testing/coding_checks.py','tools/testing/coding_worker.py','tools/release/check_public.py','tools/release/prepare_commit.py','scripts/Prepare-Commit.ps1',
 'tests/__init__.py','tests/test_coding_checks.py','tests/test_bielik_adapter_selection.py','tests/test_public_gateway.py','tests/test_release_guard.py',
 'data/coding_adapter/train.json','data/coding_adapter/holdout.json','data/coding_adapter/polish_regression.json',
@@ -36,5 +36,5 @@ def main():
         paths=[p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*') if p.is_file() and not any(part in IGNORED_ROOTS for part in p.relative_to(ROOT).parts)]
     errors=check(paths)
     if errors:print('\n'.join(errors));raise SystemExit(1)
-    print('Public files checked:',len(paths),'— no private core or large weights.')
+    print('Public files checked:',len(paths),'- no private core or large weights.')
 if __name__=='__main__':main()

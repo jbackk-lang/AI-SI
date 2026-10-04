@@ -8,6 +8,8 @@ class CodingChecksTests(unittest.TestCase):
     def test_small_power_allowed_large_power_blocked(self):
         self.assertTrue(assess('def solve(x):\n    return x ** 2',[{'args':[3],'expected':9}])['passed'])
         self.assertFalse(assess('def solve(x):\n    return x ** 1000000',[{'args':[3],'expected':9}])['passed'])
+    def test_set_intersection_allowed(self):
+        self.assertTrue(assess('def solve(a, b):\n    return sorted(set(a) & set(b))',[{'args':[[3,1,1],[1,2,3]],'expected':[1,3]}])['passed'])
     def test_forbidden_access(self):
         for code in ['import os\ndef solve(x): return x','def solve(x):\n return open("secret")','def solve(x):\n return x.__class__','def solve(x):\n return eval(x)','@print\ndef solve(x): return x']:
             self.assertFalse(assess(code,[{'args':[1],'expected':1}])['passed'])
