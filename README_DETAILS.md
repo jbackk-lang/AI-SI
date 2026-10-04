@@ -232,3 +232,8 @@ Lokalny interfejs ma dwa panele: **Rozmowa z SI** oraz **Narzędzia i zadania**.
 Po udanym wysłaniu pole wiadomości jest czyszczone. Przycisk **Nowa rozmowa** rozpoczyna nowy kontekst, zachowując poprzednie wpisy w lokalnym archiwum. Zapis rozmów nie jest treningiem wag. Sprawdzono wyświetlanie paneli i działanie przycisku; nie wykryto błędów JavaScript podczas tej kontroli.
 
 Ta aktualizacja dokumentuje prywatną wersję lokalną. Jej kod, archiwum rozmów, pamięć i wagi nie są dołączane do tego commitu.
+
+
+## Aktualizacja: trwałe uczenie własnych wag
+
+Wdrożono poprawiony adapter poleceń i automatyczny cykl treningu z kontrolą regresji; wynik 121/121 odtworzono na zapisanych wagach, bez Qwena. Zestaw jest rozwojowy i obejmuje jawne reguły. [Aktualizacja uczenia własnych wag — 4 października 2026](docs/SI_WAGI_2026-10-04.md).

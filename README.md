@@ -16,12 +16,14 @@ Poniższe funkcje dotyczą prywatnego silnika i ograniczonych prób rozwojowych;
 - **Źródła:** dostęp do dozwolonych stron i udostępnionych plików wspiera pracę z materiałami.
 - **Pamięć:** zapisane fragmenty źródeł można wyszukiwać i przekazywać do rozmowy.
 - **Koordynacja:** własne sieci wybierają gotowe przebiegi współpracy między modułami.
-- **Uczenie:** potwierdzone przykłady służą do treningu kandydatów ocenianych pod kątem poprawy i regresji.
+- **Uczenie:** własne wagi adaptera SI są trenowane, oceniane i warunkowo wdrażane, a ostatnią poprawkę odtworzono jako 121/121 znanych zadań z udziałem jawnych reguł.
 - **Kontrola poleceń:** ograniczone walidatory sprawdzają negację, warunki, kolejność i argumenty.
 - **Interfejs:** rozmowa i zadania mają osobne panele, a historia rozmów jest zapisywana lokalnie.
 - **Audio:** ASR i TTS sprawdzono w małych próbach, lecz dźwięk pozostaje odłączony.
 
 **Wyniki, liczby neuronów, rozmiary wag, historia zmian, ograniczenia i propozycja wdrożenia:** [szczegółowy opis projektu](README_DETAILS.md).
+
+[Aktualizacja uczenia własnych wag — 4 października 2026](docs/SI_WAGI_2026-10-04.md).
 
 ## Uruchomienie
 
