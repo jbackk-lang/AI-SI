@@ -237,3 +237,8 @@ Ta aktualizacja dokumentuje prywatną wersję lokalną. Jej kod, archiwum rozmó
 ## Aktualizacja: trwałe uczenie własnych wag
 
 Wdrożono poprawiony adapter poleceń i automatyczny cykl treningu z kontrolą regresji; wynik 121/121 odtworzono na zapisanych wagach, bez Qwena. Zestaw jest rozwojowy i obejmuje jawne reguły. [Aktualizacja uczenia własnych wag — 4 października 2026](docs/SI_WAGI_2026-10-04.md).
+
+
+## Zamknięcie etapu poleceń i przebiegów
+
+Na zamrożonych wagach uzyskano 21/24 nowych poleceń, następnie poprawiono dwie reguły zakresu i wdrożono przebiegi do trzech kroków; sześć prób trzyetapowych przeszło bez treningu i Qwena. [Zamknięcie etapu: generalizacja i przebiegi do trzech kroków](docs/SI_PRZEBIEGI_2026-10-04.md).
