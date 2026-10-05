@@ -1,74 +1,33 @@
 # AI-SI
 
-## Aktualny etap — 5 października 2026
+Eksperymentalny system inspirowany TIMDR jako punktem wyjścia do budowy sterownika współpracy.
 
-Własny mały moduł językowy SI jest trenowany wyłącznie po angielsku, bez Qwena; wdrożono prostą pamięć tematu rozmowy, a kolejne wagi są oceniane przed podłączeniem.
+## Aktualny stan — 6 października 2026
 
-[Wyniki języka i pamięci](docs/SI_JEZYK_PAMIEC_2026-10-05.md) · [Historia projektu](README_DETAILS.md).
-
-SI to eksperymentalny warsztat łączący język, matematykę, programowanie i pracę ze źródłami, inspirowany TIMDR jako punktem wyjścia do budowy sterownika współpracy.
-
-**Publiczne repo zawiera interfejs, integrację, narzędzia treningowe, testy i dokumentację; rdzeń SI/TIMDR, wagi, checkpointy i pamięć użytkownika pozostają prywatne.** [Zakres publikacji](docs/PUBLIC_SCOPE.md).
+Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, mostem sesji, wyborem strategii i ograniczoną obsługą polskiego; wagi języka trenujemy po angielsku.
 
 ## Osiągnięcia w skrócie
 
-Poniższe funkcje dotyczą prywatnego silnika i ograniczonych prób rozwojowych; samo pobranie repo nie udostępnia wszystkich modułów.
+- **Język:** trening własnych wag poprawił wynik z 40/84 do 70/84 na tych samych zadaniach, przy ograniczonym zakresie.
+- **Relacje:** następna runda dała 32/40, lecz całkiem nowe nazwy nadal tylko 8/16.
+- **Strategie:** mała sieć wybiera zachowanie odpowiedzi, zmianę nazw lub zatrzymanie, uzyskując 240/240 na stanach walidatora.
+- **Most sesji:** wspólny dziennik udostępnia stan i sprawdzone strategie, a w małej próbie poprawił wynik z 7/16 do 14/16.
+- **Polski:** translator obsługiwanych formatów zachowuje zakazy, liczby i warunki, a język odpowiedzi pozostaje jawnie wybrany.
+- **Słownik:** lokalna baza SJP.PL jest pierwszym źródłem odmian słów, obejmując 4,69 mln par forma–lemma.
+- **Kontrola:** niepotwierdzone odpowiedzi są zatrzymywane, bez ogólnej gwarancji poprawności.
+- **Interfejs:** rozmowa, ocena decyzji i podgląd sesji są oddzielone; audio pozostaje odłączone.
+- **Wcześniejsze moduły:** matematykę, programowanie, wyszukiwanie i obrazy opisuje historia ich odrębnych konfiguracji.
 
-- **Język:** obecna eksperymentalna rozmowa korzysta z własnych wag SI, trenowanych po angielsku w ograniczonym zakresie tematów.
-- **Matematyka:** dokładny kalkulator, niezależna walidacja i SymPy obsługują określone działania oraz równania.
-- **Programowanie:** SI wybiera sprawdzone przykłady Pythona i testuje wygenerowany kod na podanych przypadkach.
-- **Dokumenty:** Embedding i Reranker wybierają materiały przekazywane do interpretacji przez Qwena.
-- **Obrazy:** Qwen-VL analizuje obrazy, a odczyt może zasilać kolejne kontrolowane zadanie.
-- **Źródła:** dostęp do dozwolonych stron i udostępnionych plików wspiera pracę z materiałami.
-- **Pamięć:** historia bieżącej rozmowy wspiera regułowe utrzymanie ostatniego pewnie rozpoznanego tematu; 9/9 prób wykonawczych przeszło.
-- **Koordynacja:** własne sieci wybierają gotowe przebiegi współpracy między modułami.
-- **Uczenie:** własne wagi adaptera SI są trenowane, oceniane i warunkowo wdrażane, a ostatnią poprawkę odtworzono jako 121/121 znanych zadań z udziałem jawnych reguł.
-- **Kontrola poleceń:** parser kolejności i własny adapter SI wykonują ograniczone przebiegi dwóch lub trzech operacji na listach, z kontrolą zakazów i danych pośrednich.
-- **Interfejs:** obecna prywatna wersja udostępnia rozmowę z własnym SI i osobną ocenę decyzji; dawne opcje usunięto z tego widoku.
-- **Audio:** ASR i TTS sprawdzono w małych próbach, lecz dźwięk pozostaje odłączony.
+[Dokładne wyniki, rozmiary i ograniczenia — 6 października](docs/SI_AKTUALIZACJA_2026-10-06.md) · [Historia i wcześniejsze konfiguracje](README_DETAILS.md).
 
-**Wyniki, liczby neuronów, rozmiary wag, historia zmian, ograniczenia i propozycja wdrożenia:** [szczegółowy opis projektu](README_DETAILS.md).
+Aktywne wagi SI: około **6,06 MB**, sterownik strategii: **4,5 KB**, lokalny indeks słownika: **154,55 MB**; to nie rozmiar kompletnego pakietu z bibliotekami.
 
-[Aktualizacja uczenia własnych wag — 4 października 2026](docs/SI_WAGI_2026-10-04.md).
+## Zakres publicznego repo
 
-[Zamknięcie etapu: generalizacja i przebiegi do trzech kroków](docs/SI_PRZEBIEGI_2026-10-04.md).
-
-
-## Mini-model decyzyjny SI
-
-Osobna bramka SI przed Qwenem ocenia zakaz, kolejność, ograniczenia i brak danych; checkpoint ma **3,03 MB**, a z Qwenem bez adaptera uzyskano **4/4 poprawnych odpowiedzi** w małej próbie.
-
-SI może służyć do wyboru i wywoływania modeli językowych, programistycznych, matematycznych, wyszukujących, wizyjnych, audio i sygnałowych po podłączeniu ich danych oraz kontroli wyników. W tym etapie sprawdzono bramkę tylko z Qwenem; nie zmienia ona jego wag i nie zastępuje walidatora odpowiedzi. Kolejny test decyzji dał **11/12**, z jednym nadmiernym zatrzymaniem poprawnego zadania.
-
-[Szczegóły, historia prób i zakres zarządzania modelami](docs/SI_DECYZJE_2026-10-05.md).
+Publiczne repo zawiera interfejs, integrację, narzędzia treningowe, testy i dokumentację. **Rdzeń SI/TIMDR, prywatny silnik, wagi, checkpointy i pamięć pozostają prywatne.** Samo pobranie repo nie udostępnia całego silnika. [Zakres publikacji](docs/PUBLIC_SCOPE.md).
 
 ## Uruchomienie
 
-1. Uruchom posiadany prywatny silnik SI zgodnie z jego instrukcją.
-2. Uruchom `Uruchom_AI_SI.bat` albo `python run_ui.py` w tym repo.
-3. Wskaż adres silnika przez `--backend`; bez działającego silnika interfejs zgłosi brak połączenia.
+Uruchom posiadany prywatny silnik zgodnie z jego instrukcją, następnie klienta przez Uruchom_AI_SI.bat albo python run_ui.py i wskaż backend. Bez silnika klient zgłosi brak połączenia.
 
-## Rozmiar, wymagania i GPU — wcześniejsza konfiguracja SI + Qwen
-
-Aktualny eksperyment językowy: wdrożony GPT i klasyfikator mają łącznie **854 537 parametrów** i **4 754 288 bajtów wag**. Ostatni kandydat treningowy ma **1 050 862 parametrów** i **4 216 773 bajty wag**; mniejszy zapis wynika z innej struktury checkpointów, nie mniejszej liczby parametrów. Parametry nie są liczbą neuronów. Są to rozmiary wybranych wag, nie całego SI ani środowiska. Wymagania nowego pakietu nie zostały zmierzone na drugim komputerze.
-
-Folder roboczy prywatnego SI zmierzony 4 października 2026 r. zajmował **9,29 GB (8,65 GiB)**, w tym modele, historię treningu i kopie wag; środowisko Python przechowywane osobno nie jest wliczone.
-
-Pakiet do przeniesienia, po pominięciu historii, kopii i starego Bielika, szacujemy na **2,7–3 GB dla SI + Qwen** albo **5,7–6 GB z Embedding, Reranker i obrazami**; audio oraz Python z bibliotekami zwiększają rozmiar. Są to szacunki, nie pomiar gotowego instalatora. Wagi ostatnio trenowanego adaptera poleceń zajmują około **1,05 MB** — to jeden element SI, nie cały rdzeń.
-
-| Wariant | RAM | Procesor | Wolny SSD z bibliotekami |
-|---|---|---|---|
-| SI + Qwen | 8 GB orientacyjnie; zalecane 16 GB | współczesny 64-bit, około 4 rdzeni | 8–10 GB |
-| Z obrazami i wyszukiwaniem | 16 GB orientacyjnie; wygodniej 32 GB | około 6–8 rdzeni | 12–15 GB |
-
-To orientacyjne wymagania dla obecnej konfiguracji Windows, nie minima potwierdzone testami na tych komputerach. Zużycie zależy od kontekstu, bibliotek oraz liczby modułów uruchomionych jednocześnie. Rozmiar plików nie jest zapotrzebowaniem na RAM.
-
-Obecny Qwen uruchamiany jest przez silnik **CPU**. GPU można podłączyć przez backend **CUDA dla NVIDIA** lub **Vulkan dla zgodnych kart AMD/Intel i sterowników**; zobacz [oficjalną dokumentację llama.cpp](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md). Wymaga to odpowiedniej wersji silnika i konfiguracji przenoszenia warstw na GPU, bez ponownego treningu wag. GPU przyspieszy głównie Qwena i większe moduły; mały adapter SI może pozostać na CPU. Obsługa Vulkan w llama.cpp nie oznacza automatycznie przyspieszenia wszystkich modułów Python.
-
-Dla obecnego Qwena karta z **6–8 GB VRAM** daje orientacyjny zapas; dokładne zużycie należy zmierzyć przy wybranym kontekście. Nie zweryfikowano jeszcze gotowego pakietu GPU ani jego wydajności. Przeniesienie na drugi komputer wymaga także zależności, sterowników i konfiguracji ścieżek — samo skopiowanie folderu nie gwarantuje uruchomienia.
-
-## Jak oceniać projekt
-
-To prototyp oceniany w niewielkich, kontrolowanych próbach, a nie potwierdzony odpowiednik ogólnych modeli AI.
-Odczyt źródła nie oznacza uczenia wag, przejście podanych testów nie gwarantuje poprawności dowolnego programu, a większa liczba neuronów sama nie dowodzi poprawy.
-Szczegółowe wyniki i ich zakres pozostają dostępne w [pełnej dokumentacji](README_DETAILS.md).
+Wyniki pochodzą z ograniczonych prób rozwojowych; nie sumujemy ich jako niezależnego benchmarku i nie przedstawiamy jako dowodu ogólnego rozumienia języka.
