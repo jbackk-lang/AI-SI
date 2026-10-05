@@ -242,3 +242,21 @@ Wdrożono poprawiony adapter poleceń i automatyczny cykl treningu z kontrolą r
 ## Zamknięcie etapu poleceń i przebiegów
 
 Na zamrożonych wagach uzyskano 21/24 nowych poleceń, następnie poprawiono dwie reguły zakresu i wdrożono przebiegi do trzech kroków; sześć prób trzyetapowych przeszło bez treningu i Qwena. [Zamknięcie etapu: generalizacja i przebiegi do trzech kroków](docs/SI_PRZEBIEGI_2026-10-04.md).
+
+
+## Historia ostatnich dni — stan na 5 października 2026
+
+| Data | Wykonane prace i zapisane wyniki |
+|---|---|
+| **3 października** | Cztery główne moduły po 1024 neurony i koordynator 5120; kontrola współpracy 52/52. Rozwijano pamięć źródeł, dostęp do lokalnych repozytoriów, dobór materiałów i kontrolę planów. Audio odłączono. |
+| **4 października** | Wdrożono własny adapter list z trwałą korektą wag: odtworzenie 121/121 znanych zadań. Pierwszy test nowych poleceń: 21/24. Poprawiono reguły zakresu i wdrożono dwa oraz trzy kroki; próby 5/5, 8/8 i 6/6. Rozdzielono rozmowę i zadania, dodano historię rozmów oraz opis rozmiaru, wymagań i możliwości GPU. |
+| **5 października** | Wznowiono kolejkę materiałów z priorytetem potwierdzonej potrzeby lub losowym wyborem niepobranego tematu. Dodano i naprawiono panel logu, uruchomiono interfejs. Uporządkowano 157 plików prywatnego folderu; 12 testów przeszło. Przywrócono historię i linki dokumentacji. |
+
+W kolejce pobrano dotąd **Machine learning**, **Program synthesis** oraz **Working memory**. Są zapisanymi materiałami: zrozumienie nie zostało potwierdzone, wagi nie zmieniły się podczas pobierania. Wyniki treningu i przebiegów dotyczą opisanych prób; nie sumujemy powtórzonych zadań jako niezależnych testów.
+
+[Wagi: 4 października](docs/SI_WAGI_2026-10-04.md) · [Przebiegi: 4 października](docs/SI_PRZEBIEGI_2026-10-04.md).
+
+
+## 5 października — osobna bramka decyzyjna zamiast adaptera Qwena
+
+Wyłączono adapter Qwena, wytrenowano i podłączono mini-model SI (3,03 MB, 527 114 parametrów), poprawiono obsługę niepewności i zależność od wartości liczb. Osobny test decyzji: 11/12; rzeczywisty Qwen: 4/4 odpowiedzi oraz dwa zatrzymania przed wywołaniem. Nadal występuje nadmierne zatrzymanie jednego poprawnego wariantu polecenia. Opisano możliwe rodzaje zarządzanych modeli, oddzielając propozycję od sprawdzonej integracji. [Pełny zapis etapu](docs/SI_DECYZJE_2026-10-05.md).
