@@ -1,17 +1,10 @@
 # AI-SI
 
-## Historia ostatnich dni — stan na 5 października 2026
+## Aktualny etap — 5 października 2026
 
-| Data | Wykonane prace i zapisane wyniki |
-|---|---|
-| **3 października** | Cztery główne moduły po 1024 neurony i koordynator 5120; kontrola współpracy 52/52. Rozwijano pamięć źródeł, dostęp do lokalnych repozytoriów, dobór materiałów i kontrolę planów. Audio odłączono. |
-| **4 października** | Wdrożono własny adapter list z trwałą korektą wag: odtworzenie 121/121 znanych zadań. Pierwszy test nowych poleceń: 21/24. Poprawiono reguły zakresu i wdrożono dwa oraz trzy kroki; próby 5/5, 8/8 i 6/6. Rozdzielono rozmowę i zadania, dodano historię rozmów oraz opis rozmiaru, wymagań i możliwości GPU. |
-| **5 października** | Wznowiono kolejkę materiałów z priorytetem potwierdzonej potrzeby lub losowym wyborem niepobranego tematu. Dodano i naprawiono panel logu, uruchomiono interfejs. Uporządkowano 157 plików prywatnego folderu; 12 testów przeszło. Przywrócono historię i linki dokumentacji. |
+Własny mały moduł językowy SI jest trenowany wyłącznie po angielsku, bez Qwena; wdrożono prostą pamięć tematu rozmowy, a kolejne wagi są oceniane przed podłączeniem.
 
-W kolejce pobrano dotąd **Machine learning**, **Program synthesis** oraz **Working memory**. Są zapisanymi materiałami: zrozumienie nie zostało potwierdzone, wagi nie zmieniły się podczas pobierania. Wyniki treningu i przebiegów dotyczą opisanych prób; nie sumujemy powtórzonych zadań jako niezależnych testów.
-
-[Pełna wcześniejsza historia](README_DETAILS.md) · [Wagi: 4 października](docs/SI_WAGI_2026-10-04.md) · [Przebiegi: 4 października](docs/SI_PRZEBIEGI_2026-10-04.md).
-
+[Wyniki języka i pamięci](docs/SI_JEZYK_PAMIEC_2026-10-05.md) · [Historia projektu](README_DETAILS.md).
 
 SI to eksperymentalny warsztat łączący język, matematykę, programowanie i pracę ze źródłami, inspirowany TIMDR jako punktem wyjścia do budowy sterownika współpracy.
 
@@ -21,17 +14,17 @@ SI to eksperymentalny warsztat łączący język, matematykę, programowanie i p
 
 Poniższe funkcje dotyczą prywatnego silnika i ograniczonych prób rozwojowych; samo pobranie repo nie udostępnia wszystkich modułów.
 
-- **Język:** Qwen zastąpił Bielika w polskiej rozmowie, interpretacji źródeł i generowaniu kodu.
+- **Język:** obecna eksperymentalna rozmowa korzysta z własnych wag SI, trenowanych po angielsku w ograniczonym zakresie tematów.
 - **Matematyka:** dokładny kalkulator, niezależna walidacja i SymPy obsługują określone działania oraz równania.
 - **Programowanie:** SI wybiera sprawdzone przykłady Pythona i testuje wygenerowany kod na podanych przypadkach.
 - **Dokumenty:** Embedding i Reranker wybierają materiały przekazywane do interpretacji przez Qwena.
 - **Obrazy:** Qwen-VL analizuje obrazy, a odczyt może zasilać kolejne kontrolowane zadanie.
 - **Źródła:** dostęp do dozwolonych stron i udostępnionych plików wspiera pracę z materiałami.
-- **Pamięć:** zapisane fragmenty źródeł można wyszukiwać i przekazywać do rozmowy.
+- **Pamięć:** historia bieżącej rozmowy wspiera regułowe utrzymanie ostatniego pewnie rozpoznanego tematu; 9/9 prób wykonawczych przeszło.
 - **Koordynacja:** własne sieci wybierają gotowe przebiegi współpracy między modułami.
 - **Uczenie:** własne wagi adaptera SI są trenowane, oceniane i warunkowo wdrażane, a ostatnią poprawkę odtworzono jako 121/121 znanych zadań z udziałem jawnych reguł.
 - **Kontrola poleceń:** parser kolejności i własny adapter SI wykonują ograniczone przebiegi dwóch lub trzech operacji na listach, z kontrolą zakazów i danych pośrednich.
-- **Interfejs:** rozmowa i zadania mają osobne panele, a historia rozmów jest zapisywana lokalnie.
+- **Interfejs:** obecna prywatna wersja udostępnia rozmowę z własnym SI i osobną ocenę decyzji; dawne opcje usunięto z tego widoku.
 - **Audio:** ASR i TTS sprawdzono w małych próbach, lecz dźwięk pozostaje odłączony.
 
 **Wyniki, liczby neuronów, rozmiary wag, historia zmian, ograniczenia i propozycja wdrożenia:** [szczegółowy opis projektu](README_DETAILS.md).
@@ -55,7 +48,9 @@ SI może służyć do wyboru i wywoływania modeli językowych, programistycznyc
 2. Uruchom `Uruchom_AI_SI.bat` albo `python run_ui.py` w tym repo.
 3. Wskaż adres silnika przez `--backend`; bez działającego silnika interfejs zgłosi brak połączenia.
 
-## Rozmiar, wymagania i GPU
+## Rozmiar, wymagania i GPU — wcześniejsza konfiguracja SI + Qwen
+
+Aktualny eksperyment językowy: wdrożony GPT i klasyfikator mają łącznie **854 537 parametrów** i **4 754 288 bajtów wag**. Ostatni kandydat treningowy ma **1 050 862 parametrów** i **4 216 773 bajty wag**; mniejszy zapis wynika z innej struktury checkpointów, nie mniejszej liczby parametrów. Parametry nie są liczbą neuronów. Są to rozmiary wybranych wag, nie całego SI ani środowiska. Wymagania nowego pakietu nie zostały zmierzone na drugim komputerze.
 
 Folder roboczy prywatnego SI zmierzony 4 października 2026 r. zajmował **9,29 GB (8,65 GiB)**, w tym modele, historię treningu i kopie wag; środowisko Python przechowywane osobno nie jest wliczone.
 

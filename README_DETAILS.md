@@ -260,3 +260,8 @@ W kolejce pobrano dotąd **Machine learning**, **Program synthesis** oraz **Work
 ## 5 października — osobna bramka decyzyjna zamiast adaptera Qwena
 
 Wyłączono adapter Qwena, wytrenowano i podłączono mini-model SI (3,03 MB, 527 114 parametrów), poprawiono obsługę niepewności i zależność od wartości liczb. Osobny test decyzji: 11/12; rzeczywisty Qwen: 4/4 odpowiedzi oraz dwa zatrzymania przed wywołaniem. Nadal występuje nadmierne zatrzymanie jednego poprawnego wariantu polecenia. Opisano możliwe rodzaje zarządzanych modeli, oddzielając propozycję od sprawdzonej integracji. [Pełny zapis etapu](docs/SI_DECYZJE_2026-10-05.md).
+
+
+## 5 października — własny język SI i pamięć robocza
+
+Uruchomiono ograniczoną rozmowę z własnym GPT i klasyfikatorem, bez Qwena; trening kontynuowany jest wyłącznie po angielsku. Wdrożony wariant: 18/18 ograniczonych odpowiedzi. Podłączono regułową pamięć tematu do historii interfejsu: 9/9 testów wykonawczych. Kolejne, niewdrożone warianty dały 15/20, 10/20 oraz 20/26 na różnych nowych zestawach; ostatni zachował 18/18 wcześniejszych tematów. Dodano obserwację stanów GPT przez eksperymentalne kanały TIMDR. Szczegóły zakresu, rozmiarów i ograniczeń: [język i pamięć](docs/SI_JEZYK_PAMIEC_2026-10-05.md). Historyczne opisy Qwena dotyczą poprzednich etapów; obecny widok rozmowy korzysta z własnego SI.
