@@ -6,17 +6,15 @@ Eksperymentalny system inspirowany TIMDR jako punktem wyjścia do budowy sterown
 
 Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, mostem sesji, wyborem strategii i ograniczoną obsługą polskiego; wagi języka trenujemy po angielsku.
 
-## Najnowsza aktualizacja — pętla i trzy stany
+## Najnowsza aktualizacja — 6 października 2026 (cały dzień)
 
-SI rozróżnia potwierdzenie, odrzucenie i nierozstrzygnięcie oraz w ograniczonych pytaniach uzupełnia brak z historii i ponownie sprawdza odpowiedź.
+- **Źródła:** model odpowiedzi ze źródła uczony na mieszanych wzorcach zdań; nowy zamrożony test 33→67/96, regresja 89→92/93, z kontrolerem 96/96 bez błędnych potwierdzeń.
+- **Trzy stany tam, gdzie trzeba:** uczona bramka zwalnia powitania i wyjaśnienia z oceny prawdziwości (52/53, bez pominiętej weryfikacji); zakaz daje „zatrzymaj”.
+- **Polski:** uczony maper pytań (SJP.PL → intencje) zamiast stałego słownika; niezrozumiane pytania dostają podpowiedź.
+- **Zadania słowne:** dwa małe parsery + dokładny kalkulator; most liczby–struktura (zasada odniesienia TIMDR) i pętla z niezależnym sędzią (Qwen rozwiązuje osobno, etykietą jest jedyne zgodne działanie). Nowe szablony zdań 26→145/210; 0 błędnych potwierdzeń dzięki kanałowi znaczenia operacji i kanałowi nowości. Polskie zadania zawsze wymagają potwierdzenia interpretacji.
+- **Wyniki negatywne:** pętla bez niezależnego odniesienia utrwalała własne błędy; słownik synonimów użyty do podmiany słów pogarszał odpowiedzi; poranna wersja bezpiecznika potwierdzała błędy na nowych zdaniach (naprawione).
 
-- **Kontekst:** powtórka znanych zadań językowych dała 26/26.
-- **Źródła:** cały układ dał 32/32, podczas gdy sama sieć 19/32; pomoc kontrolera raportujemy oddzielnie.
-- **Pętla:** 5/5 prób modelu i 2/2 w polskiej rozmowie potwierdziło działanie ograniczonego odzyskiwania danych.
-- **Trening:** kandydat uczony z przykładów Qwena poprawił nowe zadania kosztem regresji, więc zachowano dotychczasowe wagi.
-- **Trzy stany:** wytrenowana mała głowa pozostaje niewdrożona do czasu zrównoważonych testów.
-
-[Pełne wyniki, zakres pętli i dalsze uczenie](docs/SI_PETLA_TRZY_STANY_2026-10-06.md). Wyniki dotyczą testów rozwojowych, nie ogólnego rozumienia języka.
+[Dokładne wyniki, metody i ograniczenia — 6 października](docs/SI_NAUKA_2026-10-06.md). Testy użyte do wyboru wersji są odtąd rozwojowe.
 
 ## Osiągnięcia w skrócie
 
@@ -32,7 +30,7 @@ SI rozróżnia potwierdzenie, odrzucenie i nierozstrzygnięcie oraz w ograniczon
 
 [Dokładne wyniki, rozmiary i ograniczenia — 6 października](docs/SI_AKTUALIZACJA_2026-10-06.md) · [Historia i wcześniejsze konfiguracje](README_DETAILS.md).
 
-Aktywne wagi SI: około **6,06 MB**, sterownik strategii: **4,5 KB**, lokalny indeks słownika: **154,55 MB**; to nie rozmiar kompletnego pakietu z bibliotekami.
+Aktywne wagi SI: około **6,06 MB** (stan rano 6 października; nowe moduły z 6 października dodają ok. **5 MB**, 1,25 mln parametrów), sterownik strategii: **4,5 KB**, lokalny indeks słownika: **154,55 MB**; to nie rozmiar kompletnego pakietu z bibliotekami.
 
 ## Zakres publicznego repo
 

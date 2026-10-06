@@ -4,7 +4,7 @@
 
 ## Aktualizacja — 6 października 2026
 
-Obecna rozmowa korzysta z własnego SI bez Qwena; dodano most sesji, wyuczony wybór strategii, translator zakresowy i lokalne odmiany SJP.PL. [Wyniki i ograniczenia](docs/SI_AKTUALIZACJA_2026-10-06.md).
+Obecna rozmowa korzysta z własnego SI bez Qwena; dodano most sesji, wyuczony wybór strategii, translator zakresowy i lokalne odmiany SJP.PL. [Wyniki i ograniczenia](docs/SI_AKTUALIZACJA_2026-10-06.md). Dalsza część dnia: [uczenie 6 października](docs/SI_NAUKA_2026-10-06.md).
 
 Dalsze sekcje zachowują chronologię wcześniejszych konfiguracji. Opis Qwena nie dotyczy obecnej ścieżki rozmowy.
 
@@ -168,6 +168,22 @@ Udostępniono dziesięć pobranych artykułów. Qwen, mając pełną listę, wyb
 Na polecenie użytkownika politykę ciekawości wyłączono jako mechanizm samonaprawy. Kierunek dalszych prac to **wybór potwierdzonych braków**, dobór odpowiedniej naprawy oraz ponowna walidacja — zamiast wybierania materiałów na podstawie samej niepewności.
 
 Ponowny sprawdzian wykazał cztery nierozpoznane polecenia w 24-zadaniowej próbie programowania. Próba naprawy jednego z nich wygenerowała program, ale kontrola wykonania odrzuciła użycie niedozwolonej metody. Naprawy nie zapisano, wagi pozostały bez zmian. Odrzucenie przez ograniczony tester nie dowodzi błędu samego algorytmu; trzeba odróżniać braki rozpoznawania, wiedzy oraz możliwości wykonawcy. **Udanej ogólnej samonaprawy jeszcze nie wykazano.**
+
+### 6 października: pętla decyzji i trzy stany (rano)
+
+SI rozróżnia potwierdzenie, odrzucenie i nierozstrzygnięcie oraz w ograniczonych pytaniach uzupełnia brak z historii i ponownie sprawdza odpowiedź.
+
+- **Kontekst:** powtórka znanych zadań językowych dała 26/26.
+- **Źródła:** cały układ dał 32/32, podczas gdy sama sieć 19/32; pomoc kontrolera raportujemy oddzielnie.
+- **Pętla:** 5/5 prób modelu i 2/2 w polskiej rozmowie potwierdziło działanie ograniczonego odzyskiwania danych.
+- **Trening:** kandydat uczony z przykładów Qwena poprawił nowe zadania kosztem regresji, więc zachowano dotychczasowe wagi.
+- **Trzy stany:** wytrenowana mała głowa pozostaje niewdrożona do czasu zrównoważonych testów.
+
+[Pełne wyniki, zakres pętli i dalsze uczenie](docs/SI_PETLA_TRZY_STANY_2026-10-06.md). Wyniki dotyczą testów rozwojowych, nie ogólnego rozumienia języka.
+
+### 6 października: źródła, trzy stany, polski i zadania słowne
+
+Sieć źródeł nauczono mieszanych wzorców zdań (nowy test 33→67/96, regresja 89→92/93). Trzy stany są używane tylko tam, gdzie trzeba (uczona bramka zakresu), zakaz zatrzymuje. Polski translator dostał uczony maper pytań. Zadania słowne: parsery z mostem liczby–struktura, generator kompozycyjny i pętla z niezależnym sędzią (4 rundy, nasycenie po 3.); nowe szablony 26→145/210. Bezpiecznik potwierdzeń wymaga kanału znaczenia operacji i kanału nowości; 0 błędnych potwierdzeń na zamrożonych testach. Próby bez wdrożenia: pętla samoucząca bez niezależnego odniesienia, podmiana słów z tezaurusa, uczony decydent podmian. [Szczegóły](docs/SI_NAUKA_2026-10-06.md).
 
 ## Aktualizacja: pamięć, walidacja i wykorzystanie wiedzy — 4 października 2026
 
