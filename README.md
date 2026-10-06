@@ -6,6 +6,18 @@ Eksperymentalny system inspirowany TIMDR jako punktem wyjścia do budowy sterown
 
 Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, mostem sesji, wyborem strategii i ograniczoną obsługą polskiego; wagi języka trenujemy po angielsku.
 
+## Najnowsza aktualizacja — pętla i trzy stany
+
+SI rozróżnia potwierdzenie, odrzucenie i nierozstrzygnięcie oraz w ograniczonych pytaniach uzupełnia brak z historii i ponownie sprawdza odpowiedź.
+
+- **Kontekst:** powtórka znanych zadań językowych dała 26/26.
+- **Źródła:** cały układ dał 32/32, podczas gdy sama sieć 19/32; pomoc kontrolera raportujemy oddzielnie.
+- **Pętla:** 5/5 prób modelu i 2/2 w polskiej rozmowie potwierdziło działanie ograniczonego odzyskiwania danych.
+- **Trening:** kandydat uczony z przykładów Qwena poprawił nowe zadania kosztem regresji, więc zachowano dotychczasowe wagi.
+- **Trzy stany:** wytrenowana mała głowa pozostaje niewdrożona do czasu zrównoważonych testów.
+
+[Pełne wyniki, zakres pętli i dalsze uczenie](docs/SI_PETLA_TRZY_STANY_2026-10-06.md). Wyniki dotyczą testów rozwojowych, nie ogólnego rozumienia języka.
+
 ## Osiągnięcia w skrócie
 
 - **Język:** trening własnych wag poprawił wynik z 40/84 do 70/84 na tych samych zadaniach, przy ograniczonym zakresie.

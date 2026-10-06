@@ -351,3 +351,8 @@ Dla obecnego Qwena karta z **6–8 GB VRAM** daje orientacyjny zapas; dokładne 
 To prototyp oceniany w niewielkich, kontrolowanych próbach, a nie potwierdzony odpowiednik ogólnych modeli AI.
 Odczyt źródła nie oznacza uczenia wag, przejście podanych testów nie gwarantuje poprawności dowolnego programu, a większa liczba neuronów sama nie dowodzi poprawy.
 Szczegółowe wyniki i ich zakres pozostają dostępne w [pełnej dokumentacji](README_DETAILS.md).
+
+
+## Uzupełnienie historii — 6 października 2026
+
+Ujednolicono trzy stany, domknięto ograniczoną pętlę decyzji z historią użytkownika, połączono lekkie narzędzia i powtórzono testy aktualnej instalacji. Zachowano niewdrożonych kandydatów po treningu oraz zapisano lokalne przekazanie pracy. [Wyniki i ograniczenia](docs/SI_PETLA_TRZY_STANY_2026-10-06.md).
