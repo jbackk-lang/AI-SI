@@ -1,5 +1,7 @@
 # AI-SI
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23222487.svg)](https://doi.org/10.5281/zenodo.23222487)
+
 Eksperymentalny system inspirowany TIMDR jako punktem wyjścia do budowy sterownika współpracy.
 
 ## Aktualny stan — 7 października 2026
@@ -47,6 +49,14 @@ Każdy wynik dotyczy opisanego testu.
 [Dokładne wyniki, rozmiary i ograniczenia — 6 października](docs/SI_AKTUALIZACJA_2026-10-06.md) · [Historia i wcześniejsze konfiguracje](README_DETAILS.md).
 
 Aktywne wagi SI: około **6,06 MB** (stan rano 6 października; nowe moduły z 6 października dodają ok. **5 MB**, 1,25 mln parametrów, a z 7 października ok. **2,5 MB**: czytniki kontekstu, klasyfikator działania, mosty i polski maper), sterownik strategii: **4,5 KB**, lokalny indeks słownika: **154,55 MB**; to nie rozmiar kompletnego pakietu z bibliotekami.
+
+## Cytowanie
+
+Wydanie zarchiwizowane w Zenodo: **DOI [10.5281/zenodo.23222487](https://doi.org/10.5281/zenodo.23222487)**.
+
+```
+Kielich, J. AI-SI. Zenodo. https://doi.org/10.5281/zenodo.23222487
+```
 
 ## Zakres publicznego repo
 
