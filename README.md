@@ -21,17 +21,28 @@ Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, moste
 
 [Dokładne wyniki, metody i ograniczenia — 6–7 października](docs/SI_NAUKA_2026-10-06.md). Testy użyte do wyboru wersji są odtąd rozwojowe. [Aktualizacja z 6 października](README_DETAILS.md#aktualizacja--6-października-2026-cały-dzień) jest w historii.
 
-## Osiągnięcia w skrócie
+## Osiągnięcia — czego się spodziewać
 
-- **Język:** trening własnych wag poprawił wynik z 40/84 do 70/84 na tych samych zadaniach, przy ograniczonym zakresie.
-- **Relacje:** następna runda dała 32/40, lecz całkiem nowe nazwy nadal tylko 8/16.
-- **Strategie:** mała sieć wybiera zachowanie odpowiedzi, zmianę nazw lub zatrzymanie, uzyskując 240/240 na stanach walidatora.
-- **Most sesji:** wspólny dziennik udostępnia stan i sprawdzone strategie, a w małej próbie poprawił wynik z 7/16 do 14/16.
-- **Polski:** translator obsługiwanych formatów zachowuje zakazy, liczby i warunki, a język odpowiedzi pozostaje jawnie wybrany.
-- **Słownik:** lokalna baza SJP.PL jest pierwszym źródłem odmian słów, obejmując 4,69 mln par forma–lemma.
-- **Kontrola:** niepotwierdzone odpowiedzi są zatrzymywane, bez ogólnej gwarancji poprawności.
-- **Interfejs:** rozmowa, ocena decyzji i podgląd sesji są oddzielone; audio pozostaje odłączone.
-- **Wcześniejsze moduły:** matematykę, programowanie, wyszukiwanie i obrazy opisuje historia ich odrębnych konfiguracji.
+SI to mały, lokalny system: kilka własnych sieci po kilkaset tysięcy parametrów oraz dokładne narzędzia. Nie jest to czat ogólnego przeznaczenia. Działa w opisanych zakresach i mówi, gdy czegoś nie jest pewne.
+
+| Obszar | Co potrafi | Wynik na zamrożonym teście |
+|---|---|---|
+| **Kontrola odpowiedzi** | Trzy stany: potwierdzone / odrzucone / do potwierdzenia. Niepewne odpowiedzi nie są podawane jako fakt | 0 błędnych potwierdzeń w zadaniach słownych, także na 1730 prawdziwych zadaniach |
+| **Odpowiedzi ze źródła** | Odczytuje wartości z podanego tekstu, w tym przy mieszanych wzorcach zdań | 96/96 z kontrolerem |
+| **Zadania słowne (angielski)** | Proste zadania jednodziałaniowe: rozpoznaje działanie, liczy dokładnym kalkulatorem | Prawdziwe zadania SVAMP/ASDiv: 944/1730 (55%), zawsze z prośbą o potwierdzenie; znane wzory 297/300 |
+| **Polskie pytania o SI** | Rozumie różne sformułowania pytań o pamięć, kalkulator, kod, walidację, kolejność kroków i o siebie | 64/72 (wcześniej 44/72) |
+| **Polski interfejs** | Translator obsługiwanych formatów zachowuje zakazy, liczby i warunki; polskie zadania słowne wymagają potwierdzenia | 10/10 i 5/5 |
+| **Zakazy i brak danych** | „Nie wykonuj” zatrzymuje działanie; przy braku liczby SI prosi o nią | 10/10 (blokada języka), 5/5 (pętla decyzji) |
+| **Strategie i most sesji** | Mała sieć wybiera zachowanie odpowiedzi; wspólny dziennik sesji | 240/240 na stanach walidatora; próba 7/16 → 14/16 |
+| **Słownik** | Lokalna baza SJP.PL (4,69 mln par forma–lemma) jako pierwsze źródło odmian | — |
+| **Samouczenie** | Koordynator nauki: przykłady od nauczyciela → sito → automat rośnięcia pojemności → podmiana wag tylko po poprawie | Pierwsze rundy bez podmiany (zabezpieczenie zadziałało) |
+
+**Czego nie oczekiwać:**
+- swobodnej rozmowy na dowolny temat ani wiedzy o świecie;
+- zadań wielodziałaniowych i zadań z wieloma liczbami-zmyłkami (ok. 34%);
+- pełnego tłumaczenia polskiego.
+
+Każdy wynik dotyczy opisanego, ograniczonego testu. Wyniki negatywne są opisane razem z pozytywnymi.
 
 [Dokładne wyniki, rozmiary i ograniczenia — 6 października](docs/SI_AKTUALIZACJA_2026-10-06.md) · [Historia i wcześniejsze konfiguracje](README_DETAILS.md).
 
