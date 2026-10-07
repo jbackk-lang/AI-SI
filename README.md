@@ -13,6 +13,7 @@ Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, moste
 - **Sprawdzian na prawdziwych zadaniach:** na 1730 zadaniach z otwartych zbiorów SVAMP/ASDiv parser trafiał tylko 10%, czyli prawie jak losowanie; mosty działały tylko w świecie własnych szablonów (wynik negatywny).
 - **Nowe podejście:** liniowy klasyfikator działania uczony na otwartym MAWPS, wskazówki ról liczb (wynik, stan początkowy, porównanie, grupy) i czytnik kontekstu czytający zadanie słowo po słowie, połączony z modelem ról. Połowa testu nieużywana do strojenia 451→512; w SI prawdziwe zadania 178→944/1730. Odpowiedzi nowego modelu zawsze wymagają potwierdzenia; 0 błędnych potwierdzeń.
 - **Polski maper pytań:** katalog sprawdzonych zdań (wzór nauczyciela z 4 października) i czytnik kontekstu po formach SJP.PL. Zamrożony test 44→64/72; „nie rozpoznaję” 21→5, błędne intencje 7→3.
+- **Lokalny tłumacz PL→EN:** neuronowy Opus-MT (218 MB, ok. 0,1–0,4 s na zdanie) przed angielskim rdzeniem SI. SI sprawdza, czy liczby i przeczenia przeszły bez zmian. Polskie zadania słowne 24→51/150.
 - **Pętla samouczenia:** koordynator nauki dla modułów z automatem rośnięcia pojemności, okienkiem podglądu i podmianą wag tylko po poprawie, z kopią zapasową.
 - **Wyniki negatywne:**
   - dane pisane przez Qwena od zera i z przepisania zadań MAWPS nie poprawiły wyniku na straży;
@@ -31,7 +32,7 @@ SI to mały, lokalny system: kilka własnych sieci po kilkaset tysięcy parametr
 | **Odpowiedzi ze źródła** | Odczytuje wartości z podanego tekstu, w tym przy mieszanych wzorcach zdań | 96/96 z kontrolerem |
 | **Zadania słowne (angielski)** | Proste zadania jednodziałaniowe: rozpoznaje działanie, liczy dokładnym kalkulatorem | Prawdziwe zadania SVAMP/ASDiv: 944/1730 (55%), zawsze z prośbą o potwierdzenie; znane wzory 297/300 |
 | **Polskie pytania o SI** | Rozumie różne sformułowania pytań o pamięć, kalkulator, kod, walidację, kolejność kroków i o siebie | 64/72 (wcześniej 44/72) |
-| **Polski interfejs** | Translator obsługiwanych formatów zachowuje zakazy, liczby i warunki; polskie zadania słowne wymagają potwierdzenia | 10/10 i 5/5 |
+| **Polski interfejs** | Translator obsługiwanych formatów zachowuje zakazy, liczby i warunki; lokalny tłumacz neuronowy PL→EN pod kontrolą SI; polskie zadania słowne z prośbą o potwierdzenie | 10/10 i 5/5; polskie zadania słowne 51/150 |
 | **Zakazy i brak danych** | „Nie wykonuj” zatrzymuje działanie; przy braku liczby SI prosi o nią | 10/10 (blokada języka), 5/5 (pętla decyzji) |
 | **Strategie i most sesji** | Mała sieć wybiera zachowanie odpowiedzi; wspólny dziennik sesji | 240/240 na stanach walidatora; próba 7/16 → 14/16 |
 | **Słownik** | Lokalna baza SJP.PL (4,69 mln par forma–lemma) jako pierwsze źródło odmian | — |
