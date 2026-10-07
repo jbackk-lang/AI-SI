@@ -21,9 +21,9 @@ Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, moste
 
 [Dokładne wyniki, metody i ograniczenia — 6–7 października](docs/SI_NAUKA_2026-10-06.md). Testy użyte do wyboru wersji są odtąd rozwojowe. [Aktualizacja z 6 października](README_DETAILS.md#aktualizacja--6-października-2026-cały-dzień) jest w historii.
 
-## Osiągnięcia — czego się spodziewać
+## Osiągnięcia
 
-SI to mały, lokalny system: kilka własnych sieci po kilkaset tysięcy parametrów oraz dokładne narzędzia. Nie jest to czat ogólnego przeznaczenia. Działa w opisanych zakresach i mówi, gdy czegoś nie jest pewne.
+SI to mały, lokalny system: kilka własnych sieci po kilkaset tysięcy parametrów oraz dokładne narzędzia. Mówi, gdy czegoś nie jest pewne.
 
 | Obszar | Co potrafi | Wynik na zamrożonym teście |
 |---|---|---|
@@ -37,12 +37,7 @@ SI to mały, lokalny system: kilka własnych sieci po kilkaset tysięcy parametr
 | **Słownik** | Lokalna baza SJP.PL (4,69 mln par forma–lemma) jako pierwsze źródło odmian | — |
 | **Samouczenie** | Koordynator nauki: przykłady od nauczyciela → sito → automat rośnięcia pojemności → podmiana wag tylko po poprawie | Pierwsze rundy bez podmiany (zabezpieczenie zadziałało) |
 
-**Czego nie oczekiwać:**
-- swobodnej rozmowy na dowolny temat ani wiedzy o świecie;
-- zadań wielodziałaniowych i zadań z wieloma liczbami-zmyłkami (ok. 34%);
-- pełnego tłumaczenia polskiego.
-
-Każdy wynik dotyczy opisanego, ograniczonego testu. Wyniki negatywne są opisane razem z pozytywnymi.
+Każdy wynik dotyczy opisanego testu.
 
 [Dokładne wyniki, rozmiary i ograniczenia — 6 października](docs/SI_AKTUALIZACJA_2026-10-06.md) · [Historia i wcześniejsze konfiguracje](README_DETAILS.md).
 
