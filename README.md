@@ -17,6 +17,7 @@ Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, moste
 - **Prawdziwe zadania (7 października):** na 1730 zadaniach z otwartych zbiorów SVAMP/ASDiv parser trafiał tylko 10% (prawie jak losowanie). Nowy liniowy klasyfikator działania uczony na otwartym MAWPS: 49% (czysty pomiar), w SI 178→854/1730; nigdy sam nie potwierdza, 0 błędnych potwierdzeń.
 - **Role liczb (7 października):** wskazówki ról (wynik, stan początkowy, porównanie, grupy) i zdania ze schematów logicznych; połowa testu nieużywana do strojenia 451→497, w SI prawdziwe zadania 854→925/1730. Potwierdzanie odpowiedzi klasyfikatora nadal niebezpieczne, więc pozostaje „do potwierdzenia”.
 - **Pętla samouczenia (7 października):** koordynator nauki dla modułów z automatem rośnięcia i bezpieczną podmianą wag. W pierwszej rundzie dane od Qwena nie poprawiły żadnego modułu (straż spadła), więc wagi zostały bez zmian.
+- **Kontekst (7 października):** czytnik zadania słowo po słowie połączony z modelem ról; połowa nieużywana do strojenia 497→512, w SI prawdziwe zadania 925→944/1730.
 - **Wyniki negatywne:** pętla bez niezależnego odniesienia utrwalała własne błędy; słownik synonimów użyty do podmiany słów pogarszał odpowiedzi; poranna wersja bezpiecznika potwierdzała błędy na nowych zdaniach (naprawione).
 
 [Dokładne wyniki, metody i ograniczenia — 6 października](docs/SI_NAUKA_2026-10-06.md). Testy użyte do wyboru wersji są odtąd rozwojowe.
