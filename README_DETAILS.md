@@ -2,6 +2,21 @@
 
 [Powrót do głównego README](README.md).
 
+## Aktualizacja — 6 października 2026 (cały dzień)
+
+Przeniesione z głównego README 7 października.
+
+- **Źródła:** model odpowiedzi ze źródła uczony na mieszanych wzorcach zdań; nowy zamrożony test 33→67/96, regresja 89→92/93, z kontrolerem 96/96 bez błędnych potwierdzeń.
+- **Trzy stany tam, gdzie trzeba:** uczona bramka zwalnia powitania i wyjaśnienia z oceny prawdziwości (52/53, bez pominiętej weryfikacji); zakaz daje „zatrzymaj”.
+- **Polski:** uczony maper pytań (SJP.PL → intencje) zamiast stałego słownika; niezrozumiane pytania dostają podpowiedź.
+- **Zadania słowne:** dwa małe parsery + dokładny kalkulator; most liczby–struktura (zasada odniesienia TIMDR) i pętla z niezależnym sędzią (Qwen rozwiązuje osobno, etykietą jest jedyne zgodne działanie). Nowe szablony zdań 26→145/210; 0 błędnych potwierdzeń dzięki kanałowi znaczenia operacji i kanałowi nowości. Polskie zadania zawsze wymagają potwierdzenia interpretacji.
+- **Wyniki negatywne:**
+  - pętla bez niezależnego odniesienia utrwalała własne błędy;
+  - słownik synonimów użyty do podmiany słów pogarszał odpowiedzi;
+  - poranna wersja bezpiecznika potwierdzała błędy na nowych zdaniach (naprawione).
+
+[Dokładne wyniki, metody i ograniczenia — 6 października](docs/SI_NAUKA_2026-10-06.md).
+
 ## Aktualizacja — 6 października 2026
 
 Obecna rozmowa korzysta z własnego SI bez Qwena; dodano most sesji, wyuczony wybór strategii, translator zakresowy i lokalne odmiany SJP.PL. [Wyniki i ograniczenia](docs/SI_AKTUALIZACJA_2026-10-06.md). Dalsza część dnia: [uczenie 6 października](docs/SI_NAUKA_2026-10-06.md).

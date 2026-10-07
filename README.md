@@ -2,26 +2,24 @@
 
 Eksperymentalny system inspirowany TIMDR jako punktem wyjścia do budowy sterownika współpracy.
 
-## Aktualny stan — 6 października 2026
+## Aktualny stan — 7 października 2026
 
-Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, mostem sesji, wyborem strategii i ograniczoną obsługą polskiego; wagi języka trenujemy po angielsku.
+Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, mostem sesji, wyborem strategii i ograniczoną obsługą polskiego; wagi języka trenujemy po angielsku. Zadania słowne są sprawdzane na prawdziwych zadaniach z otwartych zbiorów, a polskie pytania obsługuje maper z katalogiem sprawdzonych zdań.
 
-## Najnowsza aktualizacja — 6 października 2026 (cały dzień)
+## Najnowsza aktualizacja — 7 października 2026
 
-- **Źródła:** model odpowiedzi ze źródła uczony na mieszanych wzorcach zdań; nowy zamrożony test 33→67/96, regresja 89→92/93, z kontrolerem 96/96 bez błędnych potwierdzeń.
-- **Trzy stany tam, gdzie trzeba:** uczona bramka zwalnia powitania i wyjaśnienia z oceny prawdziwości (52/53, bez pominiętej weryfikacji); zakaz daje „zatrzymaj”.
-- **Polski:** uczony maper pytań (SJP.PL → intencje) zamiast stałego słownika; niezrozumiane pytania dostają podpowiedź.
-- **Zadania słowne:** dwa małe parsery + dokładny kalkulator; most liczby–struktura (zasada odniesienia TIMDR) i pętla z niezależnym sędzią (Qwen rozwiązuje osobno, etykietą jest jedyne zgodne działanie). Nowe szablony zdań 26→145/210; 0 błędnych potwierdzeń dzięki kanałowi znaczenia operacji i kanałowi nowości. Polskie zadania zawsze wymagają potwierdzenia interpretacji.
-- **Most WordNet (noc 6/7 października):** nieznany czasownik w zadaniu słownym → forma podstawowa → otwarty angielski WordNet (synonimy i pojęcia nadrzędne) → znany czasownik SI, tylko gdy wszystkie znaczenia wskazują tę samą operację. Bez zmiany wag: nowy test zamrożony przed pracą (24 nieznane czasowniki) 208→286/300, starszy test nowych czasowników 187→276/300; 0 błędnych potwierdzeń.
-- **Most pytań (7 października):** nieznane sformułowanie pytania → uczony klasyfikator klasy pytania → znane pytanie tej samej klasy. Nowy test zamrożony przed pracą 247→272/300, nowe ramy zdań 68→97/300, bez strat na pozostałych testach i bez błędnych potwierdzeń.
-- **Prawdziwe zadania (7 października):** na 1730 zadaniach z otwartych zbiorów SVAMP/ASDiv parser trafiał tylko 10% (prawie jak losowanie). Nowy liniowy klasyfikator działania uczony na otwartym MAWPS: 49% (czysty pomiar), w SI 178→854/1730; nigdy sam nie potwierdza, 0 błędnych potwierdzeń.
-- **Role liczb (7 października):** wskazówki ról (wynik, stan początkowy, porównanie, grupy) i zdania ze schematów logicznych; połowa testu nieużywana do strojenia 451→497, w SI prawdziwe zadania 854→925/1730. Potwierdzanie odpowiedzi klasyfikatora nadal niebezpieczne, więc pozostaje „do potwierdzenia”.
-- **Pętla samouczenia (7 października):** koordynator nauki dla modułów z automatem rośnięcia i bezpieczną podmianą wag. W pierwszej rundzie dane od Qwena nie poprawiły żadnego modułu (straż spadła), więc wagi zostały bez zmian.
-- **Kontekst (7 października):** czytnik zadania słowo po słowie połączony z modelem ról; połowa nieużywana do strojenia 497→512, w SI prawdziwe zadania 925→944/1730.
-- **Polski maper (7 października):** katalog sprawdzonych zdań i czytnik kontekstu po formach SJP.PL. Na zamrożonym teście 44→64/72, „nie rozpoznaję” 21→5.
-- **Wyniki negatywne:** pętla bez niezależnego odniesienia utrwalała własne błędy; słownik synonimów użyty do podmiany słów pogarszał odpowiedzi; poranna wersja bezpiecznika potwierdzała błędy na nowych zdaniach (naprawione).
+- **Most WordNet:** nieznany czasownik w zadaniu słownym jest zamieniany na znany czasownik SI tej samej operacji przez otwarty angielski WordNet, tylko gdy wszystkie znaczenia słowa są zgodne. Nowy test zamrożony przed pracą 208→286/300; 0 błędnych potwierdzeń.
+- **Most pytań:** nieznane sformułowanie pytania zamieniane na znane pytanie tej samej klasy. Nowy zamrożony test 247→272/300.
+- **Sprawdzian na prawdziwych zadaniach:** na 1730 zadaniach z otwartych zbiorów SVAMP/ASDiv parser trafiał tylko 10%, czyli prawie jak losowanie; mosty działały tylko w świecie własnych szablonów (wynik negatywny).
+- **Nowe podejście:** liniowy klasyfikator działania uczony na otwartym MAWPS, wskazówki ról liczb (wynik, stan początkowy, porównanie, grupy) i czytnik kontekstu czytający zadanie słowo po słowie, połączony z modelem ról. Połowa testu nieużywana do strojenia 451→512; w SI prawdziwe zadania 178→944/1730. Odpowiedzi nowego modelu zawsze wymagają potwierdzenia; 0 błędnych potwierdzeń.
+- **Polski maper pytań:** katalog sprawdzonych zdań (wzór nauczyciela z 4 października) i czytnik kontekstu po formach SJP.PL. Zamrożony test 44→64/72; „nie rozpoznaję” 21→5, błędne intencje 7→3.
+- **Pętla samouczenia:** koordynator nauki dla modułów z automatem rośnięcia pojemności, okienkiem podglądu i podmianą wag tylko po poprawie, z kopią zapasową.
+- **Wyniki negatywne:**
+  - dane pisane przez Qwena od zera i z przepisania zadań MAWPS nie poprawiły wyniku na straży;
+  - więcej neuronów przy cechach bez kolejności słów nie pomogło;
+  - kalibracja bezpiecznego potwierdzania nie dała zera błędów (ok. 10%).
 
-[Dokładne wyniki, metody i ograniczenia — 6 października](docs/SI_NAUKA_2026-10-06.md). Testy użyte do wyboru wersji są odtąd rozwojowe.
+[Dokładne wyniki, metody i ograniczenia — 6–7 października](docs/SI_NAUKA_2026-10-06.md). Testy użyte do wyboru wersji są odtąd rozwojowe. [Aktualizacja z 6 października](README_DETAILS.md#aktualizacja--6-października-2026-cały-dzień) jest w historii.
 
 ## Osiągnięcia w skrócie
 
@@ -37,7 +35,7 @@ Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, moste
 
 [Dokładne wyniki, rozmiary i ograniczenia — 6 października](docs/SI_AKTUALIZACJA_2026-10-06.md) · [Historia i wcześniejsze konfiguracje](README_DETAILS.md).
 
-Aktywne wagi SI: około **6,06 MB** (stan rano 6 października; nowe moduły z 6 października dodają ok. **5 MB**, 1,25 mln parametrów), sterownik strategii: **4,5 KB**, lokalny indeks słownika: **154,55 MB**; to nie rozmiar kompletnego pakietu z bibliotekami.
+Aktywne wagi SI: około **6,06 MB** (stan rano 6 października; nowe moduły z 6 października dodają ok. **5 MB**, 1,25 mln parametrów, a z 7 października ok. **2,5 MB**: czytniki kontekstu, klasyfikator działania, mosty i polski maper), sterownik strategii: **4,5 KB**, lokalny indeks słownika: **154,55 MB**; to nie rozmiar kompletnego pakietu z bibliotekami.
 
 ## Zakres publicznego repo
 
