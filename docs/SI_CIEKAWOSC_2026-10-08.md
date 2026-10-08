@@ -42,3 +42,8 @@ SI układa sobie kolejkę pytań z czterech miejsc:
 - Zamrożony test faktów (126 pytań, offline): wynik identyczny.
 - Zamrożony test tabel, dokumentów i dat: 0 fałszywych potwierdzeń.
 - Pełna pętla (pytania z dziur i powiązań, wyjaśnienie sporu o datę urodzenia Newtona kalendarzem juliańskim, raport „czego się dowiedziałaś?”) sprawdzona na modelu świata bez sieci.
+
+## Pierwsze godziny (8 października, 14:23–15:38)
+Bez żadnego pytania z zewnątrz SI zrobiła 42 rundy i zadała sobie 394 pytania. 190 odpowiedzi potwierdziła co najmniej dwoma źródłami. Zaczęła od Kopernika, Skłodowskiej-Curie, Chopina i Uniwersytetu Jagiellońskiego, a po powiązaniach doszła m.in. do rodziny Chopina, nauczycieli muzyki w Lipsku i Londynie oraz francuskich instytucji naukowych. Na mapie wiedzy ma 338 faktów o 277 hasłach.
+Spór liczony z dokładnością (sam rok i pełna data z tym samym rokiem to zgoda): 62 prawdziwe spory. W 18 z nich większość źródeł się zgadza, a inna jest tylko wartość, którą SI odczytała z artykułu Wikipedii. Te artykuły trafiają do nauki czytania (np. śmierć Kopernika odczytana z polskiego artykułu jako 1523 zamiast 1543).
+Gdy kolejka się wyczerpie, SI zaczyna od hasła z mapy, którego powiązań jeszcze nie zna.
