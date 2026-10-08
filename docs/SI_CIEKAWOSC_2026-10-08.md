@@ -50,3 +50,9 @@ Gdy kolejka się wyczerpie, SI zaczyna od hasła z mapy, którego powiązań jes
 
 ## Baza wiedzy
 Mapa wiedzy, hasła, kolejka pytań i postęp są w małej bazie SQLite (`knowledge.sqlite`). Zapis jest zwarty: około 340 bajtów na fakt razem z hasłem i jego powiązaniami. Każdy nowy fakt to jeden zapis w bazie. Z bazy korzystają jednocześnie czat i nauka w tle. Dziennik ciekawości po przekroczeniu 2 MB jest pakowany do archiwum.
+
+## Świeże fakty (22:20)
+- **Kto teraz pełni urząd:** „Kto jest prezydentem Polski?”, „kto jest premierem Francji?”, „kto jest prezydentem miasta Krakowa?”, „Who is the prime minister of Japan?”. Obecną osobę SI bierze z Wikidanych (wpis bez daty końca), podaje, od kiedy pełni urząd, i potwierdza zdaniem z artykułu Wikipedii o miejscu albo o tej osobie.
+- **Fakty, które się zmieniają:** urzędy SI sprawdza ponownie po 30 dniach, liczbę mieszkańców po 180 dniach. Inna wartość to zmiana świata: poprzednia trafia do historii hasła, a raport „czego się dowiedziałaś?” pokazuje „było …, teraz …”.
+- **Świeże punkty startu:** raz dziennie SI bierze nowe hasła z bieżących wydarzeń, list niedawnych zgonów i tegorocznych premier (Wikipedia angielska i polska). Najpierw pyta o to, co się zmienia. Potem pyta o osoby, które pełnią urzędy.
+- Pytania o rzeczy zmienne mają w wyborze pierwszeństwo przed kolejnymi datami historycznymi.
