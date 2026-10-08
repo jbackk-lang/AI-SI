@@ -47,3 +47,6 @@ SI układa sobie kolejkę pytań z czterech miejsc:
 Bez żadnego pytania z zewnątrz SI zrobiła 42 rundy i zadała sobie 394 pytania. 190 odpowiedzi potwierdziła co najmniej dwoma źródłami. Zaczęła od Kopernika, Skłodowskiej-Curie, Chopina i Uniwersytetu Jagiellońskiego, a po powiązaniach doszła m.in. do rodziny Chopina, nauczycieli muzyki w Lipsku i Londynie oraz francuskich instytucji naukowych. Na mapie wiedzy ma 338 faktów o 277 hasłach.
 Spór liczony z dokładnością (sam rok i pełna data z tym samym rokiem to zgoda): 62 prawdziwe spory. W 18 z nich większość źródeł się zgadza, a inna jest tylko wartość, którą SI odczytała z artykułu Wikipedii. Te artykuły trafiają do nauki czytania (np. śmierć Kopernika odczytana z polskiego artykułu jako 1523 zamiast 1543).
 Gdy kolejka się wyczerpie, SI zaczyna od hasła z mapy, którego powiązań jeszcze nie zna.
+
+## Baza wiedzy
+Mapa wiedzy, hasła, kolejka pytań i postęp są w małej bazie SQLite (`knowledge.sqlite`). Zapis jest zwarty: około 340 bajtów na fakt razem z hasłem i jego powiązaniami. Każdy nowy fakt to jeden zapis w bazie. Z bazy korzystają jednocześnie czat i nauka w tle. Dziennik ciekawości po przekroczeniu 2 MB jest pakowany do archiwum.
