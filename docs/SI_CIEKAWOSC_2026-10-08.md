@@ -56,3 +56,9 @@ Mapa wiedzy, hasła, kolejka pytań i postęp są w małej bazie SQLite (`knowle
 - **Fakty, które się zmieniają:** urzędy SI sprawdza ponownie po 30 dniach, liczbę mieszkańców po 180 dniach. Inna wartość to zmiana świata: poprzednia trafia do historii hasła, a raport „czego się dowiedziałaś?” pokazuje „było …, teraz …”.
 - **Świeże punkty startu:** raz dziennie SI bierze nowe hasła z bieżących wydarzeń, list niedawnych zgonów i tegorocznych premier (Wikipedia angielska i polska). Najpierw pyta o to, co się zmienia. Potem pyta o osoby, które pełnią urzędy.
 - Pytania o rzeczy zmienne mają w wyborze pierwszeństwo przed kolejnymi datami historycznymi.
+
+## Wydarzenia i znudzenie (9 października, 00:55)
+- **Wydarzenia:** „Kiedy odbyły się Igrzyska Olimpijskie 2024?”, „Gdzie odbyła się bitwa pod Grunwaldem?”, „When did the 2026 FIFA World Cup take place?”. Datę wydarzenia (albo jego początku) SI bierze z Wikidanych i czyta w artykule wzorcami, których sama się nauczyła; miejsce potwierdza nazwą w artykule o wydarzeniu. Od wydarzenia ciekawią ją: państwo (kto nim rządzi), miejsce, zwycięzca i uczestnicy.
+- **Świeże wydarzenia:** codziennie do 80 nowych haseł z bieżących wydarzeń, wydarzeń miesiąca i roku (także w Polsce), niedawnych zgonów i premier. Co najmniej 60% pytań w rundzie dotyczy wydarzeń, rzeczy zmiennych i świeżych haseł.
+- **Znudzenie:** gdy SI opanuje rodzaj faktów (12 ostatnich prób średnio co najmniej 0,8), ten rodzaj przestaje ją ciekawić i przechodzi do innego tematu; rodzaje, których jeszcze nie próbowała, dostają premię za nowość.
+- Gdy daty wydarzenia nie umie jeszcze wyczytać z artykułu, odsyła ten artykuł do nauki czytania.
