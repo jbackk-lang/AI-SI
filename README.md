@@ -10,7 +10,7 @@ Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, moste
 
 ## Najnowsza aktualizacja — 8 października 2026
 
-- **Fakty w swobodnej rozmowie:** SI sama sprawdza fakty w kilku źródłach: Wikipedii polskiej i angielskiej (czytanej tym, czego nauczyła się w pętli), Wikidanych i Bibliotece Narodowej. Każde źródło jest pokazane z ✓ albo ✗ i adresem. Potwierdza tylko wtedy, gdy zgadzają się co najmniej dwa źródła i żadne nie przeczy. Zamrożony test: 66 ze 126 pytań potwierdzonych, po polsku i po angielsku.
+- **Fakty w swobodnej rozmowie:** SI sama sprawdza fakty w kilku źródłach: Wikipedii polskiej i angielskiej (czytanej tym, czego nauczyła się w pętli), Wikidanych i Bibliotece Narodowej. Każde źródło jest pokazane z ✓ albo ✗ i adresem. Potwierdza tylko wtedy, gdy zgadzają się co najmniej dwa źródła i żadne nie przeczy. Zamrożony test: 68 ze 126 pytań po angielsku i 70 ze 126 po polsku potwierdzonych.
 - **Słownik:** „co to jest rakieta?”, „co znaczy …?” → dosłowne znaczenia ze Słownika PWN i Wikisłownika oraz początek hasła z Wikipedii, z adresami.
 - **Ciekawość:** gdy SI nie zna odpowiedzi na pytanie o wiedzę, sama szuka w Wikipedii i słowniku („Sama tego nie wiem, ale sprawdziłam…”) i zapisuje brak w dzienniku. Pętla nauki czyta najpierw hasła, o które pytał użytkownik.
 - **Jeden koordynator nauki:** nauka z Wikipedii i samopoprawa modułów w jednej pętli; SI wybiera moduł według świeżych braków z rozmów.
@@ -57,13 +57,13 @@ SI to mały, lokalny system: kilka własnych sieci po kilkaset tysięcy parametr
 | **Pytania do dokumentów** | TXT, MD, DOCX, PDF, plik lub folder: odpowiedź wycięta z dokumentu z cytatem (plik, akapit, zdanie); czego nie ma w dokumencie — mówi, że nie ma; kilka pasujących miejsc — pokazuje wszystkie | 15/16, brak informacji poprawnie rozpoznany |
 | **Daty i terminy** | Różnica dni, data po N dniach/miesiącach/latach, dzień tygodnia, koniec miesiąca wg k.c., termin w weekend; nieistniejąca data odrzucona | 9/11, pozostałe 2 poprawnie niepotwierdzone |
 | **Nauka z Wikipedii** | Sama wybiera, czego się uczy; uczy się czytać artykuły po angielsku i po polsku (mosty słów, wzorce zapisu dat); sędzią jest Wikidata; automat rośnięcia, przycisk „Zatrzymaj naukę” | Zamrożone hasła: en 0 → 77/215, pl 0 → 87/287, 0 błędów czytania |
-| **Pytania o fakty** | Daty urodzenia, śmierci, wydania, założenia, ludność, powierzchnia, wysokość — z Wikipedii (pl, en), Wikidanych i Biblioteki Narodowej, z cytatem i adresem każdego źródła; przy różnicy pokazuje wszystkie wartości | 66/126 potwierdzonych co najmniej dwoma źródłami (pl i en) |
+| **Pytania o fakty** | Daty urodzenia, śmierci, wydania i założenia oraz kto teraz pełni urząd (głowa państwa, premier, władze miasta) — z Wikipedii (pl, en), Wikidanych i Biblioteki Narodowej, z cytatem i adresem każdego źródła; przy różnicy pokazuje wszystkie wartości | Zamrożony test: 68/126 po angielsku, 70/126 po polsku, potwierdzone co najmniej dwoma źródłami |
 | **Słownik i definicje** | „co to jest X?”, „co znaczy X?” — Słownik PWN, Wikisłownik, początek hasła z Wikipedii | — |
 | **Ciekawość** | Gdy nie wie, sama szuka w źródłach i zapisuje brak dla pętli nauki | — |
 | **Dziś i święta** | Dzisiejsza data, polskie dni wolne od pracy, Wielkanoc dwiema niezależnymi metodami | 0 rozbieżności metod w latach 1583–4099 |
 | **Literówki** | Poprawia literówki i brakujące polskie znaki, gdy nie zrozumie wiadomości; pokazuje „Zrozumiałam: …” | 1311 tekstów z zamrożonych testów: 0 zmienionych odpowiedzi |
 | **Samoobsługa modułów** | „co potrafisz?”, „jak działa moduł …?”, „sprawdź się” (autotest ✓/✗), podpowiedź formatu | 1311 tekstów: 0 przechwyconych |
-| **Własne pytania** | Mapa wiedzy z dziurami i powiązaniami; pytania z dziur, powiązań i sporów źródeł; wyjaśnianie sporów; nagroda za postęp; nauka w czasie bezczynności | 1311 tekstów: 0 przechwyconych; test faktów bez zmian |
+| **Własne pytania** | Mapa wiedzy z dziurami i powiązaniami; pytania z dziur, powiązań, sporów źródeł i świeżych wydarzeń; fakty, które się zmieniają (urzędy, liczba mieszkańców), sprawdza ponownie i zapisuje zmiany; wyjaśnianie sporów; nagroda za postęp; nauka w czasie bezczynności | 1311 tekstów: 0 przechwyconych; test faktów bez zmian |
 | **Odmiana słów** | Lokalna baza SJP.PL (4,69 mln par forma–lemma) jako pierwsze źródło odmian | — |
 | **Samouczenie** | Koordynator nauki: przykłady od nauczyciela → sito → automat rośnięcia pojemności → podmiana wag tylko po poprawie | Pierwsze rundy bez podmiany (zabezpieczenie zadziałało) |
 
