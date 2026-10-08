@@ -16,9 +16,10 @@ Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, moste
 - **Jeden koordynator nauki:** nauka z Wikipedii i samopoprawa modułów w jednej pętli; SI wybiera moduł według świeżych braków z rozmów.
 - **Dziś i święta:** „jaka dziś data?”, „święta w 2026”, „kiedy Wielkanoc w 2027?” — polskie dni wolne od pracy według ustawy; Wielkanoc liczona dwiema niezależnymi metodami (zgodne dla lat 1583–4099).
 - **Poprawianie literówek:** gdy SI nie zrozumie wiadomości, poprawia literówki słownikiem SJP.PL (brakujące polskie znaki, przestawione litery, jedna litera za dużo, za mało lub zamieniona) i pokazuje „Zrozumiałam: …”. Poprawka jest przyjmowana tylko wtedy, gdy na poprawione zdanie odpowiada konkretny moduł.
+- **Własne pytania i mapa wiedzy:** SI zapisuje, co sprawdziła, i widzi swoje dziury („znam urodzenie, nie znam śmierci”). Pyta sama o powiązane hasła (nauczyciel, rodzina, miejsce urodzenia, dzieła). Gdy źródła się różnią, szuka wyjaśnienia w artykułach (kalendarz juliański, data chrztu, data nieznana) i rozpoznaje własne błędy czytania. Wybiera to, w czym najszybciej robi postęp. Gdy komputer jest bezczynny, uczy się w tle. W rozmowie: „czego się dowiedziałaś?”, „sprawdź dlaczego”, „co wiesz o …?”.
 - **Samoobsługa modułów:** „co potrafisz?” → lista modułów z przykładami; „jak działa moduł dat?” → opis modułu z jego kodu; „sprawdź się” → SI uruchamia swoje zamrożone testy i sprawdza słownik, pakiety oraz dostęp do źródeł (✓/✗); przy pytaniu bez potrzebnej części (np. bez ścieżki pliku) podpowiada poprawny format.
 
-[Literówki, samoobsługa i Wikisłownik — 8 października](docs/SI_LITEROWKI_I_MODULY_2026-10-08.md).
+[Literówki, samoobsługa i Wikisłownik — 8 października](docs/SI_LITEROWKI_I_MODULY_2026-10-08.md) · [Ciekawość, mapa wiedzy, nauka w tle](docs/SI_CIEKAWOSC_2026-10-08.md).
 
 ## Aktualizacja — 7 października 2026
 
@@ -62,6 +63,7 @@ SI to mały, lokalny system: kilka własnych sieci po kilkaset tysięcy parametr
 | **Dziś i święta** | Dzisiejsza data, polskie dni wolne od pracy, Wielkanoc dwiema niezależnymi metodami | 0 rozbieżności metod w latach 1583–4099 |
 | **Literówki** | Poprawia literówki i brakujące polskie znaki, gdy nie zrozumie wiadomości; pokazuje „Zrozumiałam: …” | 1311 tekstów z zamrożonych testów: 0 zmienionych odpowiedzi |
 | **Samoobsługa modułów** | „co potrafisz?”, „jak działa moduł …?”, „sprawdź się” (autotest ✓/✗), podpowiedź formatu | 1311 tekstów: 0 przechwyconych |
+| **Własne pytania** | Mapa wiedzy z dziurami i powiązaniami; pytania z dziur, powiązań i sporów źródeł; wyjaśnianie sporów; nagroda za postęp; nauka w czasie bezczynności | 1311 tekstów: 0 przechwyconych; test faktów bez zmian |
 | **Odmiana słów** | Lokalna baza SJP.PL (4,69 mln par forma–lemma) jako pierwsze źródło odmian | — |
 | **Samouczenie** | Koordynator nauki: przykłady od nauczyciela → sito → automat rośnięcia pojemności → podmiana wag tylko po poprawie | Pierwsze rundy bez podmiany (zabezpieczenie zadziałało) |
 
