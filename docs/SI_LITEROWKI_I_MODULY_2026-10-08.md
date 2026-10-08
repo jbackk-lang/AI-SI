@@ -28,3 +28,7 @@ Zasady:
   - podpowiedź formatu pojawiła się w 2 pytaniach o umowę bez pliku.
 - Zamrożony test tabel, dokumentów i dat: 0 fałszywych potwierdzeń.
 - Pierwsza wersja poprawiała też tekst angielski („computer” → „komputer”) i przyjmowała ogólne odpowiedzi modelu językowego po poprawce (33 przypadki). Obie rzeczy zablokowano przed wdrożeniem.
+
+## Wikisłownik w definicjach (13:30)
+Na „co to jest X?” i pojedyncze słowo SI podaje teraz znaczenia z trzech źródeł: Słownika PWN, Wikisłownika i pierwszych zdań Wikipedii, każde jako dosłowny cytat z adresem. Przykład dla „rakieta”: pojazd latający lub pocisk z silnikiem rakietowym; pocisk wojskowy; pocisk świetlny do sygnalizacji; rakieta do gry w tenisa.
+Zamrożony test faktów (126 pytań, PL i EN): wynik identyczny przed zmianą i po niej.
