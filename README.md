@@ -4,13 +4,14 @@
 
 Eksperymentalny system inspirowany TIMDR jako punktem wyjścia do budowy sterownika współpracy.
 
-## Aktualny stan — 8 października 2026
+## Aktualny stan — 9 października 2026
 
 Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, mostem sesji, wyborem strategii i ograniczoną obsługą polskiego; wagi języka trenujemy po angielsku. Zadania słowne są sprawdzane na prawdziwych zadaniach z otwartych zbiorów, a polskie pytania obsługuje maper z katalogiem sprawdzonych zdań.
 
-## Najnowsza aktualizacja — 8 października 2026
+## Najnowsza aktualizacja — 9 października 2026
 
-- **Fakty w swobodnej rozmowie:** SI sama sprawdza fakty w kilku źródłach: Wikipedii polskiej i angielskiej (czytanej tym, czego nauczyła się w pętli), Wikidanych i Bibliotece Narodowej. Każde źródło jest pokazane z ✓ albo ✗ i adresem. Potwierdza tylko wtedy, gdy zgadzają się co najmniej dwa źródła i żadne nie przeczy. Zamrożony test: 68 ze 126 pytań po angielsku i 70 ze 126 po polsku potwierdzonych.
+- **Fakty w swobodnej rozmowie:** SI sama sprawdza fakty w kilku źródłach: Wikipedii polskiej i angielskiej (czytanej tym, czego nauczyła się w pętli), Wikidanych i Bibliotece Narodowej. Każde źródło jest pokazane z ✓ albo ✗ i adresem. Potwierdza tylko wtedy, gdy zgadzają się co najmniej dwa źródła i żadne nie przeczy. Zamrożony test: 76 ze 126 pytań po angielsku i 78 ze 126 po polsku potwierdzonych.
+- **Sieć czytająca (bez Qwena):** mała sieć neuronowa wskazuje w artykule datę albo liczbę odpowiadającą na pytanie o fakt. Uczy się na przykładach ocenionych przez Wikidane jako sędziego; automat rośnięcia zaczyna od 8 neuronów ukrytych i rośnie tylko, gdy rośnie trafność na walidacji (zatrzymał się na 8). Działa tylko tam, gdzie wyuczone wzorce nie znalazły odpowiedzi, i tylko powyżej progu pewności wybranego na walidacji. Zamrożone hasła angielskie 83 → 91 z 215, 0 błędów czytania; model 1,5 MB.
 - **Słownik:** „co to jest rakieta?”, „co znaczy …?” → dosłowne znaczenia ze Słownika PWN i Wikisłownika oraz początek hasła z Wikipedii, z adresami.
 - **Ciekawość:** gdy SI nie zna odpowiedzi na pytanie o wiedzę, sama szuka w Wikipedii i słowniku („Sama tego nie wiem, ale sprawdziłam…”) i zapisuje brak w dzienniku. Pętla nauki czyta najpierw hasła, o które pytał użytkownik.
 - **Jeden koordynator nauki:** nauka z Wikipedii i samopoprawa modułów w jednej pętli; SI wybiera moduł według świeżych braków z rozmów.
@@ -20,7 +21,7 @@ Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, moste
 - **Wiedza o świecie w rozmowie:** „co nowego na świecie?”, „jakie wybory są w tym miesiącu?”, „jakie trwają wojny?”, „co słychać we Francji?”, „ile dni do wyborów w Hiszpanii?” — z mapy wiedzy, którą SI zebrała sama, od razu i bez internetu; fakt potwierdzony na mapie podaje z datą sprawdzenia i źródłami.
 - **Samoobsługa modułów:** „co potrafisz?” → lista modułów z przykładami; „jak działa moduł dat?” → opis modułu z jego kodu; „sprawdź się” → SI uruchamia swoje zamrożone testy i sprawdza słownik, pakiety oraz dostęp do źródeł (✓/✗); przy pytaniu bez potrzebnej części (np. bez ścieżki pliku) podpowiada poprawny format.
 
-[Literówki, samoobsługa i Wikisłownik — 8 października](docs/SI_LITEROWKI_I_MODULY_2026-10-08.md) · [Ciekawość, mapa wiedzy, nauka w tle](docs/SI_CIEKAWOSC_2026-10-08.md).
+[Literówki, samoobsługa i Wikisłownik — 8 października](docs/SI_LITEROWKI_I_MODULY_2026-10-08.md) · [Ciekawość, mapa wiedzy, nauka w tle](docs/SI_CIEKAWOSC_2026-10-08.md) · [Sieć czytająca — 9 października](docs/SI_SIEC_CZYTAJACA_2026-10-09.md).
 
 ## Aktualizacja — 7 października 2026
 
