@@ -62,3 +62,13 @@ Mapa wiedzy, hasła, kolejka pytań i postęp są w małej bazie SQLite (`knowle
 - **Świeże wydarzenia:** codziennie do 80 nowych haseł z bieżących wydarzeń, wydarzeń miesiąca i roku (także w Polsce), niedawnych zgonów i premier. Co najmniej 60% pytań w rundzie dotyczy wydarzeń, rzeczy zmiennych i świeżych haseł.
 - **Znudzenie:** gdy SI opanuje rodzaj faktów (12 ostatnich prób średnio co najmniej 0,8), ten rodzaj przestaje ją ciekawić i przechodzi do innego tematu; rodzaje, których jeszcze nie próbowała, dostają premię za nowość.
 - Gdy daty wydarzenia nie umie jeszcze wyczytać z artykułu, odsyła ten artykuł do nauki czytania.
+
+## Wiedza z mapy w rozmowie (9 października, 06:20)
+- **Odpowiedź z mapy:** gdy fakt jest już na mapie potwierdzony dwoma źródłami, SI odpowiada od razu, bez internetu: „Niemcy — głowa państwa: Frank-Walter Steinmeier. Wiem to z mojej mapy wiedzy: sprawdziłam 2026-10-09, zgodne źródła: Wikidata, Wikipedia en”. Fakty zmienne (urzędy, liczba mieszkańców) bierze z mapy tylko wtedy, gdy są świeże; starsze sprawdza na nowo.
+- **Pytania o świat:**
+  - „co nowego na świecie?” — wydarzenia z ostatnich 30 dni i zapowiedziane na najbliższe 90;
+  - „jakie wybory są w tym miesiącu?”, „jakie wybory będą w listopadzie?”, „jakie trwają wojny?”, „jakie zawody sportowe są w tym roku?”;
+  - „co słychać we Francji?” — wydarzenia kraju (po powiązaniu „państwo” z Wikidanych);
+  - „co się wydarzy w listopadzie?”.
+- **Z kalendarzem:** „kiedy są wybory w Hiszpanii?” → 29 listopada 2026; „ile dni do wyborów w Hiszpanii?” → za 51 dni.
+- Każda pozycja ma znak ✓ (potwierdzone) albo ? (do potwierdzenia).
