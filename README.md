@@ -1,5 +1,11 @@
 # AI-SI
 
+## Aktualizacja — 9 października 2026: wydzielone SI
+
+Podłączono uczoną semantykę SI, pamięć źródłową w rozmowie oraz pętlę treningu internetowego z podglądem; wyniki, wymagane zależności i ograniczenia opisuje [szczegółowa historia](README_DETAILS.md#aktualizacja--9-października-2026-semantyka-pamięć-i-sesje-internetowe).
+
+
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23222487.svg)](https://doi.org/10.5281/zenodo.23222487)
 
 Eksperymentalny system inspirowany TIMDR jako punktem wyjścia do budowy sterownika współpracy.

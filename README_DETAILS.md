@@ -1,5 +1,23 @@
 # AI-SI — szczegóły, wyniki i historia
 
+## Aktualizacja — 9 października 2026: semantyka, pamięć i sesje internetowe
+
+- Podłączono głowę semantyczną SI: **98 691 uczonych parametrów**, około **397 KB wag**. Otrzymuje reprezentacje obu zdań, ich różnicę i iloczyn, oceny NLI oraz cechy czasu. Zewnętrzny NLI jest zamrożony i pozostaje wymaganą zależnością; rozmiar głowy nie oznacza rozmiaru całego systemu.
+- Nowy zestaw 18 przypadków: **16/18 według pierwotnego protokołu**, bez zmian wag podczas oceny. Jedna rozbieżność dotyczy znaczenia „niektóre”: użytkownik przyjął „część, ale nie wszystkie”. Nie przepisano pierwotnego wyniku jako nowego niezależnego testu.
+- Uruchomiono trening na angielskich streszczeniach RSS: nauka, technologia i wiadomości światowe. Etykiety nadaje NLI przy pewności co najmniej 0,95; to pseudoetykiety, nie niezależne potwierdzenie faktów. Zapisano rundę 13 przykładów, z podmianą wag i stratą walidacji 0,00132 → 0,000854. Walidacja 6/6 jest wielokrotnie używanym zbiorem deweloperskim, więc nie dowodzi poprawy generalizacji.
+- Dwa ograniczone przebiegi źródło → pamięć → decyzja: dokumentacja Pythona o `Fraction.from_number` i `math.comb`. SI oceniło fragment, a przygotowana procedura zapisała fakt oraz zastosowała go w decyzji. Nowość dotyczyła pamięci tego mechanizmu, nie całej wiedzy sieci. Zapis zawiera adres, czas pobrania, fragment i SHA-256. Nie był to trening faktów w wagach ani dowód pełnej autonomii.
+- Pamięć źródłowa i semantyka są dostępne w rozmowie przez `Sprawdź w pamięci: <twierdzenie po angielsku>`. Brak źródła daje informację o braku danych. Nierozpoznane pytania trafiają do dziennika; samo zapisanie błędu nie jest uczeniem na nim.
+- Wydzielono zestaw SI z potrzebnymi zależnościami, około **883 MB przy utworzeniu**, bez wag Qwena, Bielika, modeli audio i obrazowych. Uruchomienie i testy własnego SI nano, obliczeń, słownika, SQL i semantyki sprawdzono. Środowisko Python jest osobną zależnością, więc zestaw nie jest jeszcze samodzielnym instalatorem.
+- W wydzielonym zestawie są trzy SQLite: wiedza **2315 faktów / 2209 haseł**, przykłady czytania **17 dokumentów / 22 przykłady** oraz słownik polski; łącznie około **155,6 MB** w momencie pomiaru. Nowe przykłady RSS są zapisywane osobno, nie automatycznie w tej bazie wiedzy.
+- Sesje działają kolejno na jednym wątku z niskim priorytetem i blokadą równoległego treningu. Dostępna ciągła pętla, podgląd i przycisk zatrzymania; przerwa między sesjami wynosi dwie minuty. Brak nowego materiału lub trzy błędy zatrzymują serię. Pomijane są wykorzystane pary tekstów.
+
+### Co pozostaje do zrobienia
+
+Pełne spięcie wszystkich umiejętności w zwykłej rozmowie, trening z potwierdzonych korekt użytkownika i nowe niezależne testy po kolejnych podmianach wag. Zgłoszona odpowiedź słowna na samo `2+2` nie została naprawiona. Pobieranie źródeł, pamięć źródłowa, trening wag i potwierdzona umiejętność zastosowania wiedzy są odrębnymi etapami.
+
+Publiczna aktualizacja zawiera wyłącznie dokumentację; prywatny kod SI, wagi, pamięć i ścieżki nie są publikowane.
+
+
 [Powrót do głównego README](README.md).
 
 ## Aktualizacja — 6 października 2026 (cały dzień)
