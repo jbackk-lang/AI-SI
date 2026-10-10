@@ -1,5 +1,42 @@
 # AI-SI — szczegóły, wyniki i historia
 
+## Aktualizacja — 10 października 2026: kontrola wag i wykonywanie zadań
+
+### Własne wagi i nauka
+
+Sterownik ma dostęp do wszystkich wag i biasów ośmiu podłączonych własnych modułów: bramki decyzji, semantyki, tematu językowego, wyboru przykładów programowania, czasu, celu wypowiedzi, odniesienia do kontekstu i dekodera języka. Dla modułu wykonuje trzy próby. Przyjęcie kandydata wymaga poprawy mierzonej w protokole, zachowania wcześniejszych poprawnych decyzji i kontroli nowych pewnych błędów. Zachowywane są kopie wag i raporty. Etykiety oraz politykę optymalizacji ustala program/nauczyciel; SI nie ma tu samodzielnie wyuczonego optymalizatora. Historyczne parsery zadań słownych pozostają poza tą kontrolą. Zewnętrzny NLI i polski translator są zamrożone.
+
+Trening językowych głowic odbywa się po angielsku. Skorygowano temat, cel (opis / po co / jak sprawdzić) i odniesienie do kontekstu; w zwykłej pętli dodano równoważenie klas i wcześniejsze pytania jako ochronę regresji. Próg pewności pozostał 0,8. Dekoder zachował 21/21 znanych wzorców podczas treningu odtwarzania; to nie test generalizacji.
+
+### Wyniki i ich zakres
+
+| Sprawdzian | Wynik | Interpretacja |
+|---|---|---|
+| Wcześniejsze pełne odpowiedzi o modułach | 72/72 | Regresja na znanych pytaniach, wykorzystywanych jako dane rozwojowe |
+| Nowe pytania o moduły | 6/6 | Przygotowane przed końcową korektą, niedodane do treningu; ograniczona dziedzina opisów SI |
+| Pełny przebieg wykonywania poleceń | 16/16 | Kolejność, pamięć rozmowy, brak argumentów, zakazy, sprzeczne wartości |
+| Dodatkowe obliczenia wieloetapowe | 28/28 | Wyniki oczekiwane wyliczone niezależnie od wykonawcy |
+| Wcześniejsze odpowiedzi po integracji wykonawcy | 72/72 | Zachowanie umiejętności po zmianie połączeń |
+
+Wyniki dotyczą przygotowanych testów, nie dowodzą ogólnego rozumienia języka ani wykonywania dowolnego zadania.
+
+### Połączone wykonywanie w rozmowie
+
+Rozmowa SI nano wykorzystuje ograniczony wykonawca angielskich poleceń bez Qwena. Najpierw analizuje kroki, użycie argumentów i zakazy, następnie korzysta z dokładnego kalkulatora oraz walidacji. Brak danych albo sprzeczne wartości pozostawiają stan niepewny; zakaz daje odrzucenie. Są trzy stany: potwierdzone, odrzucone, niepewne. Nie oznacza to trójbitowego zapisu wszystkich wag.
+
+Przykłady obsługiwanej składni:
+
+- `First calculate 9-2, then multiply result by 4, then validate.` → `28`. Potwierdzono również przez działające API rozmowy, bez Qwena.
+- Wcześniejsza wiadomość użytkownika `Source: rate = 7.` i pytanie `Calculate rate*3 using memory, then validate.` → `21`.
+
+Pamięć tego wykonawcy to przekazana historia użytkownika. Wypowiedzi asystenta nie są źródłem wartości. Nie jest to nowy trwały zapis do SQL ani zewnętrzne potwierdzenie prawdziwości danych użytkownika. Wykonawca opiera się na jawnych regułach, nie na nowo wytrenowanym ogólnym planowaniu. Pozostałe sformułowania mogą wymagać doprecyzowania.
+
+### Co pozostaje
+
+Szerszy niezależny test wykonywania zadań, większa różnorodność sformułowań, objęcie historycznych parserów odpowiednim sterownikiem treningu i dalsze spięcie trwałej pamięci ze zwykłą rozmową. Polski pozostaje warstwą tłumaczenia; powyższy test wykonawcy dotyczy angielskiego. Brak nowych materiałów internetowych może zatrzymać kolejkę nauki i nie oznacza zakończenia rozwoju. W tej aktualizacji nie mierzono ponownie rozmiaru całego pakietu.
+
+Publikowana jest wyłącznie dokumentacja. Prywatny kod, wagi, pamięć, logi rozmów i prywatne ścieżki nie są dołączane.
+
 ## Aktualizacja — 9 października 2026: semantyka, pamięć i sesje internetowe
 
 - Podłączono głowę semantyczną SI: **98 691 uczonych parametrów**, około **397 KB wag**. Otrzymuje reprezentacje obu zdań, ich różnicę i iloczyn, oceny NLI oraz cechy czasu. Zewnętrzny NLI jest zamrożony i pozostaje wymaganą zależnością; rozmiar głowy nie oznacza rozmiaru całego systemu.

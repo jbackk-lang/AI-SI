@@ -1,5 +1,15 @@
 # AI-SI
 
+## Aktualizacja — 10 października 2026: kontrola wag i wykonywanie zadań
+
+Poprawiono rozpoznawanie pytań o moduły SI i połączono pamięć rozmowy, obliczenia oraz walidację w ograniczonych poleceniach angielskich, bez Qwena.
+
+- **Pełne odpowiedzi:** 72/72 wcześniejszych pytań w regresji i 6/6 nowych pytań o opis, cel i sprawdzanie modułów.
+- **Wykonywanie zadań:** 16/16 przebiegów obejmujących kolejność, wartości z historii użytkownika, zakazy, brak danych i sprzeczności; dodatkowo 28/28 niezależnie obliczonych przykładów.
+- **Kontrola własnych wag:** osiem podłączonych modułów; trzy próby, kopie poprzednich wag i ochrona przed regresją. NLI i translator pozostają zamrożone.
+
+Wykonawca korzysta z jawnej, ograniczonej gramatyki i dokładnych narzędzi; nie jest wyuczonym ogólnym planerem. Wyników różnych testów nie sumujemy w benchmark ogólnego rozumienia języka. [Metoda, zakres i dalsze braki](README_DETAILS.md#aktualizacja--10-października-2026-kontrola-wag-i-wykonywanie-zadań).
+
 ## Aktualizacja — 9 października 2026: wydzielone SI
 
 Podłączono uczoną semantykę SI, pamięć źródłową w rozmowie oraz pętlę treningu internetowego z podglądem; wyniki, wymagane zależności i ograniczenia opisuje [szczegółowa historia](README_DETAILS.md#aktualizacja--9-października-2026-semantyka-pamięć-i-sesje-internetowe).
@@ -10,11 +20,11 @@ Podłączono uczoną semantykę SI, pamięć źródłową w rozmowie oraz pętl�
 
 Eksperymentalny system inspirowany TIMDR jako punktem wyjścia do budowy sterownika współpracy.
 
-## Aktualny stan — 9 października 2026
+## Stan wcześniejszej konfiguracji — 9 października 2026
 
 Własny mały model językowy SI działa bez Qwena, z kontrolą źródeł, mostem sesji, wyborem strategii i ograniczoną obsługą polskiego; wagi języka trenujemy po angielsku. Zadania słowne są sprawdzane na prawdziwych zadaniach z otwartych zbiorów, a polskie pytania obsługuje maper z katalogiem sprawdzonych zdań.
 
-## Najnowsza aktualizacja — 9 października 2026
+## Aktualizacja — 9 października 2026
 
 - **Fakty w swobodnej rozmowie:** SI sama sprawdza fakty w kilku źródłach: Wikipedii polskiej i angielskiej (czytanej tym, czego nauczyła się w pętli), Wikidanych i Bibliotece Narodowej. Każde źródło jest pokazane z ✓ albo ✗ i adresem. Potwierdza tylko wtedy, gdy zgadzają się co najmniej dwa źródła i żadne nie przeczy. Zamrożony test: 76 ze 126 pytań po angielsku i 78 ze 126 po polsku potwierdzonych.
 - **Sieć czytająca (bez Qwena):** mała sieć neuronowa wskazuje w artykule datę albo liczbę odpowiadającą na pytanie o fakt. Uczy się na przykładach ocenionych przez Wikidane jako sędziego; automat rośnięcia zaczyna od 8 neuronów ukrytych i rośnie tylko, gdy rośnie trafność na walidacji (zatrzymał się na 8). Działa tylko tam, gdzie wyuczone wzorce nie znalazły odpowiedzi, i tylko powyżej progu pewności wybranego na walidacji. Zamrożone hasła angielskie 83 → 91 z 215, 0 błędów czytania; model 1,5 MB.
