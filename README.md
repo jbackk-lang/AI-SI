@@ -68,6 +68,25 @@ Powtórki towarzyszą nowym przykładom. Test zastosowania i kontrola wcześniej
 
 W potęgach poprawa obejmowała tylko jedno zadanie i wystąpił spadek łącznego wyniku kontroli wcześniejszych umiejętności. Żadna runda nie spełniła warunków utrwalenia; nagroda wyniosła zero. Pętla działa, lecz ta próba nie wykazała skutecznej trwałej nauki z internetu.
 
+## Możliwe zastosowania i nisza systemu
+
+**Proponowana nisza to lokalny asystent do wąskiego zakresu zadań, w którym odpowiedź można sprawdzić, a brak danych jawnie oznaczyć.** Połączenie małego uczonego rdzenia, pamięci źródłowej i dokładnych narzędzi pozwala badać rozumienie poleceń bez powierzania wszystkich obliczeń samym wagom. To propozycja kierunku rozwoju; nie przeprowadzono badania rynku ani wdrożenia potwierdzającego popyt.
+
+| Zastosowanie | Co SI mogłaby wnosić | Stan i warunek użycia |
+|---|---|---|
+| Lokalny pomocnik matematyczny i edukacyjny | Polskie polecenia, obliczenia, macierze, logika i wykresy; porównanie odpowiedzi rdzenia z wynikiem narzędzia | Funkcje narzędziowe istnieją; szersze zadania i wyjaśnienia wymagają sprawdzania |
+| Interfejs do jednego programu lub urządzenia | Zamiana krótkiego polecenia na ograniczony zestaw dozwolonych operacji | Kierunek rozwoju; potrzebne testy rozpoznawania, uprawnień i skutków wykonania |
+| Pomocnik do lokalnych instrukcji i dokumentacji | Wyszukanie informacji, wskazanie źródła i wykrycie sprzecznych opisów | Istnieją elementy pamięci źródłowej; potrzebna walidacja na dokumentach konkretnego użytkownika |
+| Kontrola kompletności danych i reguł | Rozróżnienie „spełnione”, „niespełnione” i „brak wiedzy”, np. gdy formularz nie zawiera wymaganej wartości | Logika trójstanowa jest dostępna; reguły domenowe i integracja wymagają przygotowania |
+| Laboratorium uczenia małych sieci | Pomiar transferu, regresji, wpływu pojemności i skuteczności powtórek; porównywanie kolejnych wag | Obecnie najlepiej udokumentowane zastosowanie własnego rdzenia |
+
+Luka, którą warto sprawdzić w praktyce, występuje tam, gdzie użytkownik ma **powtarzalne, krótkie zadania, własne dane lokalne i jednoznaczny sposób kontroli wyniku**. Przykładem byłby pomocnik do instrukcji warsztatowej: rozpoznaje pytanie, odczytuje właściwy fragment, wykonuje obliczenie narzędziem i sygnalizuje brak potrzebnego parametru. Taki pilotaż wymaga dopiero zbudowania i oceny na nowych pytaniach.
+
+Niewielki rdzeń ułatwia eksperymenty nad uczeniem i kontrolę zmian. Sama liczba parametrów nie dowodzi jednak szybkości, niskiego zużycia energii ani przydatności na konkretnym urządzeniu — to trzeba zmierzyć. Tryb bez internetu może korzystać z lokalnych wag i danych; pętla pobierająca nowe źródła wymaga połączenia.
+
+**Najbliższy krok do zastosowania:** wybrać jedną domenę, zebrać rzeczywiste polecenia i oczekiwane wyniki, oddzielić zestaw testowy od treningu, a następnie mierzyć poprawność, wykrywanie braków, czas odpowiedzi i regresję. Obecny wynik rdzenia nie uzasadnia jeszcze samodzielnego podejmowania decyzji o istotnych skutkach. Najpierw potrzebny jest pilotaż z weryfikacją odpowiedzi.
+
+
 ## Uruchamianie lokalne
 
 W przygotowanej instalacji uruchom `SI_RDZEN_I_INTERNET.bat`. Interfejs działa pod `http://127.0.0.1:8791/`. Można wybrać uczony rdzeń albo tryb narzędziowy. Panel „Nauka rdzenia z internetu” pozwala uruchomić dwie rundy i obejrzeć ich wybory oraz wyniki.
