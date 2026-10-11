@@ -1,3 +1,89 @@
+# AI-SI — stan na 11 października 2026
+
+Lokalny, eksperymentalny system SI rozwijany w dwóch trybach: własny uczony rdzeń oraz SI korzystająca z narzędzi. **Kod bieżącej wersji, wagi, bazy i logi pozostają lokalnie. Ta aktualizacja publikuje wyłącznie dokumentację.**
+
+## Własny rdzeń
+
+Aktywny rdzeń ma **1 888 140 parametrów, 9 warstw, wektory o wymiarze 128, słownik BPE 768 tokenów i kontekst 128 tokenów**. Poprzednia wersja miała 903 820 parametrów i 4 warstwy. Rozbudowa zachowała początkowe odpowiedzi, a potem rdzeń przeszedł dodatkowe uczenie.
+
+W tym trybie odpowiedź powstaje z własnych wag, bez kalkulatora, słownika, translatora ani zewnętrznego modelu podczas odpowiadania. Rdzeń ćwiczy krótkie zadania językowe, działania oraz logikę trójstanową: **prawda, fałsz, nieznane**. Jego odpowiedzi są oznaczane jako wymagające sprawdzenia; pewność modelu nie stanowi potwierdzenia poprawności.
+
+
+| Parametr sieci | Aktywna konfiguracja |
+|---|---:|
+| Architektura | autoregresyjny Transformer |
+| Liczba uczonych parametrów | 1 888 140 |
+| Warstwy Transformer | 9 |
+| Głowice uwagi w warstwie | 4 |
+| Wymiar wektora / embeddingu | 128 |
+| Wymiar jednej głowicy uwagi | 32 |
+| Słownik BPE | 768 tokenów |
+| Maksymalny kontekst | 128 tokenów |
+| Dropout podczas treningu | 0,05 |
+| Bias w konfiguracji Transformera | wyłączony |
+| Głowica stanu logicznego | 3 wyjścia |
+| Pomocnicze głowice treningowe | argument: 6 wyjść; operacja: 3 wyjścia |
+
+Liczba parametrów dotyczy rdzenia wraz z jego głowicami; nie obejmuje baz, pamięci, narzędzi ani innych modeli. Głowice pomocnicze nie zastępują samodzielnej generacji odpowiedzi.
+## Wyniki i ograniczenia
+
+| Próba | Mniejszy rdzeń | Aktywny większy rdzeń |
+|---|---:|---:|
+| Te same 120 nowych zadań — poprawne odpowiedzi | 75/120 (62,5%) | 82/120 (68,3%) |
+| Zachowanie wcześniejszych umiejętności — 120 zadań | 85,8% | 87,5% |
+| Dawny problem z trzema zmiennymi — te same 33 zadania | 20/33 (60,6%) | 20/33 (60,6%) |
+
+Większa wersja poprawiła wynik części prób, ale nie usunęła wszystkich trudności. Wzrostu nie można przypisać wyłącznie pojemności: większy rdzeń otrzymał także dodatkowy trening. Wyniki dotyczą tych konkretnych zestawów, nie ogólnej inteligencji ani pełnego rozumienia języka.
+
+Próg 95% nie blokuje każdego kolejnego etapu ćwiczeń. Przejście dalej może opierać się na powtarzalnej poprawie i zachowaniu wcześniejszych umiejętności. Aktywna wersja pozostaje eksperymentalna. Sam upływ czasu nie utrwala wag; utrwalanie wymaga powtórek i aktualizacji treningowych. Nie potwierdzono, że proponowany rezonans mierzy pojemność lub przyspiesza naukę.
+
+## SI z narzędziami
+
+Osobny tryb zachowuje lokalne moduły:
+
+- interpretację polskich poleceń, liczb i operatorów oraz obsługę części literówek;
+- kalkulator naukowy, funkcje, równania, pochodne i całki, działania na macierzach oraz opcjonalne wykresy;
+- logikę trójstanową, sprawdzanie nawiasów i walidację wyrażeń;
+- uczony moduł argumentów, pamięć i odpowiedzi na podstawie wskazanych źródeł;
+- katalog znaczeń Słowosieci, relacje między znaczeniami i kontekstowe rozstrzyganie części wieloznaczności.
+
+Dokładne obliczenia wykonane przez narzędzie są wynikiem narzędzia. Nie oznaczają, że sam rdzeń nauczył się rozwiązywać wszystkie takie zadania.
+
+## Pętla nauki z internetu
+
+Uruchomiono ograniczoną pętlę: **wykrycie braku → pytanie → wybór źródła → przygotowanie ćwiczeń → trening z powtórkami → niezależny test zastosowania → zachowanie albo wycofanie wag**.
+
+Obecny katalog obejmuje dodawanie, odejmowanie, mnożenie, potęgi, wartość bezwzględną i wybrany zakres logiki. Błędy rdzenia decydują o wyborze tematu. Pytania korzystają z przygotowanych form, a rdzeń ocenia kandydatów na źródło. Ta ocena nie jest zweryfikowanym miernikiem wiarygodności. To ograniczony mechanizm wyboru, a nie swobodny planer internetowy.
+
+Źródłami tej próby była oficjalna dokumentacja Pythona. Strony jednego wydawcy nie są dwoma niezależnymi potwierdzeniami. System zapisuje pochodzenie i czas odczytu. Przykłady z poprawnymi odpowiedziami przygotowuje lokalny sprawdzalny mechanizm; pobrany tekst nie staje się automatycznie prawdą ani materiałem do aktualizacji wag.
+
+Powtórki towarzyszą nowym przykładom. Test zastosowania i kontrola wcześniejszych umiejętności są oddzielone od powtórek. Nagroda przysługuje za poprawę zastosowania wiedzy przy zachowaniu wcześniejszych umiejętności, nie za pobranie strony. Nieudana próba przywraca poprzednie wagi.
+
+**Pierwsze dwie rundy zakończono:**
+
+| Wybrany temat | Poprawność przed próbą | Po próbie | Decyzja |
+|---|---:|---:|---|
+| Dodawanie — 24 nowe zadania | 58,3% | 50,0% | Wycofano nowe wagi |
+| Potęgi — 22 nowe zadania | 50,0% | 54,5% | Wycofano nowe wagi |
+
+W potęgach poprawa obejmowała tylko jedno zadanie i wystąpił spadek łącznego wyniku kontroli wcześniejszych umiejętności. Żadna runda nie spełniła warunków utrwalenia; nagroda wyniosła zero. Pętla działa, lecz ta próba nie wykazała skutecznej trwałej nauki z internetu.
+
+## Uruchamianie lokalne
+
+W przygotowanej instalacji uruchom `SI_RDZEN_I_INTERNET.bat`. Interfejs działa pod `http://127.0.0.1:8791/`. Można wybrać uczony rdzeń albo tryb narzędziowy. Panel „Nauka rdzenia z internetu” pozwala uruchomić dwie rundy i obejrzeć ich wybory oraz wyniki.
+
+Instalacja wymaga lokalnego środowiska Python, kodu, wag i odpowiednich baz. Publiczne README nie jest pakietem instalacyjnym bieżącej prywatnej wersji. Domyślny rdzeń nie potrzebuje modułów obrazu ani dźwięku.
+
+## Dane leksykalne
+
+Lokalny katalog korzysta ze **Słowosieci / plWordNet 4.2**. Źródło i warunki wykorzystania: [rekord CLARIN-PL](https://clarin-pl.eu/dspace/items/ded4732c-7e3f-4ca8-9794-7a559817ceb3), [licencja plWordNet](https://clarin-pl.eu/license/plwordnet-2/.html). Baza nie jest dołączana do tego pushu.
+
+## Wcześniejsza dokumentacja
+
+Poniżej zachowano wcześniejszy opis projektu. Datowane wyniki dotyczą wskazanych tam wersji i prób; aktualny stan opisano powyżej.
+
+---
+
 # AI-SI
 
 ## Aktualizacja — 10 października 2026: kontrola wag i wykonywanie zadań
