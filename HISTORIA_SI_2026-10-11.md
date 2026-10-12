@@ -746,3 +746,46 @@ Prefixrepair300known168/dev168/newcombinations151/168exact. EndtoendROsourcevari
 
 ### TSI — aktualizacja bieżącego README
 Przepisano bieżący README na stan12października:156787parametrówłącznie(pamięć108725,logika5363,język42699). Ujęto świeże wyniki w zakresie i szeroką diagnozę języka1512case:singleletter77/378answers18parse,numbered299/378answers306parse,Polish190/378answers108parse,difflength179/378answers135parse. Starszy README zachowany jakoREADME_SI_STAN_2026-10-11.md. Protected memory/logichashunchanged. Dokumentacja nie deklaruje pełnej gotowości.
+
+
+### TSI — poszerzenie rodzajów nazw
+Szerszytest1512ukończony, wynik wREADME. Zidentyfikowano lukę danych:wcześniej losoweASCII min3znaki. Nowy300-krokowy etap odlanguage_prefix300+auxiliary+optimizer2grupy,lr.0003:randomreplay/singleuppercase/numberedprefix/Polishstems/shortmixed1–3. Pełne testowe nazwy E/F i polskiefamilie wykluczone. TemplateFormatter zapisuje dokładnepozycjeargumentów przy składaniu tekstu;nie używa szukania litery w całym zdaniu do etykiet treningowych. Zapobiega labelcollision krótkichnazw i nazw będącychprefixem drugiej. Logika i pamięć nadalzamrożone,każdykrok zapisany,last_batch dodany docheckpointu. To nowy zakres testowany,nie gotowafunkcja. Dokumentację bieżącą wypchnięto wcześniej bezkodu jako d48a409.
+
+
+### TSI — wynik pokrycia nazw i ochrona języka
+Coverage300 diagnosticparse:single351/378,numbered378/378,Polish369/378,difflength297/378,known168/dev168;newcompoundcombinations0/168. Zapisano tradeoff,nie wdrożono. Nowybounded300updateodcoverage300weights/aux/opt,teacherfrozenprefix300language,KL2wyłączniecorrectoperator lub całkowiciecorrectspans naonlinegold;krótkie/złożonepoleceniamixedbalancednames. Pamięć/logikanieuczone. User pytał oEnglish:docelowa osobna uczona warstwa wejściowa mapująca do tychsamychoperatorów/argumentów;pełnetłumaczenietekstu niejest konieczne wtymzakresie. Englishjeszczenieimplementowany,najpierw stabilizacjaPolish.
+
+
+### TSI — diagnoza bez języka podczas stabilizacji
+Readonlyexpectedquerytestźródłowejpamięci(bestnull_gate75)na tychsamych4familiach:letters36/36,Polish36/36,difflength36/36,numberedprefix32/36. TestomijaBridge,zachowanobasesHA. WiększośćbłędówszerschpoleceńwięcwBridge;4prefix-numberedcasejużwpamięci. Nieodmrożonopamięci/logiki. Retentionrepairtrwa,150newcompound80/168vs0coverage,tradeoffinnefamilieraportowany,nieaktywowany.
+
+
+### TSI — проверка pojemności warstwy języka
+Retentionrepair300 przywrócił częśćcompoundform114/168 (best250119),ale innefamiliepogorszone;nie wdrożono. Uruchomiono100update×2armskontrolowanej nauki Bridgewidth64vs128odidentycznychcoverage300weights. Rozbudowano wyłączniebiGRU iwyjścioweprojekcje,embedding32bez zmian;wagi starych jednostek przeniesione,nowe kanałyzerowe z małymi połączeniamiwyjściowymi,initiallogit/predpreservationtest wszystkich2016kontroli. Identycznefrozenbatches70row×100,5namefamilies/4sentenceforms,nowyoptimizerjednakowyobuarmLR.0003,correctteacherKL.5,bezauxwobu(nowyoptimizer jawnie). Rdzeńpamięci/logiki zamrożony. Wynik nieustalony;każdykrokweights/opt/RNG+nextbatchindex,frozenschedule.
+
+
+### 2026-10-13 — wynik pojemności i arność argumentów
+Kontrolowana100-step próba języka42 699vs130 891parametrów nie wykazała przewagiszerszego:model64lost117/gain38,128lost126/gain27 względemcoverage300;gorszeniewdrożone. To krótkipomiar,nie dowód braku korzyści pojemności wogóle. ROinterwencjasuffix:coverage300READfirstnamepoprawny,unusedsecondspan=danych tylko przy nowymfooterze;przyknownfooterze/bezfooterunaryspanduplicatecorrect. Ustalonobłądinterfejsu:READiNOTmają1operand,niepotrzebnydrugi nie może blokowaćwykonania. interpretpoprawiono naarity1,referencjamiaryparseradostosowanowoddzielnychdalszychpróbach,historycznychliczbnie przeliczono potajemnie. Rozpoczęto200-krokowe uczenie Bridge odcoverage300zmaskąloss tylko wymaganychheadów,różnymifooterami inazwamicorpus;teacherchroncorrectrequiredheads,memory/logicfrozen.
+
+
+### 2026-10-13 — dopiski i właściwe argumenty: kontrola w toku
+Suffixarity100:known168/dev168,compound165/168,letters378/378,num369/378,Pol369/378,difflength279/378. Miara wymaga tylko jednego argumentu READ/NOT;nieporównywaćbezpośrednio z wcześniejszą błędną miarąduplikowanych2argumentów. Wagi kandydat100zachowane,próba200w toku;przygotowano NOWYfreshendtoendfooterseed81927364po zakończeniu. Bez podmiany źródła.
+
+
+### 2026-10-13 — alternatywna reprezentacja poleceń jako słów
+Suffixarityfresh252:sourceprefixknown125/newfooter41answers (28exact),candidate100known125/newfooter94answers (63exact),200known125/newfooter90answers (68exact). Gapsnewformremain,lost2/4respectivelyreported,notchosenproduction. Zastosowano diagnozę kontekstów i braku przewagi largercharBridge;uruchomiono odrębnyWordInstructionBridge. Tokenizer słów/punktuacji określa tylko granice składni,bez reguł operacji/odpowiedzi. ZamrożonynameencoderTSI dostarcza96-wymiarowe wektory słów;uczą sięcontextbiGRU64+op7+2word-pointers. Cacheprzechowuje tylko wektoryencodera,nie etykiety/odpowiedzi. BazazachowanaSHA i bitwisechecks. Nativewordfrontend63369paramsplus współdzielona pamięć108725;starycharBridgewszystkiewagizachowaneosobno,niewdrożonoalternatywy. Bounded300updatesfromrecordedtrainingpool(frozenbatches+savedlastbatches),każdykrokzapisany,testing wymaganychoperandów. Researchinspirationword+charsequence tagging https://aclanthology.org/P16-1101/;nie jest kopią tego modelu ani dowodemuniwersalnejsemantyki.
+
+### 2026-10-13 — słowna warstwa poleceń, krok 300
+Zakończono 300 kroków. Diagnostyka: krótkie nazwy 378/378, polskie nazwy 378/378, numerowane 369/378, różne długości 333/378, kombinacje wstępów 166/168. Pamięć bitowo niezmieniona. Dodano obsługę słownego checkpointu z kontrolą SHA bazy w TSISystem. Trwa niezależny test całego działania na nowych pełnych nazwach (sesja 98520); wyniki diagnostyczne nie oznaczają gotowości ani wdrożenia.
+
+### 2026-10-13 — sprawdzona warstwa słowna i stabilizacja
+Świeży test 252: word300 znane formy 125/126 odpowiedzi i 121/126 dokładnych interpretacji; nowy dopisek 123/126 odpowiedzi i 119/126 interpretacji. Char prefix300: 126/126 oraz 53/126 odpowiedzi. Word300 utracił 3 wcześniejsze poprawne odpowiedzi, zyskał 72; niewdrożony. Zachowano best/word_language_300.pt. Błędy: wybór słowa bez zamiast drugiej nazwy, pomyłki XOR/OR i powielenie drugiego argumentu implikacji. Wznowiono dokładne wagi/optimizer/RNG word300, lr0.0007, maks600, correct-teacher KL0.2 tylko na poprawnych operatorach/argumentach treningowych. Zamrożona pamięć i logika; pool zapisany osobno, każdy krok atomowo. Sesja61151, raport TSI_JEZYK_SLOWA_STABILIZACJA.json. Nowa końcowa walidacja wymagana po tej adaptacji; dotychczasowy test staje się diagnostyczny.
+
+### 2026-10-13 — stabilizacja słownej warstwy ukończona
+Krok600: krótkie, numerowane, polskie i różnej długości nazwy po378/378 dokładnych interpretacji diagnostycznych; znane formy161/168, wcześniej ujawnione warianty141/168, kombinacje167/168. Baza bitowo niezmieniona. Wszystkie kroki301–600 zapisane z optimizerem/RNG. Trwa nowy test504 przypadków w4 formach na świeżych pełnych nazwach, porównanie word300/500/600 (sesja99854). Osobno utracone poprawne odpowiedzi i utracone poprawne interpretacje z odpowiedzią. Wynik monitorowanego zestawu nie oznacza gotowości ani aktywacji.
+
+### 2026-10-13 — walidacja i zbalansowanie operatorów
+Świeży test504: word300471 odpowiedzi, step500491 (6lost26gain), step600492 (7lost28gain). Poprawne interpretacje z poprawną odpowiedzią:500 utracił10 i zyskał46,600 utracił13 i zyskał50. Żaden automatycznie niewdrożony. Szczególnie AND z oraz bywa mylony z IMPLIES/NOT/XOR mimo poprawnych nazw. Nowa ograniczona próba od500 z wagami/optimizer/RNG, lr0.0005,200update: osiem par świeżych nazw, każda przy wszystkich siedmiu operatorach, wspólny wstęp/dopisek dla operatorów danej pary. Hipoteza ograniczenia zależności decyzji od nazw/kontekstu, nie udowodniona przyczyna. Teacher word300 ochronny KL tylko gdy poprawny na treningowym przykładzie. Baza/logika zamrożone. Sesja82026, train_word_operator_balance.py, raport TSI_JEZYK_OPERATOR_NIEZALEZNY_OD_NAZW.json. Każdy krok atomowy, nativeNN bez reguł operatora w inference. Po700 nowy niezależny test i lost/gained wymagane.
+
+### 2026-10-13 — zbalansowane operatory: weryfikacja
+Krok700: diagnostyczne378/378 w każdej czterech grup nazw, known164/168,development143/168,compound168/168; baza bitowo niezmieniona. Nowe pełne nazwy,504cases w4 już diagnostycznie ujawnionych formach: word300469/504 odpowiedzi;500477/504 lost10gain18;700487/504 lost5gain23. Krok700 znana forma126/126 zarówno interpretacje jak odpowiedzi, pozostałe odpowiedzi119/121/121 ze126. Nie wdrożono regresji. Nazwy nowe, formy nie są finalnym nieujawnionym heldoutem języka. Następna diagnoza zależności klasy operatora od podstawienia samych nazw.

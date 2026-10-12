@@ -1,4 +1,4 @@
-# timderSI (TSI) — aktualny stan na 12 października 2026
+# timderSI (TSI) — aktualny stan na 13 października 2026
 
 TSI to lokalny, uczony system wiążący nazwy z wartościami i wykonujący operacje logiki trójstanowej. Rozwijana warstwa językowa rozpoznaje polskie polecenia oraz ich argumenty. Kod, wagi i bazy pozostają lokalnie; to repozytorium udostępnia dokumentację.
 
@@ -58,3 +58,9 @@ Najbliższy zakres zastosowań to lokalna pamięć nazwanych faktów, kontrola r
 
 [Historia procedur, pomiarów i zmian](HISTORIA_SI_2026-10-11.md) pozostaje osobnym dokumentem. README przedstawia aktualny stan i potwierdzone wyniki; wcześniejsze modele oraz przerwane eksperymenty nie są bieżącymi możliwościami TSI.
 
+
+### Aktualność — 13 października 2026: kandydat słowny
+Nowa uczona warstwa słowna współdzieli zamrożony encoder nazw. Po600 krokach osiągnęła po378/378 dokładnych interpretacji w czterech diagnostycznych grupach: krótkie, numerowane, polskie i różnej długości nazwy. Warianty sformułowań nadal nie są w pełni opanowane (141/168 w jednym zestawie). Pamięć i logika nie zmieniły wag. Kandydat pozostaje niewdrożony; trwa niezależne porównanie całego działania. Łącznie z współdzieloną bazą i logiką ma177457 parametrów; to nie jest liczba parametrów wcześniej wybranego wariantu.
+
+### Aktualność — 13 października 2026: wynik całego działania
+W nowym teście pełnych nazw kandydat słowny po zbalansowaniu operatorów osiągnął487/504 poprawnych odpowiedzi. W znanej formie uzyskał126/126 poprawnych interpretacji i odpowiedzi; w trzech pozostałych wariantach119/126,121/126 i121/126 odpowiedzi. Względem słownego kroku300 zyskał23 poprawne odpowiedzi i utracił5. Kandydat nie został aktywowany. Pamięć i logika pozostały zamrożone. Nazwy wykluczono ze śledzonego treningu i wcześniejszych testów; sformułowania były już ujawnione diagnostycznie, więc wynik nie potwierdza pełnego rozumienia języka. Nadal brak swobodnej rozmowy, parsera faktów z tekstu i pełnej oceny jakości przez rdzeń.
