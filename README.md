@@ -2,6 +2,18 @@
 
 TSI to lokalny, uczony system wiążący nazwy z wartościami i wykonujący operacje logiki trójstanowej. Rozwijana warstwa językowa rozpoznaje polskie polecenia oraz ich argumenty. Kod, wagi i bazy pozostają lokalnie; to repozytorium udostępnia dokumentację.
 
+## Aktualizacja badań — 13 października, po kontroli dopisków
+
+System nie jest jeszcze gotowy do ogólnego rozumienia poleceń. Pamięć i logika pozostają zamrożone. Najsilniejszy zachowany kandydat językowy `word_operator_control_50` ma 72 641 parametrów parsera, łącznie 186 729 przy jednokrotnym liczeniu wspólnej pamięci. Nie został automatycznie wdrożony. Wcześniejsza tabela poniżej opisuje starszy wybrany zestaw, a nie ten kandydat.
+
+Diagnostyka na danych treningowych pokazała, że niepotrzebny dopisek zmienia zarówno odczyt operatora z końca tekstu, jak i wsteczne reprezentacje słów używane przez argumenty. Diagnostyczne odtworzenie wcześniejszych aktywacji naprawia część błędów, ale wymaga znanej granicy i czasem szkodzi innym przypadkom. Nie jest to metoda odpowiadania ani wdrożona naprawa.
+
+Ograniczone próby nowego, uczonego odczytu operatora dodały 66 parametrów i początkowo zachowały identyczne wyniki. Na 1200 przypadkach z nazwami wydzielonymi dla tej adaptacji źródło miało 925 dokładnych interpretacji. Próba pośredniego uczenia uzyskała 923 (2 utraty, 0 zysków), bezpośredni nadzór końca tekstu 925 (0 utrat, 0 zysków). Etykiety końca tekstu zawierały 69 sprzecznych identycznych początków wejścia. Spójny cel wskazujący ostatni wymagany argument poprawił wybór pozycji do 476/800, lecz pełne interpretacje nadal spadły do 923/1200. Poprawa pomocniczego zadania nie oznacza poprawy systemu. Te nazwy mogły być historycznie widziane przez źródło; to nie końcowy niezależny test gotowości.
+
+Sygnał adresowania pamięci także nie stanowi bezpiecznej reguły wyboru parsera: w kontrolnych przypadkach z nieobecną pytaną nazwą i niepotrzebnym wspomnianym faktem wskazywał błędny parser 20 razy, poprawny 2 razy. Pytanie o nieznany fakt jest dozwolone. Nie wdrażamy reguł obecności, wycinania dopisków ani odpowiedzi referencyjnych.
+
+Serie selektorów, małych kar i tego odczytu zostały zamknięte bez wdrożenia. Wszystkie modele i stany optymalizacji zachowano. Dalszy krok wymaga odmiennego, uzasadnionego mechanizmu ochrony reprezentacji polecenia i argumentów, a następnie nowych niezależnych testów oraz kontroli każdej utraconej poprawnej interpretacji. Chronologia i szczegółowe wyniki są osobno w `HISTORIA_SI_2026-10-11.md`. Kod, wagi i dane pozostają lokalne.
+
 ## Budowa i parametry
 
 | Część | Architektura | Parametry |
