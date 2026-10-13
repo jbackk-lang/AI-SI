@@ -68,3 +68,8 @@ W nowym teście pełnych nazw kandydat słowny po zbalansowaniu operatorów osi�
 ### Aktualność — 13 października: uczony wybór parsera
 Powstał eksperymentalny moduł wyboru między dwoma zamrożonymi parserami poleceń. W jednym niezależnym teście uzyskał 1796/1890 poprawnych odpowiedzi i zachował 630/630 zwykłych poleceń, ale utracił 6 wcześniejszych poprawnych odpowiedzi w innych grupach. Nie został wdrożony. Łączna liczba parametrów tej kandydatury wynosi 258812: wspólna pamięć 108725, logika 5363, dwa parsery po 63369 i selektor 17986; wspólny encoder liczymy raz.
 Dalsza diagnoza wykazała, że wybór modułu nie wystarcza: w osobnym zestawie oba parsery błędnie odczytały 393/1890 poleceń. Próba dodatkowych etykiet ról słów nie poprawiła transferu i została zachowana jako negatywny wynik. Trwa kontrolowane porównanie odczytu operatora i argumentów przy zamrożonej reprezentacji zdań. Pamięć faktów i logika pozostają zamrożone. To nadal ograniczony system pojedynczych operacji na dostarczonych strukturalnych faktach, bez swobodnej rozmowy ani gwarancji ogólnego rozumienia języka.
+
+
+### Aktualność — 13 października 2026: uczone cechy słów
+
+Eksperymentalny frontend z osobnym kanałem cech znakowych słów dał w świeżym porównaniu 1890 przypadków **1664 poprawne odpowiedzi wobec1590 źródła**:79 odzyskanych,5 utraconych. Poprawnych interpretacji przybyło119,ubyło4. Znane formy629/630 w obu; nowa rama406/630 odpowiedzi wobec331/630. Kandydat zapisany osobno i **niewdrożony**. Dodatkowe8240 parametrów dotyczą wyłącznie frontendu; pamięć i logika pozostają zamrożone. Łącznie186729 parametrów z jedną współdzieloną bazą. Wynik nie oznacza gotowości do swobodnej rozmowy ani pełnego rozumienia polskiego.
