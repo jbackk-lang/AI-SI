@@ -910,3 +910,154 @@ Mały test ochrony nazw630: wszystkie3 warianty623 odpowiedzi,no lostgain. Inter
 
 ### 2026-10-13 — ochrona normy nazw nie poprawiła retencji
 Na tej samej1890 fixture lexical1950 miał1664 odpowiedzi,lost5gain79. Control2000 ma1655,lost5gain70semanticlost4gain104;guard2000 ma1645,lost5gain60semanticlost3gain72. Oba naprawiły tylko1 z5 dawnych strat. Zachowały63/79(control) i55/79(guard) dawnych zysków. Ochrona normy nazw niepotwierdzona;seria zamknięta bez dalszego strojenia kary. Zachowano1950 jako lepszy kandydat, nie produkcję. Dalsze2000 stany archiwalne, niewdrożone.
+
+### 2026-10-13 — selektor zamrożonych parserów jako ograniczona ochrona
+Testowy pułap union oryginał1900+lexical1950:1669 odpowiedzi i1485 poprawnych interpretacji z odpowiedzią;405 przypadków obaj źle interpretują. To tylko pułap ztestgold,nie osiągnięta skuteczność selektora.
+W danych treningowych znaleziono48 exclusive-correct:8 starszyparser,40 lexical. Nauka100 kroków wyłącznie17986 parametrów gate,zrównoważone próbkowanieklas,osiągnęła48/48 dopasowania. Obajpoprawni i obajbłędni nie uczą selektora. Żadne testowe etykiety nie weszły do nauki. Eksperci,pamięć,logika zamrożone. Uruchomiono odczytowy test ochrony na dokładnie starej1890 fixture;bardzo mały zbiór treningowy ogranicza wnioski. Niewdrożony.
+
+### 2026-10-13 — brak poprawy selektora i brakujący typ danych
+Gate100 na tej samej1890 fixture1663 odpowiedzi wobec1664 lexical;naprawił0/5strat i zachował78/79zysków. Niewdrożony. W48 treningowych exclusive-correct nie było przykładu duplikacji argumentu nowego parsera przy poprawnym starszym. Wejściegate nie zawiera jawnej zgodności argumentów ani duplikacji.
+Zebrano1792 nowe przykłady TRENINGOWE z nazwami wykluczającymi testy. Znaleziono3old-onlycorrect i3new-onlycorrect, wszystkie3old-onlyto duplikacja nowego parsera. Zapisano dane i cechy bez zmiany wag. To bardzo mały przyrost świadectwa; nie wolno traktować go jako gotowości ani używać wzorca testowego do wyboru odpowiedzi. Następne kontrolowane porównanie ma sprawdzić uczone cechy zgodności, bez deterministycznego zakazu powtórzonych argumentów.
+
+### 2026-10-13 — kontrolowany selektor z cechami zgodności
+Uruchomiono100 kroków kontroli278 cech kontra282 cechy. Dodano4 cechy wyłącznie z przewidywań ekspertów:duplikacja starego/nowego,niezgodność operatorów/argumentów. Nie ma reguły zakazującej tego samego argumentu. Kolumny nowych cech początkowozerowe, decyzjeźródła zachowane. Wagigate100przeniesione, noweAdamWw OBUramionach z powodu zmianykształtu. Identyczny zapisany harmonogram100batchy,54 treningoweexclusive-correct(11old/43new). Eksperci,pamięć,logika zamrożone. Każdykrok atomowoz optimizer/RNG/nextindex/expertSHA. Wymagana walidacja retencji i prawidłowych poleceń o dwóch identycznych argumentach. Żadnego testgoldw nauce.
+
+### 2026-10-13 — prawidłowe powtórzone argumenty
+Niezależnie nowe pełne nazwy wykluczone z zapisanych treningowych/testowych manifestów:120 poprawnych poleceń z dwoma identycznymi argumentami,AND/OR/XOR/IMPLIES/EQUIV po24. Lexical1950,controlgate100 i consistencygate100 osiągnęły120/120 interpretacji i odpowiedzi. Nie utrwalono w tym zakresie deterministycznego zakazu powtórzeń. Nie dowodzi to poprawności wszystkich form. Trwa osobny test retencji obu selektorów na starej ujawnionej1890 fixture;bez nowych treningów i aktywacji.
+
+### 2026-10-13 — zamknięcie selektorów, ochrona udanych cech słów
+Control i consistencygate mają identycznie1659/1890 odpowiedzi,lost4gain73semanticlost3gain113 wobecoryginału;naprawiły1/5strat,zachowały73/79zysków. Gorsze od samegolexical1950(1664). Seria gatezamknięta,niewdrożona.
+Uruchomiono50 kroków control/adapt_context odlexical1950. Udane8240 cechy słów zamrożone w OBU,wraz z pamięciąilogiką. Głowyuwaga.0002obie;eksperymentdodajeuczeniekontekstu1e-5nową4grupą. Pełne3 wcześniejszegrupyoptzachowane,zamrożonagrupalexicalpomijana przy update. Nauczycielcorrect-maskzmieniony naźródłolexical1950w OBUarmach,chroniącaktualnezachowanie. Każdykrok zapisany,finiteibazy/lexicalbitwiseassert. Nowa hipoteza,niesukces.
+
+Adaptacja kontekstu zatrzymała się przed pierwszymupdate:4grupy zbudowane przedloadźródłowych3 grup. Kontrolaukończona2000,nietknięta. Poprawiono kolejność:load3źródłowychgrup→dodanie4grupykontekstuLR1e-5. Uruchomiono wyłącznieadapt_context,bez powtarzaniakontroli. Brakutraconychadaptupdate. Dodanometa lexical_frozenTRUE. Połączenie pamięci/lexicalz bazą pozostaje chronione;potrzebnatestretencji.
+
+Kontrola i adaptacja kontekstu na zamrożonych udanych cechach ukończone2000. Potwierdzono50 identycznych batchy i bitową niezmienność8240 cech wewszystkich krokach obu ramion. Monitoridentyczny:known165/dev144/compound168,różnedługości369/378inne378. Brak jeszcze korzyści wmonitorze. Uruchomiono małą630 walidacjęsource1950/control2000/adapt2000. Zero nowych treningów wtrakcie. Po negatywnym wyniku seria ma zostać zamknięta,nie przedłużana ślepo.
+
+### 2026-10-13 — zamknięcie kontekstu i pomiar siły cech
+Mały630 test zamrożonychcech:source599 odpowiedzi555interpretacje,control598lost1gain0semanticlost3gain1,adapt599lost1gain1semanticlost4gain3. Brakprzewagi;seria zamknięta.
+Odczytowy pomiar WYŁĄCZNIE danychtreningowych:alpha0 exact342 loss.390,0.5 exact354loss.308,1 exact361loss.260,2 exact366loss.223,4 exact349loss.325. Wagi plików niezmienione. Uruchomiono30 kroków nauki tylko1nowego skalarasiły cech przed GRU,wszystkie dotychczasoweparametry zamrożone. Nie wybieranoalphy ztestu. Każdykrok zapisany;konieczna nowawalidacja. Niesukcesdopókibrakpomiaru.
+
+### 2026-10-13 — plateau korekt i diagnoza pewności
+Kalibracja1parametru skończona30 kroków,skala1.7359. Małytestsource578/630 i519parse,scale581/528,lost9gain12semanticlost9gain18. Sameargs119→118/120. Niewdrożone,seria zamknięta. ROconfidence1890:1481poprawnychparse/409błędnych,meanjoint.932/.649,ponad.9poprawne1222/błędne13. Softmaxniegwarantujepoprawności;nie wybierano progudo inference. Dalszy kierunek to kontrolowana ocena jakości z treningowych etykiet,bez zmieniania chronionej wiedzy. Skrócono stanmonitorado TSI_STAN_NADZORU.md dla oszczędzania limitu.
+
+
+### 13 października — ocena wiarygodności zamrożonego parsera
+100 aktualizacji na ramię, tylko114/2290 parametrów oceny; parser/memory/logic zamrożone. TRAIN64 błędnych/3282 poprawnych; progi wyłącznie walidacja treningowa. Nowy test2010 (1890 pięć rodzin/3formy+120 poprawnych powtórzeń), pełne nazwy wykluczone z seen/frozen. {"confidence": {"n": 2010, "parse_correct": 1955, "accepted": 1993, "accepted_correct": 1943, "false_acceptance": 50, "correct_rejected": 12, "precision": 0.9749121926743602, "coverage": 0.9915422885572139}, "context": {"n": 2010, "parse_correct": 1955, "accepted": 1968, "accepted_correct": 1921, "false_acceptance": 47, "correct_rejected": 34, "precision": 0.9761178861788617, "coverage": 0.9791044776119403}}. Wynik nie spełnia celu99% precision; brak wdrożenia, brak zmiany odpowiedzi, odrzucenie nie jest stanem logicznym nieznane. Nie dobierano progu z testu.
+
+
+### 13 października — reprezentatywność błędów oceny jakości
+Audyt read-only: stary pool jakości77 błędów/4264, trudny ujawniony test409/1890, inny udział błędów operatora/argumentów i obu. Nowy treningowy pool1008 różnych kontekstów daje490 poprawnych/518 błędnych interpretacji; operator-only129,arg-only245,both144. Nazwy zablokowane względem seen/frozen. Zapisane dane i cechy zamrożonego parsera, bez nauki lub wdrożenia. Źródła testowe służyły tylko diagnozie, nie etykietom treningowym.
+
+
+### 13 października — kontrolowane rozszerzenie treningu oceny jakości
+Obie próby100updates zachowały sourcejudge100/optimizer/RNG,2290param, frozenparser. Wspólna wholeframe TRAINvalidation:control brak progu99%/100akceptacji;expanded próg.5128069 coverage78%,8błędnych zaakceptowanych. Nowy test2010seed482719365: {"source": {"n": 2010, "parse_correct": 1890, "accepted": 2008, "accepted_correct": 1889, "false_acceptance": 119, "correct_rejected": 1, "precision": 0.9407370517928287, "coverage": 0.9990049751243781}, "control": {"n": 2010, "parse_correct": 1890, "accepted": 0, "accepted_correct": 0, "false_acceptance": 0, "correct_rejected": 1890, "precision": null, "coverage": 0.0}, "expanded": {"n": 2010, "parse_correct": 1890, "accepted": 1794, "accepted_correct": 1779, "false_acceptance": 15, "correct_rejected": 111, "precision": 0.9916387959866221, "coverage": 0.8925373134328358}}. Odrzucenie nie oznacza poprawnej odpowiedzi; nie wdrożono, nie wybierano progu ztestu.
+
+
+### 13 października — ograniczenie generalizacji oceny jakości
+Read-onlyretencja na starym trudnym1890fixture, progi wyłącznie TRAINval niezmienione. {"source": {"all": {"n": 1890, "parse_correct": 1481, "accepted": 1887, "accepted_correct": 1479, "false_acceptance": 408, "correct_rejected": 2, "precision": 0.7837837837837838, "coverage": 0.9984126984126984}, "known_form": {"n": 630, "parse_correct": 629, "accepted": 628, "accepted_correct": 627, "false_acceptance": 1, "correct_rejected": 2, "precision": 0.9984076433121019, "coverage": 0.9968253968253968}, "distractor_seen": {"n": 630, "parse_correct": 629, "accepted": 630, "accepted_correct": 629, "false_acceptance": 1, "correct_rejected": 0, "precision": 0.9984126984126984, "coverage": 1.0}, "unseen_distractor": {"n": 630, "parse_correct": 223, "accepted": 629, "accepted_correct": 223, "false_acceptance": 406, "correct_rejected": 0, "precision": 0.35453100158982515, "coverage": 0.9984126984126984}}, "expanded": {"all": {"n": 1890, "parse_correct": 1481, "accepted": 1511, "accepted_correct": 1335, "false_acceptance": 176, "correct_rejected": 146, "precision": 0.8835208471211119, "coverage": 0.7994708994708994}, "known_form": {"n": 630, "parse_correct": 629, "accepted": 629, "accepted_correct": 628, "false_acceptance": 1, "correct_rejected": 1, "precision": 0.9984101748807631, "coverage": 0.9984126984126984}, "distractor_seen": {"n": 630, "parse_correct": 629, "accepted": 627, "accepted_correct": 626, "false_acceptance": 1, "correct_rejected": 3, "precision": 0.9984051036682615, "coverage": 0.9952380952380953}, "unseen_distractor": {"n": 630, "parse_correct": 223, "accepted": 255, "accepted_correct": 81, "false_acceptance": 174, "correct_rejected": 142, "precision": 0.3176470588235294, "coverage": 0.40476190476190477}}}. Wynik99.16% na nowej ramie nie przenosi się na wcześniejszą trudną ramę. Nie wdrożono, źródła niezmienione; nie powtarzać epok/progów bez nowej diagnozy języka.
+
+
+### 13 października — pokrycie słów i oddziaływanie dopisku
+Audit25000distinctsavedTRAINrows (allfrozenpools+actualbalanced1900/lexical1950,niecałalineage). Cztery słowa trudnej ramy nieobecne:zgodnie,podanymi,informacjami,obliczeniu. Read-onlyexposed630:exact223baseline;zamiana samego obliczeniu na ocenie389,lost5gain171;informacjami na danymi255;wszystkiecztery188. Kontekst ma istotne znaczenie, nie dowód samej nowości słów. Żadnej podmiany inference/treningu testowych przykładów, bez modyfikacji wag.
+
+
+### 13 października — nowe treningowe kontrasty dopisków
+840TRAINcases,168identycznychbody/namepairs×5dopisków. {"plain": {"n": 168, "operator": 168, "arguments": 168, "exact": 168, "lost_vs_plain": 0, "gained_vs_plain": 0, "operator_changed": 0, "arguments_changed": 0}, "neutral": {"n": 168, "operator": 139, "arguments": 138, "exact": 131, "lost_vs_plain": 37, "gained_vs_plain": 0, "operator_changed": 29, "arguments_changed": 30}, "calculation": {"n": 168, "operator": 105, "arguments": 98, "exact": 83, "lost_vs_plain": 85, "gained_vs_plain": 0, "operator_changed": 63, "arguments_changed": 70}, "checking": {"n": 168, "operator": 80, "arguments": 8, "exact": 6, "lost_vs_plain": 162, "gained_vs_plain": 0, "operator_changed": 88, "arguments_changed": 160}, "evaluation": {"n": 168, "operator": 137, "arguments": 36, "exact": 36, "lost_vs_plain": 132, "gained_vs_plain": 0, "operator_changed": 31, "arguments_changed": 132}}. Największe straty argumentów checking/evaluation, nie izolowany operator/calculationcue. Żadnego treningu wag ani podmian inference, źródłowyparser1950 niezmieniony; dane i manifest saved.
+
+
+### 13 października — kontrastowe dopiski50updates: pozytywny mały test
+Source462/630answers294parse,plaincontrol474/313lost6gain18semanticlost3gain22;contrast605/569lost1gain144semanticlost0gain275. Każdeznane126answers125parse retained. COPYcandidate2000savednieaktywny. Replay/pairids/rowbudgetmatched,differentdataintended,sourceopt3RNGpreserved,base/contextbitwiseTRUE. Potrzebnybroadfivefamily iretencja,niegotowość.
+
+
+### 13 października — kontrast dopisków szerszy test
+1890freshnamesfivefamilies2newfooters+known:source1691answers1502parse/control1710/1534/contrast1784/1668. CandidatevsSource lost7gain100semanticlost9gain175,known630→629. Newcheckingparse616→626,newcalculation256→413. Stronggainbutnotnonregressive,notactivated. Oldfixture retention nowrun vslex1950notoriginal1900. Testerrorrowsdiagnosticnevertargettraining.
+
+Stara1890retencja vsLEX1950: {"answers": 1644, "parse": 1436, "lost": 40, "gain": 20, "semanticlost": 67, "semanticgain": 22}. Nowedopiskizyskaleoldregression,niewdrożone. Każdystanzachowany.
+
+
+### 13 października — retencja działa na treningu, nie gwarantuje transferu
+Readonly1470TRAIN rows (9actualreplaybatches630+paired840):OLDreplay629/630exact identicalsource/control/contrast0lost. Newcontrasttrainplain168/neutral166/calculation168/checking167/evaluation167of168. Silnyfit iochronareplayniezapobiegłyoldTESTlost67semantic. Nie dowodziwiedzymemoryforgetting; potrzeba szerszych nowych TRAINkompozycji/sourcecorrectretention,nieblindKL/replayquantity. Brakzmianwag/aktywacji.
+
+
+### 13 października — nowe treningowe kompozycje retencji
+NEWTRAIN1008 przypadków6wstępów6dopisków7ops4pary,fullnamesblocked. Source858exact/candidate871,source-only37 w31ramach,candidate-only50,bothwrong100. Zapisanypool+manifest,żadnego testgoldtraining/weightupdate. To mierzalny TRAINwzorzecstratpozasameoldreplay;niegateoracleclaim/readiness.
+
+
+### 13 października — rozszerzone replay: wholeframeTRAINvalidation
+50updates2arms source2000weights/FULLopt3RNG,35samefooterpractice+35replaydifferentcoverage;source1950-correctnewcontextsheldwholeframesexcluded. Held200 source181/candidate2000180/control2050185/expanded195lost0gain14vs1950. All840footerTRAINcorrectboth2050. Memory/contextbitwiseTRUE. Matchedfooterbudget/splitverified. Newsmallfivefamily630screeningrunning,noactivation.
+
+
+### 13 października — replay kompozycji: nowy mały test
+630fivefamilies3selectedstatepairs/known/newcomposition/newfooter:1950550answers513parse,2000603/590,control2050605/595,expanded2050617/611lost1gain68semanticlost0gain98vs1950. Newcomposition186→200answers172→196parse;newfooter154→207answers132→206parse. COPYcandidate2050preservednonmain,sourceallkeep. Oldretentionrunning,noactivation.
+
+
+### 13 października — szersze replay przywraca większość retencji
+Oldexposed1890 vsLEX1950(1664answers1481parse):control20501654/1474lost33gain23semanticlost33gain26;expanded20501732/1584lost13gain81semanticlost8gain111. Previouscandidate20001644semanticlost67. Expandedrecoverolderformsbutnotnonregressive,NODEPLOY. New1890all9statesforms validationrunning.
+
+
+### 13 października — replay2050: szeroka walidacja i argumenty
+NEW1890all9states source1614answers1356parse/expanded1780/1639lost17gain183semanticlost0gain283. OLD8semanticlossALLopcorrect:2ANDcontextwordpodaj,1XOR+5IMPLIESdupname. Other9unionanswerlossessourcechancecorrect. Readonlydiagnosis,noactualtestnames/rowstrain,nohardcodedduprejection;noactivation.
+
+
+### 13 października — błędy wyboru argumentów w treningu
+Readonly1008compositionTRAIN+120sameargTRAIN:source1950exact858→2050979,argswrong109→26,dup12→6,contextarg72→14. ALLsourcecorrectTRAINpreserved0lost. Validsamearg118→119/120. Poprawa na treningu nie dowodzi naprawy 8 regresji argumentów w innych formach testowych. Nie używać testowych nazw ani przykładów w treningu. Wagi niezmienione, bez aktywacji.
+
+
+### 13 października — niezależne poprawne powtórzenia argumentów
+NEW360testcases8charfullnamesblocked:sourceknown119/120parseanswers,newfooter70parse97answers,newneutral1parse67answers;2050known119same,newfooter119/119,newneutral89/104. No deterministicduplicatereject,validsameargsallowed. WordargsLinear128→2 independentsoftmaxscoresconfirmed,notcauseproof. Weightsunchanged,noreadiness/activation.
+
+
+### 13 października — rozkłady argumentów i zachowujący funkcję odczyt
+TRAINwrongdup6 overlap.626 vsdistinctcorrect710 .011;truepairtop3all6,validsameargsselecttwooccurrenceslowoverlap. READONLYranksnotinferencegold. PreparedWordJointPointer6306 learnedresidualparams391→16→2 fromcontext+softpointerpools+opprobs. Zeroinitialpreserves402mixedTRAINlogitsmaxdiff0,finitegrad.582. Source2050unchanged,initialcpseparate;notlearningproof/systemfactorynotyetimplemented. No duplicateconstraints/wordsolver,baseandlogicfrozen.
+
+
+### 13 października — wspólny odczyt50: monitor bez przewagi
+Source2050heldTRAIN195/200,control50/joint50both196lost0gain1,all840footerTRAINcorrect/samearg119/120unchanged. BOTHfreshAdamWargumentonly/control258joint6564params,SAME50x70schedule,frozenotherweightsTRUE. Branchzerotransferpreservedinitialnottrainingproof. Fresh630screeningrunning,notactivated.
+
+
+### 13 października — wspólny odczyt bez wykazanej korzyści
+NEW630source2050/control50/joint50identical612answers600parse,alllostgained0. Branch50controllednoobservedgainclosed;allweightsopt/RNGpreserved. Source2050andbaseSHAunchangedverified. Best2050notactiveold8semanticregressionsremain. LocalverifiedREADMEupdated,historyseparate,no codepush.
+
+
+### 13 października — rodziny nazw w nowych kompozycjach
+NEWTRAIN840fivefamilies/plain+2authoredcontextforms:1950exact704/2050838;short167,long168,numbered167,Polish168,difflength168each168. Sourceonlycorrect0,gain134,bothwrong2. Familycoveragealonefailsreproducingold8inthisset,notglobalproof. No training/weightchanges,savedcorpusmanifest,no nearperfectdatasetepochs.
+
+
+### 13 października — słownictwo i interakcja kontekstu
+NEW588TRAINmatched84pairs7variants:2050exact84/78/61/69/71/84/48;195084/80/31/76/63/84/16. Sourceonly14,newonly75,bothwrong79. Novelbothcontextarg26/dup6,knownfootercontext8/dup6. Knownbothperfect meanscontextinteractionnotnoveltyonly. TRAINreproducesfailurewithoutactualTESTrows/names,no weightsupdated.
+
+
+### 13 października — różnorodność kontekstu: walidacja kombinacji
+50updatesBOTHsource2050FULLopt3RNG,common35expandedreplay+35differentcontext,50x70budget. Held336 source292/control322lost1gain31/diverse336lost0gain44. All840oldfooterTRAINcorrect/sameargs119unchanged. Allheldcells excludedverified,basedataTRAINnotfinalheldout. Base/contextbitwiseTRUE;new630screeningrunning,noactivation.
+
+
+### 13 października — różnorodność słownictwa: mały test
+630freshfivefamilies3statepairs SOURCE2050598answers582parse/control2100617/604/diverse2100628/624. Diversevs2050lost1gain31semanticlost2gain44,known209parse→208regression. Newcomposition163→206parse,footer210retained. Oldretentionvs2050running,COPYsavednonmain,noactivation.
+
+
+### 13 października — retencja słownictwa2100: oba warianty poprawiają stary test
+Old1890control1802answers1703parse,diverse1815/1709. Vs2050controlsemanticlost0gain119/diverse2gain127;vs1950control2gain224/diverse3gain231. Overallstrongbutnotnonregressivevsold1950;controlpreserves2050better. Newall9statesvalidationrunning,noautomaticselection/activation.
+
+
+### 13 października — słownictwo2100: szeroki test i regresje
+NEW1890source20501876answers1864parse/control21001865/1838/diverse21001881/1873. Diversevs2050lost1gain6semanticlost2gain11;controlsemanticlost34gain8. TwoNEWdiversegenuinelossknownXORduplicate2ndarg;OLDvs1950diverse3genuineloss. Readonlytestdiagnosisnoactualtestnames/rowstrain,noactivation. Bothsourcecandidatearchivespreserved.
+
+
+### 13 października — rzadkie błędy binarne na nowych nazwach treningowych
+NEW2000TRAIN100pairs/fivefamilies/XOR/IMPLIES/distinct+same:19501980exact/20501982/21001982. 2100lost6gain8vs1950/lost3vs2050. Freshnamesblockedseen/tests,rareknownbodyfailurelegitimatelyreproducedwithoutactualtesterrors. Savedrows/masks/manifest,nolearning/activation.
+
+
+### 13 października — odczyt i cechy znakowe: wyłączone nazwy
+HeldNAMEPAIR400source2100398/control399/features400withoutlost. Formerfooter840source/controlcorrectfeatures839oneoperatorloss;validsamearg119/120all. Weightfreezeverifieddoesnotfreezeoperatorfunctioniflexicalfeaturesmove. ControlledSAME50x70freshAdamWBOTH,rareTRAINoversampling7. NEW750screeningrunning,noactivation.
+
+
+### 13 października — wybór według ograniczenia szkody
+Userauthorizedmaximizegainundercontrolledleastdamage. selection_policy.json/constrained_selection.py explicitgainconstraints/Pareto;conservativeepsilon0untilnumericbudgetdefined,known/sameargsemanticprotected/memorylogicfreezehard. NEW750 source2100745answers739parse/control748/743lost0semanticlost0gain3/4/features742/735lost8semanticlost10. SelectedcontrolNEXTvalidationNOTactivation,featuresclosed. OldretentionvsSOURCE2100running.
+
+
+### 13 października — kontrola argumentów a jawny koszt szkody
+OLD1890source21001815answers1709parse/control1816/1714lost1gain2semanticlost0gain5. LostonesourcesemanticFALSE(chancecorrectanswer),reportstillexplicit. Strictinitialepsilon0 policy rejects weightedharm1, no automaticrelaxation/deployment. READONLYonecase saved actualtestnames nevertrain. Userleastharmdirectionretained,needclassifycostprioritizationnotonlysum.
+
+
+### 13 października — przerwa na polecenie użytkownika i dokumentacja
+Użytkownik polecił wstrzymać naukę z powodu limitu i uaktualnić/wypchnąć README. Nadzór czasowo PAUSED, gotowość nieosiągnięta; bez automatycznego wznowienia. Ostatnia rozpoczęta diagnoza read-only zakończyła się przed zapisem: 5 zysków poprawnego rozumienia, pojedyncza strata odpowiedzi przy błędnym operatorze obu wariantów. Wszystkie stany zachowano. README ma jeden aktualny opis kandydatów, miar szkody i ograniczeń; historia osobno. Push wyłącznie README i historia, kod/wagi/dane lokalnie.

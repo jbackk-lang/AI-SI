@@ -58,18 +58,32 @@ Najbliższy zakres zastosowań to lokalna pamięć nazwanych faktów, kontrola r
 
 [Historia procedur, pomiarów i zmian](HISTORIA_SI_2026-10-11.md) pozostaje osobnym dokumentem. README przedstawia aktualny stan i potwierdzone wyniki; wcześniejsze modele oraz przerwane eksperymenty nie są bieżącymi możliwościami TSI.
 
+## Aktualny rozwój języka — 13 października 2026
 
-### Aktualność — 13 października 2026: kandydat słowny
-Nowa uczona warstwa słowna współdzieli zamrożony encoder nazw. Po600 krokach osiągnęła po378/378 dokładnych interpretacji w czterech diagnostycznych grupach: krótkie, numerowane, polskie i różnej długości nazwy. Warianty sformułowań nadal nie są w pełni opanowane (141/168 w jednym zestawie). Pamięć i logika nie zmieniły wag. Kandydat pozostaje niewdrożony; trwa niezależne porównanie całego działania. Łącznie z współdzieloną bazą i logiką ma177457 parametrów; to nie jest liczba parametrów wcześniej wybranego wariantu.
+Praca nad nauką została wstrzymana na prośbę użytkownika z powodu limitu. Automatyczny nadzór jest czasowo wstrzymany; nie oznacza to osiągnięcia gotowości. Wszystkie źródła, kandydatury i stany uczenia zachowano. Nie wdrożono eksperymentalnych parserów.
 
-### Aktualność — 13 października 2026: wynik całego działania
-W nowym teście pełnych nazw kandydat słowny po zbalansowaniu operatorów osiągnął487/504 poprawnych odpowiedzi. W znanej formie uzyskał126/126 poprawnych interpretacji i odpowiedzi; w trzech pozostałych wariantach119/126,121/126 i121/126 odpowiedzi. Względem słownego kroku300 zyskał23 poprawne odpowiedzi i utracił5. Kandydat nie został aktywowany. Pamięć i logika pozostały zamrożone. Nazwy wykluczono ze śledzonego treningu i wcześniejszych testów; sformułowania były już ujawnione diagnostycznie, więc wynik nie potwierdza pełnego rozumienia języka. Nadal brak swobodnej rozmowy, parsera faktów z tekstu i pełnej oceny jakości przez rdzeń.
+Aktualne kandydatury używają słownego dwukierunkowego GRU, uczonych wskaźników argumentów, odczytu operatora z uwagą oraz dodatkowych znakowych cech słów. Parser ma **72 641 parametrów**; razem z pamięcią 108 725 i logiką 5 363 daje **186 729**, licząc wspólny encoder tylko raz. Pamięć i logika pozostają zamrożone.
 
-### Aktualność — 13 października: uczony wybór parsera
-Powstał eksperymentalny moduł wyboru między dwoma zamrożonymi parserami poleceń. W jednym niezależnym teście uzyskał 1796/1890 poprawnych odpowiedzi i zachował 630/630 zwykłych poleceń, ale utracił 6 wcześniejszych poprawnych odpowiedzi w innych grupach. Nie został wdrożony. Łączna liczba parametrów tej kandydatury wynosi 258812: wspólna pamięć 108725, logika 5363, dwa parsery po 63369 i selektor 17986; wspólny encoder liczymy raz.
-Dalsza diagnoza wykazała, że wybór modułu nie wystarcza: w osobnym zestawie oba parsery błędnie odczytały 393/1890 poleceń. Próba dodatkowych etykiet ról słów nie poprawiła transferu i została zachowana jako negatywny wynik. Trwa kontrolowane porównanie odczytu operatora i argumentów przy zamrożonej reprezentacji zdań. Pamięć faktów i logika pozostają zamrożone. To nadal ograniczony system pojedynczych operacji na dostarczonych strukturalnych faktach, bez swobodnej rozmowy ani gwarancji ogólnego rozumienia języka.
+| Porównanie na tym samym zestawie | Źródło | Kandydat | Ograniczenie |
+|---|---:|---:|---|
+| Nowe nazwy i formy, 1890 przypadków; rozszerzone odtwarzanie 2050 | 1614 odpowiedzi / 1356 interpretacji | 1780 / 1639 | bez utraty wcześniejszego poprawnego rozumienia w tej próbce; osobna retencja wykazała regresje |
+| Nowe nazwy i formy, 1890 przypadków; różnorodne konteksty 2100 | 1876 / 1864 | 1881 / 1873 | 1 utracona odpowiedź i 2 utracone poprawne interpretacje zakończone poprawną odpowiedzią |
+| Wcześniejszy trudny zestaw, 1890 przypadków; różnorodne konteksty 2100 względem 1950 | 1664 / 1481 | 1815 / 1709 | 12 utraconych odpowiedzi, 163 odzyskane; 3 utraty poprawnego rozumienia i 231 zysków |
+| Nowe nazwy i formy oraz poprawne powtórzenia argumentów, 750 przypadków; naprawa samego odczytu | 745 / 739 | 748 / 743 | bez utrat odpowiedzi ani poprawnego rozumienia w tej próbce |
+| Retencja tej naprawy, wcześniejszy trudny zestaw 1890 | 1815 / 1709 | 1816 / 1714 | 5 zysków poprawnego rozumienia bez jego utrat; 1 utracona i 2 odzyskane odpowiedzi |
 
+Dokładna interpretacja oznacza właściwy operator i wymagane argumenty: READ i NOT mają jeden operand, pozostałe operacje dwa. Poprawne rozumienie liczymy jako dokładną interpretację zakończoną poprawną odpowiedzią. Odpowiedź zgodna z etykietą mimo błędnej interpretacji jest wykazywana osobno; jej utrata nadal pozostaje jawna. W ostatniej retencji pojedyncza utracona odpowiedź pochodziła z przypadku, w którym oba warianty błędnie rozpoznały operator.
 
-### Aktualność — 13 października 2026: uczone cechy słów
+Poszczególne wiersze dotyczą różnych zestawów i nie tworzą jednej porównywalnej serii wyników. Pełne nowe nazwy wykluczano ze śledzonych danych treningowych i wcześniejszych zamrożonych testów. Nowe całe formy mogą zawierać wcześniej znane słowa. Po ujawnieniu wyników zestaw staje się diagnostyczny; wcześniejszy trudny zestaw jest celowo używany do retencji, a nie przedstawiany jako nowy test niezależny.
 
-Eksperymentalny frontend z osobnym kanałem cech znakowych słów dał w świeżym porównaniu 1890 przypadków **1664 poprawne odpowiedzi wobec1590 źródła**:79 odzyskanych,5 utraconych. Poprawnych interpretacji przybyło119,ubyło4. Znane formy629/630 w obu; nowa rama406/630 odpowiedzi wobec331/630. Kandydat zapisany osobno i **niewdrożony**. Dodatkowe8240 parametrów dotyczą wyłącznie frontendu; pamięć i logika pozostają zamrożone. Łącznie186729 parametrów z jedną współdzieloną bazą. Wynik nie oznacza gotowości do swobodnej rozmowy ani pełnego rozumienia polskiego.
+### Kontrola zysku i szkody
+
+Na polecenie użytkownika stosujemy jawny wybór kandydatów według celu:
+
+**maksymalizować zysk, przy ograniczeniu ważonej szkody do ustalonego budżetu.**
+
+Pamięć i logika są chronione twardym zamrożeniem. Podstawowe znane polecenia i poprawne powtórzenia argumentów mają osobną ochronę. Raportujemy zyski, utraty odpowiedzi, utraty poprawnego rozumienia i kompromisy Pareto. Początkowy budżet regresji wynosi zero; nie ustalono dodatniej tolerancji. Jest to kryterium wyboru i dalszej walidacji, nie twierdzenie, że sieć sama realizuje prawo matematyczne, ani nowa wdrożona funkcja sterowania. Ostatnia kontrola przechodzi mały test bez strat, ale pojedyncza strata odpowiedzi w retencji nie spełnia obecnego zerowego budżetu.
+
+Próba wspólnego odczytu argumentów z dodatkowymi 6306 parametrami zachowała początkowe logity dokładnie, lecz po 50 aktualizacjach nie dała przewagi ponad kontrolę; została zamknięta. Próba uczenia cech znakowych razem z naprawą odczytu również wykazała regresje. Wszystkie stany zachowano, bez podmiany źródłowych wag.
+
+**TSI nie jest jeszcze gotowe do ogólnego użycia.** Zakres pozostaje ograniczony do pojedynczego polskiego polecenia i zewnętrznych strukturalnych faktów. Nie ma swobodnego dialogu, zagnieżdżonych poleceń naturalnojęzykowych, parsera faktów z tekstu ani pełnego arbitra jakości. Angielski frontend jest planowany, nie wdrożony. Przed aktywacją potrzebna jest niezależna walidacja, ocena konkretnych strat i backup.
