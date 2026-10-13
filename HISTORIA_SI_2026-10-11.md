@@ -1061,3 +1061,83 @@ OLD1890source21001815answers1709parse/control1816/1714lost1gain2semanticlost0gai
 
 ### 13 października — przerwa na polecenie użytkownika i dokumentacja
 Użytkownik polecił wstrzymać naukę z powodu limitu i uaktualnić/wypchnąć README. Nadzór czasowo PAUSED, gotowość nieosiągnięta; bez automatycznego wznowienia. Ostatnia rozpoczęta diagnoza read-only zakończyła się przed zapisem: 5 zysków poprawnego rozumienia, pojedyncza strata odpowiedzi przy błędnym operatorze obu wariantów. Wszystkie stany zachowano. README ma jeden aktualny opis kandydatów, miar szkody i ograniczeń; historia osobno. Push wyłącznie README i historia, kod/wagi/dane lokalnie.
+
+
+### 13 października — wznowienie na polecenie użytkownika
+Użytkownik „możesz ruszać!” odwołał pauzę. NadzórACTIVE, źródła zachowane; bez powtarzania zakończonej nauki. Rozpoczęto NEW2010all9statepairs/fivefamilies+validsameargreadonlycomparisonSOURCE2100/controlargs50. Kontrola wybierana z jawną polityką szkody, oldonechancecorrectanswerloss nadal raportowany i nie spełnia zerowego budżetu. Noactivation, codeweightslocal.
+
+
+### 13 października — wznowiony niezależny test kontroli argumentów
+NEW2010source21002005answers1993parse/control2006/1995lost0gain1semanticlost0gain2. Jawna polityka szkodyepsilon0 spełniona w tej próbce;oldonechancecorrectanswerlossstillfailsbudget,noactivation. COPYword_argument_control_50savednonmain. Read-onlyremaining15errorsALLoperatorwrong(7oponly8opargs),4wronganswers,no core-onlyerror;needsTRAINoperatorcoverage notmemoryunfreeze/testrowstraining.
+
+
+### 13 października — nowe treningowe pary dla operatorów
+1680NEWTRAINsamefullnamesacross7ops/fivefamilies/fourforms:1619opcorrect1617parse. XOR→EQUIV27,AND→EQUIV16,OR→EQUIV9,EQUIV→XOR7,AND→READ1/IMPLIES1. GeneratorgoldTRAINonly/seenfrozenblocked,rowsandmanifest saved,no weightslearning. Remainingopfailuremodelegitimatelyreproduced;selectedargumentfixfeaturesfrozenneededtoavoidnameaddressregression.
+
+
+### 13 października — naprawa odczytu operatora50updates
+Same50x70TRAINbatches sourceargcontrolweights/RNGmatched,freshAdamWBOTH. Controlnativeop903 versusop+existingattention1935learned,allcontext/lexical/arguments/MEMORYLOGICfrozenbitwiseTRUEeachupdate. NAMEPAIRfloor20%12pairs/family actual2/family =>280heldcases16.7%;all7ops4formsstaysplit. OpCE+correctsourceTRAINKL.2unchanged,nogoldTEST. Heldvalidationrunning,noactivation.
+
+
+### 13 października — wybranie naprawy operatora z ograniczeniem szkody
+Held280source270/control277lost0gain7/attention278lost1gain9. Oldfooter840correct/samearg119unchangedALL. Constrainedpolicyepsilon0choosecontrolNEXTtest,attentionnoteligibledespitesumgreater/noextraepochs. Samebudget/frozenguardsverified. New750freshnamesformsrunning,nogoldTESTlearning/noactivation.
+
+
+### 13 października — naprawa odczytu operatora: świeży mały test
+NEW750fivefamilies3statepairs+120validsamearg sourceargcontrol747answers747parse/nativeopcontrol748/748lost0gain1semanticlost0gain1. Constraineddamageepsilon0acceptednextvalidationonly. COPYoperatorsourcebestnonmain,old1890retentionrunningvsargcontrol1816/1714. No TESTtraining/noactivation.
+
+
+### 13 października — odczyt operatora zachowuje bieżącą retencję
+OLD1890candidate1830answers1736parse versusargcontrol1816/1714lost0gain14semanticlost0gain22. Constrainedepsilon0feasible. Older1950/2050/2100comparison savedseparatelynotignored. NEW2010independentbroadrunning,noactivation/corefreeze.
+
+
+### 13 października — wybrany odczyt operatora: nowy szeroki test
+NEW2010sourceargcontrol1992answers1980parse/nativeopcontrol1994/1982lost0gain2semanticlost0gain2,epsilon0acceptednextvalidation. Remaining28semanticerrors26args-only2op+args16wronganswers;differentfreshframesnotproofargsregression(unchangedfunction). Old1830answers1736parse,oldsemanticretentionall1950/2050/2100zero lossesbutchance-answerlossesreported. Noactivation;actualtestrowsnevertrain,needsnewTRAINcontextfailurebeforemorelearning.
+
+
+### 13 października — oddzielne komponenty kontra połączenie
+Initial1344TRAINdoubleimperativeframesnotcleanenough,NOTchosenfortraining. Corrected1344TRAINcontextclauses+originalcompleteimperativeinclperiod:plain83/84,30bothwrongwhileeachcomponentcorrect. Savedcleancorpusmanifest,no weightslearning/testrows. Justifiescontrolledexposurecomparison(prefix+footerseparate versusboth+plain)equalwordcounts,notcapacityclaim.
+
+
+### 13 października — odseparowane komponenty wystarczają w walidacji treningowej
+Matchedexactwordexposure50x70bothsourceopcontrol/freshAdamWBOTHnewfulltrainablelist. Held252source220/separate251/joint251bothlost0gain31;formercomponents/footer/sameargsno losses. Jointcooccurrencenoextraobservedbenefit,notglobalproof. Newgrammatical750freshnamestransferrunning/noactivation. Metadatalegacytextsourceincorrect2050 boundactualoperatorcontrolSHAinrun_manifest;checkpointskeptunchanged.
+
+
+### 13 października — koszt pojedynczej regresji
+NEW750source735answers716parse/separate745/737semanticlost2gain23/joint747/744semanticlost1gain29. BOTHepsilon0ineligible. OnejointXOR→ANDlossanswercoincidesunderoriginalfacts,butREADONLY9states source9/9candidate4/9. Potential5/9futureharm,no TESTnames/rowstrain/no goldinference. Closevariant/bestopsourcepreserved/noactivation.
+
+
+### 13 października — konflikt gradientu nie jest konieczny
+READONLYTRAINclean1344+footer840:89opwrong/2095protectedcorrect;nativeopgradients cosine+0.3487. Virtualsteps restoredsource,protectedargmaxloss0all,wrongrepaired0/1/5,protectedCEdecreases. NotTEST/LRselection/readiness. Majoritycomponenterrorsoperator(69vs30arg both). Supportsboundednativeop-only guardedupdatecomparison ratherblindarg/fullfeaturetraining;no persistedweightsupdated.
+
+
+### 13 października — ograniczenie szkody w przyjmowaniu aktualizacji
+25matchednativeop-onlySGDupdates/CE+correctteacherKL.2. PlainprotectedTRAINlost1/guarded0,guardlastupdate rejectedafter7backtracks. Actualprotected1807/TRAIN1890/held294:224cleanheld+70extraexcludedpriorreplay duepairidnamespaceoverlap conservativeBOTH,actualmaskrecordednotexpectedcounts;notdata leakage. Frozenallnonopweightsverifiedall50checkpoints,sourceunchanged. FullNNheldvalidation done;noactivation/guaranteeTESTpreservation.
+
+
+### 13 października 2026 — ochrona aktualizacji nie przeniosła się na świeży test
+Na 750 nowych przypadkach source uzyskał 716 odpowiedzi i 709 dokładnych interpretacji, guarded25 714 i 706. Utracono 3 odpowiedzi i 4 poprawne rozumienia, zyskano po 1; dwie straty dotyczyły chronionych grup. Polityka wyboru odrzuciła kandydata (koszt7, budżet0). Pomimo zerowych regresji na chronionym zbiorze treningowym ochrona nie zapewniła generalizacji. Eksperyment zamknięty; source, pamięć, logika i wszystkie stany zachowane, bez aktywacji. Raporty TSI_OPERATORY_GUARD_MALY_TEST.json, TSI_OPERATORY_GUARD_MALY_WYBOR.json i TSI_OPERATORY_GUARD_GENERALIZACJA_DIAGNOZA.json.
+
+
+### 13 października — diagnoza wpływu kontekstu po zamknięciu guard
+Readonly750:41 błędów interpretacji źródła obejmuje15 błędów samego operatora,2 samych argumentów i24 obu. Diagnostyczne odtworzenie znanego korpusu bez otaczającego tekstu naprawiło40, ale zepsuło1 poprawny przypadek z powtórzonym argumentem. Wynik nie jest poprawą rzeczywistego inference: korpus odtworzono z gold tylko do diagnozy. Nie wprowadzono usuwania dopisków ani reguł słownikowych, nie zmieniono wag. Raport TSI_OPERATORY_RAMY_TRYBY_DIAGNOZA.json.
+
+
+### 13 października — reprezentacja korpusu na danych treningowych
+Readonly sourceoperatorcontrol50,1344 zapisanychTRAINwierszy. W1260 wariantach z kontekstem1154 dokładnych interpretacji i106 błędnych. Cosine stanów korpusu względemplain .846/.790 dla poprawnych/błędnych; masa uwagi korpusu .388/.280. Nie jest to dowód przyczynowy. Kod uwagi wpływa tylko na operator, argumenty czytają pełne stany kontekstu. Wagi niezmienione, bez wdrożenia. Raport TSI_KONTEKST_REPREZENTACJA_TRENING.json.
+
+
+### 13 października — liniowa próba rozpoznawania korpusu
+Diagnostyczny Linear128→1 na zamrożonych stanach sourceoperatorcontrol50,30 kroków; każdy stan/optimizer/RNG zapisany, parser/core bitowo niezmienione. Dokładne granice:TRAIN213/910,held-namepairs48/224,held-combos53/210. Tokenaccuracy87–89% nie oznacza bezpiecznego wycinania polecenia. Moduł niewłączony do inference, nie traktowany jako naprawa ani finalheldout. Raport TSI_KORPUS_LINIOWY_PROBE.json.
+
+
+### 13 października — typy błędów granic
+Readonlyprobe30:heldnames pomija3/384 tokenów nazw,125/736 innych słów korpusu i przyjmuje282/2072 kontekstu;heldcombos0/360,100/690,306/2590. Predykcyjny dekoder spójnego fragmentu poprawia exact48→54/224 i53→58/210, nadal za słaby do użycia. Bez zmiany wag lub inference. Raport TSI_KORPUS_GRANICE_TRYBY.json.
+
+
+### 13 października — koszt interpretacji przewidywanego fragmentu
+Readonlyfrozenprobe30→maxsumspan→frozenparser naTRAINcache. Heldnames215→217/224, lost7gain9;heldcombos180→195/210,lost9gain24;TRAIN842→807/910,lost77gain42. Wybór korzystał tylko z logitów, gold wyłącznie metryki. Występują realne regresje interpretacji; metoda niewdrożona i zamknięta jako kandydat inference. Wagi source/core niezmienione. Raport TSI_KORPUS_FRAGMENT_INTERPRETACJA_TRENING.json.
+
+
+### 13 października — domknięcie diagnozy fragmentu
+93 utraty exact naTRAIN:13 sameoperator,40 sameargs,40 oba. Metoda zamknięta bez wdrożenia. LokalnyREADME zaktualizowano o wznowienie, operatorcontrol50 oraz negatywne wyniki ochrony i fragmentów. Dokumentacji w tym kroku nie wypchnięto.

@@ -60,7 +60,7 @@ Najbliższy zakres zastosowań to lokalna pamięć nazwanych faktów, kontrola r
 
 ## Aktualny rozwój języka — 13 października 2026
 
-Praca nad nauką została wstrzymana na prośbę użytkownika z powodu limitu. Automatyczny nadzór jest czasowo wstrzymany; nie oznacza to osiągnięcia gotowości. Wszystkie źródła, kandydatury i stany uczenia zachowano. Nie wdrożono eksperymentalnych parserów.
+Praca i nadzór zostały wznowione na polecenie użytkownika. Wszystkie źródła, kandydatury i stany uczenia zachowano. Nie wdrożono eksperymentalnych parserów; gotowość nadal wymaga niezależnej walidacji i ochrony wcześniejszych poprawnych odpowiedzi.
 
 Aktualne kandydatury używają słownego dwukierunkowego GRU, uczonych wskaźników argumentów, odczytu operatora z uwagą oraz dodatkowych znakowych cech słów. Parser ma **72 641 parametrów**; razem z pamięcią 108 725 i logiką 5 363 daje **186 729**, licząc wspólny encoder tylko raz. Pamięć i logika pozostają zamrożone.
 
@@ -75,6 +75,14 @@ Aktualne kandydatury używają słownego dwukierunkowego GRU, uczonych wskaźnik
 Dokładna interpretacja oznacza właściwy operator i wymagane argumenty: READ i NOT mają jeden operand, pozostałe operacje dwa. Poprawne rozumienie liczymy jako dokładną interpretację zakończoną poprawną odpowiedzią. Odpowiedź zgodna z etykietą mimo błędnej interpretacji jest wykazywana osobno; jej utrata nadal pozostaje jawna. W ostatniej retencji pojedyncza utracona odpowiedź pochodziła z przypadku, w którym oba warianty błędnie rozpoznały operator.
 
 Poszczególne wiersze dotyczą różnych zestawów i nie tworzą jednej porównywalnej serii wyników. Pełne nowe nazwy wykluczano ze śledzonych danych treningowych i wcześniejszych zamrożonych testów. Nowe całe formy mogą zawierać wcześniej znane słowa. Po ujawnieniu wyników zestaw staje się diagnostyczny; wcześniejszy trudny zestaw jest celowo używany do retencji, a nie przedstawiany jako nowy test niezależny.
+
+### Najnowsze potwierdzone wyniki
+
+Zachowany kandydat word_operator_control_50 na nowym zestawie 2010 przypadków uzyskał **1994 poprawne odpowiedzi i 1982 dokładne interpretacje**, wobec 1992 i 1980 dla źródła, bez utrat w tej próbce. Na wcześniej ujawnionym trudnym zestawie1890 uzyskał **1830 odpowiedzi i 1736 interpretacji**, wobec1816 i1714, także bez utrat względem bezpośredniego źródła. Różne zestawy nie stanowią wspólnej skali wyników. Kandydat pozostaje niewdrożony.
+
+Dalsza próba ochrony aktualizacji zachowała treningowe poprawne przypadki, lecz na nowych750 pogorszyła wynik716/709→714/706: utraciła3 odpowiedzi i4 poprawne interpretacje, zyskując po jednej. Została odrzucona zgodnie z budżetem szkody. Ochrona treningu nie gwarantuje ochrony nowych poleceń.
+
+Diagnostyczny odczyt fragmentu polecenia także nie zapewnił retencji. Na rozdzielonych treningowych parach nazw zyskał9 interpretacji, tracąc7; na rozdzielonych kombinacjach ramek zyskał24, tracąc9. Nie wdrożono wycinania tekstu ani reguł słownikowych. Ta próba dotyczy diagnozy na danych treningowych, nie nowego testu końcowego.
 
 ### Kontrola zysku i szkody
 
