@@ -4,6 +4,24 @@
 
 Ta aktualizacja publikuje **wyłącznie dokumentację**. Kod nowego TSI, wagi, dane treningowe i prywatna pamięć pozostają lokalne. Starsze pliki znajdujące się już w repozytorium dotyczą wcześniejszego AI-SI, nie stanowią pakietu instalacyjnego obecnego TSI.
 
+## Wielkość na dysku
+
+Pomiar lokalnego katalogu TSI: **18 października 2026**. Rozmiar plików (MB = 1 000 000 bajtów), bez zaokrąglania do jednostek alokacji dysku.
+
+| Składniki | Rozmiar |
+|---|---:|
+| Cały katalog TSI | 270,02 MB |
+| Pliki aplikacji, moduły, artefakty modeli i dane słownikowe | 56,05 MB |
+| Moduły i lokalny analizator języka | 30,46 MB |
+| Dane i słownik | 22,96 MB |
+| Artefakty modeli | 2,46 MB |
+| Materiały treningowe | 53,44 MB |
+| Kopie zapasowe | 1,97 MB |
+| Dane robocze runtime | 157,33 MB |
+
+Wiersze szczegółowe częściowo zawierają się w drugim wierszu; nie należy sumować całej tabeli. Dane robocze mogą rosnąć podczas użytkowania. Pomiar nie obejmuje współdzielonego środowiska Python, jego bibliotek, zewnętrznych zależności ani osobnego math validatora. Jest to rozmiar plików na dysku, nie zużycie RAM ani rozmiar samych aktywnych wag.
+
+
 ## Najnowsze wdrożenie — czytanie i odpowiedzi PL/EN
 
 W zwykłej rozmowie działa `Read: Anna has a map but Piotr does not have a book.`, potem `Does Piotr have a book?`. TSI odpowiada **No. Piotr does not have a book.** i pokazuje cytat. Możliwe są też tekst PL/pytanie EN oraz tekst EN/pytanie PL; język odpowiedzi wynika z pytania.
