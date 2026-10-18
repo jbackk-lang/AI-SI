@@ -4,13 +4,13 @@
 
 Ta aktualizacja publikuje **wyłącznie dokumentację**. Kod nowego TSI, wagi, dane treningowe i prywatna pamięć pozostają lokalne. Starsze pliki znajdujące się już w repozytorium dotyczą wcześniejszego AI-SI, nie stanowią pakietu instalacyjnego obecnego TSI.
 
-## Najnowsze wdrożenie — zdania złożone i kontekst
+## Najnowsze wdrożenie — czytanie i odpowiedzi PL/EN
 
-W rozmowie działa odczyt `i`, `oraz`, `ale`, `lecz`, `lub` oraz jawnych warunków `jeśli …, to …` dla pełnych członów osoba–ma–przedmiot. Przykład: `Przeczytaj: Anna nie ma mapy, ale Piotr ma książkę.`, potem `Czy Anna ma mapę?`. Odpowiedź zachowuje cytat i negację. Alternatywa oraz sam warunek nie stają się automatycznie faktami.
+W zwykłej rozmowie działa `Read: Anna has a map but Piotr does not have a book.`, potem `Does Piotr have a book?`. TSI odpowiada **No. Piotr does not have a book.** i pokazuje cytat. Możliwe są też tekst PL/pytanie EN oraz tekst EN/pytanie PL; język odpowiedzi wynika z pytania.
 
-Czytnik buduje drzewo logiczne i macierz ról dla istniejącego transformera. Wagi pozostały bez zmian. Materiał kontrolny **384/384**, pełna regresja **264/264**, wcześniejsze próby **972/972**. Zakres: do 6 zdań i 6 różnych par osoba–przedmiot; angielski, zaimki i pominięte podmioty pozostają do rozwinięcia. [Jak działa, przykłady i ograniczenia](docs/COMPOUND_CONTEXT_2026-10-18.md).
+Zakres EN: zdania o posiadaniu, negacja, `and`, `but`, `or`, `if …, then …`; 29 haseł rzeczownikowych i 27 wspólnych pojęć. To ograniczony czytnik i odpowiedzi, nie pełna rozmowa po angielsku. Pełna regresja **290/290**, końcowa kontrola EN **28/28**, warianty językowe **1536/1536**. Wagi pozostają bez zmian. [Przykłady, słownik i ograniczenia](docs/ENGLISH_CONTEXT_2026-10-18.md).
 
-Moduł transformera ma **266 391 parametrów, szerokość 128 i 2 warstwy**; rdzeń H512 pozostaje aktywny. Sam odczyt tokenów w wcześniejszej próbie dał 306/640, a macierz ról 640/640; dodatkowe próby obejmowały 972/972, w tym 720 permutacji tych samych sześciu faktów. [Poprzedni raport transformera](docs/CONTEXT_TRANSFORMER_2026-10-18.md).
+Czytniki PL i EN korzystają ze wspólnej macierzy ról oraz tego samego transformera **266 391 parametrów (szerokość 128, 2 warstwy)**. Rdzeń H512 pozostaje aktywny. [Odczyt zdań złożonych](docs/COMPOUND_CONTEXT_2026-10-18.md).
 
 ## Co potrafi obecnie
 
@@ -146,3 +146,8 @@ Notatki są trwałą pamięcią użytkową, ale nie oznaczają automatycznego tr
 - [TSI-math-validator-5 — osobny warsztat matematyczny](https://github.com/jbackk-lang/TSI-math-validator-5).
 - [Morfeusz/SGJP — opis](https://morfeusz.sgjp.pl/doc/about/) i [licencja oraz autorzy](https://morfeusz.sgjp.pl/doc/license/en).
 - [RJP — zasady pisowni i interpunkcji](https://rjp.pan.pl/zasady-pisowni-i-interpunkcji-polskiej-2/).
+
+
+## Rozszerzony słownik angielski — 18 października 2026
+
+Wdrożono zasób 147 306 haseł WordNet/CMUdict. Obecny czytnik korzysta z 24 428 rzeczowników w kontrolowanych zdaniach o posiadaniu; zachowuje wieloznaczność. Pełna regresja: 315/315; próby na nowych rzeczownikach: 800/800. [Zakres i przykłady](docs/ENGLISH_DICTIONARY_2026-10-18.md).

@@ -1,5 +1,8 @@
 # TSI — kontekst zdań złożonych, 18 października 2026
 
+Aktualizacja: dodano ograniczony czytnik i odpowiedzi EN. [Aktualny zakres PL/EN](ENGLISH_CONTEXT_2026-10-18.md).
+
+
 ## Działa w zwykłej rozmowie
 
 1. `Przeczytaj: Anna nie ma mapy, ale Piotr ma książkę.`
