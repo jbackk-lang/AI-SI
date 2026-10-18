@@ -23,7 +23,7 @@ Ta aktualizacja publikuje **wyłącznie dokumentację**. Kod nowego TSI, wagi, d
 
 ## Matryce językowe i rdzeń
 
-Aktywny rdzeń **H512** ma **2 054 186 parametrów**. Współpracuje z dodatkowym uczonym wyborem umiejętności oraz jawną kontrolą ról, kolejności działań i brakujących danych. Rozbudowa warstwy językowej nie zmieniła wag H512. Aplikacja nie korzysta z Bielika ani Qwena.
+Aktywny rdzeń **H512** ma **2 054 186 parametrów**. Współpracuje z dodatkowym uczonym wyborem umiejętności oraz jawną kontrolą ról, kolejności działań i brakujących danych. Po rozbudowie matryc wykonano dalszy trening wag odczytu poleceń H512: odłożona ocena poprawiła się z **212/252 do 229/252**. Trening dotyczy siedmiu działań logicznych i kolejności argumentów. Pamięć, kontekst rekurencyjny i operacje wektorowe zachowano; nie jest to uruchomienie generatora opowiadań. Aplikacja nie korzysta z Bielika ani Qwena.
 
 Lokalny analizator **Morfeusz/SGJP 1.99.15** dostarcza analizy fleksyjne. TSI zachowuje możliwe interpretacje form i stosuje rzeczywiste macierze reguł:
 
@@ -73,9 +73,11 @@ Zmiana koloru jest zmianą znaczenia i jest odrzucana w obsługiwanym schemacie.
 
 ## Potwierdzony wynik
 
-Ostatnia pełna regresja: **167/167 testów**, czas **203,71 s**. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
+Pełna regresja po najnowszym treningu: **167/167 testów**. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
 
 Dodatkowo przejrzano **26 rzeczywistych wypowiedzi w 10 rozmowach**. W przeglądarce sprawdzono sześć kolejnych poleceń, Enter, czyszczenie pola, szczegóły odpowiedzi oraz widok telefonu o szerokości 375 px. Nie stwierdzono błędów JavaScript ani poziomego przepełnienia. Próby odbywały się na osobnych danych testowych. Wynik regresji opisuje sprawdzone przypadki, a nie procent rozumienia dowolnego języka.
+
+W odłożonej ocenie treningu pozostały **23 błędy na 252 polecenia**, w tym 14 dotyczących XOR. Na przykład „Proszę obliczyć xor A oraz B” nadal bywa odczytywane jako AND. W kontroli wcześniej poprawnie odczytanych poleceń nie wykazano utraty poprawnych odpowiedzi. Dodatkowo sprawdzono 1260 pełnych odpowiedzi; w 2048 próbach wektorowych wyniki pozostały identyczne. To kontrola określonych zadań, nie potwierdzenie uniwersalnego rozumienia języka.
 
 ## Co pozostaje do rozwinięcia
 
