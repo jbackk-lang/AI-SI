@@ -1,58 +1,94 @@
-# timderSI (TSI) — aktualny stan projektu
+# TSI — lokalny asystent modułowy
 
-Dokumentacja z 15 października 2026, oparta na ostatnim potwierdzonym stanie z 14 października. Nie wykonano nowych pomiarów modeli 15 października.
+**Aktualny stan: 18 października 2026.** TSI łączy własny uczony rdzeń, macierze językowe, trwałe notatki i narzędzia do pracy z tekstem, dokumentami oraz matematyką. Nowa aplikacja zastępuje wcześniejszy AI-SI; jego lokalna wersja została zachowana w archiwum.
 
-TSI jest lokalnym, eksperymentalnym systemem z uczonym rdzeniem wektorowym, chronioną pamięcią i logiką trójstanową oraz modułami poleceń i relacji. Ma wykonawcę jawnych programów wielokrokowych i pierwszy adapter do walidatora matematycznego. Repozytorium publikuje dokumentację; kod, wagi, dane i surowe wyniki pozostają lokalne.
+Ta aktualizacja publikuje **wyłącznie dokumentację**. Kod nowego TSI, wagi, dane treningowe i prywatna pamięć pozostają lokalne. Starsze pliki znajdujące się już w repozytorium dotyczą wcześniejszego AI-SI, nie stanowią pakietu instalacyjnego obecnego TSI.
 
-**Praca została zatrzymana na polecenie użytkownika. Automatyzacja ma ostatni zapisany status PAUSED. Cała TSI nie została uznana za gotową.** Raport końcowy odnotowuje brak aktywnego treningu i serwera TSI na porcie 8791. Wybrana wersja wag nie oznacza uruchomionego procesu.
+## Co potrafi obecnie
 
-## Obecna budowa
+| Obszar | Działające możliwości |
+|---|---|
+| Rozmowa i tekst | Utrzymanie kontekstu opracowywanego tekstu, przyjęcie brakującej treści w kolejnym kroku, przygotowanie wiadomości z podanej treści, skrót przez wybór zdań, punkty i listy zadań |
+| Poprawki | Zamiana wskazanego fragmentu, cofnięcie ostatniej zmiany, rozpoczęcie nowego tematu |
+| Czytanie | Pytania do podanego tekstu lub dokumentu, odpowiedzi z cytatem źródłowym |
+| Dokumenty | TXT, MD, PDF i DOCX; do 10 plików, 8 MB na plik i 32 MB łącznie; skany wymagają wcześniejszego OCR |
+| Pamięć | Jawnie zapisane notatki, wyszukiwanie informacji, lokalna historia rozmów i eksport JSON |
+| Polski | Analiza odmiany, siedem przypadków, liczba, rodzaj i cechy czasownika; rozpoznawanie ról w obsługiwanych konstrukcjach |
+| Kontrola znaczenia | Wykonawca, czynność, obiekt, odbiorca, przeczenie, aspekt, możliwość, czas i warunek; porównanie odpowiedzi z tekstem źródłowym |
+| Kontrola zapisu | Wybrane błędy nawiasów, cudzysłowów, odstępów i pisowni; wskazanie wiersza i kolumny |
+| Matematyka | Kalkulator naukowy, równania z x, pochodne, całki, upraszczanie i kontrola dziedziny; potęgi zapisane jako ^ lub ** |
+| Zadania tekstowe | Współpraca z czytnikiem i solverem TSI-math-validator-5 w ich obsługiwanym zakresie |
+| Logika i relacje | Fakty w trzech stanach, zachowanie faktów między pytaniami, relacje potwierdzane źródłem, ścieżki i wykrywanie konfliktów |
+| Pozostałe narzędzia | Obliczenia na datach, odczyt udostępnionych plików i obsługiwanych stron HTTPS, katalog 10 sprawdzonych przykładów funkcji programistycznych |
 
-Rdzeń ma szerokość 256, 670 250 parametrów i wybrany checkpoint 10150. Operuje na wektorach 96-elementowych. Sześć przybliżonych operacji to wydłużenie, skrócenie, suma, różnica, środek i przesunięcie cykliczne. Pamięć i logika trójstanowa pozostają chronione przy dołączaniu modułów.
+## Matryce językowe i rdzeń
 
-| Wybrany moduł | Parametry | Checkpoint |
-|---|---:|---:|
-| Rdzeń wektorowy | 670 250 | 10150 |
-| Relacja długości | 3 328 | 120 |
-| Kompozycja relacji długości | 18 980 | 100 |
-| Odczyt ról | 96 | 100 |
-| Angielskie polecenia | 14 102 | 200 |
-| Kolejność argumentów odejmowania | 13 842 | 100 |
-| Relacja kierunku | 3 328 | 100 |
+Aktywny rdzeń **H512** ma **2 054 186 parametrów**. Współpracuje z dodatkowym uczonym wyborem umiejętności oraz jawną kontrolą ról, kolejności działań i brakujących danych. Rozbudowa warstwy językowej nie zmieniła wag H512. Aplikacja nie korzysta z Bielika ani Qwena.
 
-Tabela podaje parametry poszczególnych modułów według identyfikatorów rejestru, bez deklarowania sumy całego systemu.
+Lokalny analizator **Morfeusz/SGJP 1.99.15** dostarcza analizy fleksyjne. TSI zachowuje możliwe interpretacje form i stosuje rzeczywiste macierze reguł:
 
-## Działające możliwości
-
-| Możliwość | Zapisany wynik | Zakres sprawdzenia |
+| Macierz | Wymiar | Zastosowanie |
 |---|---:|---|
-| Relacja długości | 600/600 | nowe pary w ustalonym zakresie; zera oraz skale 0,001 i 4 |
-| Relacja kierunku | 800/800 | osobny generator o określonym zakresie |
-| Kompozycja relacji długości | 800/800 | osobny test jakościowych relacji |
-| Wybór według roli | 900/900 | jawna rola obiektu, operacji lub relacji; rekonstrukcja wektora przybliżona |
-| Angielskie polecenia sześciu operacji | 72/72 | odłożone kombinacje znanych słów |
-| Kolejność argumentów odejmowania | 36/36 | osobny jawny kontekst zadania |
+| Czasownik × przypadek dopełnienia | 58 × 7 | Wymagany przypadek w opisanych schematach |
+| Czasownik × cechy ról | 58 × 3 | Dopełnienie, odbiorca, konstrukcja zwrotna |
+| Przyimek × przypadek | 16 × 7 | Ograniczenia fraz przyimkowych |
+| Przekształcenie przy przeczeniu | 7 × 7 | Zmiana wymagania biernika na dopełniacz w obsługiwanej konstrukcji |
+| Część mowy × rola | 10 × 8 | Dopuszczalne funkcje składników zdania |
 
-Zintegrowano przepływ polecenie → role → operacja → relacje. Lokalny wykonawca przyjmuje jawne wektory i listę kroków; wynik kroku może zasilać kolejny. Wykonano przykład suma → skrócenie → odwrócone odejmowanie. Nazwane wyniki stanowią pamięć wykonania zadania, a nie nową wyuczoną pamięć rdzenia.
+Przypadek, liczba i rodzaj pomagają ustalić role także po zmianie szyku: **„Oskarowi książkę daje Alicja”** wskazuje Alicję jako wykonawcę i Oskara jako odbiorcę. „Czytała” nie potwierdza „przeczytała”, a „może wysłać” nie potwierdza wysłania. Podział zdań, zakres przeczenia i warunki obsługuje osobny kontroler; nie sprowadzamy całego języka do jednego układu równań.
 
-Pierwszy adapter do **math-validator-3.0** rozwiązał `2*x−4=0`, otrzymał `x=2` i sprawdził podstawienie z resztą zero. Zapisano wykres oraz dziennik zadania. Adapter korzysta z rzeczywistego walidatora. Wybór narzędzia jest jawnie określony w zadaniu; uczone zarządzanie narzędziami nie jest wdrożone. Poprawne podstawienie nie stanowi ogólnego dowodu kompletności rozwiązania.
+## Jak korzystać
 
-## Aktualne ograniczenia
+W lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel działa pod adresem **http://127.0.0.1:8791/**. **ZATRZYMAJ_TSI.bat** zamyka aplikację. Repozytorium nie udostępnia obecnie instalatora nowego asystenta.
 
-Wyniki osobnych modułów nie gwarantują poprawności całego przepływu. W diagnozie 192 rzeczywistych wyników operacji poprawne były **149/192 relacje długości** i **173/192 relacje kierunku**. Problemy obejmują przesunięcie cykliczne i granice kategorii. Zintegrowane relacje są oznaczone jako niezweryfikowane estymaty; dostępne są także rzeczywiste długości i względna zmiana długości.
+**Enter** wysyła polecenie, **Shift+Enter** dodaje wiersz. Po udanym wysłaniu pole jest czyszczone; rozmowa pozostaje powyżej, a **Dane i szczegóły** poniżej. Rozwiń **Pomoc i przykłady** lub wpisz `pomoc` — dostępnych jest 26 przykładów. Wybranie przykładu wstawia treść do pola, bez automatycznego wykonania.
 
-Obliczenia wektorowe są przybliżone. Nieznane polecenie może zostać przypisane do jednej ze znanych operacji. Nie ma ogólnego czatu, swobodnego parsowania programów, wyuczonego zarządzania narzędziami ani potwierdzonej dokładności relacji przy granicach kategorii. Wyniki na generatorach nie stanowią potwierdzenia niezawodności produkcyjnej.
+### Przykłady poleceń
 
-## Docelowa rola i pozostałe prace
+| Polecenie | Cel |
+|---|---|
+| `Przeczytaj: Alicja daje zieloną książkę Oskarowi.` | Wprowadzenie tekstu źródłowego |
+| `Komu Alicja daje zieloną książkę?` | Pytanie do tekstu z zachowaniem ról |
+| `Czy Oskar daje zieloną książkę Alicji?` | Sprawdzenie zmienionego wykonawcy i odbiorcy |
+| `Pokaż zależności` | Podgląd rozpoznanych relacji |
+| `Pokaż macierze reguł` | Podgląd macierzy językowych |
+| `Odmień: książka` | Formy słownikowe wyrazu |
+| `Analizuj odmianę: książki` | Możliwe analizy podanej formy |
+| `Sprawdź zdanie: Anna daje książka Markowi.` | Kontrola obsługiwanych zależności gramatycznych |
+| `Sprawdź zapis: Anna czyta (książkę].` | Wskazanie problemu z zapisem |
+| `zapamiętaj: termin projektu = 5 listopada 2026` | Zapis notatki |
+| `przypomnij: termin projektu` | Odczyt notatki |
+| `policz: 2*(7+3)^2` | Obliczenie wyrażenia |
+| `x^2-13*x+40=0` | Rozwiązanie równania |
 
-TSI ma zarządzać zadaniami matematycznymi z wykresami oraz współpracować z **math-validator-3.0**, **TIMeDR-MUZ** i **TIMDR-Industrial-Predict**. Pierwszy adapter matematyczny działa; MUZ i Industrial-Predict nie są podłączone.
+Do porównania treści użyj osobnych wierszy:
 
-Po wznowieniu pozostaje integracja rzeczywistych interfejsów, zebranie konkretnych zadań oraz nauka wyboru modułu i strategii. Relacje graniczne wymagają ustalonego kontraktu rozdzielczości. Gotowość należy sprawdzać na całych zadaniach z ochroną wcześniejszych poprawnych zachowań.
+```text
+Sprawdź znaczenie:
+Źródło: Anna czyta zieloną książkę.
+Odpowiedź: Anna czyta czerwoną książkę.
+```
 
-## Zasoby i historia
+Zmiana koloru jest zmianą znaczenia i jest odrzucana w obsługiwanym schemacie.
 
-Rejestr obejmuje **467 plików modeli i kopii** oraz **168 plików danych**. Liczba plików nie oznacza liczby niezależnych modułów aktywnego systemu. Zachowano źródła, wybrane wersje, punkty zwrotne i kopie cofnięcia.
+## Potwierdzony wynik
 
-[Historia badań, wcześniejsze wersje i raport stanu z 14 października](HISTORIA_SI_2026-10-11.md).
+Ostatnia pełna regresja: **167/167 testów**, czas **203,71 s**. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
 
-Opis oparto na lokalnym raporcie końcowym, rejestrze modeli i zapisanym wyniku zadania matematycznego. Aktualizacja dokumentacji nie wznawia treningu ani serwera.
+Dodatkowo przejrzano **26 rzeczywistych wypowiedzi w 10 rozmowach**. W przeglądarce sprawdzono sześć kolejnych poleceń, Enter, czyszczenie pola, szczegóły odpowiedzi oraz widok telefonu o szerokości 375 px. Nie stwierdzono błędów JavaScript ani poziomego przepełnienia. Próby odbywały się na osobnych danych testowych. Wynik regresji opisuje sprawdzone przypadki, a nie procent rozumienia dowolnego języka.
+
+## Co pozostaje do rozwinięcia
+
+TSI jest rozszerzalnym asystentem o określonych umiejętnościach. Swobodne opowiadania i szerokie wyjaśnienia tematów nie są jeszcze działającą funkcją: pierwszy własny generator nie przeszedł oceny i nie został wdrożony.
+
+Pełny słownik odmiany nie oznacza pełnego rozumienia języka. Ograniczenia obejmują m.in. stronę bierną, część zdań złożonych, konstrukcje liczebnikowe, zależności między rzeczownikami i zaimki wymagające kontekstu. Niejednoznaczny odczyt pozostaje nierozstrzygnięty. Kontrola zapisu obejmuje wybrane reguły; zgodność z tekstem źródłowym nie potwierdza prawdziwości informacji o świecie.
+
+Notatki są trwałą pamięcią użytkową, ale nie oznaczają automatycznego treningu wag podczas rozmowy. Listy zadań nie są autonomicznym harmonogramowaniem, a katalog przykładów kodu nie jest samodzielnym programowaniem.
+
+## Historia i źródła
+
+- [Poprzednie README — stan z 15 października 2026](docs/archiwum/README_2026-10-15.md).
+- [Wcześniejsza historia AI-SI](HISTORIA_SI_2026-10-11.md) — dokument historyczny, nie bieżąca specyfikacja.
+- [TSI-math-validator-5 — osobny warsztat matematyczny](https://github.com/jbackk-lang/TSI-math-validator-5).
+- [Morfeusz/SGJP — opis](https://morfeusz.sgjp.pl/doc/about/) i [licencja oraz autorzy](https://morfeusz.sgjp.pl/doc/license/en).
+- [RJP — zasady pisowni i interpunkcji](https://rjp.pan.pl/zasady-pisowni-i-interpunkcji-polskiej-2/).
