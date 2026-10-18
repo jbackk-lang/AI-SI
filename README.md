@@ -37,6 +37,24 @@ Lokalny analizator **Morfeusz/SGJP 1.99.15** dostarcza analizy fleksyjne. TSI za
 
 Przypadek, liczba i rodzaj pomagają ustalić role także po zmianie szyku: **„Oskarowi książkę daje Alicja”** wskazuje Alicję jako wykonawcę i Oskara jako odbiorcę. „Czytała” nie potwierdza „przeczytała”, a „może wysłać” nie potwierdza wysłania. Podział zdań, zakres przeczenia i warunki obsługuje osobny kontroler; nie sprowadzamy całego języka do jednego układu równań.
 
+## Macierz kontekstowo-przyczynowa
+
+W tej samej rozmowie działa:
+
+```text
+Macierz przyczynowa: Fakt: pada deszcz. Jeśli pada deszcz, to ulica jest mokra. Deszcz powoduje wzrost poziomu wody.
+```
+
+Przyczyny, reguły warunkowe, kolejność zdarzeń i wnioski zapisane w źródle mają oddzielne warstwy **T/F/U** z cytatami. Jawne konteksty, np. „W piątek:” i „W sobotę:”, pozostają rozdzielone. Natywna logika sprawdza aktywację reguł; fałszywa przesłanka nie staje się fałszywym następstwem, a sprzeczność zatrzymuje dalsze potwierdzanie.
+
+Samo współwystępowanie zdań nie potwierdza przyczyny. Wskazana przyczyna nie jest automatycznie traktowana jako wystarczający warunek. Pytania i niepewne twierdzenia nie stają się faktami. Macierz zapisuje relacje podane w źródle; nie dowodzi ich prawdziwości w świecie.
+
+Końcowe testy macierzy: **38/38**, ponadto wcześniej sprawdzono 68 przypadków nowego przepływu i poprzednich funkcji oraz siedem poleceń w przeglądarce. Zakres: opisane polskie łączniki, jawne konteksty, do 40 krótkich zdań i 24 węzłów. Pełne drzewa zdań złożonych oraz angielski czytnik pozostają do wdrożenia. Wybrany kierunek to wspólna reprezentacja znaczenia z osobnymi regułami PL/EN; translator może być opcjonalną pomocą.
+
+Przy powtarzalnej utracie wcześniejszych umiejętności obowiązuje kontrola i zwiększenie pojemności właściwego modułu, trening z powtórkami oraz porównanie z zachowanymi wagami. Wymiana następuje po potwierdzeniu poprawy i zachowania wcześniejszych umiejętności; nie działa jako samoczynna wymiana wag podczas rozmowy.
+
+![Macierz przyczyn i warunków — demonstracja w rzeczywistym panelu](docs/tsi-context-causal-2026-10-18.png)
+
 ## Wektorowe dopasowanie informacji — T/F/U
 
 W rozmowie działa polecenie:
@@ -67,7 +85,7 @@ Trening: 480 przykładów, 120 deweloperskich i 240 odłożonych; **240/240 popr
 
 W lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel działa pod adresem **http://127.0.0.1:8791/**. **ZATRZYMAJ_TSI.bat** zamyka aplikację. Repozytorium nie udostępnia obecnie instalatora nowego asystenta.
 
-**Enter** wysyła polecenie, **Shift+Enter** dodaje wiersz. Po udanym wysłaniu pole jest czyszczone; rozmowa pozostaje powyżej, a **Dane i szczegóły** poniżej. Rozwiń **Pomoc i przykłady** lub wpisz `pomoc` — dostępnych jest 27 przykładów. Wybranie przykładu wstawia treść do pola, bez automatycznego wykonania.
+**Enter** wysyła polecenie, **Shift+Enter** dodaje wiersz. Po udanym wysłaniu pole jest czyszczone; rozmowa pozostaje powyżej, a **Dane i szczegóły** poniżej. Rozwiń **Pomoc i przykłady** lub wpisz `pomoc` — dostępnych jest 28 przykładów. Wybranie przykładu wstawia treść do pola, bez automatycznego wykonania.
 
 ### Przykłady poleceń
 
@@ -99,7 +117,7 @@ Zmiana koloru jest zmianą znaczenia i jest odrzucana w obsługiwanym schemacie.
 
 ## Potwierdzony wynik
 
-Pełna regresja po najnowszym treningu językowym i integracji logiki wektorowej: **200/200 testów**. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
+Pełna regresja przed dodaniem macierzy kontekstowo-przyczynowej: **200/200 testów**. Nowa macierz ma osobne końcowe sprawdzenie **38/38** opisane powyżej. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
 
 Dodatkowo przejrzano **26 rzeczywistych wypowiedzi w 10 rozmowach**. W przeglądarce sprawdzono sześć kolejnych poleceń, Enter, czyszczenie pola, szczegóły odpowiedzi oraz widok telefonu o szerokości 375 px. Nie stwierdzono błędów JavaScript ani poziomego przepełnienia. Próby odbywały się na osobnych danych testowych. Wynik regresji opisuje sprawdzone przypadki, a nie procent rozumienia dowolnego języka.
 
