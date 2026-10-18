@@ -79,7 +79,7 @@ Dodatkowo przejrzano **26 rzeczywistych wypowiedzi w 10 rozmowach**. W przegląd
 
 ## Co pozostaje do rozwinięcia
 
-TSI jest rozszerzalnym asystentem o określonych umiejętnościach. Swobodne opowiadania i szerokie wyjaśnienia tematów nie są jeszcze działającą funkcją: pierwszy własny generator nie przeszedł oceny i nie został wdrożony.
+TSI jest rozszerzalnym asystentem o określonych umiejętnościach. Swobodne opowiadania i szerokie wyjaśnienia tematów pozostają do rozwinięcia. Osobny, eksperymentalny **prototyp generatora języka**, trenowany od zera, nie przeszedł oceny jakości i nie został wdrożony. Wynik tej próby dotyczy wyłącznie prototypu, nie aktualnego rdzenia H512 ani działających matryc i narzędzi TSI.
 
 Pełny słownik odmiany nie oznacza pełnego rozumienia języka. Ograniczenia obejmują m.in. stronę bierną, część zdań złożonych, konstrukcje liczebnikowe, zależności między rzeczownikami i zaimki wymagające kontekstu. Niejednoznaczny odczyt pozostaje nierozstrzygnięty. Kontrola zapisu obejmuje wybrane reguły; zgodność z tekstem źródłowym nie potwierdza prawdziwości informacji o świecie.
 
