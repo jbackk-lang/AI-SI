@@ -1,5 +1,8 @@
 # Transformer kontekstu TSI — 18 października 2026
 
+Aktualizacja: później rozszerzono czytnik o zdania złożone. [Aktualny zakres i regresja 264/264](COMPOUND_CONTEXT_2026-10-18.md). Poniżej zachowano wyniki wcześniejszego etapu treningu.
+
+
 ## Stan wdrożenia
 
 W zwykłej rozmowie działa dodatkowy uczony transformer kontekstu: **266 391 parametrów, szerokość 128, 4 głowy uwagi, 2 warstwy**. Dotychczasowy rdzeń H512 / 2 054 186 parametrów pozostaje aktywny. To rozszerzenie, nie pełna wymiana rdzenia i nie generator swobodnej prozy.

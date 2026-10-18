@@ -4,22 +4,13 @@
 
 Ta aktualizacja publikuje **wyłącznie dokumentację**. Kod nowego TSI, wagi, dane treningowe i prywatna pamięć pozostają lokalne. Starsze pliki znajdujące się już w repozytorium dotyczą wcześniejszego AI-SI, nie stanowią pakietu instalacyjnego obecnego TSI.
 
-## Najnowsze wdrożenie — transformer kontekstu
+## Najnowsze wdrożenie — zdania złożone i kontekst
 
-Dodatkowa kontrola po wdrożeniu: **972/972 prób**, w tym 720 permutacji kolejności sześciu faktów. Nowe słowa, negacje i sprzeczności przeszły bez zmiany wag.
+W rozmowie działa odczyt `i`, `oraz`, `ale`, `lecz`, `lub` oraz jawnych warunków `jeśli …, to …` dla pełnych członów osoba–ma–przedmiot. Przykład: `Przeczytaj: Anna nie ma mapy, ale Piotr ma książkę.`, potem `Czy Anna ma mapę?`. Odpowiedź zachowuje cytat i negację. Alternatywa oraz sam warunek nie stają się automatycznie faktami.
 
-W zwykłej rozmowie działa nowy moduł: **266 391 parametrów, 2 warstwy transformera, szerokość 128**. Odczytuje macierze ról i rozróżnia potwierdzenie, zaprzeczenie, brak informacji oraz sprzeczność. Współpracuje ze słownikiem odmiany, także dla imion i przedmiotów spoza treningu. Aktywny rdzeń H512 pozostaje bez zmian.
+Czytnik buduje drzewo logiczne i macierz ról dla istniejącego transformera. Wagi pozostały bez zmian. Materiał kontrolny **384/384**, pełna regresja **264/264**, wcześniejsze próby **972/972**. Zakres: do 6 zdań i 6 różnych par osoba–przedmiot; angielski, zaimki i pominięte podmioty pozostają do rozwinięcia. [Jak działa, przykłady i ograniczenia](docs/COMPOUND_CONTEXT_2026-10-18.md).
 
-Przykład dwóch kolejnych wiadomości:
-
-1. `Przeczytaj: Marek nie ma samochodu. Anna ma mapę.`
-2. `Czy Marek ma samochód?`
-
-Odpowiedź: „Nie — podany tekst temu zaprzecza”, z cytatem. Szczegóły pokazują przewidywanie sieci, audyt oraz ślad diagnostyczny. Zakres nowego modułu: 1–6 prostych zdań w kolejności osoba–ma–przedmiot; negacja zmienia wymagany przypadek. Pełne zdania złożone, generator swobodnej prozy i duży wariant 512/6 pozostają kolejnymi etapami.
-
-W ograniczonym teście syntetycznym macierz ról dała **640/640**, a odczyt samych tokenów **306/640**. Dodatkowy stres: **512/512**. Zgodność osoby i przedmiotu podaje adapter; są to wyniki agregacji faktów, nie ogólnego rozumienia języka. Testy modułu **33/33**, regresja zmienionej rozmowy **65/65**. Pełna regresja poprzedniego stanu: **237/238**; pojedynczy nieudany przypadek przeszedł osobne powtórzenie **1/1**.
-
-[Architektura, trening, ograniczenia i możliwość cofnięcia](docs/CONTEXT_TRANSFORMER_2026-10-18.md). [Poprzednia wersja README](docs/archiwum/README_2026-10-18_before_context_transformer.md).
+Moduł transformera ma **266 391 parametrów, szerokość 128 i 2 warstwy**; rdzeń H512 pozostaje aktywny. Sam odczyt tokenów w wcześniejszej próbie dał 306/640, a macierz ról 640/640; dodatkowe próby obejmowały 972/972, w tym 720 permutacji tych samych sześciu faktów. [Poprzedni raport transformera](docs/CONTEXT_TRANSFORMER_2026-10-18.md).
 
 ## Co potrafi obecnie
 
