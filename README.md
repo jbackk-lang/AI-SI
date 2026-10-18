@@ -37,6 +37,16 @@ Lokalny analizator **Morfeusz/SGJP 1.99.15** dostarcza analizy fleksyjne. TSI za
 
 Przypadek, liczba i rodzaj pomagają ustalić role także po zmianie szyku: **„Oskarowi książkę daje Alicja”** wskazuje Alicję jako wykonawcę i Oskara jako odbiorcę. „Czytała” nie potwierdza „przeczytała”, a „może wysłać” nie potwierdza wysłania. Podział zdań, zakres przeczenia i warunki obsługuje osobny kontroler; nie sprowadzamy całego języka do jednego układu równań.
 
+## Pełne odpowiedzi po treningu językowym
+
+Do rozmowy włączono uczony moduł układania pełnych zdań, liczący **8736 parametrów**. Otrzymuje fragmenty tekstu z rolami rozpoznanymi przez matryce, uczy się ich kolejności i zachowuje oryginalne formy wyrazów. Każda propozycja przechodzi kontrolę zgodności ze źródłem. Przy błędnej propozycji użytkownika TSI może podać pełną wersję zgodną ze źródłem.
+
+Przykład: „Zieloną książkę Oskarowi przekazuje Alicja” → pytanie „Komu Alicja przekazuje zieloną książkę?” → „Oskar. Alicja przekazuje zieloną książkę Oskarowi.” Oryginalny cytat pozostaje pod odpowiedzią.
+
+Trening: 480 przykładów, 120 deweloperskich i 240 odłożonych; **240/240 poprawnie ułożonych zdań** w kontrolowanym zestawie z oznaczonymi rolami. W odłożonej części użyto innych nazw i czasowników. Ten wynik dotyczy układania rozpoznanych fragmentów, nie samodzielnego odczytu dowolnej polszczyzny. Nie jest to swobodne tworzenie opowiadań. Wagi H512 po poprzedniej rundzie pozostają aktywne; ta runda uczyła dodatkową część językową.
+
+![Pełna odpowiedź TSI na danych demonstracyjnych](docs/tsi-language-2026-10-18.png)
+
 ## Jak korzystać
 
 W lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel działa pod adresem **http://127.0.0.1:8791/**. **ZATRZYMAJ_TSI.bat** zamyka aplikację. Repozytorium nie udostępnia obecnie instalatora nowego asystenta.
@@ -73,7 +83,7 @@ Zmiana koloru jest zmianą znaczenia i jest odrzucana w obsługiwanym schemacie.
 
 ## Potwierdzony wynik
 
-Pełna regresja po najnowszym treningu: **167/167 testów**. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
+Pełna regresja po najnowszym treningu językowym: **184/184 testów**. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
 
 Dodatkowo przejrzano **26 rzeczywistych wypowiedzi w 10 rozmowach**. W przeglądarce sprawdzono sześć kolejnych poleceń, Enter, czyszczenie pola, szczegóły odpowiedzi oraz widok telefonu o szerokości 375 px. Nie stwierdzono błędów JavaScript ani poziomego przepełnienia. Próby odbywały się na osobnych danych testowych. Wynik regresji opisuje sprawdzone przypadki, a nie procent rozumienia dowolnego języka.
 
