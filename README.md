@@ -37,6 +37,22 @@ Lokalny analizator **Morfeusz/SGJP 1.99.15** dostarcza analizy fleksyjne. TSI za
 
 Przypadek, liczba i rodzaj pomagają ustalić role także po zmianie szyku: **„Oskarowi książkę daje Alicja”** wskazuje Alicję jako wykonawcę i Oskara jako odbiorcę. „Czytała” nie potwierdza „przeczytała”, a „może wysłać” nie potwierdza wysłania. Podział zdań, zakres przeczenia i warunki obsługuje osobny kontroler; nie sprowadzamy całego języka do jednego układu równań.
 
+## Wektorowe dopasowanie informacji — T/F/U
+
+W rozmowie działa polecenie:
+
+```text
+Połącz informacje: Zofia daje mapę Irenie. Irena daje mapę Piotrowi.
+```
+
+TSI dopasowuje role i pokazuje „Zofia → Irena → Piotr” wraz z cytatami. Po wczytaniu tekstu można też zapytać `Jak łączą się te informacje?`. Pierwszy zakres obejmuje opisy przekazań, od 2 do 8 zdań; dopasowanie ról nie ustala chronologii ani tożsamości fizycznego przedmiotu.
+
+Wartości czterech ról są wiązane w macierzy z 96-wymiarowymi wektorami istniejącego enkodera TSI. Uczony komparator rozróżnia **T — zgodność, F — niezgodność, U — brak rozstrzygnięcia**. Istniejąca natywna logika trójstanowa łączy te oceny. Możliwość, warunek i sprzeczności nie stają się bezwarunkowym potwierdzeniem. Oryginalne cytaty pozostają zachowane.
+
+Odłożone porównania zakodowanych wartości: **1200/1200**, bez fałszywego T; natywne łączenie trzech stanów: **27/27**. To wyniki kontrolowanego porównywania wektorów i masek obecności, nie ocena dowolnej rozmowy. Cała aplikacja przeszła **200/200 testów**, obejmujących również zdania z różnym przedmiotem, przeczeniem, warunkiem i odwróconą kolejnością zapisu.
+
+![Wektorowe dopasowanie ról — rzeczywisty panel na danych demonstracyjnych](docs/tsi-vector-language-2026-10-18.png)
+
 ## Pełne odpowiedzi po treningu językowym
 
 Do rozmowy włączono uczony moduł układania pełnych zdań, liczący **8736 parametrów**. Otrzymuje fragmenty tekstu z rolami rozpoznanymi przez matryce, uczy się ich kolejności i zachowuje oryginalne formy wyrazów. Każda propozycja przechodzi kontrolę zgodności ze źródłem. Przy błędnej propozycji użytkownika TSI może podać pełną wersję zgodną ze źródłem.
@@ -51,7 +67,7 @@ Trening: 480 przykładów, 120 deweloperskich i 240 odłożonych; **240/240 popr
 
 W lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel działa pod adresem **http://127.0.0.1:8791/**. **ZATRZYMAJ_TSI.bat** zamyka aplikację. Repozytorium nie udostępnia obecnie instalatora nowego asystenta.
 
-**Enter** wysyła polecenie, **Shift+Enter** dodaje wiersz. Po udanym wysłaniu pole jest czyszczone; rozmowa pozostaje powyżej, a **Dane i szczegóły** poniżej. Rozwiń **Pomoc i przykłady** lub wpisz `pomoc` — dostępnych jest 26 przykładów. Wybranie przykładu wstawia treść do pola, bez automatycznego wykonania.
+**Enter** wysyła polecenie, **Shift+Enter** dodaje wiersz. Po udanym wysłaniu pole jest czyszczone; rozmowa pozostaje powyżej, a **Dane i szczegóły** poniżej. Rozwiń **Pomoc i przykłady** lub wpisz `pomoc` — dostępnych jest 27 przykładów. Wybranie przykładu wstawia treść do pola, bez automatycznego wykonania.
 
 ### Przykłady poleceń
 
@@ -83,7 +99,7 @@ Zmiana koloru jest zmianą znaczenia i jest odrzucana w obsługiwanym schemacie.
 
 ## Potwierdzony wynik
 
-Pełna regresja po najnowszym treningu językowym: **184/184 testów**. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
+Pełna regresja po najnowszym treningu językowym i integracji logiki wektorowej: **200/200 testów**. Obejmuje rzeczywisty rdzeń H512, narzędzia, dokumenty, pamięć, HTTP, morfologię, przypisanie ról, zapis i obliczenia macierzy. Eksport macierzy porównano z działającymi obliczeniami.
 
 Dodatkowo przejrzano **26 rzeczywistych wypowiedzi w 10 rozmowach**. W przeglądarce sprawdzono sześć kolejnych poleceń, Enter, czyszczenie pola, szczegóły odpowiedzi oraz widok telefonu o szerokości 375 px. Nie stwierdzono błędów JavaScript ani poziomego przepełnienia. Próby odbywały się na osobnych danych testowych. Wynik regresji opisuje sprawdzone przypadki, a nie procent rozumienia dowolnego języka.
 
