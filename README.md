@@ -6,6 +6,8 @@ Ta aktualizacja publikuje **wyłącznie dokumentację**. Kod nowego TSI, wagi, d
 
 ## Najnowsze wdrożenie — transformer kontekstu
 
+Dodatkowa kontrola po wdrożeniu: **972/972 prób**, w tym 720 permutacji kolejności sześciu faktów. Nowe słowa, negacje i sprzeczności przeszły bez zmiany wag.
+
 W zwykłej rozmowie działa nowy moduł: **266 391 parametrów, 2 warstwy transformera, szerokość 128**. Odczytuje macierze ról i rozróżnia potwierdzenie, zaprzeczenie, brak informacji oraz sprzeczność. Współpracuje ze słownikiem odmiany, także dla imion i przedmiotów spoza treningu. Aktywny rdzeń H512 pozostaje bez zmian.
 
 Przykład dwóch kolejnych wiadomości:

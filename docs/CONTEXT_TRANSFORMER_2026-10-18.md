@@ -31,6 +31,8 @@ Encoder ma kodowanie pozycji, maskę dopełnienia, opcjonalną maskę przyczynow
 
 Wynik jest dowodem działania w tym ograniczonym zadaniu, nie dowodem ogólnego rozumienia języka ani walidacją całego formalizmu TIMDR. Audyt potrafi powstrzymać celowo błędne przewidywanie modelu. Czytanie zdań złożonych i generowanie pozostają następnymi zadaniami.
 
+Dodatkowe sprawdzenie po wdrożeniu: **972/972 prób** — 252 przypadki z nowymi słowami, zmienioną osobą, negacją, powtórzeniami i sprzecznościami oraz wszystkie **720 kolejności sześciu faktów**. Permutacje sprawdzają odporność na kolejność, nie stanowią 720 niezależnych zadań językowych. Wagi nie były zmieniane.
+
 ## Pojemność i powrót
 
 Zachowano politykę zwiększania pojemności przy powtarzalnym zapominaniu. Nie mylimy braku nowej umiejętności z utratą starej. Konfiguracja umożliwia większe warianty, w tym 512/8 głów/6 warstw/FFN 2048; ten duży wariant nie został wytrenowany. Nie ma automatycznego uczenia podczas używania.
