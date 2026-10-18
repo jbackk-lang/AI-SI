@@ -4,6 +4,10 @@
 
 Ta aktualizacja publikuje **wyłącznie dokumentację**. Kod nowego TSI, wagi, dane treningowe i prywatna pamięć pozostają lokalne. Starsze pliki znajdujące się już w repozytorium dotyczą wcześniejszego AI-SI, nie stanowią pakietu instalacyjnego obecnego TSI.
 
+## Rozmiar kompletnego portable z kodem
+
+Pełny lokalny zestaw z Pythonem, bibliotekami i współdzielonym silnikiem: **3890,86 MB (3.62 GiB) przed kompresją**. To pomiar składników do przyszłej paczki, nie gotowe wydanie portable. [Zakres pomiaru i składniki](docs/PORTABLE_SIZE_2026-10-18.md).
+
 ## Wielkość na dysku
 
 Pomiar lokalnego katalogu TSI: **18 października 2026**. Rozmiar plików (MB = 1 000 000 bajtów), bez zaokrąglania do jednostek alokacji dysku.
