@@ -46,7 +46,7 @@ Zgodny rachunek nie potwierdza dowolnej interpretacji polecenia. Kontrola cytatu
 
 ## Analiza sygnałów — w treningu
 
-Kolejny trening rozszerzył moduł o minimum i maksimum bazowego przebiegu w sprawdzonych rodzinach. Nowy test pięciu etykiet: **97.13% micro-F1**, **1836/2000** kompletnych zestawów; krzywe **700/700**. **Moduł pozostaje poza bieżącym panelem**: szersze rodziny, m.in. logarytm i 1/x, nadal ujawniają błędy interpretacji. [Zakres, zachowanie wcześniejszych umiejętności i pozostałe ograniczenia](docs/SIGNALS_2026-10-19.md).
+Rozszerzono trening o logarytmy, odwrotności i pojedyncze piki. Nowy test pięciu etykiet na szerszych rodzinach: **95.32% micro-F1**, **1739/2000** pełnych zestawów; krzywe **1499/1500**. **Dostępny w panelu: „Sygnały ogólne — seria JSON”**, z opisem PL/EN i wykresem. W pomocy znajduje się gotowy przykład; potwierdzono 8 kontroli na działającym panelu. [Zakres, błędy i porównanie zachowania wcześniejszych umiejętności](docs/SIGNALS_2026-10-19.md).
 
 ## Podgląd
 
