@@ -46,7 +46,7 @@ Zgodny rachunek nie potwierdza dowolnej interpretacji polecenia. Kontrola cytatu
 
 ## Analiza sygnałów — w treningu
 
-Osobny eksperyment uzyskał **97,2%** na 1000 nowych syntetycznych okien pojedynczych wzorców. Test mieszanin trendu, okresowości i impulsu ujawnił nadmierną pewność jednej klasy. **Moduł nie jest włączony w bieżącym panelu.** Następny etap: rozpoznawanie kilku składników jednocześnie, kalibracja i pomiary rzeczywiste. [Wyniki i wykryta luka](docs/SIGNALS_2026-10-19.md).
+Nowy moduł wieloetykietowy po treningu na 10 500 przykładach uzyskał **98,28% micro-F1** i **93,82% poprawnych kompletnych zestawów** na 1700 nowych syntetycznych oknach. Rozpoznaje współistnienie trendu, skoku, impulsu i okresowości; trudny stress: 93/100. **Moduł pozostaje poza bieżącym panelem**: punkty zwrotne krzywych i dane rzeczywiste wymagają dalszej nauki. [Wyniki, testy i zakres zastosowania przy całkach](docs/SIGNALS_2026-10-19.md).
 
 ## Podgląd
 
@@ -58,7 +58,7 @@ Zachowane demonstracje panelu z 18 października; bieżący zakres opisano powy�
 
 ## Rozmiar i historia
 
-Bieżący lokalny katalog aplikacji: **317,89 MB**, w tym około **62,08 MB** kodu, modułów, modeli, słownika i panelu. Pozostała część obejmuje m.in. lokalne eksperymenty, kopie i historię. To rozmiar plików, nie RAM ani rozmiar paczki portable. [Pomiar z 19 października i zakres](docs/SIZE_2026-10-19.md).
+Pomiar lokalnego katalogu aplikacji przed kolejną partią treningu (19 października): **317,89 MB**, w tym około **62,08 MB** kodu, modułów, modeli, słownika i panelu. Pozostała część obejmuje m.in. lokalne eksperymenty, kopie i historię. To rozmiar plików, nie RAM ani rozmiar paczki portable. [Pomiar z 19 października i zakres](docs/SIZE_2026-10-19.md).
 
 Pełny portable ogólnego TSI z Pythonem i współdzielonym silnikiem nie został w tej partii wydany. [Historyczny pomiar kompletnego wariantu z kodem z 18 października](docs/PORTABLE_SIZE_2026-10-18.md): 3890,86 MB przed kompresją.
 
