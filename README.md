@@ -1,8 +1,14 @@
 # AI-SI-TSI — lokalny asystent TSI
 
-**Stan: 20 października 2026.** Własny uczony rdzeń, macierze językowe, trwałe notatki i narzędzia do pracy z tekstem, dokumentami oraz matematyką. Nowa aplikacja zastępuje wcześniejszy AI-SI, zachowany lokalnie w archiwum.
+**Stan: 21 października 2026.** Własny uczony rdzeń, macierze językowe, trwałe notatki i narzędzia do pracy z tekstem, dokumentami oraz matematyką. Nowa aplikacja zastępuje wcześniejszy AI-SI, zachowany lokalnie w archiwum.
 
 Ta aktualizacja publikuje **samą dokumentację**. Kod nowego TSI, wagi, dane treningowe, dokumenty i prywatna historia pozostają lokalne. Starsze pliki obecne już w repo dotyczą wcześniejszego AI-SI i nie są instalatorem obecnej aplikacji.
+
+## Aktualny rdzeń i trening językowy — 21 października 2026
+
+Zainstalowany wspólny model **TSI-UNIFIED-H512-7573fd65**, runtime **0.6.0**, zawiera H512, transformer czytnika, matryce i połączenia w jednym module: **2 613 105 parametrów**, checkpoint **10 587 275 bajtów (10.59 MB)**. Sam wcześniejszy H512 ma 2 054 186 parametrów. [Zakres integracji](docs/TSI_UNIFIED_CORE_2026-10-20.md).
+
+Osobno kontynuowano trening własnego generatora tekstu: **1 826 496 parametrów**, kontekst 512 tokenów; dodana uczona uwaga kopiująca ma **73 921 parametrów**. Dane: 1002 przykłady treningowe, 60 rozwojowych i 98 odłożonych. Pierwszy generator na odłożonych zadaniach uzyskał **0/68 pełnych poprawnych odpowiedzi na pytania o fakty i definicje**, natomiast poprawnie odmówił odpowiedzi przy braku informacji **25/25**. Kolejna warstwa kopiowania nadal gubi części faktów i myli źródła mimo spadku straty. **Kandydaci nie zastępują działającego rdzenia i nie są wdrożeni do rozmowy.** [Wyniki treningu i dalsze kryteria](docs/SOURCE_DIALOGUE_TRAINING_2026-10-21.md).
 
 ## Co działa
 
@@ -19,20 +25,13 @@ Ta aktualizacja publikuje **samą dokumentację**. Kod nowego TSI, wagi, dane tr
 
 Główny rdzeń H512 ma **2 054 186 parametrów**. Współpracuje z dodatkowymi uczonymi modułami i narzędziami. Aplikacja nie korzysta z Bielika ani Qwena. Notatki i zwykła rozmowa nie uruchamiają samoczynnego treningu wag.
 
-## Wspólny moduł matryc TSI 0.5 — stan aktualny
+## Wspólny model H512 i czytnika 0.6 — stan aktualny
 
-Matryca słownika oraz zależności „cel → wymagane dane” są zapisane jako wagi wspólnego checkpointu z transformerem relacji. Uczona warstwa przejść rozpoznaje role źródła/celu i negację. H512 pozostaje aktywny; jest to integracja części czytnika, a nie scalenie wszystkich wag H512.
+H512, transformer i matryce są zapisane w **jednym modelu i jednym pliku wag**. Uczone połączenia tworzą obieg czytnik → H512 → ocena odpowiedzi oraz przekazują reprezentacje H512 do czytnika. W tej wersji dotyczą jawnych relacji i dowodów; narzędzia oraz pamięć dokumentów nadal są osobnymi częściami aplikacji.
 
-Obsługiwane polecenia PL/EN mogą zawierać kilka celów, np. pochodną i całkę albo odwrócenie macierzy z kontrolą mnożeniem. Rozdzielono zakresy całki oznaczonej, nieoznaczonej i zanegowanej. Każdy wykonany krok ma sprawdzenie wyniku i zapis do ponownego audytu.
+Zachowano wcześniejsze wyniki: **960/960, 720/720, 640/640**, odpowiedzi **140/140** poleceń językowych i **256/256** operacji wektorowych oraz **118/118** planów bez błędnych akceptacji. Obie wcześniejsze części zachowały wagi, a trening objął połączenia. Nie potwierdzono jeszcze poprawy swobodnego rozumienia języka.
 
-- **118/118** odłożonych kombinacji znanych pojęć i jawnych danych, bez błędnych akceptacji; **57/57** testów modułu.
-- Wcześniejsze sprawdziany zachowane: **960/960, 720/720 i 640/640**. Dotychczasowy przepływ: **32/32**, w tym **24/24 akademickie**.
-- **8/8** nowych kontroli obu paneli PL/EN oraz **7/7** wykonanych zadań matematyki, sygnału i projektu budżetu na danych syntetycznych.
-- Słownik: 1596 form i 18 kategorii pojęć. Wagi słownika i wymagań przeniesiono dokładnie; uczono przejścia ról. Nieznane słowa i dowolne polecenia pozostają poza tym sprawdzianem.
-
-Pamięć ma szybszy odczyt potrzebnych źródeł i ostatniej odpowiedzi oraz wspólny cache słownika. Notatki pozostają edytowalne i wersjonowane. Rozmowa i pole wpisywania znajdują się w jednym panelu, szczegóły pod nim, a wybór działu i dokumenty z boku.
-
-[Zakres, trening, wyniki i ograniczenia](docs/TSI_MATRIX_CORE_2026-10-20.md). [Poprzedni stan i historia](docs/archiwum/README_before_matrix_weights_2026-10-20.md).
+[Zakres integracji, trening i pomiary](docs/TSI_UNIFIED_CORE_2026-10-20.md). [Poprzedni stan](docs/archiwum/README_before_unified_core_2026-10-20.md).
 
 ## Jak korzystać
 
@@ -67,13 +66,12 @@ Aktualne zrzuty z 20 października 2026; rozmowa demonstracyjna bez prywatnych d
 
 | Moduł | Parametry | Plik wag |
 |---|---:|---:|
-| Językowy H512 | 2 054 186 | 8.55 MB |
-| Wspólny transformer i matryce | 302 642 | 1.32 MB |
-| Suma tych dwóch modułów | 2 356 828 | 9.87 MB |
+| Wspólny H512 + pamięć nazw + transformer + matryce + połączenia | 2 613 105 | 10.59 MB |
+| W tym nowe uczone połączenia | 147 552 | w powyższym pliku |
 
-Cały lokalny katalog TSI z kodem, danymi, kopiami i historią treningów: **432.31 MB**. Python poza katalogiem nie jest wliczony. To rozmiar plików; RAM, VRAM i aktualna kompletna paczka portable nie zostały tu zmierzone. Liczba parametrów nie określa limitu notatek.
+Pomiar katalogu TSI sprzed tej konsolidacji: **432.31 MB** z kodem, danymi, kopiami i historią treningów. Nowe kopie bezpieczeństwa zwiększają tę wielkość; pełnego katalogu po wdrożeniu nie zmierzono ponownie. Python poza katalogiem nie jest wliczony. To rozmiar plików; RAM, VRAM i aktualna kompletna paczka portable nie zostały tu zmierzone. Liczba parametrów nie określa limitu notatek.
 
-Wspólny czytnik dobiera urządzenie i wątki na podstawie wykrytych możliwości oraz pomiaru. Na tym komputerze działa na **CPU**: Intel HD Graphics nie jest udostępniona przez zainstalowany PyTorch CPU. Ścieżki CUDA/MPS wymagają zgodnego środowiska; fizycznego GPU nie testowano. H512 i solvery pozostają na CPU. Panel walidatora ma jedno kontrolowane ponowienie po awarii procesu czytnika, z zachowaniem zapisanego postępu.
+Wspólny czytnik dobiera urządzenie i wątki na podstawie wykrytych możliwości oraz pomiaru. Na tym komputerze działa na **CPU**: Intel HD Graphics nie jest udostępniona przez zainstalowany PyTorch CPU. Ścieżki CUDA/MPS wymagają zgodnego środowiska; fizycznego GPU nie testowano. Na tym komputerze wspólny model i solvery pracują na CPU. Panel walidatora ma jedno kontrolowane ponowienie po awarii procesu czytnika, z zachowaniem zapisanego postępu.
 
 [Dokładny zakres pomiaru, sprzęt i ponawianie](docs/SIZE_HARDWARE_RECOVERY_2026-10-20.md). Wcześniejsze pomiary portable pozostają historyczne; nie wydano nowej paczki w tej partii.
 
