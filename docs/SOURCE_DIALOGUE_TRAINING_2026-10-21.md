@@ -19,3 +19,9 @@ Dodano eksperymentalną uczoną warstwę kopiowania 73 921 parametrów (razem 1 
 Na trzech rozwojowych pytaniach o posiadany przedmiot, przy podawaniu modelowi prawidłowego początku, zgodność kolejnego tokenu wyniosła 84.6%, 88.2% i 93.8%. Pełne odpowiedzi samodzielne: 0/3. Pierwszy błąd zastępował „ma” kropką lub znakiem zapytania. Przy trzech definicjach zgodność tokenów wynosiła 75.8–83.3%, a pełne odpowiedzi 0/3; pojawiały się pomyłki źródła i powtórzenia. To próbki rozwojowe, nie nowy wynik całego testu.
 
 Uruchomiono wariant ograniczający uczoną uwagę kopiującą do dostarczonego materiału, z wyłączeniem treści pytania. Pytanie pozostaje wejściem transformera. Celem jest sprawdzenie, czy kopiowanie znaków z pytania powoduje przedwczesne urywanie faktu. Bez zmiany działającej aplikacji.
+
+## Wynik wariantu v4
+
+300 kroków uczonej uwagi ograniczonej do materiału źródłowego, bez zmiany wag generatora. Strata rozwojowa 1.242 → 0.479. Na tych samych próbkach rozwojowych pełne odpowiedzi o fakty poprawiły się z 0/3 do 1/3; definicje 0/3, brak informacji 3/3, swobodny dialog 0/2. Poprawna odpowiedź: „Zofia ma bilet. [S2]”. Nadal wystąpiły ucięte zdania, uszkodzone słowa, powtórzenia i wybór niewłaściwego źródła. Są to wyniki małej próbki rozwojowej, nie ocena ogólnej trafności.
+
+Wariant v4 również nie został wdrożony. Dalszy etap wymaga poprawy wyboru właściwego źródła i treningu dekodera, z oceną samodzielnie wygenerowanych pełnych odpowiedzi. Trening samej uwagi przy zamrożonym słabym generatorze nie wystarczył. Zbiór odłożony pozostaje poza treningiem.
