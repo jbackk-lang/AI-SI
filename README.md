@@ -1,4 +1,4 @@
-# TSI — lokalny asystent modułowy
+# AI-SI-TSI — lokalny asystent TSI
 
 **Stan: 20 października 2026.** Własny uczony rdzeń, macierze językowe, trwałe notatki i narzędzia do pracy z tekstem, dokumentami oraz matematyką. Nowa aplikacja zastępuje wcześniejszy AI-SI, zachowany lokalnie w archiwum.
 
@@ -19,16 +19,20 @@ Ta aktualizacja publikuje **samą dokumentację**. Kod nowego TSI, wagi, dane tr
 
 Główny rdzeń H512 ma **2 054 186 parametrów**. Współpracuje z dodatkowymi uczonymi modułami i narzędziami. Aplikacja nie korzysta z Bielika ani Qwena. Notatki i zwykła rozmowa nie uruchamiają samoczynnego treningu wag.
 
-## Czytnik i wykonywanie zadań — aktualizacja 20 października
+## Wspólny moduł matryc TSI 0.5 — stan aktualny
 
-Czytnik otrzymał matrycę wejściową pojęć i ról oraz matrycę wyjściową celów, wymaganych danych i zależności kroków. W obsługiwanym zakresie buduje plan, uruchamia odpowiednie narzędzia i sprawdza wyniki kroków. Współpracuje z dotychczasowym H512 oraz uczonym transformerem relacji; nie zastępuje ich.
+Matryca słownika oraz zależności „cel → wymagane dane” są zapisane jako wagi wspólnego checkpointu z transformerem relacji. Uczona warstwa przejść rozpoznaje role źródła/celu i negację. H512 pozostaje aktywny; jest to integracja części czytnika, a nie scalenie wszystkich wag H512.
 
-- Kontrola przepływu: **32/32**, w tym **24/24 zadania akademickie**; testy modułu: **48/48**, kontrola wdrożenia: **12/12**.
-- To wyniki określonych przypadków regresji, a nie miara rozumienia dowolnego polecenia. Matryca słownika obejmuje 1596 form w 18 kategoriach pojęć.
-- Przykład: `Wyznacz pochodną i całkę: x^2` daje dwa obliczenia. `Odwróć macierz i sprawdź mnożeniem: [[2,1],[1,1]]` tworzy zależne kroki.
-- Integracja nadal wymaga poprawek: ponowny audyt poprzedniej odpowiedzi w rozmowie nie zachowuje jeszcze pełnego śladu planu; dodatkowej kontroli wymagają negacje, warunki i wiązanie złożonych celów. Brakujące dane wymagają doprecyzowania.
+Obsługiwane polecenia PL/EN mogą zawierać kilka celów, np. pochodną i całkę albo odwrócenie macierzy z kontrolą mnożeniem. Rozdzielono zakresy całki oznaczonej, nieoznaczonej i zanegowanej. Każdy wykonany krok ma sprawdzenie wyniku i zapis do ponownego audytu.
 
-Rozmowa i pole wpisywania znajdują się w jednym panelu. Dane i szczegóły są poniżej; wybór działu i dokumenty umieszczono z boku. [Historia poprzedniego stanu](docs/archiwum/README_2026-10-19.md).
+- **118/118** odłożonych kombinacji znanych pojęć i jawnych danych, bez błędnych akceptacji; **57/57** testów modułu.
+- Wcześniejsze sprawdziany zachowane: **960/960, 720/720 i 640/640**. Dotychczasowy przepływ: **32/32**, w tym **24/24 akademickie**.
+- **8/8** nowych kontroli obu paneli PL/EN oraz **7/7** wykonanych zadań matematyki, sygnału i projektu budżetu na danych syntetycznych.
+- Słownik: 1596 form i 18 kategorii pojęć. Wagi słownika i wymagań przeniesiono dokładnie; uczono przejścia ról. Nieznane słowa i dowolne polecenia pozostają poza tym sprawdzianem.
+
+Pamięć ma szybszy odczyt potrzebnych źródeł i ostatniej odpowiedzi oraz wspólny cache słownika. Notatki pozostają edytowalne i wersjonowane. Rozmowa i pole wpisywania znajdują się w jednym panelu, szczegóły pod nim, a wybór działu i dokumenty z boku.
+
+[Zakres, trening, wyniki i ograniczenia](docs/TSI_MATRIX_CORE_2026-10-20.md). [Poprzedni stan i historia](docs/archiwum/README_before_matrix_weights_2026-10-20.md).
 
 ## Jak korzystać
 
@@ -59,11 +63,19 @@ Aktualne zrzuty z 20 października 2026; rozmowa demonstracyjna bez prywatnych d
 
 ![Dokumenty i wklejanie materiału w bocznym panelu](docs/tsi-documents-2026-10-20.png)
 
-## Rozmiar i historia
+## Rozmiar, pojemność i sprzęt — pomiar 20 października
 
-Pomiar lokalnego katalogu aplikacji przed kolejną partią treningu (19 października): **317,89 MB**, w tym około **62,08 MB** kodu, modułów, modeli, słownika i panelu. Pozostała część obejmuje m.in. lokalne eksperymenty, kopie i historię. To rozmiar plików, nie RAM ani rozmiar paczki portable. [Pomiar z 19 października i zakres](docs/SIZE_2026-10-19.md).
+| Moduł | Parametry | Plik wag |
+|---|---:|---:|
+| Językowy H512 | 2 054 186 | 8.55 MB |
+| Wspólny transformer i matryce | 302 642 | 1.32 MB |
+| Suma tych dwóch modułów | 2 356 828 | 9.87 MB |
 
-Pełny portable ogólnego TSI z Pythonem i współdzielonym silnikiem nie został w tej partii wydany. [Historyczny pomiar kompletnego wariantu z kodem z 18 października](docs/PORTABLE_SIZE_2026-10-18.md): 3890,86 MB przed kompresją.
+Cały lokalny katalog TSI z kodem, danymi, kopiami i historią treningów: **432.31 MB**. Python poza katalogiem nie jest wliczony. To rozmiar plików; RAM, VRAM i aktualna kompletna paczka portable nie zostały tu zmierzone. Liczba parametrów nie określa limitu notatek.
+
+Wspólny czytnik dobiera urządzenie i wątki na podstawie wykrytych możliwości oraz pomiaru. Na tym komputerze działa na **CPU**: Intel HD Graphics nie jest udostępniona przez zainstalowany PyTorch CPU. Ścieżki CUDA/MPS wymagają zgodnego środowiska; fizycznego GPU nie testowano. H512 i solvery pozostają na CPU. Panel walidatora ma jedno kontrolowane ponowienie po awarii procesu czytnika, z zachowaniem zapisanego postępu.
+
+[Dokładny zakres pomiaru, sprzęt i ponawianie](docs/SIZE_HARDWARE_RECOVERY_2026-10-20.md). Wcześniejsze pomiary portable pozostają historyczne; nie wydano nowej paczki w tej partii.
 
 - [Poprzednie README i pełniejsza historia rozwoju](docs/archiwum/README_2026-10-18.md).
 - [Wcześniejsza historia AI-SI](HISTORIA_SI_2026-10-11.md).
