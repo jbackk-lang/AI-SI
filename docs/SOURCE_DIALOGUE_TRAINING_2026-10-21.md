@@ -13,3 +13,9 @@ Dodano eksperymentalną uczoną warstwę kopiowania 73 921 parametrów (razem 1 
 ## Decyzja i dalsza praca
 
 Żaden z tych kandydatów nie został wdrożony. Następna kontrola porównuje przewidywanie z podanym poprawnym początkiem odpowiedzi ze swobodnym generowaniem, a także zachowanie osoby, czynności, obiektu i źródła. Warunkiem wdrożenia jest poprawność pełnej odpowiedzi i zachowanie wcześniejszych umiejętności, nie tylko niższa strata treningowa. Aktywny zintegrowany rdzeń pozostaje bez zmian.
+
+## Diagnostyka odpowiedzi swobodnej
+
+Na trzech rozwojowych pytaniach o posiadany przedmiot, przy podawaniu modelowi prawidłowego początku, zgodność kolejnego tokenu wyniosła 84.6%, 88.2% i 93.8%. Pełne odpowiedzi samodzielne: 0/3. Pierwszy błąd zastępował „ma” kropką lub znakiem zapytania. Przy trzech definicjach zgodność tokenów wynosiła 75.8–83.3%, a pełne odpowiedzi 0/3; pojawiały się pomyłki źródła i powtórzenia. To próbki rozwojowe, nie nowy wynik całego testu.
+
+Uruchomiono wariant ograniczający uczoną uwagę kopiującą do dostarczonego materiału, z wyłączeniem treści pytania. Pytanie pozostaje wejściem transformera. Celem jest sprawdzenie, czy kopiowanie znaków z pytania powoduje przedwczesne urywanie faktu. Bez zmiany działającej aplikacji.
