@@ -1,6 +1,6 @@
 # TSI — lokalny asystent modułowy
 
-**Stan: 19 października 2026.** Własny uczony rdzeń, macierze językowe, trwałe notatki i narzędzia do pracy z tekstem, dokumentami oraz matematyką. Nowa aplikacja zastępuje wcześniejszy AI-SI, zachowany lokalnie w archiwum.
+**Stan: 20 października 2026.** Własny uczony rdzeń, macierze językowe, trwałe notatki i narzędzia do pracy z tekstem, dokumentami oraz matematyką. Nowa aplikacja zastępuje wcześniejszy AI-SI, zachowany lokalnie w archiwum.
 
 Ta aktualizacja publikuje **samą dokumentację**. Kod nowego TSI, wagi, dane treningowe, dokumenty i prywatna historia pozostają lokalne. Starsze pliki obecne już w repo dotyczą wcześniejszego AI-SI i nie są instalatorem obecnej aplikacji.
 
@@ -19,13 +19,16 @@ Ta aktualizacja publikuje **samą dokumentację**. Kod nowego TSI, wagi, dane tr
 
 Główny rdzeń H512 ma **2 054 186 parametrów**. Współpracuje z dodatkowymi uczonymi modułami i narzędziami. Aplikacja nie korzysta z Bielika ani Qwena. Notatki i zwykła rozmowa nie uruchamiają samoczynnego treningu wag.
 
-## Wyniki ostatniej partii
+## Czytnik i wykonywanie zadań — aktualizacja 20 października
 
-- Czytnik audytu: **17/20** nowych próśb ze zmianą szyku; **0/32** błędnych uruchomień dla innych poleceń. Poprzednio wdrożony model na tym samym zestawie: 4/20 i 2/32. Wybrano mniejszy wariant po porównaniu z większym.
-- Poprawianie źródła i kontekst: **14/14** szerszych kontroli rozmów, wcześniej 12/14.
-- Przeszły też odrębne zestawy: 31 kontroli audytu, 25 regresji, 12 API, 13 odtwarzania/edycji i 5 porównań danych wykresu.
+Czytnik otrzymał matrycę wejściową pojęć i ról oraz matrycę wyjściową celów, wymaganych danych i zależności kroków. W obsługiwanym zakresie buduje plan, uruchamia odpowiednie narzędzia i sprawdza wyniki kroków. Współpracuje z dotychczasowym H512 oraz uczonym transformerem relacji; nie zastępuje ich.
 
-To wyniki konkretnych zestawów, nie procent rozumienia dowolnego języka. [Przebieg treningu, zakresy i porównania](docs/TRAINING_2026-10-19.md).
+- Kontrola przepływu: **32/32**, w tym **24/24 zadania akademickie**; testy modułu: **48/48**, kontrola wdrożenia: **12/12**.
+- To wyniki określonych przypadków regresji, a nie miara rozumienia dowolnego polecenia. Matryca słownika obejmuje 1596 form w 18 kategoriach pojęć.
+- Przykład: `Wyznacz pochodną i całkę: x^2` daje dwa obliczenia. `Odwróć macierz i sprawdź mnożeniem: [[2,1],[1,1]]` tworzy zależne kroki.
+- Integracja nadal wymaga poprawek: ponowny audyt poprzedniej odpowiedzi w rozmowie nie zachowuje jeszcze pełnego śladu planu; dodatkowej kontroli wymagają negacje, warunki i wiązanie złożonych celów. Brakujące dane wymagają doprecyzowania.
+
+Rozmowa i pole wpisywania znajdują się w jednym panelu. Dane i szczegóły są poniżej; wybór działu i dokumenty umieszczono z boku. [Historia poprzedniego stanu](docs/archiwum/README_2026-10-19.md).
 
 ## Jak korzystać
 
@@ -50,11 +53,11 @@ Rozszerzono trening o logarytmy, odwrotności i pojedyncze piki. Nowy test pięc
 
 ## Podgląd
 
-Zachowane demonstracje panelu z 18 października; bieżący zakres opisano powyżej.
+Aktualne zrzuty z 20 października 2026; rozmowa demonstracyjna bez prywatnych dokumentów.
 
-![Przykład pełnej odpowiedzi opartej na źródle](docs/tsi-language-2026-10-18.png)
+![Wspólny panel rozmowy i wpisywania poleceń](docs/tsi-panel-2026-10-20.png)
 
-![Macierz przyczyn i warunków w panelu](docs/tsi-context-causal-2026-10-18.png)
+![Dokumenty i wklejanie materiału w bocznym panelu](docs/tsi-documents-2026-10-20.png)
 
 ## Rozmiar i historia
 
