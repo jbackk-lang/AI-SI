@@ -12,6 +12,7 @@ Repozytorium opisuje projekt. Ta aktualizacja zawiera dokumentację i podgląd p
 | Pliki | TXT, MD, CSV, PDF, DOCX i DOC oraz wklejanie całej treści; do 10 plików, 8 MB na plik, 32 MB łącznie; DOC wymaga Worda, skany wcześniejszego OCR |
 | Pamięć i poprawki | Wersjonowane źródła, korekty i cofanie zmian, trwałe notatki, historia oraz eksport JSON |
 | Matematyka | Obsługiwane polecenia arytmetyczne, kalkulator naukowy, równania, pochodne, całki, macierze i wykresy przez narzędzia obliczeniowe |
+| Logika T/F/U | Uczony moduł operatorów AND, OR, NOT, IMPLIES i EQUIV; nawiasy, symbole matematyczne i kolejne kroki wyniku; formalne wyrażenia w panelu PL/EN |
 | Analiza sygnałów | Serie liczbowe JSON, wykres oraz uczona ocena wybranych trendów, anomalii i okresowości |
 | Kontrola odpowiedzi | Ponowienie obsługiwanych obliczeń i sprawdzenie cytatu w zapisanym źródle; brak pełnego audytu dowolnej wypowiedzi |
 | Obsługa | Panel PL/EN, Enter wysyła polecenie, Shift+Enter dodaje wiersz, nowa rozmowa i pomoc z przykładami |
@@ -50,6 +51,7 @@ W istniejącej lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel jest dost�
 | `Komu Anna daje książkę?` | Pytanie do podanego tekstu |
 | `Zamień Markowi na Ewie` oraz `Cofnij` | Korekta źródła i cofnięcie zmiany |
 | `Wyznacz pochodną i całkę: x^2` | Skorzystanie z narzędzi matematycznych |
+| `logika: NOT (T AND U) OR F` | Logika trójstanowa: T — prawda, F — fałsz, U — nieznane; wynik z krokami |
 | `zapamiętaj: termin = piątek` | Trwała notatka |
 | `nowy temat` | Rozpoczęcie nowego kontekstu rozmowy |
 

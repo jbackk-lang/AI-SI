@@ -90,4 +90,10 @@ Wagi wcześniejszego odczytu źródeł zachowano bez zmian; kontrola ośmiu wcze
 
 ## Publikacja
 
-Ta aktualizacja publikuje dokumentację i dwa zrzuty panelu z przykładowymi danymi. Nie dodaje kodu obecnego TSI, wag, danych treningowych, prywatnych dokumentów ani lokalnych ścieżek użytkownika. Nie wydano nowego portable i nie podmieniono modeli w działających panelach.
+### Podłączenie operatorów logiki do panelu
+
+Po powyższych badaniach wdrożono w panelu lokalnym wyłącznie sprawdzony moduł 483 uczonych parametrów operatorów, z parserem formalnych wyrażeń. Zachowano dotychczasowy model rozmowy; nie włączono słabego eksperymentalnego ucznia arytmetyki. Przykłady są dostępne w pomocy. Polecenia `logika: …` i `logic: …` działają w rozmowie i dziale rdzenia; jednoznaczne formalne wyrażenia rozpoznawane są również bez prefiksu. Odpowiedź zawiera wynik T/F/U i kroki, w wybranym języku panelu. Niepełne nawiasy i obce dopiski są odrzucane zamiast pomijania części wejścia.
+
+Kontrola interfejsu HTTP objęła sześć poprawnych wyrażeń PL/EN, trzy błędne zapisy i dwie wcześniejsze funkcje: przywitanie oraz dodawanie. Wszystkie 11 kontroli przeszło. Po uruchomieniu docelowego panelu ponowiono złożone wyrażenie i potwierdzono, że używa nowych wag operatorów. Zachowano kopię poprzedniego koordynatora aplikacji. To wdrożenie formalnej logiki, nie wymiana całego modelu rozmowy.
+
+Ta aktualizacja publikuje dokumentację i dwa wcześniejsze zrzuty panelu z przykładowymi danymi. Nie dodaje kodu obecnego TSI, wag, danych treningowych, prywatnych dokumentów ani lokalnych ścieżek użytkownika. Nie wydano nowego portable. Lokalny panel otrzymał opisany powyżej moduł logiki; pełny wariant badawczy pozostaje oddzielny.
