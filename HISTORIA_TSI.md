@@ -76,7 +76,17 @@ W starszych 85 zadaniach wyniki według rodzaju to: fakty 37/40, definicje 7/30,
 
 Sprawdzono starsze zapisy: etykieta [S1] pojawiała się w odpowiedzi na prośbę o opowiadanie już w pojedynczym rdzeniu bez źródeł. Problem nie został więc zapoczątkowany dopiero przez połączenie połówek. Dokładnego pierwszego kroku jego powstania nie ustalono.
 
-Rozpoczęto kolejną partię treningu: bardziej zróżnicowane definicje, rozpoznawanie braku informacji i powtórki faktów. Dodana uczona korekta odczytu ma działać przy obecnych, lecz nieprzydatnych źródłach; nie zawiera gotowych odpowiedzi. **Do głównego README nie wpisano niepotwierdzonych rezultatów tego przebiegu.** Poprzednie, sprawdzone wagi pozostają zachowane.
+Kolejny trening zakończono po 600 krokach. Rozpoznanie braku informacji wzrosło z 9/13 do 13/13, ale fakty spadły z 37/40 do 31/40, a definicje z 7/30 do 4/30. Łącznie uzyskano 48/85 zamiast 53/85. Wariant odrzucono; poprzednie sprawdzone wagi pozostają zachowane.
+
+## Nauka od solvera i nauczyciela logiki
+
+SymPy przygotował dokładne odpowiedzi dla 768 przykładów treningowych: działania, ułamki i równania liniowe. Zestaw doboru miał 48 przykładów, test 72. Po 800 krokach uczeń uzyskał 2/72. Dodatkowe 1000 kroków uczenia reprezentacji wejścia i ról liczb dało 7/72. Nowy zestaw 48 zadań, wykluczający także wcześniej widziane odwrócenia działań przemiennych, dał 5/48. Zakresy liczb pozostawały znane z treningu. Solver nie był wywoływany podczas odpowiedzi ucznia. Wyniki są nadal niewystarczające do niezawodnego liczenia.
+
+Wprowadzono trening silnej logiki trójstanowej Kleene’a: T — prawda, F — fałsz, U — nieznane. Bezpośredni odczyt tekstu uzyskał 36/39 powtarzanych przypadków podstawowych i 30/48 nowych złożeń. Jeden eksperyment ujawnił błąd wybierania fragmentu wejścia: zamiast wyrażenia wybierano końcową instrukcję „Wynik: T/F/U”. Jego wyników nie traktujemy jako wiarygodnego sprawdzianu wejścia. Po poprawce i powtórkach kolejny wariant uzyskał 38/39 oraz 29/48; problem odczytu złożonych wyrażeń pozostaje.
+
+Osobny wariant formalny łączy parser składni z uczonym modułem operatorów o 483 parametrach. Nauczyciel podał wszystkie 39 elementarnych kombinacji AND, OR, NOT, IMPLIES i EQUIV. Podczas wykonania parser wyznacza kolejność kroków, a sieć przewiduje wynik każdego operatora. Uzyskano 39/39 nauczonych przypadków, 48/48 wcześniejszych złożeń i 100/100 nowych zagnieżdżonych wyrażeń. Nowe są złożenia znanych operatorów; wynik nie dowodzi rozumowania na dowolnym opisie słownym ani samodzielnego odkrywania reguł.
+
+Wagi wcześniejszego odczytu źródeł zachowano bez zmian; kontrola ośmiu wcześniejszych przypadków ponownie dała 8/8. Moduły matematyki i formalnej logiki mają osobne wejścia badawcze. Nie podmieniono działających paneli. Pełny zapis wariantu z tymi modułami ma 11 239 938 parametrów; nie zastępuje zaakceptowanego modelu źródeł opisanego w głównym README.
 
 ## Publikacja
 
