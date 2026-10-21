@@ -1,84 +1,75 @@
 # AI-SI-TSI — lokalny asystent TSI
 
-**Stan: 21 października 2026.** Własny uczony rdzeń, macierze językowe, trwałe notatki i narzędzia do pracy z tekstem, dokumentami oraz matematyką. Nowa aplikacja zastępuje wcześniejszy AI-SI, zachowany lokalnie w archiwum.
+**Stan potwierdzony: 21 października 2026.** TSI łączy własne uczone modele, macierze językowe, pamięć dokumentów i narzędzia obliczeniowe. Działa lokalnie. Nie korzysta z wag Bielika ani Qwena.
 
-Ta aktualizacja publikuje **samą dokumentację**. Kod nowego TSI, wagi, dane treningowe, dokumenty i prywatna historia pozostają lokalne. Starsze pliki obecne już w repo dotyczą wcześniejszego AI-SI i nie są instalatorem obecnej aplikacji.
+Repozytorium opisuje projekt. Ta aktualizacja zawiera dokumentację i podgląd panelu; **nie publikuje kodu obecnego TSI, wag, danych treningowych ani dokumentów użytkownika**. Starsze pliki repozytorium dotyczą wcześniejszego AI-SI.
 
-## Aktualny rdzeń i trening językowy — 21 października 2026
+## Co jest dostępne w lokalnej aplikacji
 
-Zainstalowany wspólny model **TSI-UNIFIED-H512-7573fd65**, runtime **0.6.0**, zawiera H512, transformer czytnika, matryce i połączenia w jednym module: **2 613 105 parametrów**, checkpoint **10 587 275 bajtów (10.59 MB)**. Sam wcześniejszy H512 ma 2 054 186 parametrów. [Zakres integracji](docs/TSI_UNIFIED_CORE_2026-10-20.md).
-
-Osobno kontynuowano trening własnego generatora tekstu: **1 826 496 parametrów**, kontekst 512 tokenów; dodana uczona uwaga kopiująca ma **73 921 parametrów**. Dane: 1002 przykłady treningowe, 60 rozwojowych i 98 odłożonych. Pierwszy generator na odłożonych zadaniach uzyskał **0/68 pełnych poprawnych odpowiedzi na pytania o fakty i definicje**, natomiast poprawnie odmówił odpowiedzi przy braku informacji **25/25**. Kolejna warstwa kopiowania nadal gubi części faktów i myli źródła mimo spadku straty. **Kandydaci nie zastępują działającego rdzenia i nie są wdrożeni do rozmowy.** [Wyniki treningu i dalsze kryteria](docs/SOURCE_DIALOGUE_TRAINING_2026-10-21.md).
-
-**Dalszy wspólny trening:** generator i wybór źródła, 1 974 338 parametrów. Pełne odpowiedzi: 7/68 na wcześniejszych dodatnich zadaniach; na nowym teście fakty 4/16, definicje 0/16. Wybór źródła faktów 16/16, lecz pisanie nadal gubi treść i cytowanie. Kandydat niewdrożony. [Wyniki i pomiar ograniczeń połączeń H512](docs/JOINT_SOURCE_TRAINING_2026-10-21.md).
-
-**Naprawa odczytu pamięci:** kolejne teksty rozmowy pozostają osobnymi aktywnymi źródłami; korekta i cofnięcie dotyczą wybranego źródła. Potwierdzono 13 kontroli oraz odczyt wcześniejszego tekstu w uruchomionym panelu. Nowy kandydat sieci z pełną treścią (4.96 mln parametrów) nie poprawił odpowiedzi i nie został wdrożony. [Wyniki, przebieg pamięci i test pustych impulsów](docs/MEMORY_OUTPUT_2026-10-21.md).
-
-## Co działa
-
-| Obszar | Dostępne możliwości |
+| Obszar | Możliwości i zakres |
 |---|---|
-| Tekst i rozmowa | Czytanie podanego materiału, pytania z cytatem, przygotowanie wiadomości z treści użytkownika, skróty i listy |
-| Poprawki | Zamiana wskazanego fragmentu źródła, cofnięcie zmiany, wersjonowanie i nowy temat |
-| Dokumenty | TXT, MD, CSV, PDF, DOCX i DOC; pliki lub wklejenie całej treści; do 10 plików, 8 MB na plik i 32 MB łącznie; DOC wymaga Worda, skany wcześniejszego OCR |
-| Pamięć | Wspólny kontekst źródeł z pochodzeniem i wersjami, trwałe notatki, historia oraz eksport JSON |
-| Matematyka | Arytmetyka słowna w obsługiwanym zakresie, kalkulator naukowy, równania, pochodne, całki, macierze i wykresy |
-| Logika i język | Logika trójstanowa, analiza odmiany i ról, kontrola wybranych reguł zapisu oraz ograniczony czytnik PL/EN |
-| Audyt odpowiedzi | Przycisk lub rozpoznana prośba o sprawdzenie poprzedniej odpowiedzi; ponowienie obsługiwanych obliczeń i kontrola cytatu w zapisanej wersji źródła |
-| Inne narzędzia | Daty, lokalne pliki udostępnione do odczytu, wybrane strony HTTPS i katalog sprawdzonych przykładów programistycznych |
+| Tekst i dokumenty | Wczytywanie materiału, pytania do źródła, skróty, listy i przygotowanie wiadomości z podanej treści; zakres poleceń jest ograniczony |
+| Pliki | TXT, MD, CSV, PDF, DOCX i DOC oraz wklejanie całej treści; do 10 plików, 8 MB na plik, 32 MB łącznie; DOC wymaga Worda, skany wcześniejszego OCR |
+| Pamięć i poprawki | Wersjonowane źródła, korekty i cofanie zmian, trwałe notatki, historia oraz eksport JSON |
+| Matematyka | Obsługiwane polecenia arytmetyczne, kalkulator naukowy, równania, pochodne, całki, macierze i wykresy przez narzędzia obliczeniowe |
+| Analiza sygnałów | Serie liczbowe JSON, wykres oraz uczona ocena wybranych trendów, anomalii i okresowości |
+| Kontrola odpowiedzi | Ponowienie obsługiwanych obliczeń i sprawdzenie cytatu w zapisanym źródle; brak pełnego audytu dowolnej wypowiedzi |
+| Obsługa | Panel PL/EN, Enter wysyła polecenie, Shift+Enter dodaje wiersz, nowa rozmowa i pomoc z przykładami |
 
-Główny rdzeń H512 ma **2 054 186 parametrów**. Współpracuje z dodatkowymi uczonymi modułami i narzędziami. Aplikacja nie korzysta z Bielika ani Qwena. Notatki i zwykła rozmowa nie uruchamiają samoczynnego treningu wag.
+Funkcje narzędziowe aplikacji i sprawność generatora tekstu są oceniane osobno. Samo korzystanie z notatek lub prowadzenie rozmowy **nie uruchamia automatycznie treningu wag**.
 
-## Wspólny model H512 i czytnika 0.6 — stan aktualny
+## Co potwierdzono dla nowego modelu dwupołówkowego
 
-H512, transformer i matryce są zapisane w **jednym modelu i jednym pliku wag**. Uczone połączenia tworzą obieg czytnik → H512 → ocena odpowiedzi oraz przekazują reprezentacje H512 do czytnika. W tej wersji dotyczą jawnych relacji i dowodów; narzędzia oraz pamięć dokumentów nadal są osobnymi częściami aplikacji.
+Dwie aktywne połówki przekazują reprezentacje do wspólnego dekodera odpowiedzi. Wcześniejszy wspólny trening objął obie sieci i obie pamięci H512. Ostatni zakończony etap ćwiczył odczyt odpowiedzi przez **400 kroków z powtórkami**; podpowiedź stopniowo wycofano. Osobne macierze odczytu definicji chronią je przed pogorszeniem podczas ćwiczenia faktów.
 
-Zachowano wcześniejsze wyniki: **960/960, 720/720, 640/640**, odpowiedzi **140/140** poleceń językowych i **256/256** operacji wektorowych oraz **118/118** planów bez błędnych akceptacji. Obie wcześniejsze części zachowały wagi, a trening objął połączenia. Nie potwierdzono jeszcze poprawy swobodnego rozumienia języka.
+**Poniższe wyniki dotyczą zapisanych wag bez podpowiedzi. Model nie został jeszcze podmieniony w działających panelach.**
 
-[Zakres integracji, trening i pomiary](docs/TSI_UNIFIED_CORE_2026-10-20.md). [Poprzedni stan](docs/archiwum/README_before_unified_core_2026-10-20.md).
+| Sprawdzian | Wynik |
+|---|---:|
+| Wcześniejsze przypadki ucinania odpowiedzi | **8/8**, przed powtórkami 6/8 |
+| Nowy odłożony zestaw krótkich faktów | **24/24**, wcześniej 23/24 |
+| Osobny zestaw prostych definicji | **16/16**, zachowany |
+| Wszystkie starsze zadania łącznie | **53/85**, wcześniej 49/85 |
+| Powtórne wczytanie wag i ponowienie ośmiu przypadków | **8/8** |
+
+W tych zestawach nie utracono żadnej wcześniej poprawnej odpowiedzi. Liczono pełną odpowiedź, a nie samo wskazanie źródła. Starsze zestawy są testami regresji; nie stanowią nowych, nieznanych modelowi sprawdzianów. Zestawy mogą zawierać warianty tego samego typu zadania.
+
+## Czego model jeszcze nie opanował
+
+Szersze starsze testy pokazują **37/40** na prostych faktach, ale tylko **7/30** na definicjach, **9/13** na rozpoznawaniu braku informacji i **0/2** na swobodnym pisaniu oraz wyjaśnianiu. Dlatego 16/16 prostych definicji nie oznacza opanowania dowolnych pojęć.
+
+Najważniejsze błędy to ucinanie końcówek, powtarzanie fragmentów słów i zdań, wypisywanie niewłaściwej etykiety S1/S2 mimo poprawnego wyboru źródła oraz odpowiadanie na podstawie materiału, który nie zawiera potrzebnej informacji. Nie potwierdzono jeszcze uniwersalnej rozmowy, swobodnego pisania ani samodzielnego uczenia dowolnej wiedzy.
 
 ## Jak korzystać
 
-W lokalnej instalacji uruchom **URUCHOM_TSI.bat**; panel: **http://127.0.0.1:8791/**. **ZATRZYMAJ_TSI.bat** zatrzymuje aplikację. Enter wysyła, Shift+Enter dodaje wiersz. Pomoc i przykłady są dostępne w panelu, a przełącznik PL/EN wybiera język odpowiedzi.
+W istniejącej lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel jest dostępny pod **http://127.0.0.1:8791/**. **ZATRZYMAJ_TSI.bat** zatrzymuje aplikację. To repozytorium dokumentacyjne nie jest samodzielnym instalatorem aktualnej wersji.
 
 | Przykład | Zastosowanie |
 |---|---|
-| `Przeczytaj: Anna daje książkę Markowi.` | Wczytanie źródła |
-| `Komu Anna daje książkę?` | Pytanie o rolę w tekście |
-| `Zamień Markowi na Ewie` | Poprawka źródła; `Cofnij` przywraca poprzednią wersję |
-| `Dodaj 3 plus siedem` | Obliczenie w obsługiwanym zakresie |
-| `2/7` | Rachunek z zachowaniem wyniku dokładnego |
-| `Sprawdź swoją poprzednią odpowiedź.` | Rozpoznana prośba o audyt; dostępny jest też przycisk |
+| `Przeczytaj: Anna daje książkę Markowi.` | Dodanie materiału źródłowego |
+| `Komu Anna daje książkę?` | Pytanie do podanego tekstu |
+| `Zamień Markowi na Ewie` oraz `Cofnij` | Korekta źródła i cofnięcie zmiany |
+| `Wyznacz pochodną i całkę: x^2` | Skorzystanie z narzędzi matematycznych |
 | `zapamiętaj: termin = piątek` | Trwała notatka |
-| `nowy temat` | Wyczyszczenie aktywnego kontekstu bez kasowania trwałych notatek |
+| `nowy temat` | Rozpoczęcie nowego kontekstu rozmowy |
 
-Zgodny rachunek nie potwierdza dowolnej interpretacji polecenia. Kontrola cytatu potwierdza jego obecność w źródle; gdy dostępne kontrole nie wystarczają, odpowiedź pozostaje nierozstrzygnięta. Swobodne opowiadania i szeroka rozmowa nadal wymagają rozwoju.
+## Rozmiar i sprzęt
 
-## Analiza sygnałów — w treningu
-
-Rozszerzono trening o logarytmy, odwrotności i pojedyncze piki. Nowy test pięciu etykiet na szerszych rodzinach: **95.32% micro-F1**, **1739/2000** pełnych zestawów; krzywe **1499/1500**. **Dostępny w panelu: „Sygnały ogólne — seria JSON”**, z opisem PL/EN i wykresem. W pomocy znajduje się gotowy przykład; potwierdzono 8 kontroli na działającym panelu. [Zakres, błędy i porównanie zachowania wcześniejszych umiejętności](docs/SIGNALS_2026-10-19.md).
-
-## Podgląd
-
-Aktualne zrzuty z 20 października 2026; rozmowa demonstracyjna bez prywatnych dokumentów.
-
-![Wspólny panel rozmowy i wpisywania poleceń](docs/tsi-panel-2026-10-20.png)
-
-![Dokumenty i wklejanie materiału w bocznym panelu](docs/tsi-documents-2026-10-20.png)
-
-## Rozmiar, pojemność i sprzęt — pomiar 20 października
-
-| Moduł | Parametry | Plik wag |
+| Zapisany model | Parametry | Plik wag |
 |---|---:|---:|
-| Wspólny H512 + pamięć nazw + transformer + matryce + połączenia | 2 613 105 | 10.59 MB |
-| W tym nowe uczone połączenia | 147 552 | w powyższym pliku |
+| Wspólny H512 i czytnik w dotychczasowej aplikacji, runtime 0.6.0 | 2 613 105 | 10 587 275 B |
+| Dwupołówkowy model po powtórkach i ochronie odczytu definicji | **10 147 343** | **40 944 075 B — 40,94 MB / 39,05 MiB** |
 
-Pomiar katalogu TSI sprzed tej konsolidacji: **432.31 MB** z kodem, danymi, kopiami i historią treningów. Nowe kopie bezpieczeństwa zwiększają tę wielkość; pełnego katalogu po wdrożeniu nie zmierzono ponownie. Python poza katalogiem nie jest wliczony. To rozmiar plików; RAM, VRAM i aktualna kompletna paczka portable nie zostały tu zmierzone. Liczba parametrów nie określa limitu notatek.
+Rozmiar wag nie jest rozmiarem całej instalacji ani zapotrzebowaniem na RAM. Ostatnich testów nie wykonywano na GPU: użyto CPU. Obsługa CUDA/MPS wymaga odpowiedniego sprzętu i środowiska. W tej aktualizacji nie wydano nowej paczki portable.
 
-Wspólny czytnik dobiera urządzenie i wątki na podstawie wykrytych możliwości oraz pomiaru. Na tym komputerze działa na **CPU**: Intel HD Graphics nie jest udostępniona przez zainstalowany PyTorch CPU. Ścieżki CUDA/MPS wymagają zgodnego środowiska; fizycznego GPU nie testowano. Na tym komputerze wspólny model i solvery pracują na CPU. Panel walidatora ma jedno kontrolowane ponowienie po awarii procesu czytnika, z zachowaniem zapisanego postępu.
+## Podgląd aplikacji
 
-[Dokładny zakres pomiaru, sprzęt i ponawianie](docs/SIZE_HARDWARE_RECOVERY_2026-10-20.md). Wcześniejsze pomiary portable pozostają historyczne; nie wydano nowej paczki w tej partii.
+Zrzuty z 20 października 2026 przedstawiają działający panel i przykładowe dane; nie pokazują wdrożenia nowego modelu dwupołówkowego.
 
-- [Poprzednie README i pełniejsza historia rozwoju](docs/archiwum/README_2026-10-18.md).
-- [Wcześniejsza historia AI-SI](HISTORIA_SI_2026-10-11.md).
-- [TSI-math-validator-5 — osobny warsztat matematyczny](https://github.com/jbackk-lang/TSI-math-validator-5).
+![Rozmowa i polecenia w panelu TSI](docs/tsi-panel-2026-10-20.png)
+
+![Wczytywanie dokumentów i wklejanie treści](docs/tsi-documents-2026-10-20.png)
+
+Przebieg integracji, wcześniejsze wyniki, eksperymenty i poprzednie README: **[historia rozwoju TSI](HISTORIA_TSI.md)**.
+
+Powiązany projekt: [TSI-math-validator-5](https://github.com/jbackk-lang/TSI-math-validator-5).
