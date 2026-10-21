@@ -128,3 +128,10 @@ Przygotowano lokalne BAT-y i panel nauki z internetu: checkbox Wikipedii i temat
 Pełna runda w odizolowanej kopii pobrała artykuł „Algorytm”, wykonała krok treningu i prawidłowo cofnęła pogorszenie (błąd 0,181 → 0,184, zachowany 0,181). Sprawdzono inicjalizację panelu z 12 tematami. Dodano sekcję „Nauczyłem się” z rzeczywistymi wygenerowanymi odpowiedziami: tylko zaakceptowana runda może ogłosić nowe opanowanie przykładu; w przeciwnym przypadku pokazywana jest wypowiedź ćwiczona lub zachowana. Sprawdzono rozróżnienie zaakceptowanej i odrzuconej aktualizacji oraz ponownie inicjalizację panelu.
 
 Zmierzono kod, dane, modele i środowisko. [Pomiar z 22 października](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/SIZE_2026-10-22.md) zastępuje historyczne wartości rozmiaru jako bieżący punkt odniesienia. Publikacja zawiera wyłącznie dokumentację; kod, wagi, dane i prywatne ścieżki pozostają poza aktualizacją repozytorium.
+
+
+### Kontrola zapominania i przekazanie pętli
+
+Po publikacji punktu 11/30 nadzór wykrył utratę jednej wcześniej opanowanej rozmowy o dziewczynce i mapie. Zachowano migawkę rundy 8 (10/30), a następna seria obowiązkowo powtarzała gubioną wypowiedź i chroniła każdą wcześniej opanowaną odpowiedź. Zakończyła 9 rund, zachowując 10/30; błąd odpowiedzi uczących spadł z 0,45820 do 0,45494. Przyjęto 3 rundy, 6 cofnięto. Ostatnie wagi i 10 zapisów pamięci przekazano pętli BAT; model rozmowy w aplikacji pozostał bez zmian.
+
+Panel nauki ma teraz zwartą siatkę tematów, rzeczywiste wypowiedzi po rundach oraz cofnięcie o dwie zaakceptowane wersje. Cofnięcie podczas pracy jest kolejkowane do bezpiecznego zatrzymania i odtwarza zarówno wagi, jak i pamięć. Sprawdzono kolejkowanie przy blokadzie treningu, przywrócenie dwóch wersji oraz odmowę, gdy brak dostatecznej historii.

@@ -27,6 +27,7 @@ Nowa pętla pobiera materiał z **polskiej Wikipedii** i ćwiczy odczyt podanej 
 |---|---|
 | **PANEL_NAUKI_TSI.bat** | Checkbox internetu i tematów, dodawanie tematu lub linku Wikipedii, limit rund i czasu, Start/Stop oraz odpowiedzi TSI |
 | **NAUKA_TSI_Z_INTERNETU.bat** | Bezpośrednia pętla nauki w kolorowym oknie; domyślnie do 20 rund lub około 2 godzin |
+| **COFNIJ_NAUKE_TSI_O_2.bat** | Cofnięcie o dwie zaakceptowane zapisane wersje, wraz z pamięcią; dostępne także w panelu |
 | **ZATRZYMAJ_NAUKE_TSI.bat** | Zatrzymanie po bezpiecznym etapie z zachowaniem wcześniejszych zaakceptowanych wag |
 
 - **Zielony: POLEPSZENIE** — mniejszy błąd wygenerowanych odpowiedzi uczących, zapis wag.
@@ -38,7 +39,7 @@ Odznaczenie źródła wyłącza nową naukę z niego; poznana pamięć jest nada
 
 ## Aktualny wynik rozwoju rozmowy
 
-Ostatni zapis podczas tej aktualizacji: **11/30 pełnych odpowiedzi na ćwiczonych rozmowach**, runda 9; punkt wyjścia wynosił 4/30. To wynik materiału uczącego, a nie sprawdzian nieznanych pytań. Kontrola pamięci śledzi konkretne wcześniej opanowane wypowiedzi, nie tylko średnią.
+Ostatnia zachowana wersja po kontroli zapominania: **10/30 pełnych odpowiedzi na ćwiczonych rozmowach**; punkt wyjścia wynosił 4/30. Wariant z 11/30 utracił jedną wcześniej opanowaną wypowiedź, więc wrócono do wcześniejszej migawki i przeprowadzono powtórki. Kolejna seria zachowała 10/30 bez ponownej utraty chronionej rozmowy. Te wagi i pamięć przekazano lokalnej pętli BAT. To wynik materiału uczącego, a nie sprawdzian nieznanych pytań.
 
 Potwierdzono uruchomienie panelu nauki, pobranie rzeczywistego artykułu i pełną rundę w oddzielnej kopii: pobranie, trening, wykrycie gorszego wyniku i cofnięcie zmiany. Osobno sprawdzono, że komunikat „Nauczyłem się” nie przypisuje sukcesu odrzuconej aktualizacji.
 
