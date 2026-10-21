@@ -90,6 +90,18 @@ Wagi wcześniejszego odczytu źródeł zachowano bez zmian; kontrola ośmiu wcze
 
 ## Publikacja
 
+### Rozmowa, źródła i lokalny słownik
+
+Sprawdzono rzeczywistą rozmowę o państwach. Starszy czytnik mylił pytanie o państwa z pytaniem o możliwości TSI, prośbę o Wikipedię z wklejaniem dokumentu, a definicję z audytem poprzedniej odpowiedzi. Wytrenowano osobny klasyfikator intencji. Wybrany wariant miał 482 przykłady treningowe i wynik 85/87 na odłożonych przykładach znanych rodzin pytań z innymi tematami. To nie jest wynik swobodnej konwersacji. Dodatkowe parafrazy oraz rzeczywista rozmowa nadal ujawniały błędy, zwłaszcza przy doprecyzowaniu znaczenia i prośbie o prostsze wyjaśnienie. Kolejne warianty badawcze nie zastąpiły wybranego czytnika.
+
+Podłączono pobieranie Wikipedii z wyborem artykułu, zachowaniem źródła i kontekstu. Poprawiono kolizję z włączonym materiałem dokumentowym oraz wybór polskiego języka komunikatów. Szesnaście kontroli HTTP objęło wcześniejszy ciąg pytań, treść artykułu, listę państw, angielskie hasło Gravity, potwierdzanie nowego wyszukania oraz wcześniejsze funkcje matematyki, logiki i dokumentów. Te kontrole poprzedzały dodanie lokalnej bazy słownikowej.
+
+Następnie z publicznego zrzutu polskiego Wikisłownika przez Kaikki/Wiktextract zbudowano lokalną bazę: **114 215 różnych haseł, 125 720 wpisów i 1 437 842 powiązania form odmiany**. Baza zajmuje **157 716 480 B**. Zachowuje znaczenia, przykłady, źródła i informację o pochodzeniu. Jest dostępna przez polecenie `słownik: …`, a rozpoznane pytania definicyjne korzystają z niej przed pobraniem strony. Odrębne znaczenia nie są automatycznie uznawane za równoważne. Sprawdzono lokalny odczyt przy zablokowanym pobieraniu sieciowym. Nie jest to kopia PWN i nie jest to trening wag generatora. NKJP/PELCRA oraz WSJP sprawdzono jako możliwe dalsze zasoby; nie zaimportowano ich pełnych baz.
+
+Rzeczywista próba po podłączeniu słownika poprawnie odpowiedziała na dłuższe pytanie o państwo, lecz doprecyzowanie „chodzi mi o kraj, nie grupę osób” nadal nie zostało poprawnie obsłużone. Pytanie o cechę ciał z definicji grawitacji zwróciło zbyt szerokie fragmenty, także ze starego tematu. Wyszukanie definicji i odczyt konkretnej relacji są oceniane osobno.
+
+Dodano następnie odczyt jawnych relacji z aktywnej definicji. Własny uczony klasyfikator pytania wybiera rolę: cecha, uczestnicy, przeznaczenie, skład, warunek lub inne. Miał 535 przykładów treningowych, 112 do doboru i 112 testowych; uzyskał 109/112 etykiet w teście znanych rodzin pytań. Sam ten wynik nie mierzy trafności pełnych odpowiedzi. Matryca konstrukcji językowych wskazuje dokładny fragment źródła; nie zawiera gotowej odpowiedzi „masę”. W kontroli offline definicja grawitacji dała „masę” dla pytania o cechę i „ciałami mającymi masę” dla uczestników. Brak zapisanego warunku spowodował doprecyzowanie. Kontrole zmiany źródła sprawdziły odczyt różnych cech. To ograniczony odczyt jawnych relacji, nie dowód swobodnego wnioskowania ani opanowania parafrazy przez generator.
+
 ### Podłączenie operatorów logiki do panelu
 
 Po powyższych badaniach wdrożono w panelu lokalnym wyłącznie sprawdzony moduł 483 uczonych parametrów operatorów, z parserem formalnych wyrażeń. Zachowano dotychczasowy model rozmowy; nie włączono słabego eksperymentalnego ucznia arytmetyki. Przykłady są dostępne w pomocy. Polecenia `logika: …` i `logic: …` działają w rozmowie i dziale rdzenia; jednoznaczne formalne wyrażenia rozpoznawane są również bez prefiksu. Odpowiedź zawiera wynik T/F/U i kroki, w wybranym języku panelu. Niepełne nawiasy i obce dopiski są odrzucane zamiast pomijania części wejścia.

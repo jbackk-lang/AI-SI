@@ -9,6 +9,8 @@ Repozytorium opisuje projekt. Ta aktualizacja zawiera dokumentację i podgląd p
 | Obszar | Możliwości i zakres |
 |---|---|
 | Tekst i dokumenty | Wczytywanie materiału, pytania do źródła, skróty, listy i przygotowanie wiadomości z podanej treści; zakres poleceń jest ograniczony |
+| Lokalny słownik | Polski Wikisłownik przez Kaikki: 114 215 różnych haseł, 125 720 wpisów i 1 437 842 powiązania form odmiany. Definicje i przykłady są dostępne offline; nie oznacza to opanowania swobodnej rozmowy przez sieć |
+| Konkret z definicji | Uczony wybór rodzaju pytania i jawna matryca relacji odczytują cechę, uczestników oddziaływania, przeznaczenie, skład lub zapisany warunek z aktywnego hasła. Zakres obejmuje rozpoznane konstrukcje; brak jednoznacznego fragmentu powoduje prośbę o doprecyzowanie |
 | Pliki | TXT, MD, CSV, PDF, DOCX i DOC oraz wklejanie całej treści; do 10 plików, 8 MB na plik, 32 MB łącznie; DOC wymaga Worda, skany wcześniejszego OCR |
 | Pamięć i poprawki | Wersjonowane źródła, korekty i cofanie zmian, trwałe notatki, historia oraz eksport JSON |
 | Matematyka | Obsługiwane polecenia arytmetyczne, kalkulator naukowy, równania, pochodne, całki, macierze i wykresy przez narzędzia obliczeniowe |
@@ -48,6 +50,7 @@ W istniejącej lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel jest dost�
 | Przykład | Zastosowanie |
 |---|---|
 | `Przeczytaj: Anna daje książkę Markowi.` | Dodanie materiału źródłowego |
+| `słownik: państwo` lub `słownik: grawitacja` | Odczyt znaczeń z lokalnej bazy, bez pobierania strony |
 | `Komu Anna daje książkę?` | Pytanie do podanego tekstu |
 | `Zamień Markowi na Ewie` oraz `Cofnij` | Korekta źródła i cofnięcie zmiany |
 | `Wyznacz pochodną i całkę: x^2` | Skorzystanie z narzędzi matematycznych |
@@ -56,6 +59,8 @@ W istniejącej lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel jest dost�
 | `nowy temat` | Rozpoczęcie nowego kontekstu rozmowy |
 
 ## Rozmiar i sprzęt
+
+Lokalna baza słownikowa zajmuje **157 716 480 B (150,4 MiB)**. Jest zasobem danych, osobnym od wag modeli. Źródło: [polski Wikisłownik przez Kaikki/Wiktextract](https://kaikki.org/dictionary/rawdata.html); odsyłacze do haseł i informację o pochodzeniu zachowano w bazie.
 
 | Zapisany model | Parametry | Plik wag |
 |---|---:|---:|
