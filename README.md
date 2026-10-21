@@ -12,6 +12,8 @@ Osobno kontynuowano trening własnego generatora tekstu: **1 826 496 parametrów
 
 **Dalszy wspólny trening:** generator i wybór źródła, 1 974 338 parametrów. Pełne odpowiedzi: 7/68 na wcześniejszych dodatnich zadaniach; na nowym teście fakty 4/16, definicje 0/16. Wybór źródła faktów 16/16, lecz pisanie nadal gubi treść i cytowanie. Kandydat niewdrożony. [Wyniki i pomiar ograniczeń połączeń H512](docs/JOINT_SOURCE_TRAINING_2026-10-21.md).
 
+**Naprawa odczytu pamięci:** kolejne teksty rozmowy pozostają osobnymi aktywnymi źródłami; korekta i cofnięcie dotyczą wybranego źródła. Potwierdzono 13 kontroli oraz odczyt wcześniejszego tekstu w uruchomionym panelu. Nowy kandydat sieci z pełną treścią (4.96 mln parametrów) nie poprawił odpowiedzi i nie został wdrożony. [Wyniki, przebieg pamięci i test pustych impulsów](docs/MEMORY_OUTPUT_2026-10-21.md).
+
 ## Co działa
 
 | Obszar | Dostępne możliwości |
