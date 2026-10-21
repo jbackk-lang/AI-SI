@@ -109,3 +109,22 @@ Po powyższych badaniach wdrożono w panelu lokalnym wyłącznie sprawdzony modu
 Kontrola interfejsu HTTP objęła sześć poprawnych wyrażeń PL/EN, trzy błędne zapisy i dwie wcześniejsze funkcje: przywitanie oraz dodawanie. Wszystkie 11 kontroli przeszło. Po uruchomieniu docelowego panelu ponowiono złożone wyrażenie i potwierdzono, że używa nowych wag operatorów. Zachowano kopię poprzedniego koordynatora aplikacji. To wdrożenie formalnej logiki, nie wymiana całego modelu rozmowy.
 
 Ta aktualizacja publikuje dokumentację i dwa wcześniejsze zrzuty panelu z przykładowymi danymi. Nie dodaje kodu obecnego TSI, wag, danych treningowych, prywatnych dokumentów ani lokalnych ścieżek użytkownika. Nie wydano nowego portable. Lokalny panel otrzymał opisany powyżej moduł logiki; pełny wariant badawczy pozostaje oddzielny.
+
+
+## 22 października 2026 — nauka wypowiedzi i pętla internetowa
+
+Poprzednie główne README zachowano w [archiwum](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/archiwum/README_2026-10-21_BEFORE_WEB_LEARNING.md). Główny opis zawiera teraz stan aplikacji, lokalną obsługę nauki i aktualny pomiar rozmiaru.
+
+Pobrano OpenAssistant OASST1 z zachowaniem pochodzenia i licencji Apache-2.0. Rozmowy rozdzielono według całych drzew. Kontrola usunęła całe drzewa z błędami i słabymi odpowiedziami. Po dodaniu autorskich przykładów uzyskano 53 przykłady treningowe, 10 do doboru i 8 testowych. Autorskie zestawy mają wspólne rodziny umiejętności, więc nie dowodzą szerokiej generalizacji. Powtórki obejmowały 1002 wcześniejsze zadania.
+
+Trening obu generatorów wykonał 120 kroków. Wybrany według wskaźnika NLL krok 40 obniżył testowe NLL z 6,2430 do 5,8440, lecz pełne nowe wypowiedzi pozostały niepoprawne (0/8). Fakty zachowano 8/8, ale definicje spadły z 16/16 do 6/16. Wariant odrzucono. Wniosek: spadek błędu przewidywania tokenów nie wystarcza do wyboru dobrego rozmówcy.
+
+Do zachowanej reprezentacji dwóch rdzeni dołączono dwa przyczynowe bloki transformera i odczyt słownika: 1 285 376 uczonych parametrów. Rdzenie bazowe mają 10 147 343 parametry i pozostają zamrożone. Pierwsze ćwiczenia sterowane pełnymi wygenerowanymi odpowiedziami opanowały cztery przykłady. Początkowa zbyt sztywna kontrola wszystkich wypowiedzi odrzuciła dziewięć dalszych rund, choć pierwsza poprawiała liczbę dokładnych odpowiedzi do sześciu, zachowując poprzednie cztery.
+
+W kolejnej pętli dopuszczono zmiany nieopanowanych wypowiedzi przy zachowaniu opanowanych, dodano do 20 kroków naprawczych przed cofnięciem oraz odrębny nadzór każdej zapamiętanej odpowiedzi. Ostatni odczyt do niniejszej publikacji: 11/30 pełnych odpowiedzi uczących, runda 9. Wynik nie jest testem nieznanych rozmów. Zachowywane są migawki wag i historia decyzji. Model nie został automatycznie podmieniony w panelu.
+
+Przygotowano lokalne BAT-y i panel nauki z internetu: checkbox Wikipedii i tematów, dodawanie tematu lub linku polskiej Wikipedii, limity czasu/rund, Start/Stop, kolorowe komunikaty postępu oraz powtórki pamięci. Pętla pobiera fragmenty ze źródłem, rewizją i SHA-256 i uczy odczytu podanej treści. Nie wykonuje instrukcji ani kodu z pobranych stron. Odznaczenie źródła wyłącza nowe uczenie z niego, zachowując powtórki opanowanej pamięci.
+
+Pełna runda w odizolowanej kopii pobrała artykuł „Algorytm”, wykonała krok treningu i prawidłowo cofnęła pogorszenie (błąd 0,181 → 0,184, zachowany 0,181). Sprawdzono inicjalizację panelu z 12 tematami. Dodano sekcję „Nauczyłem się” z rzeczywistymi wygenerowanymi odpowiedziami: tylko zaakceptowana runda może ogłosić nowe opanowanie przykładu; w przeciwnym przypadku pokazywana jest wypowiedź ćwiczona lub zachowana. Sprawdzono rozróżnienie zaakceptowanej i odrzuconej aktualizacji oraz ponownie inicjalizację panelu.
+
+Zmierzono kod, dane, modele i środowisko. [Pomiar z 22 października](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/SIZE_2026-10-22.md) zastępuje historyczne wartości rozmiaru jako bieżący punkt odniesienia. Publikacja zawiera wyłącznie dokumentację; kod, wagi, dane i prywatne ścieżki pozostają poza aktualizacją repozytorium.
