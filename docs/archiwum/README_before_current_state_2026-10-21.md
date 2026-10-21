@@ -41,7 +41,7 @@ Zakres integracji, trening i pomiary. Poprzedni stan.
 
 ## Jak korzystać
 
-W lokalnej instalacji uruchom **URUCHOM_TSI.bat**; panel: **http://127.0.0.1:8791/**. **ZATRZYMAJ_TSI.bat** zatrzymuje aplikację. Enter wysyła, Shift+Enter dodaje wiersz. Pomoc i przykłady są dostępne w panelu, a przełącznik PL/EN wybiera język odpowiedzi.
+W lokalnej instalacji uruchom **URUCHOM_TSI.bat**; panel: `http://127.0.0.1:8791/`. **ZATRZYMAJ_TSI.bat** zatrzymuje aplikację. Enter wysyła, Shift+Enter dodaje wiersz. Pomoc i przykłady są dostępne w panelu, a przełącznik PL/EN wybiera język odpowiedzi.
 
 | Przykład | Zastosowanie |
 |---|---|

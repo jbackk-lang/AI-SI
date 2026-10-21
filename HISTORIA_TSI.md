@@ -1,13 +1,13 @@
 # Historia rozwoju AI-SI-TSI
 
-Ten plik przechowuje przebieg prac i wcześniejsze pomiary. Aktualne możliwości oraz ograniczenia są opisane w [README](README.md). Wyników odmiennych zestawów i modeli nie należy dodawać ani porównywać jak jednego sprawdzianu.
+Ten plik przechowuje przebieg prac i wcześniejsze pomiary. Aktualne możliwości oraz ograniczenia są opisane w [README](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/README.md). Wyników odmiennych zestawów i modeli nie należy dodawać ani porównywać jak jednego sprawdzianu.
 
 ## Stan sprzed uporządkowania dokumentacji
 
-- [Poprzedni lokalny README — 21 października 2026](docs/archiwum/README_before_current_state_2026-10-21.md).
-- [Poprzedni roboczy README publikacyjny — 20 października 2026](docs/archiwum/README_public_before_current_state_2026-10-21.md).
-- [Zachowana wcześniejsza historia TSI](docs/archiwum/HISTORIA_TSI_before_2026-10-21.md).
-- [Wcześniejsza historia AI-SI](HISTORIA_SI_2026-10-11.md).
+- [Poprzedni lokalny README — 21 października 2026](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/archiwum/README_before_current_state_2026-10-21.md).
+- [Poprzedni roboczy README publikacyjny — 20 października 2026](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/archiwum/README_public_before_current_state_2026-10-21.md).
+- [Zachowana wcześniejsza historia TSI](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/archiwum/HISTORIA_TSI_before_2026-10-21.md).
+- [Wcześniejsza historia AI-SI](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/HISTORIA_SI_2026-10-11.md).
 
 Kopie README zachowują historyczne opisy i pomiary. Nie oznaczają, że wszystkie wymienione tam eksperymenty są wdrożone. Odnośniki do wcześniejszych lokalnych materiałów w tych kopiach przedstawiono jako zwykły tekst.
 

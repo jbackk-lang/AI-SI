@@ -42,7 +42,7 @@ Najważniejsze błędy to ucinanie końcówek, powtarzanie fragmentów słów i 
 
 ## Jak korzystać
 
-W istniejącej lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel jest dostępny pod **http://127.0.0.1:8791/**. **ZATRZYMAJ_TSI.bat** zatrzymuje aplikację. To repozytorium dokumentacyjne nie jest samodzielnym instalatorem aktualnej wersji.
+W istniejącej lokalnej instalacji uruchom **URUCHOM_TSI.bat**. Panel jest dostępny pod `http://127.0.0.1:8791/`. **ZATRZYMAJ_TSI.bat** zatrzymuje aplikację. To repozytorium dokumentacyjne nie jest samodzielnym instalatorem aktualnej wersji.
 
 | Przykład | Zastosowanie |
 |---|---|
@@ -66,10 +66,10 @@ Rozmiar wag nie jest rozmiarem całej instalacji ani zapotrzebowaniem na RAM. Os
 
 Zrzuty z 20 października 2026 przedstawiają działający panel i przykładowe dane; nie pokazują wdrożenia nowego modelu dwupołówkowego.
 
-![Rozmowa i polecenia w panelu TSI](docs/tsi-panel-2026-10-20.png)
+![Rozmowa i polecenia w panelu TSI](https://raw.githubusercontent.com/jbackk-lang/AI-SI-TSI/main/docs/tsi-panel-2026-10-20.png)
 
-![Wczytywanie dokumentów i wklejanie treści](docs/tsi-documents-2026-10-20.png)
+![Wczytywanie dokumentów i wklejanie treści](https://raw.githubusercontent.com/jbackk-lang/AI-SI-TSI/main/docs/tsi-documents-2026-10-20.png)
 
-Przebieg integracji, wcześniejsze wyniki, eksperymenty i poprzednie README: **[historia rozwoju TSI](HISTORIA_TSI.md)**.
+Przebieg integracji, wcześniejsze wyniki, eksperymenty i poprzednie README: **[historia rozwoju TSI](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/HISTORIA_TSI.md)**.
 
 Powiązany projekt: [TSI-math-validator-5](https://github.com/jbackk-lang/TSI-math-validator-5).
