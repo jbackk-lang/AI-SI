@@ -10,6 +10,8 @@ Zainstalowany wspólny model **TSI-UNIFIED-H512-7573fd65**, runtime **0.6.0**, z
 
 Osobno kontynuowano trening własnego generatora tekstu: **1 826 496 parametrów**, kontekst 512 tokenów; dodana uczona uwaga kopiująca ma **73 921 parametrów**. Dane: 1002 przykłady treningowe, 60 rozwojowych i 98 odłożonych. Pierwszy generator na odłożonych zadaniach uzyskał **0/68 pełnych poprawnych odpowiedzi na pytania o fakty i definicje**, natomiast poprawnie odmówił odpowiedzi przy braku informacji **25/25**. Kolejna warstwa kopiowania nadal gubi części faktów i myli źródła mimo spadku straty. **Kandydaci nie zastępują działającego rdzenia i nie są wdrożeni do rozmowy.** [Wyniki treningu i dalsze kryteria](docs/SOURCE_DIALOGUE_TRAINING_2026-10-21.md).
 
+**Dalszy wspólny trening:** generator i wybór źródła, 1 974 338 parametrów. Pełne odpowiedzi: 7/68 na wcześniejszych dodatnich zadaniach; na nowym teście fakty 4/16, definicje 0/16. Wybór źródła faktów 16/16, lecz pisanie nadal gubi treść i cytowanie. Kandydat niewdrożony. [Wyniki i pomiar ograniczeń połączeń H512](docs/JOINT_SOURCE_TRAINING_2026-10-21.md).
+
 ## Co działa
 
 | Obszar | Dostępne możliwości |
