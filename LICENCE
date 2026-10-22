@@ -1,0 +1,27 @@
+AI‑SI‑TSI License v1.0 (Proprietary)
+
+Kod źródłowy, modele, wagi, słownik i dokumentacja są własnością autora.
+
+Użytkownik otrzymuje niewyłączne prawo do uruchamiania aplikacji na jednej instalacji.
+
+Zabrania się:
+
+dekompilacji, reverse engineeringu, analizy wag,
+
+trenowania modeli,
+
+tworzenia pochodnych modeli,
+
+publikowania wag,
+
+integracji z innymi modelami AI,
+
+użycia komercyjnego bez zgody autora,
+
+publikowania benchmarków bez zgody autora.
+
+Wagi są zaszyfrowane i nie mogą być eksportowane.
+
+Autor nie odpowiada za szkody wynikłe z użycia aplikacji.
+
+Licencja nie przenosi praw własności.
