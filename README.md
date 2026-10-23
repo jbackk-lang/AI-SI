@@ -21,6 +21,8 @@ Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje a
 
 ## Aktualna ocena modelu językowego
 
+**Nie osiągnął wymaganego poziomu.**
+
 Przyjęto zapis po kontroli wcześniejszych odpowiedzi. Jest używany jako punkt wyjścia dalszych testów; nie zastąpił modelu rozmowy w panelu.
 
 | Sprawdzian | Wynik |
@@ -28,7 +30,7 @@ Przyjęto zapis po kontroli wcześniejszych odpowiedzi. Jest używany jako punkt
 | Wcześniejsze odpowiedzi o faktach i języku — chroniony zestaw powtórek | **48/48**, zachowane |
 | Odczyt i weryfikacja podanej tablicy logiki trójstanowej | **47/69**, wcześniej 38/69 |
 | Poprawne przypadki logiki z poprzedniego etapu | **46/46**, zachowane |
-| Nowe opisy zmiany godziny: inne pary liczb i sformułowania, bez podpowiedzi | **3/16** |
+| Opisy zmiany godziny ocenione przed obecną serią powtórek | **3/16** |
 | Dodatkowy zestaw nowych opisów i pytań o czas, bez treningu na tych sformułowaniach | **0/16** |
 
 W teście 69 przypadków poprawna tablica reguł trafia jako treść źródła do enkoderów, a odpowiedź generuje sieć. Wyniki nie są podmieniane odpowiedzią nauczyciela. To ocena czytania źródła, odrębna od formalnego modułu logiki w aplikacji.
@@ -41,17 +43,19 @@ Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi 
 
 ## Model i rozmiar
 
-Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 4 warstwy, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
+Model powiększono bez zmiany wcześniejszych odpowiedzi. Ostatnia seria: **5/5 etapów**, **60 aktualizacji wag**; końcowo **102/109** zachowanych odpowiedzi i **46/69** w logice. Z powodu regresji zachowano wcześniejsze przyjęte wagi. [Wyniki powtórek i historia rozbudowy](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POWTORKI_TSI_2026-10-23.md).
+
+Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 12 warstw, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
 
 Pomiar z **23 października 2026**; MB = 1 000 000 bajtów. Wiersze opisują różne zakresy i nie stanowią rozmiaru gotowej paczki portable.
 
 | Zakres | Parametry lub rozmiar |
 |---|---:|
 | Dwa enkodery | **10 147 343 parametry** |
-| Dekoder z uwagą krzyżową | **4 705 796 parametrów** |
-| Wspólny model | **14 853 139 parametrów** |
-| Same parametry modelu w FP32 | **59,41 MB** |
-| Zapis przyjętych wag razem ze stanem treningu | **162,82 MB** |
+| Dekoder z uwagą krzyżową | **12 871 180 parametrów** |
+| Wspólny model | **23 018 523 parametrów** |
+| Same parametry modelu w FP32 | **92,07 MB** |
+| Zapis przyjętych wag bez stanu optymalizatora | **92,52 MB** |
 | Lokalny katalog aplikacji z kodem, danymi, modułami i artefaktami; bez treningów, kopii, osobnego runtime i testów | **1 989,89 MB** |
 
 Osobne środowisko Pythona nie jest wliczone w pomiar katalogu aplikacji. Nowy model badany jest przechowywany osobno; nie włączono go do nowej paczki portable. [Dokładne zakresy pomiaru](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POMIAR_TSI_2026-10-23.json).

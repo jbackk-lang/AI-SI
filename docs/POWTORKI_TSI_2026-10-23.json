@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-23",
+  "parameters": 23018523,
+  "decoder_layers": 12,
+  "stages_completed": 5,
+  "updates": 60,
+  "checks": [
+    {
+      "stage": 1,
+      "updates": 16,
+      "protected_correct": 107,
+      "protected_total": 109,
+      "original_48_correct": 48,
+      "logic_correct": 45,
+      "logic_total": 69,
+      "by_state": {
+        "T": {
+          "correct": 21,
+          "total": 23
+        },
+        "F": {
+          "correct": 0,
+          "total": 19
+        },
+        "U": {
+          "correct": 24,
+          "total": 27
+        }
+      },
+      "hours_correct": null,
+      "hours_total": null,
+      "no_regression": false,
+      "improved": false,
+      "checkpoint_sha256": "cb5ace50f0677bed9e2cf7e382086c1f01fd40bf2ab0cb85862796d13e4d24a1",
+      "original_weights_unchanged": true
+    },
+    {
+      "stage": 2,
+      "updates": 26,
+      "protected_correct": 106,
+      "protected_total": 109,
+      "original_48_correct": 48,
+      "logic_correct": 45,
+      "logic_total": 69,
+      "by_state": {
+        "T": {
+          "correct": 21,
+          "total": 23
+        },
+        "F": {
+          "correct": 0,
+          "total": 19
+        },
+        "U": {
+          "correct": 24,
+          "total": 27
+        }
+      },
+      "hours_correct": null,
+      "hours_total": null,
+      "no_regression": false,
+      "improved": false,
+      "checkpoint_sha256": "3d136c31f73cf35929351699b39b32e56275ec5e54b70b7b722a4fad011ee58f",
+      "original_weights_unchanged": true
+    },
+    {
+      "stage": 3,
+      "updates": 42,
+      "protected_correct": 104,
+      "protected_total": 109,
+      "original_48_correct": 48,
+      "logic_correct": 45,
+      "logic_total": 69,
+      "by_state": {
+        "T": {
+          "correct": 20,
+          "total": 23
+        },
+        "F": {
+          "correct": 2,
+          "total": 19
+        },
+        "U": {
+          "correct": 23,
+          "total": 27
+        }
+      },
+      "hours_correct": null,
+      "hours_total": null,
+      "no_regression": false,
+      "improved": false,
+      "checkpoint_sha256": "b121c2786dbd6ad458f72d5f7dccb3cad25a72cfc247c6790ade0d7bde0e39cd",
+      "original_weights_unchanged": true
+    },
+    {
+      "stage": 4,
+      "updates": 50,
+      "protected_correct": 105,
+      "protected_total": 109,
+      "original_48_correct": 48,
+      "logic_correct": 48,
+      "logic_total": 69,
+      "by_state": {
+        "T": {
+          "correct": 20,
+          "total": 23
+        },
+        "F": {
+          "correct": 4,
+          "total": 19
+        },
+        "U": {
+          "correct": 24,
+          "total": 27
+        }
+      },
+      "hours_correct": null,
+      "hours_total": null,
+      "no_regression": false,
+      "improved": false,
+      "checkpoint_sha256": "a2decba609c5b3e06baee84710271243c60d593d6dcb70859867c2fcf16ed016",
+      "original_weights_unchanged": true
+    },
+    {
+      "stage": 5,
+      "updates": 60,
+      "protected_correct": 102,
+      "protected_total": 109,
+      "original_48_correct": 48,
+      "logic_correct": 46,
+      "logic_total": 69,
+      "by_state": {
+        "T": {
+          "correct": 19,
+          "total": 23
+        },
+        "F": {
+          "correct": 6,
+          "total": 19
+        },
+        "U": {
+          "correct": 21,
+          "total": 27
+        }
+      },
+      "hours_correct": 15,
+      "hours_total": 40,
+      "no_regression": false,
+      "improved": false,
+      "checkpoint_sha256": "5150518ec99dfd27c94ec6603bec2bf0d4ec08ddcd31cfb98fab2461c93f0a18",
+      "original_weights_unchanged": true
+    }
+  ],
+  "final_fresh_time": {
+    "correct": 0,
+    "total": 16
+  },
+  "qualification": {
+    "selected_stage": null,
+    "parent_retained": true,
+    "accepted_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
+    "latest_trained_sha256": "5150518ec99dfd27c94ec6603bec2bf0d4ec08ddcd31cfb98fab2461c93f0a18",
+    "application_deployed": false
+  },
+  "old_weights_unchanged": true,
+  "training_internet": false,
+  "application_deployed": false
+}

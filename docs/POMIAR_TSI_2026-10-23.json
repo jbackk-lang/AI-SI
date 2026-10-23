@@ -2,23 +2,23 @@
   "model": {
     "date": "2026-10-23",
     "encoder_parameters": 10147343,
-    "decoder_parameters": 4705796,
-    "total_parameters": 14853139,
-    "parameter_bytes": 59412556,
-    "parameter_MB": 59.412556,
-    "checkpoint_bytes": 162824337,
-    "checkpoint_MB": 162.824337,
+    "decoder_parameters": 12871180,
+    "total_parameters": 23018523,
+    "parameter_bytes": 92074092,
+    "parameter_MB": 92.074092,
+    "checkpoint_bytes": 92521819,
+    "checkpoint_MB": 92.521819,
     "decoder_config": {
       "vocab": 2048,
       "width": 256,
-      "layers": 4,
+      "layers": 12,
       "heads": 4,
       "context": 384
     },
-    "accepted_checkpoint_sha256": "abf9fdcfca34e146372a1afc567bf08e3628e8a94e173e462db2689ef07400c7",
-    "checkpoint_includes_training_state": true,
+    "accepted_checkpoint_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
+    "checkpoint_includes_training_state": false,
     "application_deployed": false,
-    "note": "Parameter bytes describe model tensors, not a complete portable package. Checkpoint size includes training state."
+    "note": "Parameter bytes describe model tensors, not a complete portable package. Optimizer presence is checked in the saved checkpoint."
   },
   "application": {
     "date": "2026-10-23",
