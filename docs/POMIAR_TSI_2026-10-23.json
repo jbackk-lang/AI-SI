@@ -1,0 +1,45 @@
+{
+  "model": {
+    "date": "2026-10-23",
+    "encoder_parameters": 10147343,
+    "decoder_parameters": 4705796,
+    "total_parameters": 14853139,
+    "parameter_bytes": 59412556,
+    "parameter_MB": 59.412556,
+    "checkpoint_bytes": 162824337,
+    "checkpoint_MB": 162.824337,
+    "decoder_config": {
+      "vocab": 2048,
+      "width": 256,
+      "layers": 4,
+      "heads": 4,
+      "context": 384
+    },
+    "accepted_checkpoint_sha256": "abf9fdcfca34e146372a1afc567bf08e3628e8a94e173e462db2689ef07400c7",
+    "checkpoint_includes_training_state": true,
+    "application_deployed": false,
+    "note": "Parameter bytes describe model tensors, not a complete portable package. Checkpoint size includes training state."
+  },
+  "application": {
+    "date": "2026-10-23",
+    "application_files": 2373,
+    "application_bytes": 1989885226,
+    "application_MB": 1989.885226,
+    "application_exclusions": [
+      ".git",
+      ".pytest_cache",
+      ".venv",
+      "__pycache__",
+      "archive",
+      "archiwum",
+      "backups",
+      "runtime",
+      "tests",
+      "training",
+      "venv"
+    ],
+    "environment_included": false,
+    "new_research_weights_stored_separately": true,
+    "read_errors": 0
+  }
+}

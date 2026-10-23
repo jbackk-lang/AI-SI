@@ -135,3 +135,26 @@ Zmierzono kod, dane, modele i środowisko. [Pomiar z 22 października](https://g
 Po publikacji punktu 11/30 nadzór wykrył utratę jednej wcześniej opanowanej rozmowy o dziewczynce i mapie. Zachowano migawkę rundy 8 (10/30), a następna seria obowiązkowo powtarzała gubioną wypowiedź i chroniła każdą wcześniej opanowaną odpowiedź. Zakończyła 9 rund, zachowując 10/30; błąd odpowiedzi uczących spadł z 0,45820 do 0,45494. Przyjęto 3 rundy, 6 cofnięto. Ostatnie wagi i 10 zapisów pamięci przekazano pętli BAT; model rozmowy w aplikacji pozostał bez zmian.
 
 Panel nauki ma teraz zwartą siatkę tematów, rzeczywiste wypowiedzi po rundach oraz cofnięcie o dwie zaakceptowane wersje. Cofnięcie podczas pracy jest kolejkowane do bezpiecznego zatrzymania i odtwarza zarówno wagi, jak i pamięć. Sprawdzono kolejkowanie przy blokadzie treningu, przywrócenie dwóch wersji oraz odmowę, gdy brak dostatecznej historii.
+
+## 23 października 2026 — wspólny dekoder, źródła i równowaga powtórek
+
+Połączono dwa enkodery z natywnym dekoderem autoregresyjnym przez uwagę krzyżową. Łącznie model ma 14 853 139 parametrów. Kod i pełne wagi pozostają lokalnie. Zapis obejmuje obie części wejściowe i dekoder; nie użyto wag zewnętrznego modelu językowego.
+
+Wykryto brak przekazywania jawnych ról S1/S2 w jednej ścieżce oraz interpretowanie małych odchyleń uczonych flag jako prawdy przez konwersję na bool. Poprawiono przekazywanie ról i odczyt flag z progiem. Nie uznano tych poprawek za automatyczne potwierdzenie poprawności całej rozmowy.
+
+Przyjęty przed ostatnią korektą zapis zachowywał 48/48 odpowiedzi i uzyskiwał 38/69 przypadków odczytu reguł. Sieć miała tendencję do wybierania T lub U, a odczyt F pozostawał błędny. Próba śledzenia wykazała, że zmiana źródła zmienia reprezentacje enkoderów i wyjście uwagi; sygnał docierał, mimo błędnej decyzji dekodera.
+
+W jednej późniejszej, odrzuconej serii popełniono błąd w celu uczenia: lista klas zawierała T/F/F/U, a indeks celu U wskazywał drugie F. Poprawiono ją do unikalnego T/F/U, dodano sprawdzenie identyfikatorów tokenów i kierunku gradientu. Wadliwych wag nie przyjęto. Sama poprawka etykiet nie usunęła pozostałych błędów czytania.
+
+Trening wskazywania fragmentu z wynikiem reguły poprawił odczyt do 46/69 i zachował poprzednie 38 poprawnych przypadków, ale dał 47/48 na chronionych faktach. Pomyłka dotyczyła odwróconej zmiany godziny. Harmonogram powtórek faworyzował 19→9; poprawiono dobór, dodając oba kierunki i obie role czasu.
+
+Zrównoważony program miał 40 przykładów, po 20 z podpowiedzią i bez niej, po 20 pytań o czas aktualny i poprzedni. Wyniki każdej godziny występowały jednakowo często w tym programie. Oddzielono 16 zadań z nowymi parami i inną parafrazą, bez podpowiedzi. Dodatkowe powtórki pary 9/19 były symetryczne.
+
+Punkt po 10 krokach dał 48/48, ale stracił jeden z 46 poprawnych przypadków logiki — U IMPLIES T. Odrzucono go. Przyjęto punkt po 6 krokach: **48/48**, zachowane **46/46**, a pełna kontrola odczytu dała **47/69**. Na nowych opisach czasu uzyskano **3/16**. To przyjęty punkt do dalszych testów, nie podmiana panelu ani potwierdzenie swobodnego rozumienia języka.
+
+Nowa wspólna pętla internetowa rzeczywiście pobrała artykuł „Rekurencja” z Wikipedii (rewizja 80072510), przeprowadziła trening i wykryła pogorszenie: zachowano 23/38 poprzednich przypadków logiki, bez opanowania nowej definicji (0/1). Wagi odrzucono, a pętlę zatrzymano. Materiał zachowano z adresem, rewizją i skrótem treści; nie wykonywano kodu pobranego ze strony.
+
+Pomiar przyjętego modelu: **59,41 MB** parametrów FP32 i **162,82 MB** pełnego zapisu ze stanem treningu. Katalog aplikacji z kodem, danymi, modułami i artefaktami, z wyszczególnionymi wyłączeniami, zajmuje **1 989,89 MB**. Nowy model jest przechowywany oddzielnie. Szczegółowy zakres jest w [pomiarze](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POMIAR_TSI_2026-10-23.json).
+
+Szczegóły obecnej oceny: [OCENA_TSI_2026-10-23.md](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/OCENA_TSI_2026-10-23.md). Poprzedni README przeniesiono do [archiwum](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/archiwum/README_przed_ocena_2026-10-23.md).
+
