@@ -231,3 +231,8 @@ Sprawdzono hipotezę o wymuszaniu dwóch stanów na aktywnej ścieżce: T/F/U ma
 
 Zachowano nowe wagi do dalszych badań; przyjęty wcześniej zapis pozostaje bez zmian. **Nie osiągnął wymaganego poziomu.** Bez wdrożenia nowych wag do panelu, MUZ i walidatora. Trening internetowy pozostaje wyłączony.
 
+
+
+## 2026-10-24 — połączenie wyuczonej macierzy logiki
+
+Naprawiono odczyt wydzielonego wyrażenia w opisach PL/EN i wywołanie macierzy operatorów. Dodano wspólną paczkę badawczą zachowującą jej wagi. Testy: 138/138 poleceń, 148/148 złożeń, 6/6 HTTP, 105/105 pozostałych odpowiedzi identycznych. Nie zmieniono przyjętych wag językowych. [Pełny raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POLACZENIE_LOGIKI_TSI_2026-10-24.md).

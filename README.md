@@ -13,11 +13,17 @@ Repozytorium publikuje dokumentację. Aktualny kod TSI, wagi i dokumenty użytko
 | Słownik offline | 114 215 haseł, 125 720 wpisów i 1 437 842 powiązania form odmiany; znaczenia, przykłady i źródła |
 | Pamięć | Notatki, historia rozmów, źródła, poprawki, cofanie zmian i eksport JSON |
 | Matematyka | Obsługiwane działania, równania, pochodne, całki, macierze i wykresy przez narzędzia obliczeniowe |
-| Logika formalna | Parser nawiasów i moduł operatorów T/F/U z krokami obliczenia |
+| Logika formalna | Dziewięć bramek T/F/U, nawiasy, symbole i kroki; odczyt formalnego wyrażenia wydzielonego w opisie PL/EN |
 | Sygnały | Serie liczbowe JSON, wykresy i uczona ocena wybranych trendów, anomalii i okresowości |
 | Obsługa | Interfejs PL/EN, Enter wysyła, Shift+Enter dodaje wiersz, nowa rozmowa, pomoc i przykłady |
 
 Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje aplikacyjne zachowują dotychczasowe wdrożone wagi. Poniższa ocena dotyczy rozwijanego wspólnego modelu językowego.
+
+## Połączenie logiki — aktualizacja 24 października
+
+Lokalny panel przekazuje teraz także formalne wyrażenie wydzielone w dłuższym poleceniu do wyuczonej macierzy logiki. **69/69** przypadków dziewięciu bramek; z opisami i błędną poprzednią odpowiedzią **138/138**, wyrażenia złożone **148/148**, panel przez HTTP **6/6**. Pozostałe sprawdzone odpowiedzi: **105/105 identycznych**.
+
+To wynik aplikacji z modułem logiki. Sam najnowszy dekoder językowy nadal ma **49/69**. Wspólna paczka badawcza z macierzą: **23 019 006 parametrów**, **92.57 MB**, bez optymalizatora. Przyjętych wag językowych i portable nie zmieniono. [Zakres i wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POLACZENIE_LOGIKI_TSI_2026-10-24.md).
 
 ## Aktualna ocena modelu językowego
 
