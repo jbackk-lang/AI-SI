@@ -1,6 +1,6 @@
 # AI-SI-TSI — lokalny asystent TSI
 
-**Stan: 23 października 2026.** TSI łączy własne modele uczone, macierze językowe, pamięć źródeł i narzędzia obliczeniowe. Pracuje lokalnie, bez wag Bielika i Qwena.
+**Stan: 24 października 2026.** TSI łączy własne modele uczone, macierze językowe, pamięć źródeł i narzędzia obliczeniowe. Pracuje lokalnie, bez wag Bielika i Qwena.
 
 Repozytorium publikuje dokumentację. Aktualny kod TSI, wagi i dokumenty użytkownika pozostają lokalnie.
 
@@ -39,11 +39,11 @@ Rozbicie wyniku według oczekiwanej wartości: **T 21/23**, **F 0/19**, **U 26/2
 
 Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi odrzucono. Bieżące korekty odbywają się na kontrolowanych przykładach. Zwykła rozmowa nie uruchamia treningu wag.
 
-[Najnowsza kontrola treningu i zapominania](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TRENING_TSI_2026-10-23.md). [Zakres oceny i decyzja o wagach](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/OCENA_TSI_2026-10-23.md). [Przebieg prac i wcześniejsze wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/HISTORIA_TSI.md).
+[Najnowsza kontrola treningu i zapominania](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/UTRWALANIE_TSI_2026-10-24.md). [Zakres oceny i decyzja o wagach](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/OCENA_TSI_2026-10-23.md). [Przebieg prac i wcześniejsze wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/HISTORIA_TSI.md).
 
 ## Model i rozmiar
 
-Ostatnie utrwalanie obejmowało **16 + 8 aktualizacji wag**. W końcowej serii wyrównano udział T/F/U wraz z powtórkami. Wynik końcowy: **109/118** zachowanych odpowiedzi, w tym **100/109** z pierwotnego zestawu; **51/69** w logice i **15/40** znanych zadań o czasie; nowe opisy **0/16**. Z powodu utraty części wcześniejszych odpowiedzi przyjęty zapis pozostaje podstawą dalszych badań. [Szczegóły powtórek](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POWTORKI_TSI_2026-10-23.md).
+Ostatnie utrwalanie: **8 aktualizacji wag — 24 października**. Wynik końcowy: **113/124** zachowanych odpowiedzi, w tym **104/109** pierwotnych; logika **49/69**, znane godziny **16/40**, nowe opisy **0/16**. Przyjęty wcześniej zapis pozostaje bez zmian. [Raport utrwalania](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/UTRWALANIE_TSI_2026-10-24.md).
 
 Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 12 warstw, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
 

@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-24",
+  "updates": 8,
+  "parameters": 23018523,
+  "checks": [
+    {
+      "step": 8,
+      "protected_correct": 113,
+      "protected_total": 124,
+      "original_109_correct": 104,
+      "original_48_correct": 48,
+      "logic_correct": 49,
+      "logic_total": 69,
+      "hours_correct": 16,
+      "hours_total": 40,
+      "by_state": {
+        "T": {
+          "correct": 16,
+          "total": 23
+        },
+        "F": {
+          "correct": 7,
+          "total": 19
+        },
+        "U": {
+          "correct": 26,
+          "total": 27
+        }
+      },
+      "no_regression": false,
+      "checkpoint_sha256": "446a68a3d0e87acf9a9562c2cb471150d90c1838bad818de0801c288abc3f6ea"
+    }
+  ],
+  "qualification": {
+    "selected_step": null,
+    "accepted_changed": false,
+    "accepted_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
+    "latest_sha256": "446a68a3d0e87acf9a9562c2cb471150d90c1838bad818de0801c288abc3f6ea",
+    "application_deployed": false
+  },
+  "protocol": {
+    "parent_sha256": "1a9389d09d79332e3120b7c7956dfca7b5ecc2296acafce59e7caeb3183e45b7",
+    "protected_total": 124,
+    "planned_updates": 8,
+    "learning_rate_added": 2e-05,
+    "learning_rate_gate": 0.0002,
+    "gate_exposures_per_step": {
+      "T": 4,
+      "F": 4,
+      "U": 4
+    },
+    "original_weights_frozen": true,
+    "reference_in_encoder_only": true,
+    "output_substitution": false,
+    "internet_training": false,
+    "application_deployed": false,
+    "attention_on_replay": true,
+    "attention_coefficient": 1.0,
+    "hard_facts_replayed": true
+  },
+  "exposure_audit": {
+    "actual": {
+      "T": 32,
+      "F": 32,
+      "U": 32
+    },
+    "equal_states": true
+  },
+  "binary_interference_audit": {
+    "date": "2026-10-24",
+    "checkpoint_sha256": "446a68a3d0e87acf9a9562c2cb471150d90c1838bad818de0801c288abc3f6ea",
+    "reference_cases_verified": 69,
+    "token_maps": {
+      "encoder": {
+        "T": [
+          57
+        ],
+        "F": [
+          43
+        ],
+        "U": [
+          58
+        ]
+      },
+      "decoder": {
+        "T": [
+          57
+        ],
+        "F": [
+          43
+        ],
+        "U": [
+          58
+        ]
+      }
+    },
+    "encoder_memory_differences": {
+      "TF": [
+        {
+          "encoder": 1,
+          "l2_difference": 17.938932418823242
+        },
+        {
+          "encoder": 2,
+          "l2_difference": 18.1008243560791
+        }
+      ],
+      "TU": [
+        {
+          "encoder": 1,
+          "l2_difference": 15.859241485595703
+        },
+        {
+          "encoder": 2,
+          "l2_difference": 16.667142868041992
+        }
+      ],
+      "FU": [
+        {
+          "encoder": 1,
+          "l2_difference": 17.035640716552734
+        },
+        {
+          "encoder": 2,
+          "l2_difference": 17.21102523803711
+        }
+      ]
+    },
+    "confusion": {
+      "T": {
+        "T": 16,
+        "U": 5,
+        "F": 2
+      },
+      "F": {
+        "T": 8,
+        "F": 7,
+        "U": 4
+      },
+      "U": {
+        "U": 26,
+        "T": 1
+      }
+    },
+    "active_encoder_format": "tsi_rehearsed_joint_v1",
+    "coupling_disabled_as_in_direct_runtime": true,
+    "output_selection": "argmax over full vocabulary; no T/F-only output filter",
+    "observation": "No U-to-binary collapse in label mapping, supplied rule tables or tested encoder memories. Neural mistakes remain; this audit does not establish their sole cause."
+  },
+  "fresh_time_correct": 0,
+  "fresh_time_total": 16,
+  "application_deployed": false
+}
