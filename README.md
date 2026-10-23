@@ -43,7 +43,7 @@ Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi 
 
 ## Model i rozmiar
 
-Model powiększono bez zmiany wcześniejszych odpowiedzi. Ostatnia seria: **5/5 etapów**, **60 aktualizacji wag**; końcowo **102/109** zachowanych odpowiedzi i **46/69** w logice. Z powodu regresji zachowano wcześniejsze przyjęte wagi. [Wyniki powtórek i historia rozbudowy](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POWTORKI_TSI_2026-10-23.md).
+Ostatnie utrwalanie obejmowało **16 + 8 aktualizacji wag**. W końcowej serii wyrównano udział T/F/U wraz z powtórkami. Wynik końcowy: **109/118** zachowanych odpowiedzi, w tym **100/109** z pierwotnego zestawu; **51/69** w logice i **15/40** znanych zadań o czasie; nowe opisy **0/16**. Z powodu utraty części wcześniejszych odpowiedzi przyjęty zapis pozostaje podstawą dalszych badań. [Szczegóły powtórek](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POWTORKI_TSI_2026-10-23.md).
 
 Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 12 warstw, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
 

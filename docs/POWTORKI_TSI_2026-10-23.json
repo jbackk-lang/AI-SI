@@ -164,5 +164,123 @@
   },
   "old_weights_unchanged": true,
   "training_internet": false,
-  "application_deployed": false
+  "application_deployed": false,
+  "continued_rehearsal": {
+    "updates": 16,
+    "checks": [
+      {
+        "step": 8,
+        "protected_correct": 106,
+        "protected_total": 117,
+        "original_109_correct": 104,
+        "original_48_correct": 48,
+        "logic_correct": 44,
+        "logic_total": 69,
+        "hours_correct": 15,
+        "hours_total": 40,
+        "by_state": {
+          "T": {
+            "correct": 17,
+            "total": 23
+          },
+          "F": {
+            "correct": 0,
+            "total": 19
+          },
+          "U": {
+            "correct": 27,
+            "total": 27
+          }
+        },
+        "no_regression": false,
+        "checkpoint_sha256": "a8eb3438ea33c8ebd0f96178efe2154fb2bb2c7b165f0ec71fe712b2cb055e1c"
+      },
+      {
+        "step": 16,
+        "protected_correct": 109,
+        "protected_total": 117,
+        "original_109_correct": 107,
+        "original_48_correct": 48,
+        "logic_correct": 46,
+        "logic_total": 69,
+        "hours_correct": 15,
+        "hours_total": 40,
+        "by_state": {
+          "T": {
+            "correct": 20,
+            "total": 23
+          },
+          "F": {
+            "correct": 0,
+            "total": 19
+          },
+          "U": {
+            "correct": 26,
+            "total": 27
+          }
+        },
+        "no_regression": false,
+        "checkpoint_sha256": "a110958babd0a811ad1cfb84e3c6c98f016b6cf1c196d1331ae678673748cb11"
+      }
+    ],
+    "qualification": {
+      "selected_step": null,
+      "accepted_changed": false,
+      "accepted_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
+      "latest_sha256": "a110958babd0a811ad1cfb84e3c6c98f016b6cf1c196d1331ae678673748cb11",
+      "application_deployed": false
+    },
+    "protected_union": 117,
+    "fresh_time_correct": 0,
+    "fresh_time_total": 16
+  },
+  "balanced_continuation": {
+    "updates": 8,
+    "checks": [
+      {
+        "step": 8,
+        "protected_correct": 109,
+        "protected_total": 118,
+        "original_109_correct": 100,
+        "original_48_correct": 48,
+        "logic_correct": 51,
+        "logic_total": 69,
+        "hours_correct": 15,
+        "hours_total": 40,
+        "by_state": {
+          "T": {
+            "correct": 16,
+            "total": 23
+          },
+          "F": {
+            "correct": 12,
+            "total": 19
+          },
+          "U": {
+            "correct": 23,
+            "total": 27
+          }
+        },
+        "no_regression": false,
+        "checkpoint_sha256": "1a9389d09d79332e3120b7c7956dfca7b5ecc2296acafce59e7caeb3183e45b7"
+      }
+    ],
+    "qualification": {
+      "selected_step": null,
+      "accepted_changed": false,
+      "accepted_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
+      "latest_sha256": "1a9389d09d79332e3120b7c7956dfca7b5ecc2296acafce59e7caeb3183e45b7",
+      "application_deployed": false
+    },
+    "exposure_audit": {
+      "actual": {
+        "T": 32,
+        "F": 32,
+        "U": 32
+      },
+      "equal_states": true
+    },
+    "fresh_time_correct": 0,
+    "fresh_time_total": 16
+  }
 }
