@@ -29,6 +29,7 @@ Przyjęto zapis po kontroli wcześniejszych odpowiedzi. Jest używany jako punkt
 | Odczyt i weryfikacja podanej tablicy logiki trójstanowej | **47/69**, wcześniej 38/69 |
 | Poprawne przypadki logiki z poprzedniego etapu | **46/46**, zachowane |
 | Nowe opisy zmiany godziny: inne pary liczb i sformułowania, bez podpowiedzi | **3/16** |
+| Dodatkowy zestaw nowych opisów i pytań o czas, bez treningu na tych sformułowaniach | **0/16** |
 
 W teście 69 przypadków poprawna tablica reguł trafia jako treść źródła do enkoderów, a odpowiedź generuje sieć. Wyniki nie są podmieniane odpowiedzią nauczyciela. To ocena czytania źródła, odrębna od formalnego modułu logiki w aplikacji.
 
@@ -36,7 +37,7 @@ Rozbicie wyniku według oczekiwanej wartości: **T 21/23**, **F 0/19**, **U 26/2
 
 Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi odrzucono. Bieżące korekty odbywają się na kontrolowanych przykładach. Zwykła rozmowa nie uruchamia treningu wag.
 
-[Zakres oceny i decyzja o wagach](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/OCENA_TSI_2026-10-23.md). [Przebieg prac i wcześniejsze wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/HISTORIA_TSI.md).
+[Najnowsza kontrola treningu i zapominania](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TRENING_TSI_2026-10-23.md). [Zakres oceny i decyzja o wagach](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/OCENA_TSI_2026-10-23.md). [Przebieg prac i wcześniejsze wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/HISTORIA_TSI.md).
 
 ## Model i rozmiar
 

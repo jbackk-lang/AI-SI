@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-23",
+  "accepted_checkpoint_sha256": "abf9fdcfca34e146372a1afc567bf08e3628e8a94e173e462db2689ef07400c7",
+  "accepted_model_unchanged": true,
+  "experiments": [
+    {
+      "name": "native-state-repair-20261023-v1",
+      "checks": [
+        {
+          "step": 16,
+          "protected_correct": 92,
+          "protected_total": 98,
+          "logic_correct": 45,
+          "logic_total": 69,
+          "by_state": {
+            "T": {
+              "correct": 15,
+              "total": 23
+            },
+            "F": {
+              "correct": 4,
+              "total": 19
+            },
+            "U": {
+              "correct": 26,
+              "total": 27
+            }
+          },
+          "generic_correct": 4,
+          "time_correct": 3,
+          "accepted": false
+        },
+        {
+          "step": 8,
+          "protected_correct": 89,
+          "protected_total": 98,
+          "logic_correct": 50,
+          "logic_total": 69,
+          "by_state": {
+            "T": {
+              "correct": 12,
+              "total": 23
+            },
+            "F": {
+              "correct": 11,
+              "total": 19
+            },
+            "U": {
+              "correct": 27,
+              "total": 27
+            }
+          },
+          "generic_correct": 4,
+          "time_correct": 3,
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "name": "native-state-repair-balanced-20261023-v2",
+      "checks": [
+        {
+          "step": 8,
+          "protected_correct": 92,
+          "protected_total": 98,
+          "logic_correct": 49,
+          "logic_total": 69,
+          "by_state": {
+            "T": {
+              "correct": 15,
+              "total": 23
+            },
+            "F": {
+              "correct": 7,
+              "total": 19
+            },
+            "U": {
+              "correct": 27,
+              "total": 27
+            }
+          },
+          "generic_correct": 4,
+          "time_correct": 3,
+          "accepted": false
+        }
+      ]
+    }
+  ],
+  "first_exposure": {
+    "new_examples_by_state": {
+      "T": 32,
+      "F": 32,
+      "U": 32
+    },
+    "protected_gate_replay_by_state": {
+      "T": 21,
+      "U": 26
+    },
+    "total_gate_targets_by_state": {
+      "T": 53,
+      "F": 32,
+      "U": 58
+    },
+    "note": "Replay contributes additional T/U targets; new teaching alone is balanced."
+  },
+  "second_exposure": {
+    "T": 37,
+    "F": 16,
+    "U": 42
+  },
+  "second_class_weights": {
+    "T": 1.135135135135135,
+    "F": 2.625,
+    "U": 1.0
+  },
+  "fresh_time": {
+    "parent_correct": 0,
+    "trained_correct": 0,
+    "total": 16,
+    "story_and_question_templates_absent_from_training": true
+  },
+  "protected": {
+    "facts_and_language": 48,
+    "logic": 47,
+    "older_time": 3,
+    "total": 98
+  },
+  "reference_in_encoders_only": true,
+  "output_substituted": false,
+  "deployed": false,
+  "internet_learning_stopped": true,
+  "temporal_curriculum": {
+    "prepared": 72,
+    "trained": 0,
+    "held_out": 16
+  }
+}
