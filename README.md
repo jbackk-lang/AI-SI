@@ -19,11 +19,19 @@ Repozytorium publikuje dokumentację. Aktualny kod TSI, wagi i dokumenty użytko
 
 Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje aplikacyjne zachowują dotychczasowe wdrożone wagi. Poniższa ocena dotyczy rozwijanego wspólnego modelu językowego.
 
+## Rozmowa i składnia — aktualizacja 24 października
+
+Lokalny panel obsługuje teraz także zweryfikowane zdania wieloczłonowe: odczyt całej treści, spójniki, negację i kierunek przyczyny. Poprawiono rozpoznawanie końców zdań przy skrótach i liczbach. Kontrole: **15/15** zdań, **116/116** wcześniejszych przypisań ról, **4/4** generowania złożonych odpowiedzi ze źródła oraz **3/3** przez API.
+
+Swobodny generator rozmowy **nie osiągnął wymaganego poziomu**. Osobny wariant połączono z pamięcią i macierzą, ale pierwsza próba nadal dawała uszkodzone wypowiedzi. Zrównoważony trening: **67 aktualizacji**, zachowanie **47/48** wcześniejszych odpowiedzi. W ręcznej ocenie pełnych odpowiedzi: **0/2 powtórek** i **1/4 nowych wypowiedzi**; poprawna odpowiedź czasowa wymagała kontroli macierzowej podczas ponownego generowania. Nowych wag nie ustawiono jako domyślnych.
+
+[Wdrożony zakres, ograniczenia, trening i wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md).
+
 ## TIMDR — aktywna kontrola języka
 
 TSI wykorzystuje macierze znaczenia do kontrolowania propozycji uczonego generatora fraz. W badanym dużym modelu macierz steruje także dopuszczalnymi kontynuacjami podczas generowania. Dodano śledzenie stanów i zmian, ról, negacji, czasu oraz struktury wypowiedzi.
 
-Z poprawnie dostarczoną macierzą zdarzeń nowe zadania czasowe: **0/16 → 16/16**; wybrane wcześniejsze: **3/4 → 4/4**. Próby dynamiki, ról i negacji: **6/6**. To wyniki systemu z kontrolą macierzową; wag swobodnego modelu nie zmieniano. Czytnik nadal ma nierozstrzygnięte przypadki. [Wdrożenie i dokładny zakres wyników](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TIMDR_JEZYK_TSI_2026-10-24.md).
+Z poprawnie dostarczoną macierzą zdarzeń nowe zadania czasowe: **0/16 → 16/16**; wybrane wcześniejsze: **3/4 → 4/4**. Próby dynamiki, ról i negacji: **6/6**. To wyniki systemu z kontrolą macierzową; wag swobodnego modelu nie zmieniano. Odrębna poprawka polskiego czytnika podniosła wcześniejszą próbę semantyczną do 7/7 w kontekście źródła; dowolny tekst nadal nie jest w pełni obsługiwany. [Wdrożenie i dokładny zakres wyników](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TIMDR_JEZYK_TSI_2026-10-24.md).
 
 ## Połączenie logiki — aktualizacja 24 października
 
@@ -55,7 +63,7 @@ Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi 
 
 ## Model i rozmiar
 
-Ostatnie utrwalanie: **8 aktualizacji wag — 24 października**. Wynik końcowy: **113/124** zachowanych odpowiedzi, w tym **104/109** pierwotnych; logika **49/69**, znane godziny **16/40**, nowe opisy **0/16**. Przyjęty wcześniej zapis pozostaje bez zmian. [Raport utrwalania](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/UTRWALANIE_TSI_2026-10-24.md).
+Ostatni zakończony trening: **67 aktualizacji — 24 października**, **47/48** zachowanych wcześniejszych odpowiedzi. Przyjęte wagi pozostają bez zmian. [Bieżąca ocena](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md). Wcześniejsze pomiary utrwalania znajdują się w historii.
 
 Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 12 warstw, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
 

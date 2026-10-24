@@ -241,3 +241,11 @@ Naprawiono odczyt wydzielonego wyrażenia w opisach PL/EN i wywołanie macierzy 
 ## 2026-10-24 — TIMDR: kontrolowane generowanie i dynamika znaczenia
 
 Dodano kontrolę macierzy znaczenia w uczonym generatorze fraz aplikacji oraz ograniczanie tokenów we wspólnym modelu badanym. Jawne zdarzenia tworzą kolejne stany bez nadpisywania historii. Wyniki: 0/16 → 16/16 na nowych zadaniach czasowych przy dostarczonych macierzach, 3/4 → 4/4 wcześniejszych, 6/6 dynamiki/ról/negacji, 105/105 zachowanych pozostałych odpowiedzi. Polski czytnik: 5/7 prób rozstrzygniętych, 2 nierozstrzygnięte. Bez treningu i podmiany wag, bez nowej portable. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TIMDR_JEZYK_TSI_2026-10-24.md).
+
+## 2026-10-24 — przebudowa rozmowy, skróty i zdania złożone
+
+Wdrożono wspólny podział zdań oraz obsługę wielu członów z zachowaniem spójników, negacji i kierunku przyczyny. Zlikwidowano globalny wymóg jednej relacji przy generowaniu fraz; zachowano ograniczenia techniczne analizy. Kontrole: 15/15, 116/116, 13/13, generowanie 4/4 i API 3/3.
+
+Próba starego panelu: 12 tur, 9 odmów, dwie nietrafione Wikipedie i jedno nietrafione wyszukanie dokumentu. Osobny nowy przepływ uruchamia rzeczywisty generator, ale jego pierwszy trening zachował 47/48 dawnych odpowiedzi i nie poprawił swobodnej rozmowy do wymaganego poziomu. Wagi odrzucono jako domyślne. Zrównoważony trening: **67 aktualizacji**, zachowanie **47/48** wcześniejszych odpowiedzi. W ręcznej ocenie pełnych odpowiedzi: **0/2 powtórek** i **1/4 nowych wypowiedzi**; poprawna odpowiedź czasowa wymagała kontroli macierzowej podczas ponownego generowania. Nowych wag nie ustawiono jako domyślnych.
+
+Zbadano także zakończenia: EOS sieci w 12/12 odpowiedzi, identyczne wyniki przy 72 i 160 tokenach na dwóch wejściach, zachowanie znaków 54/54. [Szczegóły](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md).

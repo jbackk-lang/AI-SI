@@ -30,7 +30,7 @@ Przykład dynamiczny: początkowa godzina `10`, operacja `+2`, pytanie o stan po
 
 Sama informacja zwrotna „popraw błąd”, bez ograniczenia generowania macierzą, wcześniej dała **0/8** na części nowych zadań i zachowała **3/4** wcześniejszych. Aktywna kontrola generowania poprawiła wynik badanego systemu. Nie aktualizowano wag.
 
-Dodatkowo przeszło **41 kontroli semantycznych i pętli poprawy**, **9 kontroli struktury** i **8 kontroli przejść stanu**. Rzeczywisty polski czytnik rozstrzygnął **5/7** prób semantycznych; dwie pozostały nierozstrzygnięte przez dotychczasową analizę przypadków. Są zachowane w raporcie jako brak do dalszego rozwoju.
+Dodatkowo przeszło **41 kontroli semantycznych i pętli poprawy**, **9 kontroli struktury** i **8 kontroli przejść stanu**. Pierwszy pomiar rzeczywistego polskiego czytnika dał **5/7**. Późniejsza poprawka odmiany i kontekstu źródła podniosła tę próbę do **7/7**, z 116/116 kontrolami przypisania ról. [Dalsza przebudowa zdań](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md).
 
 ## Zakres wdrożenia
 

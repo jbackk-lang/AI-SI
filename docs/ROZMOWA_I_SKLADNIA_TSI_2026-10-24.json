@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-24",
+  "deployed_reader": {
+    "compounds": "15/15",
+    "atomic_regression": "116/116",
+    "semantic_regression": "13/13",
+    "multi_clause_generation": "4/4",
+    "http": "3/3",
+    "segmentation": "24/24",
+    "token_roundtrip": "54/54",
+    "source_context_semantics": "7/7",
+    "weights_changed": false
+  },
+  "comparison_variant": {
+    "first_training": {
+      "checkpoint": "generator-step-52.pt",
+      "sha256": "d6ce61f77fc57756a0f1e1ef5809c9e65ef7f42070a966d9a5b4fbace0d84ab3",
+      "parent_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
+      "steps": 52,
+      "protected_exact": 47,
+      "protected_total": 48,
+      "encoders_and_old_layers_frozen": true,
+      "default_deployed": false
+    },
+    "reader_fresh": "8/17",
+    "free_conversation_turns": 12,
+    "mean_seconds": 16.908,
+    "model_eos": 12,
+    "budget_truncation": 0,
+    "default_deployed": false
+  },
+  "balanced_training": {
+    "checkpoint": "generator-step-67.pt",
+    "sha256": "6cb4b00a5e7a77bb11a7d1614f578ef497c2877e1c48072186578da026adf486",
+    "parent_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
+    "steps": 67,
+    "protected_exact": 47,
+    "protected_total": 48,
+    "encoders_and_old_layers_frozen": true,
+    "default_deployed": false
+  },
+  "internet_weight_training": false,
+  "portable_rebuilt": false,
+  "balanced_evaluation": {
+    "turns": 6,
+    "manual_review": {
+      "rehearsal_adequate": 0,
+      "rehearsal_total": 2,
+      "fresh_adequate": 1,
+      "fresh_total": 4,
+      "successful_time_answer_uses_matrix_constrained_revision": true,
+      "qualified": false
+    },
+    "rows": [
+      {
+        "split": "rehearsal",
+        "user": "Cześć!",
+        "answer": "Tożesz porozmawiać?"
+      },
+      {
+        "split": "rehearsal",
+        "user": "Mam ochotę pogadać.",
+        "answer": "T"
+      },
+      {
+        "split": "fresh",
+        "user": "Hej, znajdziesz chwilę na rozmowę o książkach?",
+        "answer": "Spotkanie jest o 16."
+      },
+      {
+        "split": "fresh",
+        "user": "Chcę zacząć opowieść o liście znalezionym w szufladzie. Co proponujesz?",
+        "answer": "Spotkanie jest o 16."
+      },
+      {
+        "split": "fresh",
+        "user": "Najpierw zebranie miało godzinę 7, a po zmianie 11.",
+        "answer": "Spotkych odmiane to 17."
+      },
+      {
+        "split": "fresh",
+        "user": "Jaka jest teraz godzina tego zebrania?",
+        "answer": "Aktualna godzina to 11."
+      }
+    ]
+  },
+  "next_training_input_fix": {
+    "prepared_examples": 112,
+    "reader_and_prompt_goal_consistent": 112,
+    "oracle_goals_used_for_generator_input": false,
+    "reader_weights_changed": false,
+    "generator_weights_trained_on_fixed_inputs": false,
+    "historical_v2_goal_mismatches": 39,
+    "historical_v2_total": 112
+  }
+}
