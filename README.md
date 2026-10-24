@@ -19,13 +19,13 @@ Repozytorium publikuje dokumentację. Aktualny kod TSI, wagi i dokumenty użytko
 
 Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje aplikacyjne zachowują dotychczasowe wdrożone wagi. Poniższa ocena dotyczy rozwijanego wspólnego modelu językowego.
 
-## Generowanie zdań — najnowszy etap 24 października
+## Rozmowa z historią — najnowszy etap 24 października
 
-Nowy wariant wag generuje **8/8 znanych pełnych odpowiedzi**, zachowując **48/48** dawnych. W nowych prostych poleceniach uzyskał **2/4** poprawnych odpowiedzi. Rozpoznawanie nowych ról w zdaniu: **0/18**; obsługa historii rozmowy pozostaje następnym etapem.
+**Oba enkodery H512 i generator uczą się wspólnie.** Wybrany zapis zachowuje **56/56** dotychczasowych odpowiedzi. Wynik uczonych rozmów: **8/56**; nowych kombinacji: **1/8**, wcześniej 0/8. Potwierdzono zmiany wag obu enkoderów i niezmienność sześciu macierzy reguł.
 
-Rozdzielono słownik wejściowy i uczoną warstwę wyjściową. Badany model ma **23 542 811 parametrów**, a jego wspólny plik wag zajmuje **94.67 MB**. Osiem nowych odpowiedzi dołączono do zestawu powtórek — razem **56/56**. Domyślnych wag aplikacji nie podmieniono.
+Swobodna rozmowa nadal nie osiągnęła wymaganego poziomu. Domyślnych wag aplikacji nie podmieniono. Model ma **23 542 811 parametrów**, a wspólny plik wag zajmuje **94.67 MB**.
 
-[Przebieg nauki, rzeczywiste odpowiedzi, zakres testów i kolejny etap](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/PODSTAWY_JEZYKA_TSI_2026-10-24.md).
+[Wyniki, porównanie trzech sposobów treningu i przykład rzeczywistego dialogu](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/WSPOLNY_TRENING_KONTEKSTU_TSI_2026-10-24.md).
 
 ## TIMDR — aktywna kontrola języka
 
@@ -63,7 +63,7 @@ Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi 
 
 ## Model i rozmiar
 
-Ostatni wybrany zapis: **50 głównych aktualizacji etapu podstaw oraz 3 korekty powtórek — 24 października**. Wynik: **8/8** opanowanych odpowiedzi i **48/48** zachowanych dawnych. Domyślny model pozostaje bez zmian. [Bieżący opis](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/PODSTAWY_JEZYKA_TSI_2026-10-24.md).
+Ostatni wybrany zapis: **wspólny trening enkoderów i generatora, krok 10 — 24 października**. Chronione odpowiedzi: **56/56**. Nowe dialogi: **1/8**. [Bieżący raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/WSPOLNY_TRENING_KONTEKSTU_TSI_2026-10-24.md).
 
 Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 12 warstw, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
 

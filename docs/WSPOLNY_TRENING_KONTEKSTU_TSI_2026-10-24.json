@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-24",
+  "parameters": 23542811,
+  "checkpoint_bytes": 94666793,
+  "checkpoint_MB": 94.667,
+  "checkpoint_sha256": "08544fc1a9789e25f61b7ce28cce0e580be0adf5db78aa64e1d7d8343e9cf25c",
+  "comparison": {
+    "variants": [
+      {
+        "name": "context-1",
+        "training": "Added decoder layers",
+        "parent_sha256": "baabdd5324127688377dfa17e03a5548ff3f9b27c4ffc110296b651cc283747b",
+        "selected_steps": 30,
+        "teaching_correct": 13,
+        "teaching_total": 56,
+        "retained_correct": 56,
+        "retained_total": 56,
+        "held_before": 0,
+        "held_after": 0,
+        "held_total": 8,
+        "first_turn_correct": 8,
+        "checkpoint_sha256": "58ddd48a1fc866914e41e19df40a31216a6d5220a25f4f5b9da24bfb33b10c7c"
+      },
+      {
+        "name": "context-full-1",
+        "training": "Entire decoder",
+        "parent_sha256": "baabdd5324127688377dfa17e03a5548ff3f9b27c4ffc110296b651cc283747b",
+        "selected_steps": 30,
+        "teaching_correct": 13,
+        "teaching_total": 56,
+        "retained_correct": 56,
+        "retained_total": 56,
+        "held_before": 0,
+        "held_after": 0,
+        "held_total": 8,
+        "first_turn_correct": 8,
+        "checkpoint_sha256": "c7c1f29222f8e9548a82c9d85e7399133f7b64c914b673d59d2418719259f31c"
+      },
+      {
+        "name": "joint-context-1",
+        "training": "Both encoders and entire decoder",
+        "parent_sha256": "baabdd5324127688377dfa17e03a5548ff3f9b27c4ffc110296b651cc283747b",
+        "selected_steps": 10,
+        "teaching_correct": 8,
+        "teaching_total": 56,
+        "retained_correct": 56,
+        "retained_total": 56,
+        "held_before": 0,
+        "held_after": 1,
+        "held_total": 8,
+        "first_turn_correct": 8,
+        "checkpoint_sha256": "08544fc1a9789e25f61b7ce28cce0e580be0adf5db78aa64e1d7d8343e9cf25c"
+      }
+    ],
+    "selected_for_further_joint_training": "joint-context-1",
+    "default_application_deployed": false,
+    "application_replacement_qualified": false,
+    "selection_reason": "First held-out complete dialogue success with confirmed updates to both encoder memories; all 56 protected answers retained",
+    "limitation": "Different trainable policies and update counts; this is a development comparison on eight small held-out combinations, not a broad language benchmark",
+    "held_out_used_for_optimization": false,
+    "held_out_used_for_checkpoint_selection": false,
+    "next_requirement": "Improve two-turn context generalization while retaining all 56 protected answers"
+  },
+  "gradients": {
+    "encoder_0": {
+      "tensors": 70,
+      "l2": 1.0875514750747128
+    },
+    "encoder_1": {
+      "tensors": 70,
+      "l2": 1.3333618055200218
+    },
+    "encoder_0_h512": {
+      "tensors": 8,
+      "l2": 0.025032015580353915
+    },
+    "encoder_1_h512": {
+      "tensors": 8,
+      "l2": 0.034880562656396566
+    },
+    "decoder": {
+      "tensors": 246,
+      "l2": 30.78677102351014
+    },
+    "logical_matrices_unchanged": true,
+    "hidden_state_cache_used": false
+  },
+  "saved_encoder_weight_changes": {
+    "checkpoint": "step-10.pt",
+    "sha256": "08544fc1a9789e25f61b7ce28cce0e580be0adf5db78aa64e1d7d8343e9cf25c",
+    "encoder_0": {
+      "changed_tensors": 71,
+      "l2": 0.005994231352238718
+    },
+    "encoder_1": {
+      "changed_tensors": 71,
+      "l2": 0.006512379295669984
+    },
+    "encoder_0_h512": {
+      "changed_tensors": 8,
+      "l2": 0.0036917733851247925
+    },
+    "encoder_1_h512": {
+      "changed_tensors": 8,
+      "l2": 0.004357791893447695
+    },
+    "frozen_rule_count": 6,
+    "frozen_rules_unchanged": true
+  },
+  "teaching_dialogues": {
+    "before": 2,
+    "after": 8,
+    "total": 56
+  },
+  "held_dialogues": {
+    "before": 0,
+    "after": 1,
+    "total": 8
+  },
+  "protected_answers": {
+    "old": 48,
+    "newly_mastered": 8,
+    "total": 56,
+    "correct": 56
+  },
+  "selected_updates": 10,
+  "attempted_updates": 15,
+  "correction_updates": 2,
+  "internet_training": false,
+  "application_deployed": false,
+  "portable_rebuilt": false
+}

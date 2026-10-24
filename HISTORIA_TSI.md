@@ -255,3 +255,10 @@ Zbadano także zakończenia: EOS sieci w 12/12 odpowiedzi, identyczne wyniki prz
 Przygotowano 514 przykładów oraz 22 odłożone próby. Wariant z osobną warstwą wyjściową zachował przed nauką 48/48 odpowiedzi i identyczne logity. Etap podstaw osiągnął 8/8 pełnych odpowiedzi przy zachowanych 48/48 dawnych. Nowe proste sformułowania: 2/4; nowe role: 0/18. Wybrano zapis po 50 głównych aktualizacjach, odrzucając regresję po 60. Nowy wariant: 23 542 811 parametrów, 94.67 MB wspólnych wag.
 
 Rozszerzono ochronę do 56/56. Próba tej samej wiadomości bez historii i po powitaniu wskazała brak utrwalonej obsługi kontekstu; przygotowano 56 rozmów i 8 odłożonych kombinacji do kolejnego etapu. Domyślnych wag, MUZ, walidatora i portable nie podmieniono. [Szczegółowy raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/PODSTAWY_JEZYKA_TSI_2026-10-24.md).
+
+
+## 2026-10-24 — wspólna nauka enkoderów, H512 i generatora
+
+Porównano trzy warianty z tego samego zapisu: dodane warstwy generatora, cały generator i oba enkodery z generatorem. Warianty generatora uzyskały 13/56 na uczonych rozmowach i 0/8 na odłożonych kombinacjach; wspólny wariant po 10 aktualizacjach: 8/56 i 1/8, przy zachowanych 56/56 odpowiedziach.
+
+Potwierdzono przepływ gradientu i zapisane zmiany obu enkoderów, w tym obu pamięci H512. Sześć macierzy reguł zachowało wartości. Zapisywany jest zgodny komplet wag źródłowych enkoderów i generatora; podczas uczenia nie buforuje się nieaktualnych reprezentacji ukrytych. Gorszy zapis po 15. aktualizacji odłożono. Model: 23 542 811 parametrów, 94.67 MB wspólnych wag. Domyślnych wag i portable nie podmieniono. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/WSPOLNY_TRENING_KONTEKSTU_TSI_2026-10-24.md).
