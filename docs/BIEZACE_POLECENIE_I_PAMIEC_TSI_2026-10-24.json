@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-24",
+  "protected_correct": 56,
+  "protected_total": 56,
+  "two_turn": {
+    "before": {
+      "first_exact": 8,
+      "dialogue_exact": 1,
+      "total": 8
+    },
+    "after": {
+      "first_exact": 8,
+      "dialogue_exact": 8,
+      "total": 8
+    }
+  },
+  "three_turn": {
+    "before": {
+      "final_exact": 0,
+      "total": 8
+    },
+    "after": {
+      "final_exact": 8,
+      "total": 8
+    }
+  },
+  "method": "Full conversation to both encoders; current instruction and retained explicit facts to the decoder; no output lookup",
+  "weights_changed": false,
+  "optimizer_updates": 0,
+  "history_retained_in_encoder_memory": true,
+  "default_application_changed": false,
+  "internet_training": false,
+  "scope": "Comparative known context-independent instructions, including actual model replies in three-turn histories",
+  "model_parameters": 23542811,
+  "checkpoint_MB": 94.669
+}

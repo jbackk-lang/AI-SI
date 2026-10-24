@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-24",
+  "attempted_updates": 30,
+  "selected_step": 25,
+  "protected_correct": 56,
+  "protected_total": 56,
+  "teaching_before": 8,
+  "teaching_after": 9,
+  "teaching_total": 56,
+  "two_turn": {
+    "before": {
+      "first_exact": 8,
+      "dialogue_exact": 1,
+      "total": 8
+    },
+    "after": {
+      "first_exact": 8,
+      "dialogue_exact": 1,
+      "total": 8
+    }
+  },
+  "three_turn": {
+    "before": {
+      "final_exact": 0,
+      "total": 8
+    },
+    "after": {
+      "final_exact": 0,
+      "total": 8
+    }
+  },
+  "rollbacks": 3,
+  "research_model_promoted": false,
+  "application_deployed": false,
+  "internet_training": false,
+  "method": "Joint weight training, distillation from correct single-turn replies, and margin against previous assistant reply; no runtime answer lookup",
+  "scope": "Known wording and context-independent instructions; three-turn sequences were fixed before training ended",
+  "both_encoders_and_h512_updated": true,
+  "frozen_rules_unchanged": true,
+  "model_parameters": 23542811,
+  "checkpoint_MB": 94.667
+}

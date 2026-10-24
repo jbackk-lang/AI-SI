@@ -267,3 +267,18 @@ Potwierdzono przepływ gradientu i zapisane zmiany obu enkoderów, w tym obu pam
 ## 2026-10-24 — odrzucona kontynuacja wspólnego treningu
 
 Kontynuacja ze zgodnego kompletu wag obu enkoderów i generatora: zachowany zapis 56/56, uczone rozmowy 8/56, odłożone kombinacje 1/8 → 0/8. Późniejszy zapis dodatkowo pogorszył chronione odpowiedzi. Zachowano poprzedni model badawczy; wdrożenia nie zmieniono. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/KONTYNUACJA_WSPOLNEGO_TRENINGU_2026-10-24.md).
+
+
+## 2026-10-24 — odróżnianie bieżącego polecenia od historii
+
+Wspólny trening obu enkoderów i generatora z porównaniem poprawnej odpowiedzi bez historii i odpowiedzi z kontekstem. Chronione 56/56; uczone rozmowy 9/56; porównawcze dwie tury 1/8; dodatkowe trzy tury 0/8. Zachowano poprzedni model badawczy; wynik nie uzasadnia podmiany. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ODROZNIANIE_POLECENIA_OD_HISTORII_2026-10-24.md).
+
+
+## 2026-10-24 — znaczniki ról rozmowy i zgodność wejścia słownikowego
+
+Naprawiono zachowanie specjalnych znaczników przez warstwę słownikową bez usuwania kontroli zgodności. Dawne wejścia 56/56 identyczne w obu enkoderach. Wspólny trening: 5/56 → 8/56 na uczonych kontekstach; chronione 56/56; dwie tury 0/8, dodatkowe trzy tury 0/8. Zachowano poprzedni model badawczy. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROLE_ROZMOWY_I_TRENING_TSI_2026-10-24.md).
+
+
+## 2026-10-24 — rozdzielenie bieżącego polecenia i pamięci rozmowy
+
+Po dwóch rundach treningu bez poprawy odłożonych rozmów porównano przepływy wejścia. Generator dostaje bieżące polecenie, oba enkodery pełną historię. Bez zmiany wag: dwie tury 1/8 → 8/8, trzy tury 0/8 → 8/8, chronione 56/56. Zapisano osobny wariant badawczy; aplikacji i portable nie zmieniono. Następne próby obejmą pytania zależne od wcześniejszych informacji. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/BIEZACE_POLECENIE_I_PAMIEC_TSI_2026-10-24.md).

@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-24",
+  "selected_step": 15,
+  "attempted_updates": 15,
+  "role_format_initial_correct": 5,
+  "teaching_after": 8,
+  "teaching_total": 56,
+  "protected_correct": 56,
+  "protected_total": 56,
+  "two_turn": {
+    "before": {
+      "first_exact": 8,
+      "dialogue_exact": 1,
+      "total": 8
+    },
+    "after": {
+      "first_exact": 8,
+      "dialogue_exact": 0,
+      "total": 8
+    }
+  },
+  "three_turn": {
+    "before": {
+      "final_exact": 0,
+      "total": 8
+    },
+    "after": {
+      "final_exact": 0,
+      "total": 8
+    }
+  },
+  "rollbacks": 1,
+  "frozen_rules_unchanged": true,
+  "selected_encoders_updated": true,
+  "lexical_inputs_preserved": 56,
+  "research_model_promoted": false,
+  "application_deployed": false,
+  "internet_training": false,
+  "model_parameters": 23542811,
+  "checkpoint_MB": 94.667
+}
