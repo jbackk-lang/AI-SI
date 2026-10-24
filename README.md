@@ -19,6 +19,12 @@ Repozytorium publikuje dokumentację. Aktualny kod TSI, wagi i dokumenty użytko
 
 Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje aplikacyjne zachowują dotychczasowe wdrożone wagi. Poniższa ocena dotyczy rozwijanego wspólnego modelu językowego.
 
+## TIMDR — aktywna kontrola języka
+
+TSI wykorzystuje macierze znaczenia do kontrolowania propozycji uczonego generatora fraz. W badanym dużym modelu macierz steruje także dopuszczalnymi kontynuacjami podczas generowania. Dodano śledzenie stanów i zmian, ról, negacji, czasu oraz struktury wypowiedzi.
+
+Z poprawnie dostarczoną macierzą zdarzeń nowe zadania czasowe: **0/16 → 16/16**; wybrane wcześniejsze: **3/4 → 4/4**. Próby dynamiki, ról i negacji: **6/6**. To wyniki systemu z kontrolą macierzową; wag swobodnego modelu nie zmieniano. Czytnik nadal ma nierozstrzygnięte przypadki. [Wdrożenie i dokładny zakres wyników](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TIMDR_JEZYK_TSI_2026-10-24.md).
+
 ## Połączenie logiki — aktualizacja 24 października
 
 Lokalny panel przekazuje teraz także formalne wyrażenie wydzielone w dłuższym poleceniu do wyuczonej macierzy logiki. **69/69** przypadków dziewięciu bramek; z opisami i błędną poprzednią odpowiedzią **138/138**, wyrażenia złożone **148/148**, panel przez HTTP **6/6**. Pozostałe sprawdzone odpowiedzi: **105/105 identycznych**.

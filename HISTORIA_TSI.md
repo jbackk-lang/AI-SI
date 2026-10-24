@@ -236,3 +236,8 @@ Zachowano nowe wagi do dalszych badań; przyjęty wcześniej zapis pozostaje bez
 ## 2026-10-24 — połączenie wyuczonej macierzy logiki
 
 Naprawiono odczyt wydzielonego wyrażenia w opisach PL/EN i wywołanie macierzy operatorów. Dodano wspólną paczkę badawczą zachowującą jej wagi. Testy: 138/138 poleceń, 148/148 złożeń, 6/6 HTTP, 105/105 pozostałych odpowiedzi identycznych. Nie zmieniono przyjętych wag językowych. [Pełny raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POLACZENIE_LOGIKI_TSI_2026-10-24.md).
+
+
+## 2026-10-24 — TIMDR: kontrolowane generowanie i dynamika znaczenia
+
+Dodano kontrolę macierzy znaczenia w uczonym generatorze fraz aplikacji oraz ograniczanie tokenów we wspólnym modelu badanym. Jawne zdarzenia tworzą kolejne stany bez nadpisywania historii. Wyniki: 0/16 → 16/16 na nowych zadaniach czasowych przy dostarczonych macierzach, 3/4 → 4/4 wcześniejszych, 6/6 dynamiki/ról/negacji, 105/105 zachowanych pozostałych odpowiedzi. Polski czytnik: 5/7 prób rozstrzygniętych, 2 nierozstrzygnięte. Bez treningu i podmiany wag, bez nowej portable. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TIMDR_JEZYK_TSI_2026-10-24.md).

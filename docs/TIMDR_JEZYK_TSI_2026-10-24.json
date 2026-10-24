@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-24",
+  "method": "Exploratory TIMDR language extension: semantic matrices, state transitions and constrained neural generation",
+  "control_cases": 41,
+  "structure_cases": 9,
+  "dynamic_state_cases": 8,
+  "real_polish_reader_semantic_controls": 7,
+  "real_polish_reader_resolved": 5,
+  "real_polish_reader_unresolved": 2,
+  "feedback_only": {
+    "known": {
+      "total": 4,
+      "before_correct": 3,
+      "after_correct": 3,
+      "verified": 3
+    },
+    "held_out": {
+      "total": 8,
+      "before_correct": 0,
+      "after_correct": 0,
+      "verified": 0
+    }
+  },
+  "constrained_generation": {
+    "known": {
+      "total": 4,
+      "before_correct": 3,
+      "after_correct": 4,
+      "verified": 4
+    },
+    "held_out": {
+      "total": 16,
+      "before_correct": 0,
+      "after_correct": 16,
+      "verified": 16
+    }
+  },
+  "dynamic_and_relational_generation": {
+    "total": 6,
+    "verified": 6
+  },
+  "application_http": {
+    "cases": 8,
+    "requests": 16,
+    "answers_unchanged": 8,
+    "phrase_control_active": true
+  },
+  "raw_regression_identical": 105,
+  "raw_regression_total": 105,
+  "raw_decoder_logic_score": "49/69",
+  "training_updates": 0,
+  "weights_changed": false,
+  "internet_training": false,
+  "portable_updated": false,
+  "automatic_unknown_input_completion": false,
+  "checkpoint_sha256": "446a68a3d0e87acf9a9562c2cb471150d90c1838bad818de0801c288abc3f6ea",
+  "input_scope": "Time trials use explicit event matrices; role/negation trials use existing Polish case/morphology reader. Unrestricted prose interpretation is not inferred from these scores."
+}
