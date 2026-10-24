@@ -19,19 +19,19 @@ Repozytorium publikuje dokumentację. Aktualny kod TSI, wagi i dokumenty użytko
 
 Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje aplikacyjne zachowują dotychczasowe wdrożone wagi. Poniższa ocena dotyczy rozwijanego wspólnego modelu językowego.
 
-## Rozmowa i składnia — aktualizacja 24 października
+## Generowanie zdań — najnowszy etap 24 października
 
-Lokalny panel obsługuje teraz także zweryfikowane zdania wieloczłonowe: odczyt całej treści, spójniki, negację i kierunek przyczyny. Poprawiono rozpoznawanie końców zdań przy skrótach i liczbach. Kontrole: **15/15** zdań, **116/116** wcześniejszych przypisań ról, **4/4** generowania złożonych odpowiedzi ze źródła oraz **3/3** przez API.
+Nowy wariant wag generuje **8/8 znanych pełnych odpowiedzi**, zachowując **48/48** dawnych. W nowych prostych poleceniach uzyskał **2/4** poprawnych odpowiedzi. Rozpoznawanie nowych ról w zdaniu: **0/18**; obsługa historii rozmowy pozostaje następnym etapem.
 
-Swobodny generator rozmowy **nie osiągnął wymaganego poziomu**. Osobny wariant połączono z pamięcią i macierzą, ale pierwsza próba nadal dawała uszkodzone wypowiedzi. Trening na poprawionych wejściach: **52 aktualizacje i 3 aktualizacje powtórki**. Powtórka odzyskała **46/48 → 48/48** wcześniejszych odpowiedzi. W ręcznej ocenie pełnych odpowiedzi: **0/2 powtórek** i **1/4 nowych wypowiedzi**. Poprawna odpowiedź czasowa wymagała kontroli macierzowej podczas ponownego generowania. Nowych wag nie ustawiono jako domyślnych.
+Rozdzielono słownik wejściowy i uczoną warstwę wyjściową. Badany model ma **23 542 811 parametrów**, a jego wspólny plik wag zajmuje **94.67 MB**. Osiem nowych odpowiedzi dołączono do zestawu powtórek — razem **56/56**. Domyślnych wag aplikacji nie podmieniono.
 
-[Wdrożony zakres, ograniczenia, trening i wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md).
+[Przebieg nauki, rzeczywiste odpowiedzi, zakres testów i kolejny etap](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/PODSTAWY_JEZYKA_TSI_2026-10-24.md).
 
 ## TIMDR — aktywna kontrola języka
 
 TSI wykorzystuje macierze znaczenia do kontrolowania propozycji uczonego generatora fraz. W badanym dużym modelu macierz steruje także dopuszczalnymi kontynuacjami podczas generowania. Dodano śledzenie stanów i zmian, ról, negacji, czasu oraz struktury wypowiedzi.
 
-Z poprawnie dostarczoną macierzą zdarzeń nowe zadania czasowe: **0/16 → 16/16**; wybrane wcześniejsze: **3/4 → 4/4**. Próby dynamiki, ról i negacji: **6/6**. To wyniki systemu z kontrolą macierzową; wag swobodnego modelu nie zmieniano. Odrębna poprawka polskiego czytnika podniosła wcześniejszą próbę semantyczną do 7/7 w kontekście źródła; dowolny tekst nadal nie jest w pełni obsługiwany. [Wdrożenie i dokładny zakres wyników](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TIMDR_JEZYK_TSI_2026-10-24.md).
+Z poprawnie dostarczoną macierzą zdarzeń nowe zadania czasowe: **0/16 → 16/16**; wybrane wcześniejsze: **3/4 → 4/4**. Próby dynamiki, ról i negacji: **6/6**. To wyniki wcześniejszego sprawdzianu z kontrolą macierzową; podczas tamtej próby wag swobodnego modelu nie zmieniano. Odrębna poprawka polskiego czytnika podniosła wcześniejszą próbę semantyczną do 7/7 w kontekście źródła; dowolny tekst nadal nie jest w pełni obsługiwany. [Wdrożenie i dokładny zakres wyników](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TIMDR_JEZYK_TSI_2026-10-24.md).
 
 ## Połączenie logiki — aktualizacja 24 października
 
@@ -39,7 +39,7 @@ Lokalny panel przekazuje teraz także formalne wyrażenie wydzielone w dłuższy
 
 To wynik aplikacji z modułem logiki. Sam najnowszy dekoder językowy nadal ma **49/69**. Wspólna paczka badawcza z macierzą: **23 019 006 parametrów**, **92.57 MB**, bez optymalizatora. Przyjętych wag językowych i portable nie zmieniono. [Zakres i wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POLACZENIE_LOGIKI_TSI_2026-10-24.md).
 
-## Aktualna ocena modelu językowego
+## Zachowany model odniesienia — wcześniejsza ocena
 
 **Nie osiągnął wymaganego poziomu.**
 
@@ -63,11 +63,11 @@ Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi 
 
 ## Model i rozmiar
 
-Ostatni zakończony trening: **55 aktualizacji — 24 października**, **48/48** zachowanych wcześniejszych odpowiedzi. Przyjęte wagi pozostają bez zmian. [Bieżąca ocena](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md). Wcześniejsze pomiary utrwalania znajdują się w historii.
+Ostatni wybrany zapis: **50 głównych aktualizacji etapu podstaw oraz 3 korekty powtórek — 24 października**. Wynik: **8/8** opanowanych odpowiedzi i **48/48** zachowanych dawnych. Domyślny model pozostaje bez zmian. [Bieżący opis](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/PODSTAWY_JEZYKA_TSI_2026-10-24.md).
 
 Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 12 warstw, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
 
-Pomiar z **23 października 2026**; MB = 1 000 000 bajtów. Wiersze opisują różne zakresy i nie stanowią rozmiaru gotowej paczki portable.
+Poniższa tabela opisuje wcześniej przyjęty wspólny model, zmierzony **23 października 2026**; nowy wariant nauki zdań opisano wyżej. MB = 1 000 000 bajtów. Wiersze opisują różne zakresy i nie stanowią rozmiaru gotowej paczki portable.
 
 | Zakres | Parametry lub rozmiar |
 |---|---:|

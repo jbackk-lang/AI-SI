@@ -249,3 +249,9 @@ Wdrożono wspólny podział zdań oraz obsługę wielu członów z zachowaniem s
 Próba starego panelu: 12 tur, 9 odmów, dwie nietrafione Wikipedie i jedno nietrafione wyszukanie dokumentu. Osobny nowy przepływ uruchamia rzeczywisty generator, ale jego pierwszy trening zachował 47/48 dawnych odpowiedzi i nie poprawił swobodnej rozmowy do wymaganego poziomu. Wagi odrzucono jako domyślne. Trening na poprawionych wejściach: **52 aktualizacje i 3 aktualizacje powtórki**. Powtórka odzyskała **46/48 → 48/48** wcześniejszych odpowiedzi. W ręcznej ocenie pełnych odpowiedzi: **0/2 powtórek** i **1/4 nowych wypowiedzi**. Poprawna odpowiedź czasowa wymagała kontroli macierzowej podczas ponownego generowania. Nowych wag nie ustawiono jako domyślnych.
 
 Zbadano także zakończenia: EOS sieci w 12/12 odpowiedzi, identyczne wyniki przy 72 i 160 tokenach na dwóch wejściach, zachowanie znaków 54/54. [Szczegóły](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md).
+
+## 2026-10-24 — nauka pełnych zdań i osobna warstwa wyjściowa
+
+Przygotowano 514 przykładów oraz 22 odłożone próby. Wariant z osobną warstwą wyjściową zachował przed nauką 48/48 odpowiedzi i identyczne logity. Etap podstaw osiągnął 8/8 pełnych odpowiedzi przy zachowanych 48/48 dawnych. Nowe proste sformułowania: 2/4; nowe role: 0/18. Wybrano zapis po 50 głównych aktualizacjach, odrzucając regresję po 60. Nowy wariant: 23 542 811 parametrów, 94.67 MB wspólnych wag.
+
+Rozszerzono ochronę do 56/56. Próba tej samej wiadomości bez historii i po powitaniu wskazała brak utrwalonej obsługi kontekstu; przygotowano 56 rozmów i 8 odłożonych kombinacji do kolejnego etapu. Domyślnych wag, MUZ, walidatora i portable nie podmieniono. [Szczegółowy raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/PODSTAWY_JEZYKA_TSI_2026-10-24.md).
