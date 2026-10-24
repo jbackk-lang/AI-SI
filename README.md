@@ -1,104 +1,60 @@
 # AI-SI-TSI — lokalny asystent TSI
 
-**Stan: 24 października 2026.** TSI łączy własne modele uczone, macierze językowe, pamięć źródeł i narzędzia obliczeniowe. Pracuje lokalnie, bez wag Bielika i Qwena.
+**Stan: 24 października 2026.** TSI łączy własne modele, macierze językowe, pamięć źródeł i narzędzia obliczeniowe. Pracuje lokalnie. Repozytorium zawiera dokumentację; kod, wagi i dokumenty użytkownika pozostają lokalnie.
 
-Repozytorium publikuje dokumentację. Aktualny kod TSI, wagi i dokumenty użytkownika pozostają lokalnie.
-
-## Co obsługuje aplikacja
+## Co obecnie potrafi
 
 | Obszar | Możliwości |
 |---|---|
-| Tekst | Odczyt podanej treści, pytania do źródła, skróty, listy, przygotowanie wiadomości i obsługiwane korekty tekstu |
-| Dokumenty | Wklejanie treści oraz TXT, MD, CSV, PDF, DOCX i DOC; do 10 plików, 8 MB na plik i 32 MB łącznie; DOC korzysta z Worda, skany wymagają OCR |
-| Słownik offline | 114 215 haseł, 125 720 wpisów i 1 437 842 powiązania form odmiany; znaczenia, przykłady i źródła |
-| Pamięć | Notatki, historia rozmów, źródła, poprawki, cofanie zmian i eksport JSON |
-| Matematyka | Obsługiwane działania, równania, pochodne, całki, macierze i wykresy przez narzędzia obliczeniowe |
-| Logika formalna | Dziewięć bramek T/F/U, nawiasy, symbole i kroki; odczyt formalnego wyrażenia wydzielonego w opisie PL/EN |
+| Tekst i rozmowa | Pytania do podanej treści, skróty, listy, wiadomości i obsługiwane korekty |
+| Dokumenty | Wklejanie treści oraz TXT, MD, CSV, PDF, DOCX i DOC; do 10 plików, 8 MB na plik i 32 MB łącznie; DOC wymaga Worda, skany OCR |
+| Słownik offline | 114 215 haseł, 125 720 wpisów, 1 437 842 powiązania form odmiany; znaczenia, przykłady i źródła |
+| Pamięć | Notatki, źródła oraz nowy inkubator: trwałość między rozmowami, tematy, powiązania, konflikty, cofanie, pauza i eksport |
+| Matematyka | Działania, równania, pochodne, całki, macierze i wykresy przez narzędzia obliczeniowe |
+| Logika | Dziewięć bramek T/F/U, nawiasy, symbole i kroki; formalne wyrażenia w poleceniach PL/EN |
 | Sygnały | Serie liczbowe JSON, wykresy i uczona ocena wybranych trendów, anomalii i okresowości |
-| Obsługa | Interfejs PL/EN, Enter wysyła, Shift+Enter dodaje wiersz, nowa rozmowa, pomoc i przykłady |
+| Obsługa | PL/EN, Enter wysyła, Shift+Enter dodaje wiersz, nowa rozmowa, pomoc i przykłady |
 
-Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje aplikacyjne zachowują dotychczasowe wdrożone wagi. Poniższa ocena dotyczy rozwijanego wspólnego modelu językowego.
+## Najnowsza zmiana — inkubator pamięci
 
-## Rozmowa z historią — najnowszy etap 24 października
+**Podłączony do lokalnej aplikacji TSI.** Panel „Inkubator pamięci” znajduje się na istniejącej stronie. Nowa rozmowa zachowuje zapisane informacje. Przy sprzeczności lub niejasnym temacie TSI prosi o wybór kontekstu. Można zamknąć temat, cofnąć jedną lub dwie decyzje oraz zatrzymać korzystanie z pamięci.
 
-**Poprawiono przepływ bieżącego polecenia i historii.** W zapisanym wariancie badawczym generator otrzymuje osobno bieżące polecenie, a oba enkodery nadal otrzymują pełną historię. Chronione odpowiedzi: **56/56**. Porównawcze rozmowy dwóch tur: **1/8 → 8/8**; sekwencje trzech tur: **0/8 → 8/8**.
+Bufor rośnie zależnie od wejścia i liczby zapisów: **10 000 → 200 000 wpisów**, **64 MiB → 1 GiB treści**. To limity treści, nie rozmiar całej bazy. Zapis nie uruchamia treningu wag.
 
-Wykorzystano wcześniejsze wagi bez zmiany parametrów. Próby dotyczą znanych poleceń w innych sekwencjach. Dalsza praca: pytania wymagające wcześniejszych informacji i nowe sformułowania. Swobodna rozmowa nie osiągnęła wymaganego poziomu. Domyślnego panelu i portable nie podmieniono. [Przepływ i rzeczywisty przykład rozmowy](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/BIEZACE_POLECENIE_I_PAMIEC_TSI_2026-10-24.md).
-
-Model: **23 542 811 parametrów**, około **94.67 MB** wspólnych wag, bez całego portable. Internetowa pętla uczenia wag pozostaje wyłączona.
-
-## TIMDR — aktywna kontrola języka
-
-TSI wykorzystuje macierze znaczenia do kontrolowania propozycji uczonego generatora fraz. W badanym dużym modelu macierz steruje także dopuszczalnymi kontynuacjami podczas generowania. Dodano śledzenie stanów i zmian, ról, negacji, czasu oraz struktury wypowiedzi.
-
-Z poprawnie dostarczoną macierzą zdarzeń nowe zadania czasowe: **0/16 → 16/16**; wybrane wcześniejsze: **3/4 → 4/4**. Próby dynamiki, ról i negacji: **6/6**. To wyniki wcześniejszego sprawdzianu z kontrolą macierzową; podczas tamtej próby wag swobodnego modelu nie zmieniano. Odrębna poprawka polskiego czytnika podniosła wcześniejszą próbę semantyczną do 7/7 w kontekście źródła; dowolny tekst nadal nie jest w pełni obsługiwany. [Wdrożenie i dokładny zakres wyników](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/TIMDR_JEZYK_TSI_2026-10-24.md).
-
-## Połączenie logiki — aktualizacja 24 października
-
-Lokalny panel przekazuje teraz także formalne wyrażenie wydzielone w dłuższym poleceniu do wyuczonej macierzy logiki. **69/69** przypadków dziewięciu bramek; z opisami i błędną poprzednią odpowiedzią **138/138**, wyrażenia złożone **148/148**, panel przez HTTP **6/6**. Pozostałe sprawdzone odpowiedzi: **105/105 identycznych**.
-
-To wynik aplikacji z modułem logiki. Sam najnowszy dekoder językowy nadal ma **49/69**. Wspólna paczka badawcza z macierzą: **23 019 006 parametrów**, **92.57 MB**, bez optymalizatora. Przyjętych wag językowych i portable nie zmieniono. [Zakres i wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POLACZENIE_LOGIKI_TSI_2026-10-24.md).
-
-## Zachowany model odniesienia — wcześniejsza ocena
-
-**Nie osiągnął wymaganego poziomu.**
-
-Przyjęto zapis po kontroli wcześniejszych odpowiedzi. Jest używany jako punkt wyjścia dalszych testów; nie zastąpił modelu rozmowy w panelu.
-
-| Sprawdzian | Wynik |
-|---|---:|
-| Wcześniejsze odpowiedzi o faktach i języku — chroniony zestaw powtórek | **48/48**, zachowane |
-| Odczyt i weryfikacja podanej tablicy logiki trójstanowej | **47/69**, wcześniej 38/69 |
-| Poprawne przypadki logiki z poprzedniego etapu | **46/46**, zachowane |
-| Opisy zmiany godziny ocenione przed obecną serią powtórek | **3/16** |
-| Dodatkowy zestaw nowych opisów i pytań o czas, bez treningu na tych sformułowaniach | **0/16** |
-
-W teście 69 przypadków poprawna tablica reguł trafia jako treść źródła do enkoderów, a odpowiedź generuje sieć. Wyniki nie są podmieniane odpowiedzią nauczyciela. To ocena czytania źródła, odrębna od formalnego modułu logiki w aplikacji.
-
-Rozbicie wyniku według oczekiwanej wartości: **T 21/23**, **F 0/19**, **U 26/27**. Rozpoznawanie fałszu i nowych parafraz pozostaje głównym brakiem. Wynik 48/48 mierzy zachowanie znanego zestawu, a 3/16 pokazuje ograniczone przenoszenie umiejętności na nowe opisy.
-
-Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi odrzucono. Bieżące korekty odbywają się na kontrolowanych przykładach. Zwykła rozmowa nie uruchamia treningu wag.
-
-[Najnowsza kontrola treningu i zapominania](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/UTRWALANIE_TSI_2026-10-24.md). [Zakres oceny i decyzja o wagach](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/OCENA_TSI_2026-10-23.md). [Przebieg prac i wcześniejsze wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/HISTORIA_TSI.md).
+Sprawdziany: **18/18** pamięci, **20/20** integracji HTTP, **15/15** przywołań trzech informacji po nowej rozmowie. Mediana pełnej odpowiedzi: **208 ms wcześniej, 215 ms po zmianie** — 15 próbek na wariant. Sam odczyt bazy 50 000 wpisów: **1066 → 14 ms**, 60 zapytań. [Zakres i wyniki](docs/INKUBATOR_PAMIECI_TSI_2026-10-24.md).
 
 ## Model i rozmiar
 
-Wagi odniesienia: wspólny trening, krok 10. Najnowszy wariant rozmowy: rozdzielone bieżące polecenie i pamięć — 24 października. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/BIEZACE_POLECENIE_I_PAMIEC_TSI_2026-10-24.md).
+| Zakres | Aktualny stan |
+|---|---|
+| Wagi działającej aplikacji | Zachowane przy podłączeniu pamięci; inkubator nie zastępuje modelu |
+| Rozwijany wspólny model językowy | Dwa enkodery z H512 oraz dekoder transformera; **23 542 811 parametrów**, około **94,67 MB** zapisu wag |
+| Kontrola ostatniego treningu | Chronione odpowiedzi **56/56**; pytania o wcześniejsze informacje **5/12 → 7/12** |
+| Katalog aplikacji z kodem i danymi | Ostatni pomiar z 23 października: **1 989,89 MB**, bez środowiska Pythona, treningów i kopii |
 
-Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 12 warstw, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
+Rozmiar modelu nie jest rozmiarem kompletnego portable. Dużego modelu badawczego nie podmieniono w panelu ani portable w ramach tej zmiany. Swobodna rozmowa **nie osiągnęła wymaganego poziomu**. Internetowa pętla uczenia wag pozostaje wyłączona. [Dokładny wcześniejszy pomiar katalogu](docs/POMIAR_TSI_2026-10-23.json).
 
-Poniższa tabela opisuje wcześniej przyjęty wspólny model, zmierzony **23 października 2026**; nowy wariant nauki zdań opisano wyżej. MB = 1 000 000 bajtów. Wiersze opisują różne zakresy i nie stanowią rozmiaru gotowej paczki portable.
+Adaptacja nowej pamięci do **MUZ i walidatora** jest następnym etapem. Ich dokumentacja zostanie zaktualizowana po podłączeniu i sprawdzianach. W walidatorze rozwijana będzie rola nauczyciela: wskazówki, kontrola kroków i ćwiczenia dobierane do błędów.
 
-| Zakres | Parametry lub rozmiar |
-|---|---:|
-| Dwa enkodery | **10 147 343 parametry** |
-| Dekoder z uwagą krzyżową | **12 871 180 parametrów** |
-| Wspólny model | **23 018 523 parametrów** |
-| Same parametry modelu w FP32 | **92,07 MB** |
-| Zapis przyjętych wag bez stanu optymalizatora | **92,52 MB** |
-| Lokalny katalog aplikacji z kodem, danymi, modułami i artefaktami; bez treningów, kopii, osobnego runtime i testów | **1 989,89 MB** |
+## Jak korzystać
 
-Osobne środowisko Pythona nie jest wliczone w pomiar katalogu aplikacji. Nowy model badany jest przechowywany osobno; nie włączono go do nowej paczki portable. [Dokładne zakresy pomiaru](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/POMIAR_TSI_2026-10-23.json).
+Uruchom **URUCHOM_TSI.bat** i otwórz `http://127.0.0.1:8791/`. Aplikację zatrzymuje **ZATRZYMAJ_TSI.bat**.
 
-## Jak korzystać z lokalnej instalacji
-
-Uruchom **URUCHOM_TSI.bat**. Domyślny adres panelu to `127.0.0.1:8791`. **ZATRZYMAJ_TSI.bat** zatrzymuje aplikację. Repozytorium dokumentacyjne nie zawiera instalatora obecnych wag.
-
-| Przykład polecenia | Zastosowanie |
+| Przykład | Zastosowanie |
 |---|---|
 | `Przeczytaj: Anna daje książkę Markowi.` | Dodanie źródła |
-| `Komu Anna daje książkę?` | Pytanie do podanego materiału |
-| `słownik: państwo` | Znaczenia ze słownika offline |
-| `Wyznacz pochodną i całkę: x^2` | Narzędzia matematyczne |
-| `logika: NOT (T AND U) OR F` | Formalne obliczenie z krokami |
-| `zapamiętaj: termin = piątek` | Trwała notatka |
+| `Komu Anna daje książkę?` | Pytanie do źródła |
+| `słownik: państwo` | Znaczenia offline |
+| `Wyznacz pochodną i całkę: x^2` | Matematyka |
+| `logika: NOT (T AND U) OR F` | Logika z krokami |
+| `Ola ma niebieski plecak.` → nowa rozmowa → `Jaki kolor ma plecak Oli?` | Przywołanie zachowanego źródła |
 
-## Podgląd panelu
+## Podgląd
 
-Zrzuty z 20 października przedstawiają panel aplikacji i przykładowe dane. Układ panelu jest niezależny od opisanej oceny nowych wag.
+Poniższe zrzuty z 20 października pokazują wcześniejszy układ panelu, sprzed dodania inkubatora.
 
-![Rozmowa i polecenia TSI](https://raw.githubusercontent.com/jbackk-lang/AI-SI-TSI/main/docs/tsi-panel-2026-10-20.png)
+![Rozmowa TSI](https://raw.githubusercontent.com/jbackk-lang/AI-SI-TSI/main/docs/tsi-panel-2026-10-20.png)
 
-![Dokumenty i wklejanie treści](https://raw.githubusercontent.com/jbackk-lang/AI-SI-TSI/main/docs/tsi-documents-2026-10-20.png)
+![Dokumenty TSI](https://raw.githubusercontent.com/jbackk-lang/AI-SI-TSI/main/docs/tsi-documents-2026-10-20.png)
 
-[Historia](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/HISTORIA_TSI.md) · [Słownik: Kaikki/Wiktextract](https://kaikki.org/dictionary/rawdata.html) · [TSI-math-validator-5](https://github.com/jbackk-lang/TSI-math-validator-5)
+[Historia prac](HISTORIA_TSI.md) · [Pamięć i testy](docs/INKUBATOR_PAMIECI_TSI_2026-10-24.md) · [Walidator](https://github.com/jbackk-lang/TSI-math-validator-5) · [MUZ](https://github.com/jbackk-lang/TSI-MUZ)
