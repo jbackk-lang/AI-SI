@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-24",
+  "attempted_updates": 10,
+  "retained_checkpoint_step": 5,
+  "protected_correct": 56,
+  "protected_total": 56,
+  "teaching_correct": 8,
+  "teaching_total": 56,
+  "held_before": {
+    "first_exact": 8,
+    "dialogue_exact": 1,
+    "total": 8
+  },
+  "held_after": {
+    "first_exact": 8,
+    "dialogue_exact": 0,
+    "total": 8
+  },
+  "both_encoders_updated": true,
+  "frozen_rules_unchanged": true,
+  "promoted": false,
+  "application_deployed": false,
+  "internet_training": false,
+  "decision": "Keep the previous research model; continuation worsened held-out dialogue replies."
+}

@@ -262,3 +262,8 @@ Rozszerzono ochronę do 56/56. Próba tej samej wiadomości bez historii i po po
 Porównano trzy warianty z tego samego zapisu: dodane warstwy generatora, cały generator i oba enkodery z generatorem. Warianty generatora uzyskały 13/56 na uczonych rozmowach i 0/8 na odłożonych kombinacjach; wspólny wariant po 10 aktualizacjach: 8/56 i 1/8, przy zachowanych 56/56 odpowiedziach.
 
 Potwierdzono przepływ gradientu i zapisane zmiany obu enkoderów, w tym obu pamięci H512. Sześć macierzy reguł zachowało wartości. Zapisywany jest zgodny komplet wag źródłowych enkoderów i generatora; podczas uczenia nie buforuje się nieaktualnych reprezentacji ukrytych. Gorszy zapis po 15. aktualizacji odłożono. Model: 23 542 811 parametrów, 94.67 MB wspólnych wag. Domyślnych wag i portable nie podmieniono. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/WSPOLNY_TRENING_KONTEKSTU_TSI_2026-10-24.md).
+
+
+## 2026-10-24 — odrzucona kontynuacja wspólnego treningu
+
+Kontynuacja ze zgodnego kompletu wag obu enkoderów i generatora: zachowany zapis 56/56, uczone rozmowy 8/56, odłożone kombinacje 1/8 → 0/8. Późniejszy zapis dodatkowo pogorszył chronione odpowiedzi. Zachowano poprzedni model badawczy; wdrożenia nie zmieniono. [Raport](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/KONTYNUACJA_WSPOLNEGO_TRENINGU_2026-10-24.md).

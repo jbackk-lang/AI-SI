@@ -21,11 +21,13 @@ Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje a
 
 ## Rozmowa z historią — najnowszy etap 24 października
 
-**Oba enkodery H512 i generator uczą się wspólnie.** Wybrany zapis zachowuje **56/56** dotychczasowych odpowiedzi. Wynik uczonych rozmów: **8/56**; nowych kombinacji: **1/8**, wcześniej 0/8. Potwierdzono zmiany wag obu enkoderów i niezmienność sześciu macierzy reguł.
+**Oba enkodery H512 i generator uczą się wspólnie.** Zachowany model badawczy: **56/56** chronionych odpowiedzi, **8/56** uczonych rozmów i **1/8** nowych kombinacji.
 
-Swobodna rozmowa nadal nie osiągnęła wymaganego poziomu. Domyślnych wag aplikacji nie podmieniono. Model ma **23 542 811 parametrów**, a wspólny plik wag zajmuje **94.67 MB**.
+Dalszy trening nie poprawił wyniku: nowe rozmowy spadły do **0/8**, mimo zachowanych 56/56 wcześniejszych odpowiedzi. Kontynuacji nie przyjęto; pozostaje poprzedni model. [Wyniki ostatniej rundy](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/KONTYNUACJA_WSPOLNEGO_TRENINGU_2026-10-24.md).
 
-[Wyniki, porównanie trzech sposobów treningu i przykład rzeczywistego dialogu](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/WSPOLNY_TRENING_KONTEKSTU_TSI_2026-10-24.md).
+Swobodna rozmowa nadal nie osiągnęła wymaganego poziomu. Domyślnych wag aplikacji nie podmieniono. Model ma **23 542 811 parametrów**, a wspólny plik wag zajmuje **94,67 MB**. Internetowa pętla uczenia wag pozostaje wyłączona.
+
+[Porównanie wcześniejszych sposobów treningu](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/WSPOLNY_TRENING_KONTEKSTU_TSI_2026-10-24.md).
 
 ## TIMDR — aktywna kontrola języka
 
