@@ -40,7 +40,7 @@ Dodano zapis powodu zatrzymania: EOS sieci, limit odpowiedzi lub limit kontekstu
 
 ## Dalszy trening
 
-Zrównoważony trening: **67 aktualizacji**, zachowanie **47/48** wcześniejszych odpowiedzi. W ręcznej ocenie pełnych odpowiedzi: **0/2 powtórek** i **1/4 nowych wypowiedzi**; poprawna odpowiedź czasowa wymagała kontroli macierzowej podczas ponownego generowania. Nowych wag nie ustawiono jako domyślnych.
+Trening na poprawionych wejściach: **52 aktualizacje i 3 aktualizacje powtórki**. Powtórka odzyskała **46/48 → 48/48** wcześniejszych odpowiedzi. W ręcznej ocenie pełnych odpowiedzi: **0/2 powtórek** i **1/4 nowych wypowiedzi**. Poprawna odpowiedź czasowa wymagała kontroli macierzowej podczas ponownego generowania. Nowych wag nie ustawiono jako domyślnych.
 
 Dobór tematów jest zrównoważony według celu rozmowy. Wcześniej 90 ze 112 przykładów dotyczyło czasu, co nadmiernie eksponowało ten temat. Nowy przebieg uwzględnia powitania, rozmowę, pisanie, nieznane relacje i pytania uzupełniające oraz powtórki 48 dawnych odpowiedzi. Ostatnie cztery tokeny poprawnej odpowiedzi mają nieco większą wagę w funkcji treningowej. Tablice reguł i wcześniejsze wagi pozostają zabezpieczone; internetowy trening wag jest wyłączony.
 
@@ -50,11 +50,11 @@ Warunek przyjęcia: poprawa rzeczywistych nowych rozmów oraz zachowanie wszystk
 
 **Powtórka. Użytkownik:** Cześć!
 
-**TSI:** Tożesz porozmawiać?
+**TSI:** Tożesz porozarozeletowy.
 
 **Powtórka. Użytkownik:** Mam ochotę pogadać.
 
-**TSI:** T
+**TSI:** Tak2.
 
 **Nowe sformułowanie. Użytkownik:** Hej, znajdziesz chwilę na rozmowę o książkach?
 
@@ -62,19 +62,25 @@ Warunek przyjęcia: poprawa rzeczywistych nowych rozmów oraz zachowanie wszystk
 
 **Nowe sformułowanie. Użytkownik:** Chcę zacząć opowieść o liście znalezionym w szufladzie. Co proponujesz?
 
-**TSI:** Spotkanie jest o 16.
+**TSI:** Spodobieństwo 16.
 
 **Nowe sformułowanie. Użytkownik:** Najpierw zebranie miało godzinę 7, a po zmianie 11.
 
-**TSI:** Spotkych odmiane to 17.
+**TSI:** Spotkych odmian rozumowania to 17.
 
 **Nowe sformułowanie. Użytkownik:** Jaka jest teraz godzina tego zebrania?
 
-**TSI:** Aktualna godzina to 11.
+**TSI:** Spotkanie jest o 11.
 
 
 ## Dodatkowa kontrola wejścia treningowego
 
 Znaleziono również rozbieżność przygotowania danych: podczas treningu generator otrzymywał cel oznaczony przez nauczyciela, a podczas rozmowy — wynik uczonego czytnika z progiem akceptacji. Różnica wystąpiła w **39/112** przykładów. Przykładowo poprawnie przewidziane powitanie z niewystarczającą pewnością zmieniało cel przekazywany generatorowi na „other”.
 
-Przygotowanie następnego zbioru poprawiono: wejście generatora i stan buduje teraz rzeczywisty czytnik, tak jak podczas rozmowy. Kontrola zgodności: **112/112**. Oznaczenia nauczyciela służą do równoważenia tematów i oceny, a nie zastępują odczytu sieci na wejściu. Zestaw po poprawce jest przygotowany do następnego treningu; powyższe 67 aktualizacji wykonano jeszcze przed tą zmianą. Próba z prawidłowym oznaczeniem nauczyciela również dawała uszkodzoną odpowiedź, dlatego sama rozbieżność nie wyjaśnia całego problemu generatora.
+Przygotowanie następnego zbioru poprawiono: wejście generatora i stan buduje teraz rzeczywisty czytnik, tak jak podczas rozmowy. Kontrola zgodności: **112/112**. Oznaczenia nauczyciela służą do równoważenia tematów i oceny, a nie zastępują odczytu sieci na wejściu. Ostatni przebieg wykonał 52 aktualizacje na poprawionych wejściach. Wcześniejsze 67 aktualizacji wykonano przed tą zmianą. W bieżącym zapisie czytnik przypięto do konkretnego pliku wag; zgodność 112 decyzji potwierdzono przed testem. Próba z prawidłowym oznaczeniem nauczyciela również dawała uszkodzoną odpowiedź, dlatego sama rozbieżność nie wyjaśnia całego problemu generatora.
+
+## Kontrola i usunięcie regresji
+
+Po treningu na poprawionych wejściach zostało 46/48 dawnych odpowiedzi. Zatrzymano poszerzanie zbioru i wykonano powtórkę całego chronionego zestawu, z mniejszym krokiem uczenia i odniesieniem do wcześniej przyjętego modelu. Wyniki kolejnych aktualizacji: **47/48, 47/48, 48/48**. Powtórka zakończyła się natychmiast po odzyskaniu kompletu.
+
+Porównanie dosłownych odpowiedzi na sześć prób rozmowy przed powtórką i po niej: wszystkie pozostały identyczne. Zatem odzyskano wcześniejsze odpowiedzi bez zmiany tych sześciu wypowiedzi; swobodna rozmowa nadal nie osiągnęła wymaganego poziomu. Nowy zapis zachowano jako jawny kandydat do badań. Przyjęte wagi i domyślny model pozostają bez zmian. Następny etap nauki powinien skupić się na poprawnym składaniu pełnych zdań i krótkich dialogów.

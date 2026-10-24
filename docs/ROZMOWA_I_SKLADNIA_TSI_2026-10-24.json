@@ -30,15 +30,20 @@
     "default_deployed": false
   },
   "balanced_training": {
-    "checkpoint": "generator-step-67.pt",
-    "sha256": "6cb4b00a5e7a77bb11a7d1614f578ef497c2877e1c48072186578da026adf486",
-    "parent_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
-    "steps": 67,
-    "protected_exact": 47,
+    "checkpoint": "generator-step-55.pt",
+    "sha256": "05055fddc71c755f9ce30c1775fe18364f9b75237ccacc9d79debb3d9bed7721",
+    "steps": 55,
+    "rehearsal_updates": 3,
+    "attempted_rehearsal_updates": 3,
+    "parent_sha256": "471f7c12523ea64a29362b59b03e0fe930c58416ac2f7ccb52fa73905c626439",
+    "accepted_teacher_sha256": "e625b76fec318a2370e0b22b05e7721f3f1245acd168d14a3e7719bffb5fb531",
+    "protected_exact": 48,
     "protected_total": 48,
+    "default_deployed": false,
     "encoders_and_old_layers_frozen": true,
-    "default_deployed": false
+    "phase": "bounded_protected_rehearsal"
   },
+  "latest_training_run": "unified-conversation-20261024-v3-rehearsal",
   "internet_weight_training": false,
   "portable_rebuilt": false,
   "balanced_evaluation": {
@@ -49,18 +54,57 @@
       "fresh_adequate": 1,
       "fresh_total": 4,
       "successful_time_answer_uses_matrix_constrained_revision": true,
-      "qualified": false
+      "qualified": false,
+      "evaluation_type": "manual review of literal answers; not token matching to one wording",
+      "rows": [
+        {
+          "user": "Cześć!",
+          "answer": "Tożesz porozarozeletowy.",
+          "adequate": false,
+          "reason": "Niepoprawne słowa zamiast powitania."
+        },
+        {
+          "user": "Mam ochotę pogadać.",
+          "answer": "Tak2.",
+          "adequate": false,
+          "reason": "Niepoprawne zdanie z przypadkową cyfrą."
+        },
+        {
+          "user": "Hej, znajdziesz chwilę na rozmowę o książkach?",
+          "answer": "Spotkanie jest o 16.",
+          "adequate": false,
+          "reason": "Niepowiązana i niepodana godzina zamiast rozmowy o książkach."
+        },
+        {
+          "user": "Chcę zacząć opowieść o liście znalezionym w szufladzie. Co proponujesz?",
+          "answer": "Spodobieństwo 16.",
+          "adequate": false,
+          "reason": "Uszkodzone słowo i niepowiązana liczba zamiast rady do opowieści."
+        },
+        {
+          "user": "Najpierw zebranie miało godzinę 7, a po zmianie 11.",
+          "answer": "Spotkych odmian rozumowania to 17.",
+          "adequate": false,
+          "reason": "Uszkodzone zdanie i 17 zamiast odczytanej zmiany 7 → 11."
+        },
+        {
+          "user": "Jaka jest teraz godzina tego zebrania?",
+          "answer": "Spotkanie jest o 11.",
+          "adequate": true,
+          "reason": "Poprawna aktualna godzina 11 po kontrolowanym ponownym generowaniu."
+        }
+      ]
     },
     "rows": [
       {
         "split": "rehearsal",
         "user": "Cześć!",
-        "answer": "Tożesz porozmawiać?"
+        "answer": "Tożesz porozarozeletowy."
       },
       {
         "split": "rehearsal",
         "user": "Mam ochotę pogadać.",
-        "answer": "T"
+        "answer": "Tak2."
       },
       {
         "split": "fresh",
@@ -70,17 +114,17 @@
       {
         "split": "fresh",
         "user": "Chcę zacząć opowieść o liście znalezionym w szufladzie. Co proponujesz?",
-        "answer": "Spotkanie jest o 16."
+        "answer": "Spodobieństwo 16."
       },
       {
         "split": "fresh",
         "user": "Najpierw zebranie miało godzinę 7, a po zmianie 11.",
-        "answer": "Spotkych odmiane to 17."
+        "answer": "Spotkych odmian rozumowania to 17."
       },
       {
         "split": "fresh",
         "user": "Jaka jest teraz godzina tego zebrania?",
-        "answer": "Aktualna godzina to 11."
+        "answer": "Spotkanie jest o 11."
       }
     ]
   },

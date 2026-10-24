@@ -23,7 +23,7 @@ Rozpoznawanie swobodnych poleceń pozostaje ograniczone. Panel oraz integracje a
 
 Lokalny panel obsługuje teraz także zweryfikowane zdania wieloczłonowe: odczyt całej treści, spójniki, negację i kierunek przyczyny. Poprawiono rozpoznawanie końców zdań przy skrótach i liczbach. Kontrole: **15/15** zdań, **116/116** wcześniejszych przypisań ról, **4/4** generowania złożonych odpowiedzi ze źródła oraz **3/3** przez API.
 
-Swobodny generator rozmowy **nie osiągnął wymaganego poziomu**. Osobny wariant połączono z pamięcią i macierzą, ale pierwsza próba nadal dawała uszkodzone wypowiedzi. Zrównoważony trening: **67 aktualizacji**, zachowanie **47/48** wcześniejszych odpowiedzi. W ręcznej ocenie pełnych odpowiedzi: **0/2 powtórek** i **1/4 nowych wypowiedzi**; poprawna odpowiedź czasowa wymagała kontroli macierzowej podczas ponownego generowania. Nowych wag nie ustawiono jako domyślnych.
+Swobodny generator rozmowy **nie osiągnął wymaganego poziomu**. Osobny wariant połączono z pamięcią i macierzą, ale pierwsza próba nadal dawała uszkodzone wypowiedzi. Trening na poprawionych wejściach: **52 aktualizacje i 3 aktualizacje powtórki**. Powtórka odzyskała **46/48 → 48/48** wcześniejszych odpowiedzi. W ręcznej ocenie pełnych odpowiedzi: **0/2 powtórek** i **1/4 nowych wypowiedzi**. Poprawna odpowiedź czasowa wymagała kontroli macierzowej podczas ponownego generowania. Nowych wag nie ustawiono jako domyślnych.
 
 [Wdrożony zakres, ograniczenia, trening i wyniki](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md).
 
@@ -63,7 +63,7 @@ Najnowsza wspólna pętla internetowa została zatrzymana po regresji; jej wagi 
 
 ## Model i rozmiar
 
-Ostatni zakończony trening: **67 aktualizacji — 24 października**, **47/48** zachowanych wcześniejszych odpowiedzi. Przyjęte wagi pozostają bez zmian. [Bieżąca ocena](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md). Wcześniejsze pomiary utrwalania znajdują się w historii.
+Ostatni zakończony trening: **55 aktualizacji — 24 października**, **48/48** zachowanych wcześniejszych odpowiedzi. Przyjęte wagi pozostają bez zmian. [Bieżąca ocena](https://github.com/jbackk-lang/AI-SI-TSI/blob/main/docs/ROZMOWA_I_SKLADNIA_TSI_2026-10-24.md). Wcześniejsze pomiary utrwalania znajdują się w historii.
 
 Rozwijany wariant zawiera **dwa enkodery z H512 i macierzami językowymi oraz własny dekoder transformera z uwagą krzyżową**. Wspólny zapis obejmuje enkodery i dekoder. Dekoder ma 12 warstw, 4 głowy uwagi, szerokość 256 i kontekst 384 tokenów łącznie z poleceniem i odpowiedzią.
 
